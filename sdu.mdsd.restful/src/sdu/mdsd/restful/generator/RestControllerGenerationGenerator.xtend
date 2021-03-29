@@ -7,6 +7,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl
+import org.eclipse.emf.ecore.util.EcoreUtil
+import sdu.mdsd.restful.restControllerGeneration.EntityModel
 
 /**
  * Generates code from your model files on save.
@@ -21,5 +25,15 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
+		val em = resource.allContents.filter(EntityModel).next
+		System::out.println("Model:")
+		em.display
+	}
+	
+	def display(EObject model) {
+  		val res = new XMLResourceImpl
+  		res.contents.add(EcoreUtil::copy(model))
+  		System::out.println("Dump of model:")
+  		res.save(System.out, null);
 	}
 }

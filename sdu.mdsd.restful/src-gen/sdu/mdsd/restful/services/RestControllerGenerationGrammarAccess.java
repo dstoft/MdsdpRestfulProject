@@ -607,16 +607,20 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final Assignment cSuperAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cSuperControllerCrossReference_2_1_0 = (CrossReference)cSuperAssignment_2_1.eContents().get(0);
 		private final RuleCall cSuperControllerIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperControllerCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cMethodsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cMethodsMethodDefParserRuleCall_4_0 = (RuleCall)cMethodsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cUsesKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cEntityAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cEntityEntityCrossReference_4_0 = (CrossReference)cEntityAssignment_4.eContents().get(0);
+		private final RuleCall cEntityEntityIDTerminalRuleCall_4_0_1 = (RuleCall)cEntityEntityCrossReference_4_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cMethodsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cMethodsMethodDefParserRuleCall_6_0 = (RuleCall)cMethodsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Controller:
-		//	'controller' name=ID (':' super=[Controller])? '{' methods+=MethodDef* '}';
+		//	'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'controller' name=ID (':' super=[Controller])? '{' methods+=MethodDef* '}'
+		//'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'controller'
@@ -643,17 +647,29 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		//ID
 		public RuleCall getSuperControllerIDTerminalRuleCall_2_1_0_1() { return cSuperControllerIDTerminalRuleCall_2_1_0_1; }
 		
+		//"uses"
+		public Keyword getUsesKeyword_3() { return cUsesKeyword_3; }
+		
+		//entity=[Entity]
+		public Assignment getEntityAssignment_4() { return cEntityAssignment_4; }
+		
+		//[Entity]
+		public CrossReference getEntityEntityCrossReference_4_0() { return cEntityEntityCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getEntityEntityIDTerminalRuleCall_4_0_1() { return cEntityEntityIDTerminalRuleCall_4_0_1; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
 		//methods+=MethodDef*
-		public Assignment getMethodsAssignment_4() { return cMethodsAssignment_4; }
+		public Assignment getMethodsAssignment_6() { return cMethodsAssignment_6; }
 		
 		//MethodDef
-		public RuleCall getMethodsMethodDefParserRuleCall_4_0() { return cMethodsMethodDefParserRuleCall_4_0; }
+		public RuleCall getMethodsMethodDefParserRuleCall_6_0() { return cMethodsMethodDefParserRuleCall_6_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class MethodDefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.MethodDef");
@@ -1184,7 +1200,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//Controller:
-	//	'controller' name=ID (':' super=[Controller])? '{' methods+=MethodDef* '}';
+	//	'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}';
 	public ControllerElements getControllerAccess() {
 		return pController;
 	}

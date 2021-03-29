@@ -13,3 +13,9 @@ target/
 *.xtendbin
 
 buildroot
+
+
+# added by us:
+*.png
+*.gif
+.metadata/

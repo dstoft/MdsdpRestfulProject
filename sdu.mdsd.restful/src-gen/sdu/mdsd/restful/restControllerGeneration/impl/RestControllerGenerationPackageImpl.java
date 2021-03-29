@@ -681,9 +681,20 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EReference getController_Methods()
+  public EReference getController_Entity()
   {
     return (EReference)controllerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getController_Methods()
+  {
+    return (EReference)controllerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1199,6 +1210,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     controllerEClass = createEClass(CONTROLLER);
     createEReference(controllerEClass, CONTROLLER__SUPER);
+    createEReference(controllerEClass, CONTROLLER__ENTITY);
     createEReference(controllerEClass, CONTROLLER__METHODS);
 
     methodDefEClass = createEClass(METHOD_DEF);
@@ -1358,6 +1370,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     initEClass(controllerEClass, Controller.class, "Controller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getController_Super(), this.getController(), null, "super", null, 0, 1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getController_Entity(), this.getEntity(), null, "entity", null, 0, 1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getController_Methods(), this.getMethodDef(), null, "methods", null, 0, -1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodDefEClass, MethodDef.class, "MethodDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

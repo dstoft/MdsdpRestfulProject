@@ -1056,16 +1056,33 @@ ruleController returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_4='{'
+		otherlv_4='uses'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getControllerAccess().getUsesKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_4_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getControllerRule());
+					}
 				}
-				lv_methods_5_0=ruleMethodDef
+				otherlv_5=RULE_ID
+				{
+					newLeafNode(otherlv_5, grammarAccess.getControllerAccess().getEntityEntityCrossReference_4_0());
+				}
+			)
+		)
+		otherlv_6='{'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_6_0());
+				}
+				lv_methods_7_0=ruleMethodDef
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getControllerRule());
@@ -1073,15 +1090,15 @@ ruleController returns [EObject current=null]
 					add(
 						$current,
 						"methods",
-						lv_methods_5_0,
+						lv_methods_7_0,
 						"sdu.mdsd.restful.RestControllerGeneration.MethodDef");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_6='}'
+		otherlv_8='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_8, grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

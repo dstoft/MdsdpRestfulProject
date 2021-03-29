@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Controller#getSuper <em>Super</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Controller#getEntity <em>Entity</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Controller#getMethods <em>Methods</em>}</li>
  * </ul>
  *
@@ -45,6 +46,28 @@ public interface Controller extends Declaration
    * @generated
    */
   void setSuper(Controller value);
+
+  /**
+   * Returns the value of the '<em><b>Entity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Entity</em>' reference.
+   * @see #setEntity(Entity)
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getController_Entity()
+   * @model
+   * @generated
+   */
+  Entity getEntity();
+
+  /**
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.Controller#getEntity <em>Entity</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Entity</em>' reference.
+   * @see #getEntity()
+   * @generated
+   */
+  void setEntity(Entity value);
 
   /**
    * Returns the value of the '<em><b>Methods</b></em>' containment reference list.

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sdu.mdsd.restful.restControllerGeneration.Controller;
+import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.MethodDef;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 
@@ -31,6 +32,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * </p>
  * <ul>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerImpl#getSuper <em>Super</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerImpl#getEntity <em>Entity</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerImpl#getMethods <em>Methods</em>}</li>
  * </ul>
  *
@@ -47,6 +49,16 @@ public class ControllerImpl extends DeclarationImpl implements Controller
    * @ordered
    */
   protected Controller super_;
+
+  /**
+   * The cached value of the '{@link #getEntity() <em>Entity</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntity()
+   * @generated
+   * @ordered
+   */
+  protected Entity entity;
 
   /**
    * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
@@ -130,6 +142,51 @@ public class ControllerImpl extends DeclarationImpl implements Controller
    * @generated
    */
   @Override
+  public Entity getEntity()
+  {
+    if (entity != null && entity.eIsProxy())
+    {
+      InternalEObject oldEntity = (InternalEObject)entity;
+      entity = (Entity)eResolveProxy(oldEntity);
+      if (entity != oldEntity)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.CONTROLLER__ENTITY, oldEntity, entity));
+      }
+    }
+    return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity basicGetEntity()
+  {
+    return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setEntity(Entity newEntity)
+  {
+    Entity oldEntity = entity;
+    entity = newEntity;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CONTROLLER__ENTITY, oldEntity, entity));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<MethodDef> getMethods()
   {
     if (methods == null)
@@ -168,6 +225,9 @@ public class ControllerImpl extends DeclarationImpl implements Controller
       case RestControllerGenerationPackage.CONTROLLER__SUPER:
         if (resolve) return getSuper();
         return basicGetSuper();
+      case RestControllerGenerationPackage.CONTROLLER__ENTITY:
+        if (resolve) return getEntity();
+        return basicGetEntity();
       case RestControllerGenerationPackage.CONTROLLER__METHODS:
         return getMethods();
     }
@@ -187,6 +247,9 @@ public class ControllerImpl extends DeclarationImpl implements Controller
     {
       case RestControllerGenerationPackage.CONTROLLER__SUPER:
         setSuper((Controller)newValue);
+        return;
+      case RestControllerGenerationPackage.CONTROLLER__ENTITY:
+        setEntity((Entity)newValue);
         return;
       case RestControllerGenerationPackage.CONTROLLER__METHODS:
         getMethods().clear();
@@ -209,6 +272,9 @@ public class ControllerImpl extends DeclarationImpl implements Controller
       case RestControllerGenerationPackage.CONTROLLER__SUPER:
         setSuper((Controller)null);
         return;
+      case RestControllerGenerationPackage.CONTROLLER__ENTITY:
+        setEntity((Entity)null);
+        return;
       case RestControllerGenerationPackage.CONTROLLER__METHODS:
         getMethods().clear();
         return;
@@ -228,6 +294,8 @@ public class ControllerImpl extends DeclarationImpl implements Controller
     {
       case RestControllerGenerationPackage.CONTROLLER__SUPER:
         return super_ != null;
+      case RestControllerGenerationPackage.CONTROLLER__ENTITY:
+        return entity != null;
       case RestControllerGenerationPackage.CONTROLLER__METHODS:
         return methods != null && !methods.isEmpty();
     }

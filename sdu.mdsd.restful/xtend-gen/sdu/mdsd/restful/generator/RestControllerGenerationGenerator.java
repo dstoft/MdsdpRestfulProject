@@ -3,10 +3,16 @@
  */
 package sdu.mdsd.restful.generator;
 
+import com.google.common.collect.Iterators;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import sdu.mdsd.restful.restControllerGeneration.EntityModel;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +23,19 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class RestControllerGenerationGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    final EntityModel em = Iterators.<EntityModel>filter(resource.getAllContents(), EntityModel.class).next();
+    System.out.println("Model:");
+    this.display(em);
+  }
+  
+  public void display(final EObject model) {
+    try {
+      final XMLResourceImpl res = new XMLResourceImpl();
+      res.getContents().add(EcoreUtil.<EObject>copy(model));
+      System.out.println("Dump of model:");
+      res.save(System.out, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }

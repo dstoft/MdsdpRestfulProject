@@ -477,13 +477,22 @@ public interface RestControllerGenerationPackage extends EPackage
   int CONTROLLER__SUPER = DECLARATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Entity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTROLLER__ENTITY = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Methods</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTROLLER__METHODS = DECLARATION_FEATURE_COUNT + 1;
+  int CONTROLLER__METHODS = DECLARATION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Controller</em>' class.
@@ -492,7 +501,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTROLLER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+  int CONTROLLER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.MethodDefImpl <em>Method Def</em>}' class.
@@ -1361,6 +1370,17 @@ public interface RestControllerGenerationPackage extends EPackage
   EReference getController_Super();
 
   /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Controller#getEntity <em>Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Entity</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.Controller#getEntity()
+   * @see #getController()
+   * @generated
+   */
+  EReference getController_Entity();
+
+  /**
    * Returns the meta object for the containment reference list '{@link sdu.mdsd.restful.restControllerGeneration.Controller#getMethods <em>Methods</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2073,6 +2093,14 @@ public interface RestControllerGenerationPackage extends EPackage
      * @generated
      */
     EReference CONTROLLER__SUPER = eINSTANCE.getController_Super();
+
+    /**
+     * The meta object literal for the '<em><b>Entity</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTROLLER__ENTITY = eINSTANCE.getController_Entity();
 
     /**
      * The meta object literal for the '<em><b>Methods</b></em>' containment reference list feature.

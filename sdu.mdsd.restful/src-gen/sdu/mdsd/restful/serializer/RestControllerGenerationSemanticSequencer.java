@@ -236,7 +236,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     Controller returns Controller
 	 *
 	 * Constraint:
-	 *     (name=ID super=[Controller|ID]? methods+=MethodDef*)
+	 *     (name=ID super=[Controller|ID]? entity=[Entity|ID] methods+=MethodDef*)
 	 */
 	protected void sequence_Controller(ISerializationContext context, Controller semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
