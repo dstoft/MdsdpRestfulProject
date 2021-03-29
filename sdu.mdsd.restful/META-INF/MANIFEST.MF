@@ -8,5 +8,22 @@ Bundle-SymbolicName: sdu.mdsd.restful; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: sdu.mdsd.restful.restControllerGeneration,
+ sdu.mdsd.restful.restControllerGeneration.impl,
+ sdu.mdsd.restful.serializer,
+ sdu.mdsd.restful.generator,
+ sdu.mdsd.restful.parser.antlr,
+ sdu.mdsd.restful.parser.antlr.internal,
+ sdu.mdsd.restful,
+ sdu.mdsd.restful.services,
+ sdu.mdsd.restful.validation,
+ sdu.mdsd.restful.restControllerGeneration.util,
+ sdu.mdsd.restful.scoping
+Import-Package: org.apache.log4j

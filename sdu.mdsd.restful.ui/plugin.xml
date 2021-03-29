@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension
+		point="org.eclipse.ui.editors">
+		<editor
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+			default="true"
+			extensions="rcg"
+			id="sdu.mdsd.restful.RestControllerGeneration"
+			name="RestControllerGeneration Editor">
+		</editor>
+	</extension>
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+			<activeWhen>
+				<reference
+					definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="sdu.mdsd.restful.RestControllerGeneration.validate">
+			<activeWhen>
+				<reference
+					definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+		<!-- copy qualified name -->
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
+			<activeWhen>
+				<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened" />
+			</activeWhen>
+		</handler>
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
+			<activeWhen>
+				<and>
+					<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.XtextEditor.opened" />
+					<iterate>
+						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+					</iterate>
+				</and>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+			<and>
+				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
+						value="sdu.mdsd.restful.RestControllerGeneration"
+						forcePluginActivation="true"/>
+				</with>
+			</and>
+		</definition>
+		<definition id="sdu.mdsd.restful.RestControllerGeneration.XtextEditor.opened">
+			<and>
+				<reference definitionId="isXtextEditorActive"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
+						value="sdu.mdsd.restful.RestControllerGeneration"
+						forcePluginActivation="true"/>
+				</with>
+			</and>
+		</definition>
+	</extension>
+	<extension
+			point="org.eclipse.ui.preferencePages">
+		<page
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration"
+			name="RestControllerGeneration">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+		</page>
+		<page
+			category="sdu.mdsd.restful.RestControllerGeneration"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration.coloring"
+			name="Syntax Coloring">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+		</page>
+		<page
+			category="sdu.mdsd.restful.RestControllerGeneration"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration.templates"
+			name="Templates">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+		</page>
+	</extension>
+	<extension
+			point="org.eclipse.ui.propertyPages">
+		<page
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration"
+			name="RestControllerGeneration">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension
+		point="org.eclipse.ui.keywords">
+		<keyword
+			id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"
+			label="RestControllerGeneration"/>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Trigger expensive validation"
+			id="sdu.mdsd.restful.RestControllerGeneration.validate"
+			name="Validate">
+		</command>
+		<!-- copy qualified name -->
+		<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+		</command>
+		<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			<command
+				commandId="sdu.mdsd.restful.RestControllerGeneration.validate"
+				style="push"
+				tooltip="Trigger expensive validation">
+				<visibleWhen checkEnabled="false">
+					<reference
+						definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<!-- copy qualified name -->
+		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="menu:edit?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<and>
+						<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.XtextEditor.opened" />
+						<iterate>
+							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+						</iterate>
+					</and>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			commandId="org.eclipse.xtext.ui.editor.FindReferences">
+			<activeWhen>
+				<reference
+					definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+			base-type="org.eclipse.core.runtime.text"
+			file-extensions="rcg"
+			id="sdu.mdsd.restful.RestControllerGeneration.contenttype"
+			name="RestControllerGeneration File"
+			priority="normal">
+		</content-type>
+	</extension>
+	<!-- adding resource factories -->
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="rcg">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+		<resourceServiceProvider
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="rcg">
+		</resourceServiceProvider>
+	</extension>
+	<!-- marker definitions for sdu.mdsd.restful.RestControllerGeneration -->
+	<extension
+			id="restcontrollergeneration.check.fast"
+			name="RestControllerGeneration Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.fast"/>
+		<persistent value="true"/>
+	</extension>
+	<extension
+			id="restcontrollergeneration.check.normal"
+			name="RestControllerGeneration Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.normal"/>
+		<persistent value="true"/>
+	</extension>
+	<extension
+			id="restcontrollergeneration.check.expensive"
+			name="RestControllerGeneration Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.expensive"/>
+		<persistent value="true"/>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="sdu.mdsd.restful.RestControllerGeneration"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration.validator.preferencePage"
+			name="Errors/Warnings">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.xtext.builder.participant">
+		<participant
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="rcg"/>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="sdu.mdsd.restful.RestControllerGeneration"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration.compiler.preferencePage"
+			name="Compiler">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.ui.propertyPages">
+		<page
+			category="sdu.mdsd.restful.RestControllerGeneration"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration.compiler.propertyPage"
+			name="Compiler">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
+			<command
+				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
+				id="sdu.mdsd.restful.RestControllerGeneration.OpenGeneratedCode"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
+			<activeWhen>
+				<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened" />
+			</activeWhen>
+		</handler>
+	</extension>
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<!-- quickfix marker resolution generator for sdu.mdsd.restful.RestControllerGeneration -->
+	<extension
+			point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="sdu.mdsd.restful.ui.restcontrollergeneration.check.fast">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="sdu.mdsd.restful.ui.restcontrollergeneration.check.normal">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="sdu.mdsd.restful.ui.restcontrollergeneration.check.expensive">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+	</extension>
+	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			<command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<reference
+						definitionId="sdu.mdsd.restful.RestControllerGeneration.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="sdu.mdsd.restful.RestControllerGeneration"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="sdu.mdsd.restful.RestControllerGeneration.refactoring"
+			name="Refactoring">
+			<keywordReference id="sdu.mdsd.restful.ui.keyword_RestControllerGeneration"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.compare.contentViewers">
+		<viewer id="sdu.mdsd.restful.RestControllerGeneration.compare.contentViewers"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="rcg">
+		</viewer>
+		<contentTypeBinding
+			contentTypeId="sdu.mdsd.restful.RestControllerGeneration.contenttype"
+			contentViewerId="sdu.mdsd.restful.RestControllerGeneration.compare.contentViewers" />
+	</extension>
+	<extension point="org.eclipse.compare.contentMergeViewers">
+		<viewer id="sdu.mdsd.restful.RestControllerGeneration.compare.contentMergeViewers"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="rcg" label="RestControllerGeneration Compare">
+		</viewer>
+		<contentTypeBinding
+			contentTypeId="sdu.mdsd.restful.RestControllerGeneration.contenttype"
+			contentMergeViewerId="sdu.mdsd.restful.RestControllerGeneration.compare.contentMergeViewers" />
+	</extension>
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider id="sdu.mdsd.restful.RestControllerGeneration.editors.documentProviders"
+			class="sdu.mdsd.restful.ui.RestControllerGenerationExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+			extensions="rcg">
+		</provider>
+	</extension>
+	<extension point="org.eclipse.team.core.fileTypes">
+		<fileTypes
+			extension="rcg"
+			type="text">
+		</fileTypes>
+	</extension>
+</plugin>

@@ -2,8 +2,109 @@ grammar sdu.mdsd.restful.RestControllerGeneration with org.eclipse.xtext.common.
 
 generate restControllerGeneration "http://www.mdsd.sdu/restful/RestControllerGeneration"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+EntityModel:
+	declarations+=Declaration*
+;
+
+Declaration:
+	Type | Entity | Controller
+;
+
+Type:
+	'type' name=ID
+;
+
+Entity:
+	'entity' name=ID (':' super=[Entity])? '{' attributes+=Attribute* '}'
+;
+
+Attribute:
+	name=ID ':' type=[Type] (requirement=(AttributeRequirement | ExternalFunction))?
+;
+
+AttributeRequirement: 
+	"require" logic=LogicExp
+;
+
+ExternalFunction: 
+	"external" externalFunc=ID
+;
+
+LogicExp returns Proposition:
+	Conjunction ('||' {Disjunction.left=current} right=Conjunction)* 
+;
+
+Conjunction returns Proposition:
+	Comparison ('&&' {Conjunction.left=current} right=Comparison)*
+;
+
+Comparison:
+	left=Exp op=RelationalOp right=Exp
+;
+
+RelationalOp:
+	{RelEQ} '=' | {RelLT} '<' | {RelGT} '>' | {RelLTE} '<=' | {RelGTE} '>='
+;
+
+Exp returns Expression:
+	Factor ( ('+' {Add.left=current} | '-' {Sub.left=current}) right=Factor)*
+;
+
+Factor returns Expression:
+	Primitive ( ('*' {Mul.left=current} | '/' {Div.left=current}) right=Primitive)*
+;
+
+Primitive returns Expression:
+	Name | IntExp | '(' Exp ')'
+;
+
+Name:
+	varName=[Attribute]
+;
+
+IntExp:
+	value=INT
+;
+
+
+
+Controller:
+	'controller' name=ID (':' super=[Controller])? '{' methods+=MethodDef* '}'
+;
+
+MethodDef:
+	MethodType
+;
+
+MethodType:
+	CreateMethod | GetMethod | ListMethod | UpdateMethod | DeleteMethod
+;
+
+CreateMethod:
+	{CreateMethod} "CREATE" (withEntity=CreateMethodWith)? (exclude=CreateMethodExclude)?
+;
+
+CreateMethodWith:
+	"with" entity=[Entity] ":" entityId=[Attribute]
+;
+
+CreateMethodExclude:
+	"exclude" attribute=[Attribute]
+;
+
+GetMethod:
+	"GET" "on" entityId=[Attribute]
+;
+
+ListMethod:
+	{ListMethod} "LIST"
+;
+
+UpdateMethod:
+	"UPDATE" attributes+=[Attribute] ("," attributes+=[Attribute])*
+;
+
+DeleteMethod:
+	"DELETE" "on" entityId=[Attribute]
+;
+

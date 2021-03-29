@@ -1,0 +1,9 @@
+grammar sdu.mdsd.restful.RestControllerGeneration with org.eclipse.xtext.common.Terminals
+
+generate restControllerGeneration "http://www.mdsd.sdu/restful/RestControllerGeneration"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
