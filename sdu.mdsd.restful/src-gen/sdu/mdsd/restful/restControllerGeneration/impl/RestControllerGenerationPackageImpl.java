@@ -26,7 +26,8 @@ import sdu.mdsd.restful.restControllerGeneration.Div;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.EntityModel;
 import sdu.mdsd.restful.restControllerGeneration.Expression;
-import sdu.mdsd.restful.restControllerGeneration.ExternalFunction;
+import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
+import sdu.mdsd.restful.restControllerGeneration.ExternalUse;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.IntExp;
 import sdu.mdsd.restful.restControllerGeneration.ListMethod;
@@ -81,6 +82,13 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass externalDefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass entityEClass = null;
 
   /**
@@ -102,7 +110,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass externalFunctionEClass = null;
+  private EClass externalUseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -373,9 +381,20 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
+  public EAttribute getEntityModel_Name()
+  {
+    return (EAttribute)entityModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getEntityModel_Declarations()
   {
-    return (EReference)entityModelEClass.getEStructuralFeatures().get(0);
+    return (EReference)entityModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -409,6 +428,28 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
   public EClass getType()
   {
     return typeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExternalDef()
+  {
+    return externalDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExternalDef_Type()
+  {
+    return (EReference)externalDefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -516,9 +557,9 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EClass getExternalFunction()
+  public EClass getExternalUse()
   {
-    return externalFunctionEClass;
+    return externalUseEClass;
   }
 
   /**
@@ -527,9 +568,9 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EAttribute getExternalFunction_Name()
+  public EReference getExternalUse_External()
   {
-    return (EAttribute)externalFunctionEClass.getEStructuralFeatures().get(0);
+    return (EReference)externalUseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1169,12 +1210,16 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     // Create classes and their features
     entityModelEClass = createEClass(ENTITY_MODEL);
+    createEAttribute(entityModelEClass, ENTITY_MODEL__NAME);
     createEReference(entityModelEClass, ENTITY_MODEL__DECLARATIONS);
 
     declarationEClass = createEClass(DECLARATION);
     createEAttribute(declarationEClass, DECLARATION__NAME);
 
     typeEClass = createEClass(TYPE);
+
+    externalDefEClass = createEClass(EXTERNAL_DEF);
+    createEReference(externalDefEClass, EXTERNAL_DEF__TYPE);
 
     entityEClass = createEClass(ENTITY);
     createEReference(entityEClass, ENTITY__SUPER);
@@ -1188,8 +1233,8 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     attributeRequirementEClass = createEClass(ATTRIBUTE_REQUIREMENT);
     createEReference(attributeRequirementEClass, ATTRIBUTE_REQUIREMENT__LOGIC);
 
-    externalFunctionEClass = createEClass(EXTERNAL_FUNCTION);
-    createEAttribute(externalFunctionEClass, EXTERNAL_FUNCTION__NAME);
+    externalUseEClass = createEClass(EXTERNAL_USE);
+    createEReference(externalUseEClass, EXTERNAL_USE__EXTERNAL);
 
     propositionEClass = createEClass(PROPOSITION);
 
@@ -1304,6 +1349,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     // Add supertypes to classes
     typeEClass.getESuperTypes().add(this.getDeclaration());
+    externalDefEClass.getESuperTypes().add(this.getDeclaration());
     entityEClass.getESuperTypes().add(this.getDeclaration());
     comparisonEClass.getESuperTypes().add(this.getProposition());
     nameEClass.getESuperTypes().add(this.getExpression());
@@ -1329,12 +1375,16 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     // Initialize classes and features; add operations and parameters
     initEClass(entityModelEClass, EntityModel.class, "EntityModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntityModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, EntityModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntityModel_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, EntityModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(externalDefEClass, ExternalDef.class, "ExternalDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExternalDef_Type(), this.getType(), null, "type", null, 0, 1, ExternalDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEntity_Super(), this.getEntity(), null, "super", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1348,8 +1398,8 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEClass(attributeRequirementEClass, AttributeRequirement.class, "AttributeRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAttributeRequirement_Logic(), this.getProposition(), null, "logic", null, 0, 1, AttributeRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(externalFunctionEClass, ExternalFunction.class, "ExternalFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExternalFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExternalFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(externalUseEClass, ExternalUse.class, "ExternalUse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExternalUse_External(), this.getExternalDef(), null, "external", null, 0, 1, ExternalUse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propositionEClass, Proposition.class, "Proposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -11,7 +11,10 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl
 import org.eclipse.emf.ecore.util.EcoreUtil
 import sdu.mdsd.restful.restControllerGeneration.EntityModel
-import sdu.mdsd.restful.restControllerGeneration.ExternalFunction
+import sdu.mdsd.restful.restControllerGeneration.Attribute
+import sdu.mdsd.restful.restControllerGeneration.ExternalDef
+import sdu.mdsd.restful.restControllerGeneration.Entity
+import org.eclipse.xtext.EcoreUtil2
 
 /**
  * Generates code from your model files on save.
@@ -29,11 +32,8 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val em = resource.allContents.filter(EntityModel).next
 		System::out.println("Model:")
 		em.display
-		System::out.println('People to greet: ' + 
-			resource.allContents
-				.filter(ExternalFunction)
-				.map[name]
-				.join(', '));
+		em.generateExternalInterface(fsa)
+		em.generateModelFiles(fsa)
 	}
 	
 	def display(EObject model) {
@@ -41,5 +41,54 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
   		res.contents.add(EcoreUtil::copy(model))
   		System::out.println("Dump of model:")
   		res.save(System.out, null);
+	}
+	
+	def generateModelFiles(EntityModel model, IFileSystemAccess2 fsa) {
+		model.declarations.filter(Entity).forEach[generateEntity(fsa)]
+	}
+	
+	def generateEntity(Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		fsa.generateFile(model.name+ "/Models/" + entity.name + ".cs", '''
+		namespace «model.name».Models {
+			public class «entity.name» {
+				«entity.generateConstructor»
+				«entity.generateAttributes»
+			}
+		}
+		''')
+	}
+	
+	def generateAttributes(Entity entity) '''
+		«FOR x:entity.attributes»
+			«x.generateAttribute»
+		«ENDFOR»
+	'''
+	def generateAttribute(Attribute attribute) '''
+		public «attribute.type.name» «attribute.name» { get; }
+	'''
+	
+	def generateConstructor(Entity entity) '''
+		public «entity.name»(«FOR x:entity.attributes SEPARATOR ', '»«x.generateConstructorParameter»«ENDFOR») {
+			«FOR x:entity.attributes»
+				«x.generateConstructorSet»
+			«ENDFOR»
+		}
+	'''
+	def generateConstructorParameter(Attribute attribute) '''«attribute.type.name» «attribute.name.toFirstLower»'''
+	def generateConstructorSet(Attribute attribute) '''
+		this.«attribute.name» = «attribute.name.toFirstLower»;
+	'''
+	
+	def generateExternalInterface(EntityModel em, IFileSystemAccess2 fsa) {
+		fsa.generateFile(em.name + "/ExternalCode.cs", '''
+			namespace «em.name» {
+				public interface ExternalCode {
+					«FOR x:em.declarations.filter(ExternalDef)»
+						public boolean «x.name»(«x.type.name» parameter);
+					«ENDFOR»
+				}
+			}
+		''')
 	}
 }

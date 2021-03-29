@@ -7,12 +7,16 @@
   <genPackages prefix="RestControllerGeneration" basePackage="sdu.mdsd.restful" disposableProviderFactory="true"
       fileExtensions="rcg" ecorePackage="RestControllerGeneration.ecore#/">
     <genClasses ecoreClass="RestControllerGeneration.ecore#//EntityModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RestControllerGeneration.ecore#//EntityModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//EntityModel/declarations"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Declaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RestControllerGeneration.ecore#//Declaration/name"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Type"/>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalDef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalDef/type"/>
+    </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Entity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/super"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/attributes"/>
@@ -25,8 +29,8 @@
     <genClasses ecoreClass="RestControllerGeneration.ecore#//AttributeRequirement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//AttributeRequirement/logic"/>
     </genClasses>
-    <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalFunction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RestControllerGeneration.ecore#//ExternalFunction/name"/>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalUse">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUse/external"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Proposition"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Comparison">

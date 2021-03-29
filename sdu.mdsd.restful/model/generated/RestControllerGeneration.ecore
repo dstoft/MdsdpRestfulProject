@@ -3,6 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="restControllerGeneration" nsURI="http://www.mdsd.sdu/restful/RestControllerGeneration"
     nsPrefix="restControllerGeneration">
   <eClassifiers xsi:type="ecore:EClass" name="EntityModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
         eType="#//Declaration" containment="true"/>
   </eClassifiers>
@@ -10,6 +11,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//Declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalDef" eSuperTypes="#//Declaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//Declaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="super" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
@@ -25,8 +29,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="logic" eType="#//Proposition"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalFunction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalUse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="external" eType="#//ExternalDef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Proposition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//Proposition">

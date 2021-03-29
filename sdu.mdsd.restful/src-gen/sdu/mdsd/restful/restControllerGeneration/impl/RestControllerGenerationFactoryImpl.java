@@ -68,10 +68,11 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
       case RestControllerGenerationPackage.ENTITY_MODEL: return createEntityModel();
       case RestControllerGenerationPackage.DECLARATION: return createDeclaration();
       case RestControllerGenerationPackage.TYPE: return createType();
+      case RestControllerGenerationPackage.EXTERNAL_DEF: return createExternalDef();
       case RestControllerGenerationPackage.ENTITY: return createEntity();
       case RestControllerGenerationPackage.ATTRIBUTE: return createAttribute();
       case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT: return createAttributeRequirement();
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION: return createExternalFunction();
+      case RestControllerGenerationPackage.EXTERNAL_USE: return createExternalUse();
       case RestControllerGenerationPackage.PROPOSITION: return createProposition();
       case RestControllerGenerationPackage.COMPARISON: return createComparison();
       case RestControllerGenerationPackage.RELATIONAL_OP: return createRelationalOp();
@@ -146,6 +147,18 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
    * @generated
    */
   @Override
+  public ExternalDef createExternalDef()
+  {
+    ExternalDefImpl externalDef = new ExternalDefImpl();
+    return externalDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Entity createEntity()
   {
     EntityImpl entity = new EntityImpl();
@@ -182,10 +195,10 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
    * @generated
    */
   @Override
-  public ExternalFunction createExternalFunction()
+  public ExternalUse createExternalUse()
   {
-    ExternalFunctionImpl externalFunction = new ExternalFunctionImpl();
-    return externalFunction;
+    ExternalUseImpl externalUse = new ExternalUseImpl();
+    return externalUse;
   }
 
   /**

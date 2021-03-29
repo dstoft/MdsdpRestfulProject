@@ -51,6 +51,15 @@ public interface RestControllerGenerationFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>External Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>External Def</em>'.
+   * @generated
+   */
+  ExternalDef createExternalDef();
+
+  /**
    * Returns a new object of class '<em>Entity</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,13 +87,13 @@ public interface RestControllerGenerationFactory extends EFactory
   AttributeRequirement createAttributeRequirement();
 
   /**
-   * Returns a new object of class '<em>External Function</em>'.
+   * Returns a new object of class '<em>External Use</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>External Function</em>'.
+   * @return a new object of class '<em>External Use</em>'.
    * @generated
    */
-  ExternalFunction createExternalFunction();
+  ExternalUse createExternalUse();
 
   /**
    * Returns a new object of class '<em>Proposition</em>'.

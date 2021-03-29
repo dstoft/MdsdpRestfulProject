@@ -6,54 +6,45 @@ package sdu.mdsd.restful.restControllerGeneration.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import sdu.mdsd.restful.restControllerGeneration.ExternalFunction;
+import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
+import sdu.mdsd.restful.restControllerGeneration.Type;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>External Function</b></em>'.
+ * An implementation of the model object '<em><b>External Def</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalFunctionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalDefImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implements ExternalFunction
+public class ExternalDefImpl extends DeclarationImpl implements ExternalDef
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Type type;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExternalFunctionImpl()
+  protected ExternalDefImpl()
   {
     super();
   }
@@ -66,7 +57,7 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return RestControllerGenerationPackage.Literals.EXTERNAL_FUNCTION;
+    return RestControllerGenerationPackage.Literals.EXTERNAL_DEF;
   }
 
   /**
@@ -75,9 +66,29 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public String getName()
+  public Type getType()
   {
-    return name;
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (Type)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.EXTERNAL_DEF__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type basicGetType()
+  {
+    return type;
   }
 
   /**
@@ -86,12 +97,12 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setType(Type newType)
   {
-    String oldName = name;
-    name = newName;
+    Type oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.EXTERNAL_DEF__TYPE, oldType, type));
   }
 
   /**
@@ -104,8 +115,9 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
-        return getName();
+      case RestControllerGenerationPackage.EXTERNAL_DEF__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +132,8 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
-        setName((String)newValue);
+      case RestControllerGenerationPackage.EXTERNAL_DEF__TYPE:
+        setType((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +149,8 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
-        setName(NAME_EDEFAULT);
+      case RestControllerGenerationPackage.EXTERNAL_DEF__TYPE:
+        setType((Type)null);
         return;
     }
     super.eUnset(featureID);
@@ -154,27 +166,10 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RestControllerGenerationPackage.EXTERNAL_DEF__TYPE:
+        return type != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
-
-} //ExternalFunctionImpl
+} //ExternalDefImpl

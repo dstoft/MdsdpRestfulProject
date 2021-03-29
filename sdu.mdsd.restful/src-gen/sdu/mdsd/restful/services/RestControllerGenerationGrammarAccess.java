@@ -26,18 +26,34 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	
 	public class EntityModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.EntityModel");
-		private final Assignment cDeclarationsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cDeclarationsDeclarationParserRuleCall_0 = (RuleCall)cDeclarationsAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cModelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cDeclarationsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDeclarationsDeclarationParserRuleCall_2_0 = (RuleCall)cDeclarationsAssignment_2.eContents().get(0);
 		
 		//EntityModel:
-		//	declarations+=Declaration*;
+		//	"model" name=ID declarations+=Declaration*;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//"model" name=ID declarations+=Declaration*
+		public Group getGroup() { return cGroup; }
+		
+		//"model"
+		public Keyword getModelKeyword_0() { return cModelKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
 		//declarations+=Declaration*
-		public Assignment getDeclarationsAssignment() { return cDeclarationsAssignment; }
+		public Assignment getDeclarationsAssignment_2() { return cDeclarationsAssignment_2; }
 		
 		//Declaration
-		public RuleCall getDeclarationsDeclarationParserRuleCall_0() { return cDeclarationsDeclarationParserRuleCall_0; }
+		public RuleCall getDeclarationsDeclarationParserRuleCall_2_0() { return cDeclarationsDeclarationParserRuleCall_2_0; }
 	}
 	public class DeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.Declaration");
@@ -45,12 +61,13 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final RuleCall cTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cEntityParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cControllerParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cExternalDefParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Declaration:
-		//	Type | Entity | Controller;
+		//	Type | Entity | Controller | ExternalDef;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Type | Entity | Controller
+		//Type | Entity | Controller | ExternalDef
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Type
@@ -61,6 +78,9 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		
 		//Controller
 		public RuleCall getControllerParserRuleCall_2() { return cControllerParserRuleCall_2; }
+		
+		//ExternalDef
+		public RuleCall getExternalDefParserRuleCall_3() { return cExternalDefParserRuleCall_3; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.Type");
@@ -84,6 +104,45 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class ExternalDefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.ExternalDef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExternalKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cUsingKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTypeTypeCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeTypeIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeTypeCrossReference_3_0.eContents().get(1);
+		
+		//ExternalDef:
+		//	"external" name=ID "using" type=[Type];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"external" name=ID "using" type=[Type]
+		public Group getGroup() { return cGroup; }
+		
+		//"external"
+		public Keyword getExternalKeyword_0() { return cExternalKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//"using"
+		public Keyword getUsingKeyword_2() { return cUsingKeyword_2; }
+		
+		//type=[Type]
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
+		//[Type]
+		public CrossReference getTypeTypeCrossReference_3_0() { return cTypeTypeCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getTypeTypeIDTerminalRuleCall_3_0_1() { return cTypeTypeIDTerminalRuleCall_3_0_1; }
 	}
 	public class EntityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.Entity");
@@ -153,16 +212,18 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cTypeTypeCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
 		private final RuleCall cTypeTypeIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeTypeCrossReference_2_0.eContents().get(1);
-		private final Assignment cRequirementAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Alternatives cRequirementAlternatives_3_0 = (Alternatives)cRequirementAssignment_3.eContents().get(0);
-		private final RuleCall cRequirementAttributeRequirementParserRuleCall_3_0_0 = (RuleCall)cRequirementAlternatives_3_0.eContents().get(0);
-		private final RuleCall cRequirementExternalFunctionParserRuleCall_3_0_1 = (RuleCall)cRequirementAlternatives_3_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cRequireKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRequirementAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final Alternatives cRequirementAlternatives_3_1_0 = (Alternatives)cRequirementAssignment_3_1.eContents().get(0);
+		private final RuleCall cRequirementAttributeRequirementParserRuleCall_3_1_0_0 = (RuleCall)cRequirementAlternatives_3_1_0.eContents().get(0);
+		private final RuleCall cRequirementExternalUseParserRuleCall_3_1_0_1 = (RuleCall)cRequirementAlternatives_3_1_0.eContents().get(1);
 		
 		//Attribute:
-		//	name=ID ':' type=[Type] requirement=(AttributeRequirement | ExternalFunction)?;
+		//	name=ID ':' type=[Type] ("require" requirement=(AttributeRequirement | ExternalUse))?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=[Type] requirement=(AttributeRequirement | ExternalFunction)?
+		//name=ID ':' type=[Type] ("require" requirement=(AttributeRequirement | ExternalUse))?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -183,63 +244,57 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		//ID
 		public RuleCall getTypeTypeIDTerminalRuleCall_2_0_1() { return cTypeTypeIDTerminalRuleCall_2_0_1; }
 		
-		//requirement=(AttributeRequirement | ExternalFunction)?
-		public Assignment getRequirementAssignment_3() { return cRequirementAssignment_3; }
+		//("require" requirement=(AttributeRequirement | ExternalUse))?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//(AttributeRequirement | ExternalFunction)
-		public Alternatives getRequirementAlternatives_3_0() { return cRequirementAlternatives_3_0; }
+		//"require"
+		public Keyword getRequireKeyword_3_0() { return cRequireKeyword_3_0; }
+		
+		//requirement=(AttributeRequirement | ExternalUse)
+		public Assignment getRequirementAssignment_3_1() { return cRequirementAssignment_3_1; }
+		
+		//(AttributeRequirement | ExternalUse)
+		public Alternatives getRequirementAlternatives_3_1_0() { return cRequirementAlternatives_3_1_0; }
 		
 		//AttributeRequirement
-		public RuleCall getRequirementAttributeRequirementParserRuleCall_3_0_0() { return cRequirementAttributeRequirementParserRuleCall_3_0_0; }
+		public RuleCall getRequirementAttributeRequirementParserRuleCall_3_1_0_0() { return cRequirementAttributeRequirementParserRuleCall_3_1_0_0; }
 		
-		//ExternalFunction
-		public RuleCall getRequirementExternalFunctionParserRuleCall_3_0_1() { return cRequirementExternalFunctionParserRuleCall_3_0_1; }
+		//ExternalUse
+		public RuleCall getRequirementExternalUseParserRuleCall_3_1_0_1() { return cRequirementExternalUseParserRuleCall_3_1_0_1; }
 	}
 	public class AttributeRequirementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.AttributeRequirement");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRequireKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLogicAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLogicLogicExpParserRuleCall_1_0 = (RuleCall)cLogicAssignment_1.eContents().get(0);
+		private final Assignment cLogicAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cLogicLogicExpParserRuleCall_0 = (RuleCall)cLogicAssignment.eContents().get(0);
 		
 		//AttributeRequirement:
-		//	"require" logic=LogicExp;
+		//	logic=LogicExp;
 		@Override public ParserRule getRule() { return rule; }
-		
-		//"require" logic=LogicExp
-		public Group getGroup() { return cGroup; }
-		
-		//"require"
-		public Keyword getRequireKeyword_0() { return cRequireKeyword_0; }
 		
 		//logic=LogicExp
-		public Assignment getLogicAssignment_1() { return cLogicAssignment_1; }
+		public Assignment getLogicAssignment() { return cLogicAssignment; }
 		
 		//LogicExp
-		public RuleCall getLogicLogicExpParserRuleCall_1_0() { return cLogicLogicExpParserRuleCall_1_0; }
+		public RuleCall getLogicLogicExpParserRuleCall_0() { return cLogicLogicExpParserRuleCall_0; }
 	}
-	public class ExternalFunctionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.ExternalFunction");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cExternalKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+	public class ExternalUseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.ExternalUse");
+		private final Assignment cExternalAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cExternalExternalDefCrossReference_0 = (CrossReference)cExternalAssignment.eContents().get(0);
+		private final RuleCall cExternalExternalDefIDTerminalRuleCall_0_1 = (RuleCall)cExternalExternalDefCrossReference_0.eContents().get(1);
 		
-		//ExternalFunction:
-		//	"external" name=ID;
+		//ExternalUse:
+		//	external=[ExternalDef];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"external" name=ID
-		public Group getGroup() { return cGroup; }
+		//external=[ExternalDef]
+		public Assignment getExternalAssignment() { return cExternalAssignment; }
 		
-		//"external"
-		public Keyword getExternalKeyword_0() { return cExternalKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//[ExternalDef]
+		public CrossReference getExternalExternalDefCrossReference_0() { return cExternalExternalDefCrossReference_0; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getExternalExternalDefIDTerminalRuleCall_0_1() { return cExternalExternalDefIDTerminalRuleCall_0_1; }
 	}
 	public class LogicExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.LogicExp");
@@ -951,10 +1006,11 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	private final EntityModelElements pEntityModel;
 	private final DeclarationElements pDeclaration;
 	private final TypeElements pType;
+	private final ExternalDefElements pExternalDef;
 	private final EntityElements pEntity;
 	private final AttributeElements pAttribute;
 	private final AttributeRequirementElements pAttributeRequirement;
-	private final ExternalFunctionElements pExternalFunction;
+	private final ExternalUseElements pExternalUse;
 	private final LogicExpElements pLogicExp;
 	private final ConjunctionElements pConjunction;
 	private final ComparisonElements pComparison;
@@ -987,10 +1043,11 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		this.pEntityModel = new EntityModelElements();
 		this.pDeclaration = new DeclarationElements();
 		this.pType = new TypeElements();
+		this.pExternalDef = new ExternalDefElements();
 		this.pEntity = new EntityElements();
 		this.pAttribute = new AttributeElements();
 		this.pAttributeRequirement = new AttributeRequirementElements();
-		this.pExternalFunction = new ExternalFunctionElements();
+		this.pExternalUse = new ExternalUseElements();
 		this.pLogicExp = new LogicExpElements();
 		this.pConjunction = new ConjunctionElements();
 		this.pComparison = new ComparisonElements();
@@ -1040,7 +1097,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 
 	
 	//EntityModel:
-	//	declarations+=Declaration*;
+	//	"model" name=ID declarations+=Declaration*;
 	public EntityModelElements getEntityModelAccess() {
 		return pEntityModel;
 	}
@@ -1050,7 +1107,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//Declaration:
-	//	Type | Entity | Controller;
+	//	Type | Entity | Controller | ExternalDef;
 	public DeclarationElements getDeclarationAccess() {
 		return pDeclaration;
 	}
@@ -1069,6 +1126,16 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		return getTypeAccess().getRule();
 	}
 	
+	//ExternalDef:
+	//	"external" name=ID "using" type=[Type];
+	public ExternalDefElements getExternalDefAccess() {
+		return pExternalDef;
+	}
+	
+	public ParserRule getExternalDefRule() {
+		return getExternalDefAccess().getRule();
+	}
+	
 	//Entity:
 	//	'entity' name=ID (':' super=[Entity])? '{' attributes+=Attribute* '}';
 	public EntityElements getEntityAccess() {
@@ -1080,7 +1147,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//Attribute:
-	//	name=ID ':' type=[Type] requirement=(AttributeRequirement | ExternalFunction)?;
+	//	name=ID ':' type=[Type] ("require" requirement=(AttributeRequirement | ExternalUse))?;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -1090,7 +1157,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//AttributeRequirement:
-	//	"require" logic=LogicExp;
+	//	logic=LogicExp;
 	public AttributeRequirementElements getAttributeRequirementAccess() {
 		return pAttributeRequirement;
 	}
@@ -1099,14 +1166,14 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		return getAttributeRequirementAccess().getRule();
 	}
 	
-	//ExternalFunction:
-	//	"external" name=ID;
-	public ExternalFunctionElements getExternalFunctionAccess() {
-		return pExternalFunction;
+	//ExternalUse:
+	//	external=[ExternalDef];
+	public ExternalUseElements getExternalUseAccess() {
+		return pExternalUse;
 	}
 	
-	public ParserRule getExternalFunctionRule() {
-		return getExternalFunctionAccess().getRule();
+	public ParserRule getExternalUseRule() {
+		return getExternalUseAccess().getRule();
 	}
 	
 	//LogicExp Proposition:

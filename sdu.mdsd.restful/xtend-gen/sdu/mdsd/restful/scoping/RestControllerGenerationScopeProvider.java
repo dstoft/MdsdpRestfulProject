@@ -4,19 +4,26 @@
 package sdu.mdsd.restful.scoping;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith;
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod;
+import sdu.mdsd.restful.restControllerGeneration.EntityModel;
+import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
+import sdu.mdsd.restful.restControllerGeneration.ExternalUse;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
+import sdu.mdsd.restful.restControllerGeneration.Type;
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
 import sdu.mdsd.restful.scoping.AbstractRestControllerGenerationScopeProvider;
 
@@ -32,13 +39,28 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _switchResult = null;
     boolean _matched = false;
-    if (context instanceof CreateMethodWith) {
-      boolean _equals = Objects.equal(reference, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY_ID);
-      if (_equals) {
-        _matched=true;
-        final ArrayList<Attribute> candidates = new ArrayList<Attribute>();
-        candidates.addAll(((CreateMethodWith)context).getEntity().getAttributes());
-        return Scopes.scopeFor(candidates);
+    if (context instanceof ExternalUse) {
+      _matched=true;
+      final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(context, EntityModel.class);
+      final Attribute attribute = EcoreUtil2.<Attribute>getContainerOfType(context, Attribute.class);
+      final ArrayList<ExternalDef> candidates = new ArrayList<ExternalDef>();
+      final Function1<ExternalDef, Boolean> _function = (ExternalDef it) -> {
+        Type _type = it.getType();
+        Type _type_1 = attribute.getType();
+        return Boolean.valueOf(Objects.equal(_type, _type_1));
+      };
+      Iterables.<ExternalDef>addAll(candidates, IterableExtensions.<ExternalDef>filter(Iterables.<ExternalDef>filter(model.getDeclarations(), ExternalDef.class), _function));
+      return Scopes.scopeFor(candidates);
+    }
+    if (!_matched) {
+      if (context instanceof CreateMethodWith) {
+        boolean _equals = Objects.equal(reference, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY_ID);
+        if (_equals) {
+          _matched=true;
+          final ArrayList<Attribute> candidates = new ArrayList<Attribute>();
+          candidates.addAll(((CreateMethodWith)context).getEntity().getAttributes());
+          return Scopes.scopeFor(candidates);
+        }
       }
     }
     if (!_matched) {

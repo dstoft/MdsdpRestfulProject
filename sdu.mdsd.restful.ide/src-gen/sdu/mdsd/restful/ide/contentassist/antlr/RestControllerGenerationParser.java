@@ -32,18 +32,19 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, RestControllerGenerationGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getDeclarationAccess().getAlternatives(), "rule__Declaration__Alternatives");
-			builder.put(grammarAccess.getAttributeAccess().getRequirementAlternatives_3_0(), "rule__Attribute__RequirementAlternatives_3_0");
+			builder.put(grammarAccess.getAttributeAccess().getRequirementAlternatives_3_1_0(), "rule__Attribute__RequirementAlternatives_3_1_0");
 			builder.put(grammarAccess.getRelationalOpAccess().getAlternatives(), "rule__RelationalOp__Alternatives");
 			builder.put(grammarAccess.getExpAccess().getAlternatives_1_0(), "rule__Exp__Alternatives_1_0");
 			builder.put(grammarAccess.getFactorAccess().getAlternatives_1_0(), "rule__Factor__Alternatives_1_0");
 			builder.put(grammarAccess.getPrimitiveAccess().getAlternatives(), "rule__Primitive__Alternatives");
 			builder.put(grammarAccess.getMethodTypeAccess().getAlternatives(), "rule__MethodType__Alternatives");
+			builder.put(grammarAccess.getEntityModelAccess().getGroup(), "rule__EntityModel__Group__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
+			builder.put(grammarAccess.getExternalDefAccess().getGroup(), "rule__ExternalDef__Group__0");
 			builder.put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
 			builder.put(grammarAccess.getEntityAccess().getGroup_2(), "rule__Entity__Group_2__0");
 			builder.put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
-			builder.put(grammarAccess.getAttributeRequirementAccess().getGroup(), "rule__AttributeRequirement__Group__0");
-			builder.put(grammarAccess.getExternalFunctionAccess().getGroup(), "rule__ExternalFunction__Group__0");
+			builder.put(grammarAccess.getAttributeAccess().getGroup_3(), "rule__Attribute__Group_3__0");
 			builder.put(grammarAccess.getLogicExpAccess().getGroup(), "rule__LogicExp__Group__0");
 			builder.put(grammarAccess.getLogicExpAccess().getGroup_1(), "rule__LogicExp__Group_1__0");
 			builder.put(grammarAccess.getConjunctionAccess().getGroup(), "rule__Conjunction__Group__0");
@@ -73,16 +74,19 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 			builder.put(grammarAccess.getUpdateMethodAccess().getGroup(), "rule__UpdateMethod__Group__0");
 			builder.put(grammarAccess.getUpdateMethodAccess().getGroup_2(), "rule__UpdateMethod__Group_2__0");
 			builder.put(grammarAccess.getDeleteMethodAccess().getGroup(), "rule__DeleteMethod__Group__0");
-			builder.put(grammarAccess.getEntityModelAccess().getDeclarationsAssignment(), "rule__EntityModel__DeclarationsAssignment");
+			builder.put(grammarAccess.getEntityModelAccess().getNameAssignment_1(), "rule__EntityModel__NameAssignment_1");
+			builder.put(grammarAccess.getEntityModelAccess().getDeclarationsAssignment_2(), "rule__EntityModel__DeclarationsAssignment_2");
 			builder.put(grammarAccess.getTypeAccess().getNameAssignment_1(), "rule__Type__NameAssignment_1");
+			builder.put(grammarAccess.getExternalDefAccess().getNameAssignment_1(), "rule__ExternalDef__NameAssignment_1");
+			builder.put(grammarAccess.getExternalDefAccess().getTypeAssignment_3(), "rule__ExternalDef__TypeAssignment_3");
 			builder.put(grammarAccess.getEntityAccess().getNameAssignment_1(), "rule__Entity__NameAssignment_1");
 			builder.put(grammarAccess.getEntityAccess().getSuperAssignment_2_1(), "rule__Entity__SuperAssignment_2_1");
 			builder.put(grammarAccess.getEntityAccess().getAttributesAssignment_4(), "rule__Entity__AttributesAssignment_4");
 			builder.put(grammarAccess.getAttributeAccess().getNameAssignment_0(), "rule__Attribute__NameAssignment_0");
 			builder.put(grammarAccess.getAttributeAccess().getTypeAssignment_2(), "rule__Attribute__TypeAssignment_2");
-			builder.put(grammarAccess.getAttributeAccess().getRequirementAssignment_3(), "rule__Attribute__RequirementAssignment_3");
-			builder.put(grammarAccess.getAttributeRequirementAccess().getLogicAssignment_1(), "rule__AttributeRequirement__LogicAssignment_1");
-			builder.put(grammarAccess.getExternalFunctionAccess().getNameAssignment_1(), "rule__ExternalFunction__NameAssignment_1");
+			builder.put(grammarAccess.getAttributeAccess().getRequirementAssignment_3_1(), "rule__Attribute__RequirementAssignment_3_1");
+			builder.put(grammarAccess.getAttributeRequirementAccess().getLogicAssignment(), "rule__AttributeRequirement__LogicAssignment");
+			builder.put(grammarAccess.getExternalUseAccess().getExternalAssignment(), "rule__ExternalUse__ExternalAssignment");
 			builder.put(grammarAccess.getLogicExpAccess().getRightAssignment_1_2(), "rule__LogicExp__RightAssignment_1_2");
 			builder.put(grammarAccess.getConjunctionAccess().getRightAssignment_1_2(), "rule__Conjunction__RightAssignment_1_2");
 			builder.put(grammarAccess.getComparisonAccess().getLeftAssignment_0(), "rule__Comparison__LeftAssignment_0");

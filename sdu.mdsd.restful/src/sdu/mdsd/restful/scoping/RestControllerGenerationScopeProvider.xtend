@@ -18,6 +18,9 @@ import sdu.mdsd.restful.restControllerGeneration.DeleteMethod
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith
 import org.eclipse.xtext.scoping.IScope
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage.Literals
+import sdu.mdsd.restful.restControllerGeneration.EntityModel
+import sdu.mdsd.restful.restControllerGeneration.ExternalDef
+import sdu.mdsd.restful.restControllerGeneration.ExternalUse
 
 /**
  * This class contains custom scoping description.
@@ -29,6 +32,13 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 
 	override getScope(EObject context, EReference reference) {
 		switch context {
+			ExternalUse: {
+				val EntityModel model = EcoreUtil2.getContainerOfType(context, EntityModel)
+				val Attribute attribute = EcoreUtil2.getContainerOfType(context, Attribute)
+				val candidates = new ArrayList<ExternalDef>
+				candidates.addAll(model.declarations.filter(ExternalDef).filter[type == attribute.type])
+				return Scopes.scopeFor(candidates)
+			}
 			CreateMethodWith case reference == Literals.CREATE_METHOD_WITH__ENTITY_ID: {
 				val candidates = new ArrayList<Attribute>
 				candidates.addAll(context.entity.attributes)

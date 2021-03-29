@@ -91,6 +91,11 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
         return createTypeAdapter();
       }
       @Override
+      public Adapter caseExternalDef(ExternalDef object)
+      {
+        return createExternalDefAdapter();
+      }
+      @Override
       public Adapter caseEntity(Entity object)
       {
         return createEntityAdapter();
@@ -106,9 +111,9 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
         return createAttributeRequirementAdapter();
       }
       @Override
-      public Adapter caseExternalFunction(ExternalFunction object)
+      public Adapter caseExternalUse(ExternalUse object)
       {
-        return createExternalFunctionAdapter();
+        return createExternalUseAdapter();
       }
       @Override
       public Adapter caseProposition(Proposition object)
@@ -313,6 +318,21 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalDef <em>External Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalDef
+   * @generated
+   */
+  public Adapter createExternalDefAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.Entity <em>Entity</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -358,16 +378,16 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction <em>External Function</em>}'.
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUse <em>External Use</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sdu.mdsd.restful.restControllerGeneration.ExternalFunction
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalUse
    * @generated
    */
-  public Adapter createExternalFunctionAdapter()
+  public Adapter createExternalUseAdapter()
   {
     return null;
   }

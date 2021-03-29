@@ -68,13 +68,22 @@ public interface RestControllerGenerationPackage extends EPackage
   int ENTITY_MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_MODEL__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY_MODEL__DECLARATIONS = 0;
+  int ENTITY_MODEL__DECLARATIONS = 1;
 
   /**
    * The number of structural features of the '<em>Entity Model</em>' class.
@@ -83,7 +92,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_MODEL_FEATURE_COUNT = 1;
+  int ENTITY_MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.DeclarationImpl <em>Declaration</em>}' class.
@@ -142,6 +151,43 @@ public interface RestControllerGenerationPackage extends EPackage
   int TYPE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalDefImpl <em>External Def</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.ExternalDefImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExternalDef()
+   * @generated
+   */
+  int EXTERNAL_DEF = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_DEF__NAME = DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_DEF__TYPE = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>External Def</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_DEF_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl <em>Entity</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -149,7 +195,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 3;
+  int ENTITY = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -195,7 +241,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 4;
+  int ATTRIBUTE = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -241,7 +287,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getAttributeRequirement()
    * @generated
    */
-  int ATTRIBUTE_REQUIREMENT = 5;
+  int ATTRIBUTE_REQUIREMENT = 6;
 
   /**
    * The feature id for the '<em><b>Logic</b></em>' containment reference.
@@ -262,32 +308,32 @@ public interface RestControllerGenerationPackage extends EPackage
   int ATTRIBUTE_REQUIREMENT_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalFunctionImpl <em>External Function</em>}' class.
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalUseImpl <em>External Use</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sdu.mdsd.restful.restControllerGeneration.impl.ExternalFunctionImpl
-   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExternalFunction()
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.ExternalUseImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExternalUse()
    * @generated
    */
-  int EXTERNAL_FUNCTION = 6;
+  int EXTERNAL_USE = 7;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>External</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTERNAL_FUNCTION__NAME = 0;
+  int EXTERNAL_USE__EXTERNAL = 0;
 
   /**
-   * The number of structural features of the '<em>External Function</em>' class.
+   * The number of structural features of the '<em>External Use</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTERNAL_FUNCTION_FEATURE_COUNT = 1;
+  int EXTERNAL_USE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.PropositionImpl <em>Proposition</em>}' class.
@@ -297,7 +343,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getProposition()
    * @generated
    */
-  int PROPOSITION = 7;
+  int PROPOSITION = 8;
 
   /**
    * The number of structural features of the '<em>Proposition</em>' class.
@@ -316,7 +362,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 8;
+  int COMPARISON = 9;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -362,7 +408,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelationalOp()
    * @generated
    */
-  int RELATIONAL_OP = 9;
+  int RELATIONAL_OP = 10;
 
   /**
    * The number of structural features of the '<em>Relational Op</em>' class.
@@ -381,7 +427,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 10;
+  int EXPRESSION = 11;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -400,7 +446,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getName_()
    * @generated
    */
-  int NAME = 11;
+  int NAME = 12;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' reference.
@@ -428,7 +474,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getIntExp()
    * @generated
    */
-  int INT_EXP = 12;
+  int INT_EXP = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -456,7 +502,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getController()
    * @generated
    */
-  int CONTROLLER = 13;
+  int CONTROLLER = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -511,7 +557,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMethodDef()
    * @generated
    */
-  int METHOD_DEF = 14;
+  int METHOD_DEF = 15;
 
   /**
    * The number of structural features of the '<em>Method Def</em>' class.
@@ -530,7 +576,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMethodType()
    * @generated
    */
-  int METHOD_TYPE = 15;
+  int METHOD_TYPE = 16;
 
   /**
    * The number of structural features of the '<em>Method Type</em>' class.
@@ -549,7 +595,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethod()
    * @generated
    */
-  int CREATE_METHOD = 16;
+  int CREATE_METHOD = 17;
 
   /**
    * The feature id for the '<em><b>With Entity</b></em>' containment reference.
@@ -586,7 +632,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethodWith()
    * @generated
    */
-  int CREATE_METHOD_WITH = 17;
+  int CREATE_METHOD_WITH = 18;
 
   /**
    * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -623,7 +669,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethodExclude()
    * @generated
    */
-  int CREATE_METHOD_EXCLUDE = 18;
+  int CREATE_METHOD_EXCLUDE = 19;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -651,7 +697,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getGetMethod()
    * @generated
    */
-  int GET_METHOD = 19;
+  int GET_METHOD = 20;
 
   /**
    * The feature id for the '<em><b>Entity Id</b></em>' reference.
@@ -679,7 +725,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getListMethod()
    * @generated
    */
-  int LIST_METHOD = 20;
+  int LIST_METHOD = 21;
 
   /**
    * The number of structural features of the '<em>List Method</em>' class.
@@ -698,7 +744,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getUpdateMethod()
    * @generated
    */
-  int UPDATE_METHOD = 21;
+  int UPDATE_METHOD = 22;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' reference list.
@@ -726,7 +772,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDeleteMethod()
    * @generated
    */
-  int DELETE_METHOD = 22;
+  int DELETE_METHOD = 23;
 
   /**
    * The feature id for the '<em><b>Entity Id</b></em>' reference.
@@ -754,7 +800,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDisjunction()
    * @generated
    */
-  int DISJUNCTION = 23;
+  int DISJUNCTION = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -791,7 +837,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getConjunction()
    * @generated
    */
-  int CONJUNCTION = 24;
+  int CONJUNCTION = 25;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -828,7 +874,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelEQ()
    * @generated
    */
-  int REL_EQ = 25;
+  int REL_EQ = 26;
 
   /**
    * The number of structural features of the '<em>Rel EQ</em>' class.
@@ -847,7 +893,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelLT()
    * @generated
    */
-  int REL_LT = 26;
+  int REL_LT = 27;
 
   /**
    * The number of structural features of the '<em>Rel LT</em>' class.
@@ -866,7 +912,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelGT()
    * @generated
    */
-  int REL_GT = 27;
+  int REL_GT = 28;
 
   /**
    * The number of structural features of the '<em>Rel GT</em>' class.
@@ -885,7 +931,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelLTE()
    * @generated
    */
-  int REL_LTE = 28;
+  int REL_LTE = 29;
 
   /**
    * The number of structural features of the '<em>Rel LTE</em>' class.
@@ -904,7 +950,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelGTE()
    * @generated
    */
-  int REL_GTE = 29;
+  int REL_GTE = 30;
 
   /**
    * The number of structural features of the '<em>Rel GTE</em>' class.
@@ -923,7 +969,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getAdd()
    * @generated
    */
-  int ADD = 30;
+  int ADD = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -960,7 +1006,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getSub()
    * @generated
    */
-  int SUB = 31;
+  int SUB = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -997,7 +1043,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMul()
    * @generated
    */
-  int MUL = 32;
+  int MUL = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1034,7 +1080,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDiv()
    * @generated
    */
-  int DIV = 33;
+  int DIV = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1073,6 +1119,17 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    */
   EClass getEntityModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link sdu.mdsd.restful.restControllerGeneration.EntityModel#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.EntityModel#getName()
+   * @see #getEntityModel()
+   * @generated
+   */
+  EAttribute getEntityModel_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link sdu.mdsd.restful.restControllerGeneration.EntityModel#getDeclarations <em>Declarations</em>}'.
@@ -1115,6 +1172,27 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    */
   EClass getType();
+
+  /**
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalDef <em>External Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>External Def</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalDef
+   * @generated
+   */
+  EClass getExternalDef();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.ExternalDef#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalDef#getType()
+   * @see #getExternalDef()
+   * @generated
+   */
+  EReference getExternalDef_Type();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.Entity <em>Entity</em>}'.
@@ -1213,25 +1291,25 @@ public interface RestControllerGenerationPackage extends EPackage
   EReference getAttributeRequirement_Logic();
 
   /**
-   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction <em>External Function</em>}'.
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUse <em>External Use</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>External Function</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.ExternalFunction
+   * @return the meta object for class '<em>External Use</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalUse
    * @generated
    */
-  EClass getExternalFunction();
+  EClass getExternalUse();
 
   /**
-   * Returns the meta object for the attribute '{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUse#getExternal <em>External</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getName()
-   * @see #getExternalFunction()
+   * @return the meta object for the reference '<em>External</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalUse#getExternal()
+   * @see #getExternalUse()
    * @generated
    */
-  EAttribute getExternalFunction_Name();
+  EReference getExternalUse_External();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.Proposition <em>Proposition</em>}'.
@@ -1845,6 +1923,14 @@ public interface RestControllerGenerationPackage extends EPackage
     EClass ENTITY_MODEL = eINSTANCE.getEntityModel();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY_MODEL__NAME = eINSTANCE.getEntityModel_Name();
+
+    /**
      * The meta object literal for the '<em><b>Declarations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1879,6 +1965,24 @@ public interface RestControllerGenerationPackage extends EPackage
      * @generated
      */
     EClass TYPE = eINSTANCE.getType();
+
+    /**
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalDefImpl <em>External Def</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.ExternalDefImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExternalDef()
+     * @generated
+     */
+    EClass EXTERNAL_DEF = eINSTANCE.getExternalDef();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTERNAL_DEF__TYPE = eINSTANCE.getExternalDef_Type();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl <em>Entity</em>}' class.
@@ -1959,22 +2063,22 @@ public interface RestControllerGenerationPackage extends EPackage
     EReference ATTRIBUTE_REQUIREMENT__LOGIC = eINSTANCE.getAttributeRequirement_Logic();
 
     /**
-     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalFunctionImpl <em>External Function</em>}' class.
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalUseImpl <em>External Use</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sdu.mdsd.restful.restControllerGeneration.impl.ExternalFunctionImpl
-     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExternalFunction()
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.ExternalUseImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExternalUse()
      * @generated
      */
-    EClass EXTERNAL_FUNCTION = eINSTANCE.getExternalFunction();
+    EClass EXTERNAL_USE = eINSTANCE.getExternalUse();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>External</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXTERNAL_FUNCTION__NAME = eINSTANCE.getExternalFunction_Name();
+    EReference EXTERNAL_USE__EXTERNAL = eINSTANCE.getExternalUse_External();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.PropositionImpl <em>Proposition</em>}' class.

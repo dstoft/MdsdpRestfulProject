@@ -3,15 +3,19 @@ grammar sdu.mdsd.restful.RestControllerGeneration with org.eclipse.xtext.common.
 generate restControllerGeneration "http://www.mdsd.sdu/restful/RestControllerGeneration"
 
 EntityModel:
-	declarations+=Declaration*
+	"model" name=ID declarations+=Declaration*
 ;
 
 Declaration:
-	Type | Entity | Controller
+	Type | Entity | Controller | ExternalDef
 ;
 
 Type:
 	'type' name=ID
+;
+
+ExternalDef:
+	"external" name=ID "using" type=[Type]
 ;
 
 Entity:
@@ -19,15 +23,15 @@ Entity:
 ;
 
 Attribute:
-	name=ID ':' type=[Type] (requirement=(AttributeRequirement | ExternalFunction))?
+	name=ID ':' type=[Type] ("require" requirement=(AttributeRequirement | ExternalUse))?
 ;
 
 AttributeRequirement: 
-	"require" logic=LogicExp
+	logic=LogicExp
 ;
 
-ExternalFunction: 
-	"external" name=ID
+ExternalUse: 
+	external=[ExternalDef]
 ;
 
 LogicExp returns Proposition:

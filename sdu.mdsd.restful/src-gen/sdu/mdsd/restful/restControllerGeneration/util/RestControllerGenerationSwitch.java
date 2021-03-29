@@ -95,6 +95,14 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RestControllerGenerationPackage.EXTERNAL_DEF:
+      {
+        ExternalDef externalDef = (ExternalDef)theEObject;
+        T result = caseExternalDef(externalDef);
+        if (result == null) result = caseDeclaration(externalDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RestControllerGenerationPackage.ENTITY:
       {
         Entity entity = (Entity)theEObject;
@@ -117,10 +125,10 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION:
+      case RestControllerGenerationPackage.EXTERNAL_USE:
       {
-        ExternalFunction externalFunction = (ExternalFunction)theEObject;
-        T result = caseExternalFunction(externalFunction);
+        ExternalUse externalUse = (ExternalUse)theEObject;
+        T result = caseExternalUse(externalUse);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -392,6 +400,22 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>External Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>External Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExternalDef(ExternalDef object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -440,17 +464,17 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>External Function</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>External Use</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>External Function</em>'.
+   * @return the result of interpreting the object as an instance of '<em>External Use</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExternalFunction(ExternalFunction object)
+  public T caseExternalUse(ExternalUse object)
   {
     return null;
   }

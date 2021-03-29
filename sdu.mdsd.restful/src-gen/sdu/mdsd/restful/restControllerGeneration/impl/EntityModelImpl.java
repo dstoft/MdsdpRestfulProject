@@ -5,6 +5,7 @@ package sdu.mdsd.restful.restControllerGeneration.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityModelImpl#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
@@ -36,6 +39,26 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  */
 public class EntityModelImpl extends MinimalEObjectImpl.Container implements EntityModel
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +88,31 @@ public class EntityModelImpl extends MinimalEObjectImpl.Container implements Ent
   protected EClass eStaticClass()
   {
     return RestControllerGenerationPackage.Literals.ENTITY_MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ENTITY_MODEL__NAME, oldName, name));
   }
 
   /**
@@ -108,6 +156,8 @@ public class EntityModelImpl extends MinimalEObjectImpl.Container implements Ent
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.ENTITY_MODEL__NAME:
+        return getName();
       case RestControllerGenerationPackage.ENTITY_MODEL__DECLARATIONS:
         return getDeclarations();
     }
@@ -125,6 +175,9 @@ public class EntityModelImpl extends MinimalEObjectImpl.Container implements Ent
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.ENTITY_MODEL__NAME:
+        setName((String)newValue);
+        return;
       case RestControllerGenerationPackage.ENTITY_MODEL__DECLARATIONS:
         getDeclarations().clear();
         getDeclarations().addAll((Collection<? extends Declaration>)newValue);
@@ -143,6 +196,9 @@ public class EntityModelImpl extends MinimalEObjectImpl.Container implements Ent
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.ENTITY_MODEL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case RestControllerGenerationPackage.ENTITY_MODEL__DECLARATIONS:
         getDeclarations().clear();
         return;
@@ -160,10 +216,29 @@ public class EntityModelImpl extends MinimalEObjectImpl.Container implements Ent
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.ENTITY_MODEL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RestControllerGenerationPackage.ENTITY_MODEL__DECLARATIONS:
         return declarations != null && !declarations.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //EntityModelImpl

@@ -28,7 +28,8 @@ import sdu.mdsd.restful.restControllerGeneration.Disjunction;
 import sdu.mdsd.restful.restControllerGeneration.Div;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.EntityModel;
-import sdu.mdsd.restful.restControllerGeneration.ExternalFunction;
+import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
+import sdu.mdsd.restful.restControllerGeneration.ExternalUse;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.IntExp;
 import sdu.mdsd.restful.restControllerGeneration.ListMethod;
@@ -101,8 +102,11 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 			case RestControllerGenerationPackage.ENTITY_MODEL:
 				sequence_EntityModel(context, (EntityModel) semanticObject); 
 				return; 
-			case RestControllerGenerationPackage.EXTERNAL_FUNCTION:
-				sequence_ExternalFunction(context, (ExternalFunction) semanticObject); 
+			case RestControllerGenerationPackage.EXTERNAL_DEF:
+				sequence_ExternalDef(context, (ExternalDef) semanticObject); 
+				return; 
+			case RestControllerGenerationPackage.EXTERNAL_USE:
+				sequence_ExternalUse(context, (ExternalUse) semanticObject); 
 				return; 
 			case RestControllerGenerationPackage.GET_METHOD:
 				sequence_GetMethod(context, (GetMethod) semanticObject); 
@@ -161,7 +165,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.ATTRIBUTE_REQUIREMENT__LOGIC));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeRequirementAccess().getLogicLogicExpParserRuleCall_1_0(), semanticObject.getLogic());
+		feeder.accept(grammarAccess.getAttributeRequirementAccess().getLogicLogicExpParserRuleCall_0(), semanticObject.getLogic());
 		feeder.finish();
 	}
 	
@@ -171,7 +175,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=[Type|ID] (requirement=AttributeRequirement | requirement=ExternalFunction)?)
+	 *     (name=ID type=[Type|ID] (requirement=AttributeRequirement | requirement=ExternalUse)?)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -321,7 +325,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     EntityModel returns EntityModel
 	 *
 	 * Constraint:
-	 *     declarations+=Declaration+
+	 *     (name=ID declarations+=Declaration*)
 	 */
 	protected void sequence_EntityModel(ISerializationContext context, EntityModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -397,18 +401,40 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Contexts:
-	 *     ExternalFunction returns ExternalFunction
+	 *     Declaration returns ExternalDef
+	 *     ExternalDef returns ExternalDef
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID type=[Type|ID])
 	 */
-	protected void sequence_ExternalFunction(ISerializationContext context, ExternalFunction semanticObject) {
+	protected void sequence_ExternalDef(ISerializationContext context, ExternalDef semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_FUNCTION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_FUNCTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.DECLARATION__NAME));
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_DEF__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_DEF__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExternalDefAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExternalDefAccess().getTypeTypeIDTerminalRuleCall_3_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.EXTERNAL_DEF__TYPE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExternalUse returns ExternalUse
+	 *
+	 * Constraint:
+	 *     external=[ExternalDef|ID]
+	 */
+	protected void sequence_ExternalUse(ISerializationContext context, ExternalUse semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_USE__EXTERNAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_USE__EXTERNAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExternalUseAccess().getExternalExternalDefIDTerminalRuleCall_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.EXTERNAL_USE__EXTERNAL, false));
 		feeder.finish();
 	}
 	
