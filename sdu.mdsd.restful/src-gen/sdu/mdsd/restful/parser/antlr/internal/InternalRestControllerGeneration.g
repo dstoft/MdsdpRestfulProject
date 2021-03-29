@@ -424,9 +424,9 @@ ruleExternalFunction returns [EObject current=null]
 		}
 		(
 			(
-				lv_externalFunc_1_0=RULE_ID
+				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_externalFunc_1_0, grammarAccess.getExternalFunctionAccess().getExternalFuncIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -434,8 +434,8 @@ ruleExternalFunction returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"externalFunc",
-						lv_externalFunc_1_0,
+						"name",
+						lv_name_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)

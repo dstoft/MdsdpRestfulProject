@@ -21,7 +21,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalFunctionImpl#getExternalFunc <em>External Func</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalFunctionImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
 public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implements ExternalFunction
 {
   /**
-   * The default value of the '{@link #getExternalFunc() <em>External Func</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExternalFunc()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String EXTERNAL_FUNC_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getExternalFunc() <em>External Func</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExternalFunc()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String externalFunc = EXTERNAL_FUNC_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +75,9 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public String getExternalFunc()
+  public String getName()
   {
-    return externalFunc;
+    return name;
   }
 
   /**
@@ -86,12 +86,12 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public void setExternalFunc(String newExternalFunc)
+  public void setName(String newName)
   {
-    String oldExternalFunc = externalFunc;
-    externalFunc = newExternalFunc;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.EXTERNAL_FUNCTION__EXTERNAL_FUNC, oldExternalFunc, externalFunc));
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME, oldName, name));
   }
 
   /**
@@ -104,8 +104,8 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__EXTERNAL_FUNC:
-        return getExternalFunc();
+      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__EXTERNAL_FUNC:
-        setExternalFunc((String)newValue);
+      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__EXTERNAL_FUNC:
-        setExternalFunc(EXTERNAL_FUNC_EDEFAULT);
+      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__EXTERNAL_FUNC:
-        return EXTERNAL_FUNC_EDEFAULT == null ? externalFunc != null : !EXTERNAL_FUNC_EDEFAULT.equals(externalFunc);
+      case RestControllerGenerationPackage.EXTERNAL_FUNCTION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +171,8 @@ public class ExternalFunctionImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (externalFunc: ");
-    result.append(externalFunc);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

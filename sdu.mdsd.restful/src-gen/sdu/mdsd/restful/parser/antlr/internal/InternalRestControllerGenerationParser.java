@@ -1069,36 +1069,36 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleExternalFunction"
-    // InternalRestControllerGeneration.g:413:1: ruleExternalFunction returns [EObject current=null] : (otherlv_0= 'external' ( (lv_externalFunc_1_0= RULE_ID ) ) ) ;
+    // InternalRestControllerGeneration.g:413:1: ruleExternalFunction returns [EObject current=null] : (otherlv_0= 'external' ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleExternalFunction() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_externalFunc_1_0=null;
+        Token lv_name_1_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:419:2: ( (otherlv_0= 'external' ( (lv_externalFunc_1_0= RULE_ID ) ) ) )
-            // InternalRestControllerGeneration.g:420:2: (otherlv_0= 'external' ( (lv_externalFunc_1_0= RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:419:2: ( (otherlv_0= 'external' ( (lv_name_1_0= RULE_ID ) ) ) )
+            // InternalRestControllerGeneration.g:420:2: (otherlv_0= 'external' ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // InternalRestControllerGeneration.g:420:2: (otherlv_0= 'external' ( (lv_externalFunc_1_0= RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:421:3: otherlv_0= 'external' ( (lv_externalFunc_1_0= RULE_ID ) )
+            // InternalRestControllerGeneration.g:420:2: (otherlv_0= 'external' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:421:3: otherlv_0= 'external' ( (lv_name_1_0= RULE_ID ) )
             {
             otherlv_0=(Token)match(input,17,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getExternalFunctionAccess().getExternalKeyword_0());
             		
-            // InternalRestControllerGeneration.g:425:3: ( (lv_externalFunc_1_0= RULE_ID ) )
-            // InternalRestControllerGeneration.g:426:4: (lv_externalFunc_1_0= RULE_ID )
+            // InternalRestControllerGeneration.g:425:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalRestControllerGeneration.g:426:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalRestControllerGeneration.g:426:4: (lv_externalFunc_1_0= RULE_ID )
-            // InternalRestControllerGeneration.g:427:5: lv_externalFunc_1_0= RULE_ID
+            // InternalRestControllerGeneration.g:426:4: (lv_name_1_0= RULE_ID )
+            // InternalRestControllerGeneration.g:427:5: lv_name_1_0= RULE_ID
             {
-            lv_externalFunc_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(lv_externalFunc_1_0, grammarAccess.getExternalFunctionAccess().getExternalFuncIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_1_0, grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -1106,8 +1106,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
             					}
             					setWithLastConsumed(
             						current,
-            						"externalFunc",
-            						lv_externalFunc_1_0,
+            						"name",
+            						lv_name_1_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 

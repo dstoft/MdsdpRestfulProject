@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl
 import org.eclipse.emf.ecore.util.EcoreUtil
 import sdu.mdsd.restful.restControllerGeneration.EntityModel
+import sdu.mdsd.restful.restControllerGeneration.ExternalFunction
 
 /**
  * Generates code from your model files on save.
@@ -28,6 +29,11 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val em = resource.allContents.filter(EntityModel).next
 		System::out.println("Model:")
 		em.display
+		System::out.println('People to greet: ' + 
+			resource.allContents
+				.filter(ExternalFunction)
+				.map[name]
+				.join(', '));
 	}
 	
 	def display(EObject model) {

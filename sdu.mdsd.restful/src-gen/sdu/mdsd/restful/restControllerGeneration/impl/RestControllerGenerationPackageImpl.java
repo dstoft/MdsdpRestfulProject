@@ -527,7 +527,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EAttribute getExternalFunction_ExternalFunc()
+  public EAttribute getExternalFunction_Name()
   {
     return (EAttribute)externalFunctionEClass.getEStructuralFeatures().get(0);
   }
@@ -1189,7 +1189,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     createEReference(attributeRequirementEClass, ATTRIBUTE_REQUIREMENT__LOGIC);
 
     externalFunctionEClass = createEClass(EXTERNAL_FUNCTION);
-    createEAttribute(externalFunctionEClass, EXTERNAL_FUNCTION__EXTERNAL_FUNC);
+    createEAttribute(externalFunctionEClass, EXTERNAL_FUNCTION__NAME);
 
     propositionEClass = createEClass(PROPOSITION);
 
@@ -1349,7 +1349,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEReference(getAttributeRequirement_Logic(), this.getProposition(), null, "logic", null, 0, 1, AttributeRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(externalFunctionEClass, ExternalFunction.class, "ExternalFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExternalFunction_ExternalFunc(), ecorePackage.getEString(), "externalFunc", null, 0, 1, ExternalFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExternalFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExternalFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propositionEClass, Proposition.class, "Proposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

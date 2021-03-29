@@ -27,7 +27,7 @@ AttributeRequirement:
 ;
 
 ExternalFunction: 
-	"external" externalFunc=ID
+	"external" name=ID
 ;
 
 LogicExp returns Proposition:

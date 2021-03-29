@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getExternalFunc <em>External Func</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getExternalFunction()
@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface ExternalFunction extends EObject
 {
   /**
-   * Returns the value of the '<em><b>External Func</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>External Func</em>' attribute.
-   * @see #setExternalFunc(String)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getExternalFunction_ExternalFunc()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getExternalFunction_Name()
    * @model
    * @generated
    */
-  String getExternalFunc();
+  String getName();
 
   /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getExternalFunc <em>External Func</em>}' attribute.
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>External Func</em>' attribute.
-   * @see #getExternalFunc()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setExternalFunc(String value);
+  void setName(String value);
 
 } // ExternalFunction

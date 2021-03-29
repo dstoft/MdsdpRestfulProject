@@ -222,24 +222,24 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.ExternalFunction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExternalKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cExternalFuncAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExternalFuncIDTerminalRuleCall_1_0 = (RuleCall)cExternalFuncAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//ExternalFunction:
-		//	"external" externalFunc=ID;
+		//	"external" name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"external" externalFunc=ID
+		//"external" name=ID
 		public Group getGroup() { return cGroup; }
 		
 		//"external"
 		public Keyword getExternalKeyword_0() { return cExternalKeyword_0; }
 		
-		//externalFunc=ID
-		public Assignment getExternalFuncAssignment_1() { return cExternalFuncAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getExternalFuncIDTerminalRuleCall_1_0() { return cExternalFuncIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	public class LogicExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.LogicExp");
@@ -1100,7 +1100,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//ExternalFunction:
-	//	"external" externalFunc=ID;
+	//	"external" name=ID;
 	public ExternalFunctionElements getExternalFunctionAccess() {
 		return pExternalFunction;
 	}

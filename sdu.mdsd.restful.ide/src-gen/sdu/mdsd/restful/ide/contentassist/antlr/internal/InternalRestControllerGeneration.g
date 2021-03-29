@@ -1370,9 +1370,9 @@ rule__ExternalFunction__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getExternalFunctionAccess().getExternalFuncAssignment_1()); }
-	(rule__ExternalFunction__ExternalFuncAssignment_1)
-	{ after(grammarAccess.getExternalFunctionAccess().getExternalFuncAssignment_1()); }
+	{ before(grammarAccess.getExternalFunctionAccess().getNameAssignment_1()); }
+	(rule__ExternalFunction__NameAssignment_1)
+	{ after(grammarAccess.getExternalFunctionAccess().getNameAssignment_1()); }
 )
 ;
 finally {
@@ -3548,15 +3548,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalFunction__ExternalFuncAssignment_1
+rule__ExternalFunction__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getExternalFunctionAccess().getExternalFuncIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getExternalFunctionAccess().getExternalFuncIDTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

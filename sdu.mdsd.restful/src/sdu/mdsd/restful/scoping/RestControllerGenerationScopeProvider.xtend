@@ -16,6 +16,8 @@ import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith
+import org.eclipse.xtext.scoping.IScope
+import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage.Literals
 
 /**
  * This class contains custom scoping description.
@@ -27,11 +29,10 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 
 	override getScope(EObject context, EReference reference) {
 		switch context {
-			CreateMethodWith: {
+			CreateMethodWith case reference == Literals.CREATE_METHOD_WITH__ENTITY_ID: {
 				val candidates = new ArrayList<Attribute>
 				candidates.addAll(context.entity.attributes)
-				// Also uses the "super scope" to make sure that it can reference other stuff than the attributes added here
-				return Scopes.scopeFor(candidates, super.getScope(context.eContainer, reference))
+				return Scopes.scopeFor(candidates)
 			}
 			CreateMethodExclude: {
 				return Scopes.scopeFor(getControllersAttributes(context))

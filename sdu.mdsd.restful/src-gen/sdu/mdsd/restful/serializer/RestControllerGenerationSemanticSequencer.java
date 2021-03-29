@@ -400,15 +400,15 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     ExternalFunction returns ExternalFunction
 	 *
 	 * Constraint:
-	 *     externalFunc=ID
+	 *     name=ID
 	 */
 	protected void sequence_ExternalFunction(ISerializationContext context, ExternalFunction semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_FUNCTION__EXTERNAL_FUNC) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_FUNCTION__EXTERNAL_FUNC));
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_FUNCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_FUNCTION__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExternalFunctionAccess().getExternalFuncIDTerminalRuleCall_1_0(), semanticObject.getExternalFunc());
+		feeder.accept(grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

@@ -12,7 +12,10 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import sdu.mdsd.restful.restControllerGeneration.EntityModel;
+import sdu.mdsd.restful.restControllerGeneration.ExternalFunction;
 
 /**
  * Generates code from your model files on save.
@@ -26,6 +29,12 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     final EntityModel em = Iterators.<EntityModel>filter(resource.getAllContents(), EntityModel.class).next();
     System.out.println("Model:");
     this.display(em);
+    final Function1<ExternalFunction, String> _function = (ExternalFunction it) -> {
+      return it.getName();
+    };
+    String _join = IteratorExtensions.join(IteratorExtensions.<ExternalFunction, String>map(Iterators.<ExternalFunction>filter(resource.getAllContents(), ExternalFunction.class), _function), ", ");
+    String _plus = ("People to greet: " + _join);
+    System.out.println(_plus);
   }
   
   public void display(final EObject model) {

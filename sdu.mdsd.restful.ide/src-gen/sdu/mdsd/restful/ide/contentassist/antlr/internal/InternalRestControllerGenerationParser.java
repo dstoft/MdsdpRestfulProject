@@ -4348,31 +4348,31 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ExternalFunction__Group__1__Impl"
-    // InternalRestControllerGeneration.g:1367:1: rule__ExternalFunction__Group__1__Impl : ( ( rule__ExternalFunction__ExternalFuncAssignment_1 ) ) ;
+    // InternalRestControllerGeneration.g:1367:1: rule__ExternalFunction__Group__1__Impl : ( ( rule__ExternalFunction__NameAssignment_1 ) ) ;
     public final void rule__ExternalFunction__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:1371:1: ( ( ( rule__ExternalFunction__ExternalFuncAssignment_1 ) ) )
-            // InternalRestControllerGeneration.g:1372:1: ( ( rule__ExternalFunction__ExternalFuncAssignment_1 ) )
+            // InternalRestControllerGeneration.g:1371:1: ( ( ( rule__ExternalFunction__NameAssignment_1 ) ) )
+            // InternalRestControllerGeneration.g:1372:1: ( ( rule__ExternalFunction__NameAssignment_1 ) )
             {
-            // InternalRestControllerGeneration.g:1372:1: ( ( rule__ExternalFunction__ExternalFuncAssignment_1 ) )
-            // InternalRestControllerGeneration.g:1373:2: ( rule__ExternalFunction__ExternalFuncAssignment_1 )
+            // InternalRestControllerGeneration.g:1372:1: ( ( rule__ExternalFunction__NameAssignment_1 ) )
+            // InternalRestControllerGeneration.g:1373:2: ( rule__ExternalFunction__NameAssignment_1 )
             {
-             before(grammarAccess.getExternalFunctionAccess().getExternalFuncAssignment_1()); 
-            // InternalRestControllerGeneration.g:1374:2: ( rule__ExternalFunction__ExternalFuncAssignment_1 )
-            // InternalRestControllerGeneration.g:1374:3: rule__ExternalFunction__ExternalFuncAssignment_1
+             before(grammarAccess.getExternalFunctionAccess().getNameAssignment_1()); 
+            // InternalRestControllerGeneration.g:1374:2: ( rule__ExternalFunction__NameAssignment_1 )
+            // InternalRestControllerGeneration.g:1374:3: rule__ExternalFunction__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__ExternalFunction__ExternalFuncAssignment_1();
+            rule__ExternalFunction__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getExternalFunctionAccess().getExternalFuncAssignment_1()); 
+             after(grammarAccess.getExternalFunctionAccess().getNameAssignment_1()); 
 
             }
 
@@ -10686,9 +10686,9 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
     // $ANTLR end "rule__AttributeRequirement__LogicAssignment_1"
 
 
-    // $ANTLR start "rule__ExternalFunction__ExternalFuncAssignment_1"
-    // InternalRestControllerGeneration.g:3551:1: rule__ExternalFunction__ExternalFuncAssignment_1 : ( RULE_ID ) ;
-    public final void rule__ExternalFunction__ExternalFuncAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__ExternalFunction__NameAssignment_1"
+    // InternalRestControllerGeneration.g:3551:1: rule__ExternalFunction__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__ExternalFunction__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10699,9 +10699,9 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             // InternalRestControllerGeneration.g:3556:2: ( RULE_ID )
             // InternalRestControllerGeneration.g:3557:3: RULE_ID
             {
-             before(grammarAccess.getExternalFunctionAccess().getExternalFuncIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getExternalFunctionAccess().getExternalFuncIDTerminalRuleCall_1_0()); 
+             after(grammarAccess.getExternalFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -10720,7 +10720,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
         }
         return ;
     }
-    // $ANTLR end "rule__ExternalFunction__ExternalFuncAssignment_1"
+    // $ANTLR end "rule__ExternalFunction__NameAssignment_1"
 
 
     // $ANTLR start "rule__LogicExp__RightAssignment_1_2"

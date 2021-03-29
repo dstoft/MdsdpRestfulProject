@@ -3,6 +3,7 @@
  */
 package sdu.mdsd.restful.scoping;
 
+import com.google.common.base.Objects;
 import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -15,6 +16,7 @@ import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith;
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
+import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
 import sdu.mdsd.restful.scoping.AbstractRestControllerGenerationScopeProvider;
 
@@ -31,10 +33,13 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
     IScope _switchResult = null;
     boolean _matched = false;
     if (context instanceof CreateMethodWith) {
-      _matched=true;
-      final ArrayList<Attribute> candidates = new ArrayList<Attribute>();
-      candidates.addAll(((CreateMethodWith)context).getEntity().getAttributes());
-      return Scopes.scopeFor(candidates, super.getScope(((CreateMethodWith)context).eContainer(), reference));
+      boolean _equals = Objects.equal(reference, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY_ID);
+      if (_equals) {
+        _matched=true;
+        final ArrayList<Attribute> candidates = new ArrayList<Attribute>();
+        candidates.addAll(((CreateMethodWith)context).getEntity().getAttributes());
+        return Scopes.scopeFor(candidates);
+      }
     }
     if (!_matched) {
       if (context instanceof CreateMethodExclude) {

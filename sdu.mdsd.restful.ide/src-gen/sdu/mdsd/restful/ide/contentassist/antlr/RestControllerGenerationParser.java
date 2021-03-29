@@ -82,7 +82,7 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 			builder.put(grammarAccess.getAttributeAccess().getTypeAssignment_2(), "rule__Attribute__TypeAssignment_2");
 			builder.put(grammarAccess.getAttributeAccess().getRequirementAssignment_3(), "rule__Attribute__RequirementAssignment_3");
 			builder.put(grammarAccess.getAttributeRequirementAccess().getLogicAssignment_1(), "rule__AttributeRequirement__LogicAssignment_1");
-			builder.put(grammarAccess.getExternalFunctionAccess().getExternalFuncAssignment_1(), "rule__ExternalFunction__ExternalFuncAssignment_1");
+			builder.put(grammarAccess.getExternalFunctionAccess().getNameAssignment_1(), "rule__ExternalFunction__NameAssignment_1");
 			builder.put(grammarAccess.getLogicExpAccess().getRightAssignment_1_2(), "rule__LogicExp__RightAssignment_1_2");
 			builder.put(grammarAccess.getConjunctionAccess().getRightAssignment_1_2(), "rule__Conjunction__RightAssignment_1_2");
 			builder.put(grammarAccess.getComparisonAccess().getLeftAssignment_0(), "rule__Comparison__LeftAssignment_0");

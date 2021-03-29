@@ -272,13 +272,13 @@ public interface RestControllerGenerationPackage extends EPackage
   int EXTERNAL_FUNCTION = 6;
 
   /**
-   * The feature id for the '<em><b>External Func</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTERNAL_FUNCTION__EXTERNAL_FUNC = 0;
+  int EXTERNAL_FUNCTION__NAME = 0;
 
   /**
    * The number of structural features of the '<em>External Function</em>' class.
@@ -1223,15 +1223,15 @@ public interface RestControllerGenerationPackage extends EPackage
   EClass getExternalFunction();
 
   /**
-   * Returns the meta object for the attribute '{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getExternalFunc <em>External Func</em>}'.
+   * Returns the meta object for the attribute '{@link sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>External Func</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getExternalFunc()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalFunction#getName()
    * @see #getExternalFunction()
    * @generated
    */
-  EAttribute getExternalFunction_ExternalFunc();
+  EAttribute getExternalFunction_Name();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.Proposition <em>Proposition</em>}'.
@@ -1969,12 +1969,12 @@ public interface RestControllerGenerationPackage extends EPackage
     EClass EXTERNAL_FUNCTION = eINSTANCE.getExternalFunction();
 
     /**
-     * The meta object literal for the '<em><b>External Func</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXTERNAL_FUNCTION__EXTERNAL_FUNC = eINSTANCE.getExternalFunction_ExternalFunc();
+    EAttribute EXTERNAL_FUNCTION__NAME = eINSTANCE.getExternalFunction_Name();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.PropositionImpl <em>Proposition</em>}' class.
