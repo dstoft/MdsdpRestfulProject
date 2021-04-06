@@ -76,11 +76,11 @@ Controller:
 	'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}'
 ;
 
-MethodDef:
+MethodDef returns ControllerMethod:
 	MethodType
 ;
 
-MethodType:
+MethodType returns ControllerMethod:
 	CreateMethod | GetMethod | ListMethod | UpdateMethod | DeleteMethod
 ;
 

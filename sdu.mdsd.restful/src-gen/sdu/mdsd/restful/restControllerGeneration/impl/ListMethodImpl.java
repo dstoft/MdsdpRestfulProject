@@ -15,7 +15,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  *
  * @generated
  */
-public class ListMethodImpl extends MethodTypeImpl implements ListMethod
+public class ListMethodImpl extends ControllerMethodImpl implements ListMethod
 {
   /**
    * <!-- begin-user-doc -->

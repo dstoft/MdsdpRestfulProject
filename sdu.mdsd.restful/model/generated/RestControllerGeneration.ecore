@@ -53,11 +53,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="super" eType="#//Controller"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
-        eType="#//MethodDef" containment="true"/>
+        eType="#//ControllerMethod" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MethodDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MethodType" eSuperTypes="#//MethodDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CreateMethod" eSuperTypes="#//MethodType">
+  <eClassifiers xsi:type="ecore:EClass" name="ControllerMethod"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CreateMethod" eSuperTypes="#//ControllerMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="withEntity" eType="#//CreateMethodWith"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exclude" eType="#//CreateMethodExclude"
@@ -70,15 +69,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="CreateMethodExclude">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GetMethod" eSuperTypes="#//MethodType">
+  <eClassifiers xsi:type="ecore:EClass" name="GetMethod" eSuperTypes="#//ControllerMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entityId" eType="#//Attribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListMethod" eSuperTypes="#//MethodType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UpdateMethod" eSuperTypes="#//MethodType">
+  <eClassifiers xsi:type="ecore:EClass" name="ListMethod" eSuperTypes="#//ControllerMethod"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateMethod" eSuperTypes="#//ControllerMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" unique="false"
         upperBound="-1" eType="#//Attribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteMethod" eSuperTypes="#//MethodType">
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteMethod" eSuperTypes="#//ControllerMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entityId" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="#//Proposition">

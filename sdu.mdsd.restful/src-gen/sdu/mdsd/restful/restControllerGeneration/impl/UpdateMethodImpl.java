@@ -28,7 +28,7 @@ import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
  *
  * @generated
  */
-public class UpdateMethodImpl extends MethodTypeImpl implements UpdateMethod
+public class UpdateMethodImpl extends ControllerMethodImpl implements UpdateMethod
 {
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' reference list.

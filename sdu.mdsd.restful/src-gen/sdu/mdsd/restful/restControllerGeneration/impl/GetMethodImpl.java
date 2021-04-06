@@ -27,7 +27,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  *
  * @generated
  */
-public class GetMethodImpl extends MethodTypeImpl implements GetMethod
+public class GetMethodImpl extends ControllerMethodImpl implements GetMethod
 {
   /**
    * The cached value of the '{@link #getEntityId() <em>Entity Id</em>}' reference.

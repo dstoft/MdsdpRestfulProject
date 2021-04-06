@@ -730,7 +730,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.MethodDef");
 		private final RuleCall cMethodTypeParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//MethodDef:
+		//MethodDef ControllerMethod:
 		//	MethodType;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -746,7 +746,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final RuleCall cUpdateMethodParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cDeleteMethodParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
-		//MethodType:
+		//MethodType ControllerMethod:
 		//	CreateMethod | GetMethod | ListMethod | UpdateMethod | DeleteMethod;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1276,7 +1276,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		return getControllerAccess().getRule();
 	}
 	
-	//MethodDef:
+	//MethodDef ControllerMethod:
 	//	MethodType;
 	public MethodDefElements getMethodDefAccess() {
 		return pMethodDef;
@@ -1286,7 +1286,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		return getMethodDefAccess().getRule();
 	}
 	
-	//MethodType:
+	//MethodType ControllerMethod:
 	//	CreateMethod | GetMethod | ListMethod | UpdateMethod | DeleteMethod;
 	public MethodTypeElements getMethodTypeAccess() {
 		return pMethodType;

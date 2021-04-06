@@ -51,8 +51,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Controller/entity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Controller/methods"/>
     </genClasses>
-    <genClasses ecoreClass="RestControllerGeneration.ecore#//MethodDef"/>
-    <genClasses ecoreClass="RestControllerGeneration.ecore#//MethodType"/>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//ControllerMethod"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//CreateMethod">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//CreateMethod/withEntity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//CreateMethod/exclude"/>

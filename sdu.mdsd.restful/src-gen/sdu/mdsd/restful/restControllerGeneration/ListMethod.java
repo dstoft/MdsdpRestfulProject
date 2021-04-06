@@ -14,6 +14,6 @@ package sdu.mdsd.restful.restControllerGeneration;
  * @model
  * @generated
  */
-public interface ListMethod extends MethodType
+public interface ListMethod extends ControllerMethod
 {
 } // ListMethod

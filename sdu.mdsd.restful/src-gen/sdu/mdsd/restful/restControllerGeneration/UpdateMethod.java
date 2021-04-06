@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UpdateMethod extends MethodType
+public interface UpdateMethod extends ControllerMethod
 {
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' reference list.

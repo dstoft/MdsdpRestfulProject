@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sdu.mdsd.restful.restControllerGeneration.Controller;
+import sdu.mdsd.restful.restControllerGeneration.ControllerMethod;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
-import sdu.mdsd.restful.restControllerGeneration.MethodDef;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 
 /**
@@ -68,7 +68,7 @@ public class ControllerImpl extends DeclarationImpl implements Controller
    * @generated
    * @ordered
    */
-  protected EList<MethodDef> methods;
+  protected EList<ControllerMethod> methods;
 
   /**
    * <!-- begin-user-doc -->
@@ -187,11 +187,11 @@ public class ControllerImpl extends DeclarationImpl implements Controller
    * @generated
    */
   @Override
-  public EList<MethodDef> getMethods()
+  public EList<ControllerMethod> getMethods()
   {
     if (methods == null)
     {
-      methods = new EObjectContainmentEList<MethodDef>(MethodDef.class, this, RestControllerGenerationPackage.CONTROLLER__METHODS);
+      methods = new EObjectContainmentEList<ControllerMethod>(ControllerMethod.class, this, RestControllerGenerationPackage.CONTROLLER__METHODS);
     }
     return methods;
   }
@@ -253,7 +253,7 @@ public class ControllerImpl extends DeclarationImpl implements Controller
         return;
       case RestControllerGenerationPackage.CONTROLLER__METHODS:
         getMethods().clear();
-        getMethods().addAll((Collection<? extends MethodDef>)newValue);
+        getMethods().addAll((Collection<? extends ControllerMethod>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

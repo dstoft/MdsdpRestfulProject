@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import sdu.mdsd.restful.restControllerGeneration.MethodDef;
+import sdu.mdsd.restful.restControllerGeneration.ControllerMethod;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Method Def</b></em>'.
+ * An implementation of the model object '<em><b>Controller Method</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class MethodDefImpl extends MinimalEObjectImpl.Container implements MethodDef
+public class ControllerMethodImpl extends MinimalEObjectImpl.Container implements ControllerMethod
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MethodDefImpl()
+  protected ControllerMethodImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class MethodDefImpl extends MinimalEObjectImpl.Container implements Metho
   @Override
   protected EClass eStaticClass()
   {
-    return RestControllerGenerationPackage.Literals.METHOD_DEF;
+    return RestControllerGenerationPackage.Literals.CONTROLLER_METHOD;
   }
 
-} //MethodDefImpl
+} //ControllerMethodImpl

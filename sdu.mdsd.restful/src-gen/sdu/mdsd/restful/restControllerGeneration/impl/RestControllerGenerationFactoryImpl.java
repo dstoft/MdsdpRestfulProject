@@ -80,8 +80,7 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
       case RestControllerGenerationPackage.NAME: return createName();
       case RestControllerGenerationPackage.INT_EXP: return createIntExp();
       case RestControllerGenerationPackage.CONTROLLER: return createController();
-      case RestControllerGenerationPackage.METHOD_DEF: return createMethodDef();
-      case RestControllerGenerationPackage.METHOD_TYPE: return createMethodType();
+      case RestControllerGenerationPackage.CONTROLLER_METHOD: return createControllerMethod();
       case RestControllerGenerationPackage.CREATE_METHOD: return createCreateMethod();
       case RestControllerGenerationPackage.CREATE_METHOD_WITH: return createCreateMethodWith();
       case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE: return createCreateMethodExclude();
@@ -291,22 +290,10 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
    * @generated
    */
   @Override
-  public MethodDef createMethodDef()
+  public ControllerMethod createControllerMethod()
   {
-    MethodDefImpl methodDef = new MethodDefImpl();
-    return methodDef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public MethodType createMethodType()
-  {
-    MethodTypeImpl methodType = new MethodTypeImpl();
-    return methodType;
+    ControllerMethodImpl controllerMethod = new ControllerMethodImpl();
+    return controllerMethod;
   }
 
   /**

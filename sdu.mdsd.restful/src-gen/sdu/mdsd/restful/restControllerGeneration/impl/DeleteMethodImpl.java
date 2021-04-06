@@ -27,7 +27,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  *
  * @generated
  */
-public class DeleteMethodImpl extends MethodTypeImpl implements DeleteMethod
+public class DeleteMethodImpl extends ControllerMethodImpl implements DeleteMethod
 {
   /**
    * The cached value of the '{@link #getEntityId() <em>Entity Id</em>}' reference.

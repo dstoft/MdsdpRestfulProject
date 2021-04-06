@@ -30,7 +30,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  *
  * @generated
  */
-public class CreateMethodImpl extends MethodTypeImpl implements CreateMethod
+public class CreateMethodImpl extends ControllerMethodImpl implements CreateMethod
 {
   /**
    * The cached value of the '{@link #getWithEntity() <em>With Entity</em>}' containment reference.

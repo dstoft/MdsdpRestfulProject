@@ -185,18 +185,10 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RestControllerGenerationPackage.METHOD_DEF:
+      case RestControllerGenerationPackage.CONTROLLER_METHOD:
       {
-        MethodDef methodDef = (MethodDef)theEObject;
-        T result = caseMethodDef(methodDef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RestControllerGenerationPackage.METHOD_TYPE:
-      {
-        MethodType methodType = (MethodType)theEObject;
-        T result = caseMethodType(methodType);
-        if (result == null) result = caseMethodDef(methodType);
+        ControllerMethod controllerMethod = (ControllerMethod)theEObject;
+        T result = caseControllerMethod(controllerMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -204,8 +196,7 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
       {
         CreateMethod createMethod = (CreateMethod)theEObject;
         T result = caseCreateMethod(createMethod);
-        if (result == null) result = caseMethodType(createMethod);
-        if (result == null) result = caseMethodDef(createMethod);
+        if (result == null) result = caseControllerMethod(createMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -227,8 +218,7 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
       {
         GetMethod getMethod = (GetMethod)theEObject;
         T result = caseGetMethod(getMethod);
-        if (result == null) result = caseMethodType(getMethod);
-        if (result == null) result = caseMethodDef(getMethod);
+        if (result == null) result = caseControllerMethod(getMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -236,8 +226,7 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
       {
         ListMethod listMethod = (ListMethod)theEObject;
         T result = caseListMethod(listMethod);
-        if (result == null) result = caseMethodType(listMethod);
-        if (result == null) result = caseMethodDef(listMethod);
+        if (result == null) result = caseControllerMethod(listMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -245,8 +234,7 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
       {
         UpdateMethod updateMethod = (UpdateMethod)theEObject;
         T result = caseUpdateMethod(updateMethod);
-        if (result == null) result = caseMethodType(updateMethod);
-        if (result == null) result = caseMethodDef(updateMethod);
+        if (result == null) result = caseControllerMethod(updateMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -254,8 +242,7 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
       {
         DeleteMethod deleteMethod = (DeleteMethod)theEObject;
         T result = caseDeleteMethod(deleteMethod);
-        if (result == null) result = caseMethodType(deleteMethod);
-        if (result == null) result = caseMethodDef(deleteMethod);
+        if (result == null) result = caseControllerMethod(deleteMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -592,33 +579,17 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Method Def</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Controller Method</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Method Def</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Controller Method</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMethodDef(MethodDef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Method Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Method Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMethodType(MethodType object)
+  public T caseControllerMethod(ControllerMethod object)
   {
     return null;
   }

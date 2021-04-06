@@ -20,7 +20,7 @@ package sdu.mdsd.restful.restControllerGeneration;
  * @model
  * @generated
  */
-public interface GetMethod extends MethodType
+public interface GetMethod extends ControllerMethod
 {
   /**
    * Returns the value of the '<em><b>Entity Id</b></em>' reference.

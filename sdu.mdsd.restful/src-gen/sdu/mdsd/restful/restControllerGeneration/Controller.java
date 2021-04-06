@@ -71,7 +71,7 @@ public interface Controller extends Declaration
 
   /**
    * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
-   * The list contents are of type {@link sdu.mdsd.restful.restControllerGeneration.MethodDef}.
+   * The list contents are of type {@link sdu.mdsd.restful.restControllerGeneration.ControllerMethod}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Methods</em>' containment reference list.
@@ -79,6 +79,6 @@ public interface Controller extends Declaration
    * @model containment="true"
    * @generated
    */
-  EList<MethodDef> getMethods();
+  EList<ControllerMethod> getMethods();
 
 } // Controller

@@ -21,7 +21,7 @@ package sdu.mdsd.restful.restControllerGeneration;
  * @model
  * @generated
  */
-public interface CreateMethod extends MethodType
+public interface CreateMethod extends ControllerMethod
 {
   /**
    * Returns the value of the '<em><b>With Entity</b></em>' containment reference.

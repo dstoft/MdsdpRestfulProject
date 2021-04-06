@@ -550,42 +550,23 @@ public interface RestControllerGenerationPackage extends EPackage
   int CONTROLLER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.MethodDefImpl <em>Method Def</em>}' class.
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerMethodImpl <em>Controller Method</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sdu.mdsd.restful.restControllerGeneration.impl.MethodDefImpl
-   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMethodDef()
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.ControllerMethodImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getControllerMethod()
    * @generated
    */
-  int METHOD_DEF = 15;
+  int CONTROLLER_METHOD = 15;
 
   /**
-   * The number of structural features of the '<em>Method Def</em>' class.
+   * The number of structural features of the '<em>Controller Method</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_DEF_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.MethodTypeImpl <em>Method Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sdu.mdsd.restful.restControllerGeneration.impl.MethodTypeImpl
-   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMethodType()
-   * @generated
-   */
-  int METHOD_TYPE = 16;
-
-  /**
-   * The number of structural features of the '<em>Method Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_TYPE_FEATURE_COUNT = METHOD_DEF_FEATURE_COUNT + 0;
+  int CONTROLLER_METHOD_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodImpl <em>Create Method</em>}' class.
@@ -595,7 +576,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethod()
    * @generated
    */
-  int CREATE_METHOD = 17;
+  int CREATE_METHOD = 16;
 
   /**
    * The feature id for the '<em><b>With Entity</b></em>' containment reference.
@@ -604,7 +585,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CREATE_METHOD__WITH_ENTITY = METHOD_TYPE_FEATURE_COUNT + 0;
+  int CREATE_METHOD__WITH_ENTITY = CONTROLLER_METHOD_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Exclude</b></em>' containment reference.
@@ -613,7 +594,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CREATE_METHOD__EXCLUDE = METHOD_TYPE_FEATURE_COUNT + 1;
+  int CREATE_METHOD__EXCLUDE = CONTROLLER_METHOD_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Create Method</em>' class.
@@ -622,7 +603,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CREATE_METHOD_FEATURE_COUNT = METHOD_TYPE_FEATURE_COUNT + 2;
+  int CREATE_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodWithImpl <em>Create Method With</em>}' class.
@@ -632,7 +613,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethodWith()
    * @generated
    */
-  int CREATE_METHOD_WITH = 18;
+  int CREATE_METHOD_WITH = 17;
 
   /**
    * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -669,7 +650,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethodExclude()
    * @generated
    */
-  int CREATE_METHOD_EXCLUDE = 19;
+  int CREATE_METHOD_EXCLUDE = 18;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -697,7 +678,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getGetMethod()
    * @generated
    */
-  int GET_METHOD = 20;
+  int GET_METHOD = 19;
 
   /**
    * The feature id for the '<em><b>Entity Id</b></em>' reference.
@@ -706,7 +687,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GET_METHOD__ENTITY_ID = METHOD_TYPE_FEATURE_COUNT + 0;
+  int GET_METHOD__ENTITY_ID = CONTROLLER_METHOD_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Get Method</em>' class.
@@ -715,7 +696,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GET_METHOD_FEATURE_COUNT = METHOD_TYPE_FEATURE_COUNT + 1;
+  int GET_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ListMethodImpl <em>List Method</em>}' class.
@@ -725,7 +706,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getListMethod()
    * @generated
    */
-  int LIST_METHOD = 21;
+  int LIST_METHOD = 20;
 
   /**
    * The number of structural features of the '<em>List Method</em>' class.
@@ -734,7 +715,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIST_METHOD_FEATURE_COUNT = METHOD_TYPE_FEATURE_COUNT + 0;
+  int LIST_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.UpdateMethodImpl <em>Update Method</em>}' class.
@@ -744,7 +725,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getUpdateMethod()
    * @generated
    */
-  int UPDATE_METHOD = 22;
+  int UPDATE_METHOD = 21;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' reference list.
@@ -753,7 +734,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD__ATTRIBUTES = METHOD_TYPE_FEATURE_COUNT + 0;
+  int UPDATE_METHOD__ATTRIBUTES = CONTROLLER_METHOD_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Update Method</em>' class.
@@ -762,7 +743,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD_FEATURE_COUNT = METHOD_TYPE_FEATURE_COUNT + 1;
+  int UPDATE_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.DeleteMethodImpl <em>Delete Method</em>}' class.
@@ -772,7 +753,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDeleteMethod()
    * @generated
    */
-  int DELETE_METHOD = 23;
+  int DELETE_METHOD = 22;
 
   /**
    * The feature id for the '<em><b>Entity Id</b></em>' reference.
@@ -781,7 +762,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_METHOD__ENTITY_ID = METHOD_TYPE_FEATURE_COUNT + 0;
+  int DELETE_METHOD__ENTITY_ID = CONTROLLER_METHOD_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Delete Method</em>' class.
@@ -790,7 +771,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_METHOD_FEATURE_COUNT = METHOD_TYPE_FEATURE_COUNT + 1;
+  int DELETE_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.DisjunctionImpl <em>Disjunction</em>}' class.
@@ -800,7 +781,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDisjunction()
    * @generated
    */
-  int DISJUNCTION = 24;
+  int DISJUNCTION = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -837,7 +818,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getConjunction()
    * @generated
    */
-  int CONJUNCTION = 25;
+  int CONJUNCTION = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -874,7 +855,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelEQ()
    * @generated
    */
-  int REL_EQ = 26;
+  int REL_EQ = 25;
 
   /**
    * The number of structural features of the '<em>Rel EQ</em>' class.
@@ -893,7 +874,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelLT()
    * @generated
    */
-  int REL_LT = 27;
+  int REL_LT = 26;
 
   /**
    * The number of structural features of the '<em>Rel LT</em>' class.
@@ -912,7 +893,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelGT()
    * @generated
    */
-  int REL_GT = 28;
+  int REL_GT = 27;
 
   /**
    * The number of structural features of the '<em>Rel GT</em>' class.
@@ -931,7 +912,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelLTE()
    * @generated
    */
-  int REL_LTE = 29;
+  int REL_LTE = 28;
 
   /**
    * The number of structural features of the '<em>Rel LTE</em>' class.
@@ -950,7 +931,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelGTE()
    * @generated
    */
-  int REL_GTE = 30;
+  int REL_GTE = 29;
 
   /**
    * The number of structural features of the '<em>Rel GTE</em>' class.
@@ -969,7 +950,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getAdd()
    * @generated
    */
-  int ADD = 31;
+  int ADD = 30;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1006,7 +987,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getSub()
    * @generated
    */
-  int SUB = 32;
+  int SUB = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1043,7 +1024,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMul()
    * @generated
    */
-  int MUL = 33;
+  int MUL = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1080,7 +1061,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDiv()
    * @generated
    */
-  int DIV = 34;
+  int DIV = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1470,24 +1451,14 @@ public interface RestControllerGenerationPackage extends EPackage
   EReference getController_Methods();
 
   /**
-   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.MethodDef <em>Method Def</em>}'.
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.ControllerMethod <em>Controller Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Method Def</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.MethodDef
+   * @return the meta object for class '<em>Controller Method</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ControllerMethod
    * @generated
    */
-  EClass getMethodDef();
-
-  /**
-   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.MethodType <em>Method Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Method Type</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.MethodType
-   * @generated
-   */
-  EClass getMethodType();
+  EClass getControllerMethod();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethod <em>Create Method</em>}'.
@@ -2215,24 +2186,14 @@ public interface RestControllerGenerationPackage extends EPackage
     EReference CONTROLLER__METHODS = eINSTANCE.getController_Methods();
 
     /**
-     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.MethodDefImpl <em>Method Def</em>}' class.
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerMethodImpl <em>Controller Method</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sdu.mdsd.restful.restControllerGeneration.impl.MethodDefImpl
-     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMethodDef()
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.ControllerMethodImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getControllerMethod()
      * @generated
      */
-    EClass METHOD_DEF = eINSTANCE.getMethodDef();
-
-    /**
-     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.MethodTypeImpl <em>Method Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see sdu.mdsd.restful.restControllerGeneration.impl.MethodTypeImpl
-     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMethodType()
-     * @generated
-     */
-    EClass METHOD_TYPE = eINSTANCE.getMethodType();
+    EClass CONTROLLER_METHOD = eINSTANCE.getControllerMethod();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodImpl <em>Create Method</em>}' class.

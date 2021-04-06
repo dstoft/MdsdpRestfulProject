@@ -159,22 +159,13 @@ public interface RestControllerGenerationFactory extends EFactory
   Controller createController();
 
   /**
-   * Returns a new object of class '<em>Method Def</em>'.
+   * Returns a new object of class '<em>Controller Method</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Method Def</em>'.
+   * @return a new object of class '<em>Controller Method</em>'.
    * @generated
    */
-  MethodDef createMethodDef();
-
-  /**
-   * Returns a new object of class '<em>Method Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Method Type</em>'.
-   * @generated
-   */
-  MethodType createMethodType();
+  ControllerMethod createControllerMethod();
 
   /**
    * Returns a new object of class '<em>Create Method</em>'.

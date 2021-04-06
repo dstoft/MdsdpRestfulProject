@@ -3,18 +3,42 @@
  */
 package sdu.mdsd.restful.generator
 
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl
-import org.eclipse.emf.ecore.util.EcoreUtil
-import sdu.mdsd.restful.restControllerGeneration.EntityModel
+import sdu.mdsd.restful.restControllerGeneration.Add
 import sdu.mdsd.restful.restControllerGeneration.Attribute
-import sdu.mdsd.restful.restControllerGeneration.ExternalDef
+import sdu.mdsd.restful.restControllerGeneration.AttributeRequirement
+import sdu.mdsd.restful.restControllerGeneration.Comparison
+import sdu.mdsd.restful.restControllerGeneration.Conjunction
+import sdu.mdsd.restful.restControllerGeneration.Disjunction
+import sdu.mdsd.restful.restControllerGeneration.Div
 import sdu.mdsd.restful.restControllerGeneration.Entity
-import org.eclipse.xtext.EcoreUtil2
+import sdu.mdsd.restful.restControllerGeneration.EntityModel
+import sdu.mdsd.restful.restControllerGeneration.ExternalDef
+import sdu.mdsd.restful.restControllerGeneration.ExternalUse
+import sdu.mdsd.restful.restControllerGeneration.IntExp
+import sdu.mdsd.restful.restControllerGeneration.Mul
+import sdu.mdsd.restful.restControllerGeneration.Name
+import sdu.mdsd.restful.restControllerGeneration.RelEQ
+import sdu.mdsd.restful.restControllerGeneration.RelGT
+import sdu.mdsd.restful.restControllerGeneration.RelGTE
+import sdu.mdsd.restful.restControllerGeneration.RelLT
+import sdu.mdsd.restful.restControllerGeneration.RelLTE
+import sdu.mdsd.restful.restControllerGeneration.RelationalOp
+import sdu.mdsd.restful.restControllerGeneration.Sub
+import sdu.mdsd.restful.services.RestControllerGenerationGrammarAccess.LogicExpElements
+import sdu.mdsd.restful.restControllerGeneration.Controller
+import sdu.mdsd.restful.restControllerGeneration.CreateMethod
+import sdu.mdsd.restful.restControllerGeneration.GetMethod
+import sdu.mdsd.restful.restControllerGeneration.ListMethod
+import sdu.mdsd.restful.restControllerGeneration.UpdateMethod
+import sdu.mdsd.restful.restControllerGeneration.DeleteMethod
 
 /**
  * Generates code from your model files on save.
@@ -34,6 +58,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		em.display
 		em.generateExternalInterface(fsa)
 		em.generateModelFiles(fsa)
+		em.generateControllerFiles(fsa)
 	}
 	
 	def display(EObject model) {
@@ -50,16 +75,20 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def generateEntity(Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name+ "/Models/" + entity.name + ".cs", '''
+		using System;
+		
 		namespace «model.name».Models {
 			public class «entity.name» {
 				«entity.generateConstructor»
 				«entity.generateAttributes»
+				«entity.generateAttributeRequirements»
 			}
 		}
 		''')
 	}
 	
 	def generateAttributes(Entity entity) '''
+		private readonly IExternalCode ExternalCode;
 		«FOR x:entity.attributes»
 			«x.generateAttribute»
 		«ENDFOR»
@@ -69,26 +98,138 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	'''
 	
 	def generateConstructor(Entity entity) '''
-		public «entity.name»(«FOR x:entity.attributes SEPARATOR ', '»«x.generateConstructorParameter»«ENDFOR») {
+		public «entity.name»(«entity.externCodeCtorParameter»«FOR x:entity.attributes SEPARATOR ', '»«x.generateConstructorParameter»«ENDFOR») {
+			ExternalCode = externalCode;
 			«FOR x:entity.attributes»
 				«x.generateConstructorSet»
 			«ENDFOR»
 		}
 	'''
+	
+	def externCodeCtorParameter(Entity entity) '''IExternalCode externalCode«IF entity.attributes.size > 0», «ENDIF»'''
 	def generateConstructorParameter(Attribute attribute) '''«attribute.type.name» «attribute.name.toFirstLower»'''
 	def generateConstructorSet(Attribute attribute) '''
 		this.«attribute.name» = «attribute.name.toFirstLower»;
 	'''
 	
+	def generateAttributeRequirements(Entity entity) '''
+		public void checkRequirements() {
+			«FOR x:entity.attributes.filter[a | a.requirement !== null]»
+				if(!(«x.requirement.generateAttributeRequirement(x)»)) throw new Exception("Requirement not fulfilled");
+			«ENDFOR»
+		}
+	'''
+	def dispatch generateAttributeRequirement(ExternalUse requirement, Attribute attribute) '''ExternalCode.«requirement.external.name»(«attribute.name»)'''
+	def dispatch generateAttributeRequirement(AttributeRequirement requirement, Attribute attribute) '''«requirement.logic.generateLogic»'''
+	
+	def dispatch CharSequence generateLogic(Disjunction x) '''(«x.left.generateLogic»||«x.right.generateLogic»)'''
+	def dispatch CharSequence generateLogic(Conjunction x) '''(«x.left.generateLogic»&&«x.right.generateLogic»)'''
+	def dispatch CharSequence generateLogic(Comparison x) '''(«x.left.generateExp»«x.op.generateOp»«x.right.generateExp»)'''
+	
+	def generateOp(RelationalOp op) {
+		switch op {	RelEQ: '==' RelLT: '<' RelGT: '>' RelLTE: '<=' RelGTE: '>=' }
+	}
+	
+	def dispatch CharSequence generateExp(Add x) '''(«x.left.generateExp»+«x.right.generateExp»)'''
+	def dispatch CharSequence generateExp(Sub x) '''(«x.left.generateExp»-«x.right.generateExp»)'''
+	def dispatch CharSequence generateExp(Mul x) '''(«x.left.generateExp»*«x.right.generateExp»)'''
+	def dispatch CharSequence generateExp(Div x) '''(«x.left.generateExp»/«x.right.generateExp»)'''
+	def dispatch CharSequence generateExp(Name x) { x.varName.name }	
+	def dispatch CharSequence generateExp(IntExp x) { Integer.toString(x.value) }
+	
 	def generateExternalInterface(EntityModel em, IFileSystemAccess2 fsa) {
-		fsa.generateFile(em.name + "/ExternalCode.cs", '''
+		fsa.generateFile(em.name + "/IExternalCode.cs", '''
 			namespace «em.name» {
-				public interface ExternalCode {
+				public interface IExternalCode {
 					«FOR x:em.declarations.filter(ExternalDef)»
-						public boolean «x.name»(«x.type.name» parameter);
+						public bool «x.name»(«x.type.name» parameter);
 					«ENDFOR»
 				}
 			}
 		''')
 	}
+	
+	def generateControllerFiles(EntityModel em, IFileSystemAccess2 fsa) {
+		em.declarations.filter(Controller).forEach[generateController(fsa)]
+	}
+	
+	def generateController(Controller controller, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(controller, EntityModel)
+		fsa.generateFile(model.name+ "/Controllers/" + controller.name + ".cs", '''
+		using EmTest.Models;
+		using Microsoft.AspNetCore.Http;
+		using Microsoft.AspNetCore.Mvc;
+		
+		namespace «model.name».Controllers {
+			[Route("api/[controller]")]
+		    [Produces("application/json")]
+		    [Consumes("application/json")]
+			public class «controller.name» : ControllerBase {
+				«controller.generateControllerConstructor»
+				«FOR x:controller.methods»
+					«x.generateControllerMethod(controller.entity)»
+				«ENDFOR»
+			}
+			
+			«FOR x:controller.methods»
+				«x.generateControllerParameters(controller.entity)»
+			«ENDFOR»
+		}
+		''')
+	}
+	
+	def generateControllerConstructor(Controller controller) '''
+		private readonly IExternalCode ExternalCode;
+		
+		public «controller.name»(IExternalCode externalCode)
+		{
+		    ExternalCode = externalCode;
+		}
+	'''
+	
+	def dispatch generateControllerMethod(CreateMethod method, Entity entity) '''
+		[HttpPost]
+		[ProducesResponseType(StatusCodes.Status201Created)]
+		public ActionResult<«entity.name»> Create(Create«entity.name»Parameters parameters)
+		{
+			return new «entity.name»(
+				ExternalCode«IF entity.attributes.size > 0», «ENDIF»
+				«FOR x:entity.attributes SEPARATOR ', '»
+				parameters.«x.name»
+				«ENDFOR»
+			);
+		}
+	'''
+	def dispatch generateControllerMethod(GetMethod method, Entity entity) '''
+		//GetMethod!
+	'''
+	def dispatch generateControllerMethod(ListMethod method, Entity entity) '''
+		//ListMethod!
+	'''
+	def dispatch generateControllerMethod(UpdateMethod method, Entity entity) '''
+		//UpdateMethod!
+	'''
+	def dispatch generateControllerMethod(DeleteMethod method, Entity entity) '''
+		//DeleteMethod!
+	'''
+	
+	def dispatch generateControllerParameters(CreateMethod method, Entity entity) '''
+		public class Create«entity.name»Parameters {
+			«FOR x:entity.attributes»
+			public «x.type.name» «x.name» { get; set; }
+			«ENDFOR»
+		}
+	'''
+	def dispatch generateControllerParameters(GetMethod method, Entity entity) '''
+		//GetMethod!
+	'''
+	def dispatch generateControllerParameters(ListMethod method, Entity entity) '''
+		//ListMethod!
+	'''
+	def dispatch generateControllerParameters(UpdateMethod method, Entity entity) '''
+		//UpdateMethod!
+	'''
+	def dispatch generateControllerParameters(DeleteMethod method, Entity entity) '''
+		//DeleteMethod!
+	'''
 }

@@ -151,14 +151,9 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
         return createControllerAdapter();
       }
       @Override
-      public Adapter caseMethodDef(MethodDef object)
+      public Adapter caseControllerMethod(ControllerMethod object)
       {
-        return createMethodDefAdapter();
-      }
-      @Override
-      public Adapter caseMethodType(MethodType object)
-      {
-        return createMethodTypeAdapter();
+        return createControllerMethodAdapter();
       }
       @Override
       public Adapter caseCreateMethod(CreateMethod object)
@@ -498,31 +493,16 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.MethodDef <em>Method Def</em>}'.
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.ControllerMethod <em>Controller Method</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sdu.mdsd.restful.restControllerGeneration.MethodDef
+   * @see sdu.mdsd.restful.restControllerGeneration.ControllerMethod
    * @generated
    */
-  public Adapter createMethodDefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.MethodType <em>Method Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sdu.mdsd.restful.restControllerGeneration.MethodType
-   * @generated
-   */
-  public Adapter createMethodTypeAdapter()
+  public Adapter createControllerMethodAdapter()
   {
     return null;
   }

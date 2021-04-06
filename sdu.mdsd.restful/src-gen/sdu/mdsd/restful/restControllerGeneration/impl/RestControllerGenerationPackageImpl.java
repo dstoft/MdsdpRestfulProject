@@ -16,6 +16,7 @@ import sdu.mdsd.restful.restControllerGeneration.AttributeRequirement;
 import sdu.mdsd.restful.restControllerGeneration.Comparison;
 import sdu.mdsd.restful.restControllerGeneration.Conjunction;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
+import sdu.mdsd.restful.restControllerGeneration.ControllerMethod;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethod;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith;
@@ -31,8 +32,6 @@ import sdu.mdsd.restful.restControllerGeneration.ExternalUse;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.IntExp;
 import sdu.mdsd.restful.restControllerGeneration.ListMethod;
-import sdu.mdsd.restful.restControllerGeneration.MethodDef;
-import sdu.mdsd.restful.restControllerGeneration.MethodType;
 import sdu.mdsd.restful.restControllerGeneration.Mul;
 import sdu.mdsd.restful.restControllerGeneration.Name;
 import sdu.mdsd.restful.restControllerGeneration.Proposition;
@@ -166,14 +165,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass methodDefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass methodTypeEClass = null;
+  private EClass controllerMethodEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -744,20 +736,9 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EClass getMethodDef()
+  public EClass getControllerMethod()
   {
-    return methodDefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getMethodType()
-  {
-    return methodTypeEClass;
+    return controllerMethodEClass;
   }
 
   /**
@@ -1258,9 +1239,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     createEReference(controllerEClass, CONTROLLER__ENTITY);
     createEReference(controllerEClass, CONTROLLER__METHODS);
 
-    methodDefEClass = createEClass(METHOD_DEF);
-
-    methodTypeEClass = createEClass(METHOD_TYPE);
+    controllerMethodEClass = createEClass(CONTROLLER_METHOD);
 
     createMethodEClass = createEClass(CREATE_METHOD);
     createEReference(createMethodEClass, CREATE_METHOD__WITH_ENTITY);
@@ -1355,12 +1334,11 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     nameEClass.getESuperTypes().add(this.getExpression());
     intExpEClass.getESuperTypes().add(this.getExpression());
     controllerEClass.getESuperTypes().add(this.getDeclaration());
-    methodTypeEClass.getESuperTypes().add(this.getMethodDef());
-    createMethodEClass.getESuperTypes().add(this.getMethodType());
-    getMethodEClass.getESuperTypes().add(this.getMethodType());
-    listMethodEClass.getESuperTypes().add(this.getMethodType());
-    updateMethodEClass.getESuperTypes().add(this.getMethodType());
-    deleteMethodEClass.getESuperTypes().add(this.getMethodType());
+    createMethodEClass.getESuperTypes().add(this.getControllerMethod());
+    getMethodEClass.getESuperTypes().add(this.getControllerMethod());
+    listMethodEClass.getESuperTypes().add(this.getControllerMethod());
+    updateMethodEClass.getESuperTypes().add(this.getControllerMethod());
+    deleteMethodEClass.getESuperTypes().add(this.getControllerMethod());
     disjunctionEClass.getESuperTypes().add(this.getProposition());
     conjunctionEClass.getESuperTypes().add(this.getProposition());
     relEQEClass.getESuperTypes().add(this.getRelationalOp());
@@ -1421,11 +1399,9 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEClass(controllerEClass, Controller.class, "Controller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getController_Super(), this.getController(), null, "super", null, 0, 1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getController_Entity(), this.getEntity(), null, "entity", null, 0, 1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getController_Methods(), this.getMethodDef(), null, "methods", null, 0, -1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getController_Methods(), this.getControllerMethod(), null, "methods", null, 0, -1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(methodDefEClass, MethodDef.class, "MethodDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(methodTypeEClass, MethodType.class, "MethodType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(controllerMethodEClass, ControllerMethod.class, "ControllerMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(createMethodEClass, CreateMethod.class, "CreateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCreateMethod_WithEntity(), this.getCreateMethodWith(), null, "withEntity", null, 0, 1, CreateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
