@@ -67,13 +67,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="entityId" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateMethodExclude">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" unique="false"
+        upperBound="-1" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GetMethod" eSuperTypes="#//ControllerMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entityId" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListMethod" eSuperTypes="#//ControllerMethod"/>
   <eClassifiers xsi:type="ecore:EClass" name="UpdateMethod" eSuperTypes="#//ControllerMethod">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entityId" eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" unique="false"
         upperBound="-1" eType="#//Attribute"/>
   </eClassifiers>

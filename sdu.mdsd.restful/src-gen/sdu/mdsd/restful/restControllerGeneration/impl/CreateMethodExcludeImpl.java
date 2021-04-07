@@ -3,13 +3,15 @@
  */
 package sdu.mdsd.restful.restControllerGeneration.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
@@ -23,7 +25,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodExcludeImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodExcludeImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +33,14 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
 public class CreateMethodExcludeImpl extends MinimalEObjectImpl.Container implements CreateMethodExclude
 {
   /**
-   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
+   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttribute()
+   * @see #getAttributes()
    * @generated
    * @ordered
    */
-  protected Attribute attribute;
+  protected EList<Attribute> attributes;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,43 +69,13 @@ public class CreateMethodExcludeImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public Attribute getAttribute()
+  public EList<Attribute> getAttributes()
   {
-    if (attribute != null && attribute.eIsProxy())
+    if (attributes == null)
     {
-      InternalEObject oldAttribute = (InternalEObject)attribute;
-      attribute = (Attribute)eResolveProxy(oldAttribute);
-      if (attribute != oldAttribute)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTE, oldAttribute, attribute));
-      }
+      attributes = new EObjectResolvingEList<Attribute>(Attribute.class, this, RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTES);
     }
-    return attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute basicGetAttribute()
-  {
-    return attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setAttribute(Attribute newAttribute)
-  {
-    Attribute oldAttribute = attribute;
-    attribute = newAttribute;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTE, oldAttribute, attribute));
+    return attributes;
   }
 
   /**
@@ -116,9 +88,8 @@ public class CreateMethodExcludeImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTE:
-        if (resolve) return getAttribute();
-        return basicGetAttribute();
+      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTES:
+        return getAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -128,13 +99,15 @@ public class CreateMethodExcludeImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTE:
-        setAttribute((Attribute)newValue);
+      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTES:
+        getAttributes().clear();
+        getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -150,8 +123,8 @@ public class CreateMethodExcludeImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTE:
-        setAttribute((Attribute)null);
+      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTES:
+        getAttributes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -167,8 +140,8 @@ public class CreateMethodExcludeImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTE:
-        return attribute != null;
+      case RestControllerGenerationPackage.CREATE_METHOD_EXCLUDE__ATTRIBUTES:
+        return attributes != null && !attributes.isEmpty();
     }
     return super.eIsSet(featureID);
   }

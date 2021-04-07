@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.UpdateMethod#getEntityId <em>Entity Id</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.UpdateMethod#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -23,6 +24,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface UpdateMethod extends ControllerMethod
 {
+  /**
+   * Returns the value of the '<em><b>Entity Id</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Entity Id</em>' reference.
+   * @see #setEntityId(Attribute)
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getUpdateMethod_EntityId()
+   * @model
+   * @generated
+   */
+  Attribute getEntityId();
+
+  /**
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.UpdateMethod#getEntityId <em>Entity Id</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Entity Id</em>' reference.
+   * @see #getEntityId()
+   * @generated
+   */
+  void setEntityId(Attribute value);
+
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' reference list.
    * The list contents are of type {@link sdu.mdsd.restful.restControllerGeneration.Attribute}.

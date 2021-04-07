@@ -69,10 +69,11 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 			builder.put(grammarAccess.getCreateMethodAccess().getGroup(), "rule__CreateMethod__Group__0");
 			builder.put(grammarAccess.getCreateMethodWithAccess().getGroup(), "rule__CreateMethodWith__Group__0");
 			builder.put(grammarAccess.getCreateMethodExcludeAccess().getGroup(), "rule__CreateMethodExclude__Group__0");
+			builder.put(grammarAccess.getCreateMethodExcludeAccess().getGroup_2(), "rule__CreateMethodExclude__Group_2__0");
 			builder.put(grammarAccess.getGetMethodAccess().getGroup(), "rule__GetMethod__Group__0");
 			builder.put(grammarAccess.getListMethodAccess().getGroup(), "rule__ListMethod__Group__0");
 			builder.put(grammarAccess.getUpdateMethodAccess().getGroup(), "rule__UpdateMethod__Group__0");
-			builder.put(grammarAccess.getUpdateMethodAccess().getGroup_2(), "rule__UpdateMethod__Group_2__0");
+			builder.put(grammarAccess.getUpdateMethodAccess().getGroup_5(), "rule__UpdateMethod__Group_5__0");
 			builder.put(grammarAccess.getDeleteMethodAccess().getGroup(), "rule__DeleteMethod__Group__0");
 			builder.put(grammarAccess.getEntityModelAccess().getNameAssignment_1(), "rule__EntityModel__NameAssignment_1");
 			builder.put(grammarAccess.getEntityModelAccess().getDeclarationsAssignment_2(), "rule__EntityModel__DeclarationsAssignment_2");
@@ -104,10 +105,12 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 			builder.put(grammarAccess.getCreateMethodAccess().getExcludeAssignment_3(), "rule__CreateMethod__ExcludeAssignment_3");
 			builder.put(grammarAccess.getCreateMethodWithAccess().getEntityAssignment_1(), "rule__CreateMethodWith__EntityAssignment_1");
 			builder.put(grammarAccess.getCreateMethodWithAccess().getEntityIdAssignment_3(), "rule__CreateMethodWith__EntityIdAssignment_3");
-			builder.put(grammarAccess.getCreateMethodExcludeAccess().getAttributeAssignment_1(), "rule__CreateMethodExclude__AttributeAssignment_1");
+			builder.put(grammarAccess.getCreateMethodExcludeAccess().getAttributesAssignment_1(), "rule__CreateMethodExclude__AttributesAssignment_1");
+			builder.put(grammarAccess.getCreateMethodExcludeAccess().getAttributesAssignment_2_1(), "rule__CreateMethodExclude__AttributesAssignment_2_1");
 			builder.put(grammarAccess.getGetMethodAccess().getEntityIdAssignment_2(), "rule__GetMethod__EntityIdAssignment_2");
-			builder.put(grammarAccess.getUpdateMethodAccess().getAttributesAssignment_1(), "rule__UpdateMethod__AttributesAssignment_1");
-			builder.put(grammarAccess.getUpdateMethodAccess().getAttributesAssignment_2_1(), "rule__UpdateMethod__AttributesAssignment_2_1");
+			builder.put(grammarAccess.getUpdateMethodAccess().getEntityIdAssignment_2(), "rule__UpdateMethod__EntityIdAssignment_2");
+			builder.put(grammarAccess.getUpdateMethodAccess().getAttributesAssignment_4(), "rule__UpdateMethod__AttributesAssignment_4");
+			builder.put(grammarAccess.getUpdateMethodAccess().getAttributesAssignment_5_1(), "rule__UpdateMethod__AttributesAssignment_5_1");
 			builder.put(grammarAccess.getDeleteMethodAccess().getEntityIdAssignment_2(), "rule__DeleteMethod__EntityIdAssignment_2");
 		}
 	}

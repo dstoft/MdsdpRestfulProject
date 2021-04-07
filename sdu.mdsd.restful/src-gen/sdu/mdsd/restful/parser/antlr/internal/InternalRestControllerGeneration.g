@@ -1421,10 +1421,29 @@ ruleCreateMethodExclude returns [EObject current=null]
 				}
 				otherlv_1=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getCreateMethodExcludeAccess().getAttributeAttributeCrossReference_1_0());
+					newLeafNode(otherlv_1, grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeCrossReference_1_0());
 				}
 			)
 		)
+		(
+			otherlv_2=','
+			{
+				newLeafNode(otherlv_2, grammarAccess.getCreateMethodExcludeAccess().getCommaKeyword_2_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getCreateMethodExcludeRule());
+						}
+					}
+					otherlv_3=RULE_ID
+					{
+						newLeafNode(otherlv_3, grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeCrossReference_2_1_0());
+					}
+				)
+			)
+		)*
 	)
 ;
 
@@ -1518,6 +1537,10 @@ ruleUpdateMethod returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getUpdateMethodAccess().getUPDATEKeyword_0());
 		}
+		otherlv_1='on'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getUpdateMethodAccess().getOnKeyword_1());
+		}
 		(
 			(
 				{
@@ -1525,16 +1548,33 @@ ruleUpdateMethod returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getUpdateMethodRule());
 					}
 				}
-				otherlv_1=RULE_ID
+				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_1_0());
+					newLeafNode(otherlv_2, grammarAccess.getUpdateMethodAccess().getEntityIdAttributeCrossReference_2_0());
+				}
+			)
+		)
+		otherlv_3='with'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getUpdateMethodAccess().getWithKeyword_3());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getUpdateMethodRule());
+					}
+				}
+				otherlv_4=RULE_ID
+				{
+					newLeafNode(otherlv_4, grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_4_0());
 				}
 			)
 		)
 		(
-			otherlv_2=','
+			otherlv_5=','
 			{
-				newLeafNode(otherlv_2, grammarAccess.getUpdateMethodAccess().getCommaKeyword_2_0());
+				newLeafNode(otherlv_5, grammarAccess.getUpdateMethodAccess().getCommaKeyword_5_0());
 			}
 			(
 				(
@@ -1543,9 +1583,9 @@ ruleUpdateMethod returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getUpdateMethodRule());
 						}
 					}
-					otherlv_3=RULE_ID
+					otherlv_6=RULE_ID
 					{
-						newLeafNode(otherlv_3, grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_2_1_0());
+						newLeafNode(otherlv_6, grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_5_1_0());
 					}
 				)
 			)

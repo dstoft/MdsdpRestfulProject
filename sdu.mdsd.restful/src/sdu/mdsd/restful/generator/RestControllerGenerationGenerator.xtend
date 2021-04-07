@@ -59,6 +59,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		em.generateExternalInterface(fsa)
 		em.generateModelFiles(fsa)
 		em.generateControllerFiles(fsa)
+		em.generateEntityApplicationInterfaces(fsa)
 	}
 	
 	def display(EObject model) {
@@ -157,8 +158,12 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val EntityModel model = EcoreUtil2.getContainerOfType(controller, EntityModel)
 		fsa.generateFile(model.name+ "/Controllers/" + controller.name + ".cs", '''
 		using EmTest.Models;
+		using EmTest.Application.Interfaces;
+		using EmTest.Application.Parameters;
 		using Microsoft.AspNetCore.Http;
 		using Microsoft.AspNetCore.Mvc;
+		using System.Collections.Generic;
+		using System.Net;
 		
 		namespace «model.name».Controllers {
 			[Route("api/[controller]")]
@@ -171,19 +176,19 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 				«ENDFOR»
 			}
 			
-			«FOR x:controller.methods»
-				«x.generateControllerParameters(controller.entity)»
-			«ENDFOR»
+«««			«FOR x:controller.methods»
+«««				«x.generateControllerParameters(controller.entity)»
+«««			«ENDFOR»
 		}
 		''')
 	}
 	
 	def generateControllerConstructor(Controller controller) '''
-		private readonly IExternalCode ExternalCode;
+		private readonly I«controller.entity.name»Service Service;
 		
-		public «controller.name»(IExternalCode externalCode)
+		public «controller.name»(I«controller.entity.name»Service service)
 		{
-		    ExternalCode = externalCode;
+		    Service = service;
 		}
 	'''
 	
@@ -192,44 +197,163 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		[ProducesResponseType(StatusCodes.Status201Created)]
 		public ActionResult<«entity.name»> Create(Create«entity.name»Parameters parameters)
 		{
-			return new «entity.name»(
-				ExternalCode«IF entity.attributes.size > 0», «ENDIF»
-				«FOR x:entity.attributes SEPARATOR ', '»
-				parameters.«x.name»
-				«ENDFOR»
-			);
+			return Created("", Service.Create(parameters));
 		}
 	'''
 	def dispatch generateControllerMethod(GetMethod method, Entity entity) '''
-		//GetMethod!
-	'''
-	def dispatch generateControllerMethod(ListMethod method, Entity entity) '''
-		//ListMethod!
-	'''
-	def dispatch generateControllerMethod(UpdateMethod method, Entity entity) '''
-		//UpdateMethod!
-	'''
-	def dispatch generateControllerMethod(DeleteMethod method, Entity entity) '''
-		//DeleteMethod!
-	'''
-	
-	def dispatch generateControllerParameters(CreateMethod method, Entity entity) '''
-		public class Create«entity.name»Parameters {
-			«FOR x:entity.attributes»
-			public «x.type.name» «x.name» { get; set; }
-			«ENDFOR»
+		[HttpGet("{«method.entityId.name.toFirstLower»}")]
+		[ProducesResponseType(typeof(«entity.name»), (int) HttpStatusCode.OK)]
+		public ActionResult<«entity.name»> Get(«method.entityId.type.name» «method.entityId.name.toFirstLower»)
+		{
+		    return Ok(Service.Get(new Get«entity.name»Parameters
+		    {
+		    	«method.entityId.name» = «method.entityId.name.toFirstLower»
+			}));
 		}
 	'''
-	def dispatch generateControllerParameters(GetMethod method, Entity entity) '''
-		//GetMethod!
+	def dispatch generateControllerMethod(ListMethod method, Entity entity) '''
+		[HttpGet]
+		[ProducesResponseType(typeof(«entity.name»[]), (int) HttpStatusCode.OK)]
+		public ActionResult<IList<«entity.name»>> List()
+		{
+		    return Ok(Service.List(new List«entity.name»Parameters()));
+		}
 	'''
-	def dispatch generateControllerParameters(ListMethod method, Entity entity) '''
-		//ListMethod!
+	def dispatch generateControllerMethod(UpdateMethod method, Entity entity) '''
+		[HttpPut("{«method.entityId.name.toFirstLower»}")]
+		[ProducesResponseType(typeof(«entity.name»), (int) HttpStatusCode.OK)]
+		public ActionResult<«entity.name»> Update(«method.entityId.type.name» «method.entityId.name.toFirstLower», Update«entity.name»Parameters parameters)
+		{
+			return Ok(Service.Update(new Update«entity.name»ParametersWithId
+			{
+				«method.entityId.name» = «method.entityId.name.toFirstLower»,
+				Parameters = parameters
+			}));
+		}
 	'''
-	def dispatch generateControllerParameters(UpdateMethod method, Entity entity) '''
-		//UpdateMethod!
+	def dispatch generateControllerMethod(DeleteMethod method, Entity entity) '''
+		[HttpDelete("{«method.entityId.name.toFirstLower»}")]
+		[ProducesResponseType((int) HttpStatusCode.OK)]
+		public ActionResult Delete(«method.entityId.type.name» «method.entityId.name.toFirstLower»)
+		{
+		    return Ok(Service.Delete(new Delete«entity.name»Parameters
+		    {
+		    	«method.entityId.name» = «method.entityId.name.toFirstLower»
+			}));
+		}
 	'''
-	def dispatch generateControllerParameters(DeleteMethod method, Entity entity) '''
-		//DeleteMethod!
+	
+	def generateEntityApplicationInterfaces(EntityModel em, IFileSystemAccess2 fsa) {
+		em.declarations.filter(Entity).forEach[generateEntityApplicationInterface(fsa)]
+		em.declarations.filter(Entity).forEach[generateEntityApplicationParameters(fsa)]
+	}
+	def generateEntityApplicationInterface(Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		val Controller controller = model.declarations.filter(Controller).findFirst[c | c.entity === entity]
+		
+		if(controller === null) {
+			return
+		}
+		
+		fsa.generateFile(model.name + "/Application/Interfaces/I" + entity.name + "Service.cs", '''
+			using System.Collections.Generic;
+			using EmTest.Application.Parameters;
+			using EmTest.Models;
+			
+			namespace «model.name».Application.Interfaces {
+				public interface I«entity.name»Service {
+					«FOR x:controller.methods»
+						«x.generateServiceMethod(entity)»
+					«ENDFOR»
+				}
+			}
+		''')
+	}
+	def dispatch generateServiceMethod(CreateMethod method, Entity entity) '''
+		public «entity.name» Create(Create«entity.name»Parameters parameters);
 	'''
+	def dispatch generateServiceMethod(GetMethod method, Entity entity) '''
+		public «entity.name» Get(Get«entity.name»Parameters parameters);
+	'''
+	def dispatch generateServiceMethod(ListMethod method, Entity entity) '''
+		public IList<«entity.name»> List(List«entity.name»Parameters parameters);
+	'''
+	def dispatch generateServiceMethod(UpdateMethod method, Entity entity) '''
+		public «entity.name» Update(Update«entity.name»ParametersWithId parameters);
+	'''
+	def dispatch generateServiceMethod(DeleteMethod method, Entity entity) '''
+		public void Delete(Delete«entity.name»Parameters parameters);
+	'''
+	
+	def generateEntityApplicationParameters(Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		val Controller controller = model.declarations.filter(Controller).findFirst[c | c.entity === entity]
+		
+		if(controller === null) {
+			return
+		}
+		
+		controller.methods.forEach[generateControllerParameters(entity, fsa)]
+	}
+	def dispatch generateControllerParameters(CreateMethod method, Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		fsa.generateFile(model.name + "/Application/Parameters/Create" + entity.name + "Parameters.cs", '''
+			namespace «model.name».Application.Parameters {
+				public class Create«entity.name»Parameters {
+					«FOR x:entity.attributes»
+					«IF !method.exclude.attributes.contains(x)»
+					public «x.type.name» «x.name» { get; set; }
+					«ENDIF»
+					«ENDFOR»
+				}
+			}
+		''')
+	}
+	def dispatch generateControllerParameters(GetMethod method, Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		fsa.generateFile(model.name + "/Application/Parameters/Get" + entity.name + "Parameters.cs", '''
+			namespace «model.name».Application.Parameters {
+				public class Get«entity.name»Parameters {
+					public «method.entityId.type.name» «method.entityId.name» { get; set; }
+				}
+			}
+		''')
+	}
+	def dispatch generateControllerParameters(ListMethod method, Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		fsa.generateFile(model.name + "/Application/Parameters/List" + entity.name + "Parameters.cs", '''
+			namespace «model.name».Application.Parameters {
+				public class List«entity.name»Parameters {
+				}
+			}
+		''')
+	}
+	def dispatch generateControllerParameters(UpdateMethod method, Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		fsa.generateFile(model.name + "/Application/Parameters/Update" + entity.name + "Parameters.cs", '''
+			namespace «model.name».Application.Parameters {
+				public class Update«entity.name»ParametersWithId {
+					public «method.entityId.type.name» «method.entityId.name» { get; set; }
+					public Update«entity.name»Parameters Parameters { get; set; }
+				}
+				public class Update«entity.name»Parameters {
+					«FOR x:entity.attributes»
+					«IF x !== method.entityId»
+					public «x.type.name» «x.name» { get; set; }
+					«ENDIF»
+					«ENDFOR»
+				}
+			}
+		''')
+	}
+	def dispatch generateControllerParameters(DeleteMethod method, Entity entity, IFileSystemAccess2 fsa) {
+		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
+		fsa.generateFile(model.name + "/Application/Parameters/Delete" + entity.name + "Parameters.cs", '''
+			namespace «model.name».Application.Parameters {
+				public class Delete«entity.name»Parameters {
+					public «method.entityId.type.name» «method.entityId.name» { get; set; }
+				}
+			}
+		''')
+	}
 }

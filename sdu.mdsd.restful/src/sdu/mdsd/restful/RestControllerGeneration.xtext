@@ -93,7 +93,7 @@ CreateMethodWith:
 ;
 
 CreateMethodExclude:
-	"exclude" attribute=[Attribute]
+	"exclude" attributes+=[Attribute] ("," attributes+=[Attribute])*
 ;
 
 GetMethod:
@@ -105,7 +105,7 @@ ListMethod:
 ;
 
 UpdateMethod:
-	"UPDATE" attributes+=[Attribute] ("," attributes+=[Attribute])*
+	"UPDATE" "on" entityId=[Attribute] "with" attributes+=[Attribute] ("," attributes+=[Attribute])*
 ;
 
 DeleteMethod:

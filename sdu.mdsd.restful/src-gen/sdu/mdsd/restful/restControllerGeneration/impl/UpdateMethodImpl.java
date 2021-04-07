@@ -5,9 +5,14 @@ package sdu.mdsd.restful.restControllerGeneration.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
@@ -23,6 +28,7 @@ import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.UpdateMethodImpl#getEntityId <em>Entity Id</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.UpdateMethodImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -30,6 +36,16 @@ import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
  */
 public class UpdateMethodImpl extends ControllerMethodImpl implements UpdateMethod
 {
+  /**
+   * The cached value of the '{@link #getEntityId() <em>Entity Id</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntityId()
+   * @generated
+   * @ordered
+   */
+  protected Attribute entityId;
+
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' reference list.
    * <!-- begin-user-doc -->
@@ -67,6 +83,51 @@ public class UpdateMethodImpl extends ControllerMethodImpl implements UpdateMeth
    * @generated
    */
   @Override
+  public Attribute getEntityId()
+  {
+    if (entityId != null && entityId.eIsProxy())
+    {
+      InternalEObject oldEntityId = (InternalEObject)entityId;
+      entityId = (Attribute)eResolveProxy(oldEntityId);
+      if (entityId != oldEntityId)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.UPDATE_METHOD__ENTITY_ID, oldEntityId, entityId));
+      }
+    }
+    return entityId;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribute basicGetEntityId()
+  {
+    return entityId;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setEntityId(Attribute newEntityId)
+  {
+    Attribute oldEntityId = entityId;
+    entityId = newEntityId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.UPDATE_METHOD__ENTITY_ID, oldEntityId, entityId));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Attribute> getAttributes()
   {
     if (attributes == null)
@@ -86,6 +147,9 @@ public class UpdateMethodImpl extends ControllerMethodImpl implements UpdateMeth
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.UPDATE_METHOD__ENTITY_ID:
+        if (resolve) return getEntityId();
+        return basicGetEntityId();
       case RestControllerGenerationPackage.UPDATE_METHOD__ATTRIBUTES:
         return getAttributes();
     }
@@ -103,6 +167,9 @@ public class UpdateMethodImpl extends ControllerMethodImpl implements UpdateMeth
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.UPDATE_METHOD__ENTITY_ID:
+        setEntityId((Attribute)newValue);
+        return;
       case RestControllerGenerationPackage.UPDATE_METHOD__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
@@ -121,6 +188,9 @@ public class UpdateMethodImpl extends ControllerMethodImpl implements UpdateMeth
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.UPDATE_METHOD__ENTITY_ID:
+        setEntityId((Attribute)null);
+        return;
       case RestControllerGenerationPackage.UPDATE_METHOD__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -138,6 +208,8 @@ public class UpdateMethodImpl extends ControllerMethodImpl implements UpdateMeth
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.UPDATE_METHOD__ENTITY_ID:
+        return entityId != null;
       case RestControllerGenerationPackage.UPDATE_METHOD__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
     }

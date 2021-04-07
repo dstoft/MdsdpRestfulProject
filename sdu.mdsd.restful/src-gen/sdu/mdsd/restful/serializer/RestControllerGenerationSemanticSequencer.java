@@ -252,16 +252,10 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     CreateMethodExclude returns CreateMethodExclude
 	 *
 	 * Constraint:
-	 *     attribute=[Attribute|ID]
+	 *     (attributes+=[Attribute|ID] attributes+=[Attribute|ID]*)
 	 */
 	protected void sequence_CreateMethodExclude(ISerializationContext context, CreateMethodExclude semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_EXCLUDE__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_EXCLUDE__ATTRIBUTE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCreateMethodExcludeAccess().getAttributeAttributeIDTerminalRuleCall_1_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.CREATE_METHOD_EXCLUDE__ATTRIBUTE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -685,7 +679,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     UpdateMethod returns UpdateMethod
 	 *
 	 * Constraint:
-	 *     (attributes+=[Attribute|ID] attributes+=[Attribute|ID]*)
+	 *     (entityId=[Attribute|ID] attributes+=[Attribute|ID] attributes+=[Attribute|ID]*)
 	 */
 	protected void sequence_UpdateMethod(ISerializationContext context, UpdateMethod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

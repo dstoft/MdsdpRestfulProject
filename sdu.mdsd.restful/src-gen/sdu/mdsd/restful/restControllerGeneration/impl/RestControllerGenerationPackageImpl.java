@@ -824,7 +824,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EReference getCreateMethodExclude_Attribute()
+  public EReference getCreateMethodExclude_Attributes()
   {
     return (EReference)createMethodExcludeEClass.getEStructuralFeatures().get(0);
   }
@@ -879,9 +879,20 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EReference getUpdateMethod_Attributes()
+  public EReference getUpdateMethod_EntityId()
   {
     return (EReference)updateMethodEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUpdateMethod_Attributes()
+  {
+    return (EReference)updateMethodEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1250,7 +1261,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     createEReference(createMethodWithEClass, CREATE_METHOD_WITH__ENTITY_ID);
 
     createMethodExcludeEClass = createEClass(CREATE_METHOD_EXCLUDE);
-    createEReference(createMethodExcludeEClass, CREATE_METHOD_EXCLUDE__ATTRIBUTE);
+    createEReference(createMethodExcludeEClass, CREATE_METHOD_EXCLUDE__ATTRIBUTES);
 
     getMethodEClass = createEClass(GET_METHOD);
     createEReference(getMethodEClass, GET_METHOD__ENTITY_ID);
@@ -1258,6 +1269,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     listMethodEClass = createEClass(LIST_METHOD);
 
     updateMethodEClass = createEClass(UPDATE_METHOD);
+    createEReference(updateMethodEClass, UPDATE_METHOD__ENTITY_ID);
     createEReference(updateMethodEClass, UPDATE_METHOD__ATTRIBUTES);
 
     deleteMethodEClass = createEClass(DELETE_METHOD);
@@ -1412,7 +1424,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEReference(getCreateMethodWith_EntityId(), this.getAttribute(), null, "entityId", null, 0, 1, CreateMethodWith.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createMethodExcludeEClass, CreateMethodExclude.class, "CreateMethodExclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCreateMethodExclude_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, CreateMethodExclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCreateMethodExclude_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, CreateMethodExclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(getMethodEClass, GetMethod.class, "GetMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGetMethod_EntityId(), this.getAttribute(), null, "entityId", null, 0, 1, GetMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1420,6 +1432,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEClass(listMethodEClass, ListMethod.class, "ListMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(updateMethodEClass, UpdateMethod.class, "UpdateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUpdateMethod_EntityId(), this.getAttribute(), null, "entityId", null, 0, 1, UpdateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUpdateMethod_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, UpdateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteMethodEClass, DeleteMethod.class, "DeleteMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

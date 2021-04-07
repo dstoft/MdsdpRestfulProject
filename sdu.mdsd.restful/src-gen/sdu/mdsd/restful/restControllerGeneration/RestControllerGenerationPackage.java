@@ -653,13 +653,13 @@ public interface RestControllerGenerationPackage extends EPackage
   int CREATE_METHOD_EXCLUDE = 18;
 
   /**
-   * The feature id for the '<em><b>Attribute</b></em>' reference.
+   * The feature id for the '<em><b>Attributes</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_METHOD_EXCLUDE__ATTRIBUTE = 0;
+  int CREATE_METHOD_EXCLUDE__ATTRIBUTES = 0;
 
   /**
    * The number of structural features of the '<em>Create Method Exclude</em>' class.
@@ -728,13 +728,22 @@ public interface RestControllerGenerationPackage extends EPackage
   int UPDATE_METHOD = 21;
 
   /**
+   * The feature id for the '<em><b>Entity Id</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_METHOD__ENTITY_ID = CONTROLLER_METHOD_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Attributes</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD__ATTRIBUTES = CONTROLLER_METHOD_FEATURE_COUNT + 0;
+  int UPDATE_METHOD__ATTRIBUTES = CONTROLLER_METHOD_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Update Method</em>' class.
@@ -743,7 +752,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UPDATE_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 1;
+  int UPDATE_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.DeleteMethodImpl <em>Delete Method</em>}' class.
@@ -1535,15 +1544,15 @@ public interface RestControllerGenerationPackage extends EPackage
   EClass getCreateMethodExclude();
 
   /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude#getAttribute <em>Attribute</em>}'.
+   * Returns the meta object for the reference list '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude#getAttributes <em>Attributes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Attribute</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude#getAttribute()
+   * @return the meta object for the reference list '<em>Attributes</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude#getAttributes()
    * @see #getCreateMethodExclude()
    * @generated
    */
-  EReference getCreateMethodExclude_Attribute();
+  EReference getCreateMethodExclude_Attributes();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.GetMethod <em>Get Method</em>}'.
@@ -1585,6 +1594,17 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    */
   EClass getUpdateMethod();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.UpdateMethod#getEntityId <em>Entity Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Entity Id</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.UpdateMethod#getEntityId()
+   * @see #getUpdateMethod()
+   * @generated
+   */
+  EReference getUpdateMethod_EntityId();
 
   /**
    * Returns the meta object for the reference list '{@link sdu.mdsd.restful.restControllerGeneration.UpdateMethod#getAttributes <em>Attributes</em>}'.
@@ -2258,12 +2278,12 @@ public interface RestControllerGenerationPackage extends EPackage
     EClass CREATE_METHOD_EXCLUDE = eINSTANCE.getCreateMethodExclude();
 
     /**
-     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CREATE_METHOD_EXCLUDE__ATTRIBUTE = eINSTANCE.getCreateMethodExclude_Attribute();
+    EReference CREATE_METHOD_EXCLUDE__ATTRIBUTES = eINSTANCE.getCreateMethodExclude_Attributes();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.GetMethodImpl <em>Get Method</em>}' class.
@@ -2302,6 +2322,14 @@ public interface RestControllerGenerationPackage extends EPackage
      * @generated
      */
     EClass UPDATE_METHOD = eINSTANCE.getUpdateMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Entity Id</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UPDATE_METHOD__ENTITY_ID = eINSTANCE.getUpdateMethod_EntityId();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.

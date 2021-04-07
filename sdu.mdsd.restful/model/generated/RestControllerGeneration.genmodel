@@ -61,13 +61,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//CreateMethodWith/entityId"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//CreateMethodExclude">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//CreateMethodExclude/attribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//CreateMethodExclude/attributes"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//GetMethod">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//GetMethod/entityId"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//ListMethod"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//UpdateMethod">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//UpdateMethod/entityId"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//UpdateMethod/attributes"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//DeleteMethod">

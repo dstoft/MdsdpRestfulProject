@@ -3,6 +3,8 @@
  */
 package sdu.mdsd.restful.restControllerGeneration;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethodExclude()
@@ -24,25 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface CreateMethodExclude extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Attribute</b></em>' reference.
+   * Returns the value of the '<em><b>Attributes</b></em>' reference list.
+   * The list contents are of type {@link sdu.mdsd.restful.restControllerGeneration.Attribute}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute</em>' reference.
-   * @see #setAttribute(Attribute)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethodExclude_Attribute()
+   * @return the value of the '<em>Attributes</em>' reference list.
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethodExclude_Attributes()
    * @model
    * @generated
    */
-  Attribute getAttribute();
-
-  /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude#getAttribute <em>Attribute</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute</em>' reference.
-   * @see #getAttribute()
-   * @generated
-   */
-  void setAttribute(Attribute value);
+  EList<Attribute> getAttributes();
 
 } // CreateMethodExclude

@@ -67,6 +67,7 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     this.generateExternalInterface(em, fsa);
     this.generateModelFiles(em, fsa);
     this.generateControllerFiles(em, fsa);
+    this.generateEntityApplicationInterfaces(em, fsa);
   }
   
   public void display(final EObject model) {
@@ -454,9 +455,17 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("using EmTest.Models;");
     _builder.newLine();
+    _builder.append("using EmTest.Application.Interfaces;");
+    _builder.newLine();
+    _builder.append("using EmTest.Application.Parameters;");
+    _builder.newLine();
     _builder.append("using Microsoft.AspNetCore.Http;");
     _builder.newLine();
     _builder.append("using Microsoft.AspNetCore.Mvc;");
+    _builder.newLine();
+    _builder.append("using System.Collections.Generic;");
+    _builder.newLine();
+    _builder.append("using System.Net;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("namespace ");
@@ -497,15 +506,6 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
-    {
-      EList<ControllerMethod> _methods_1 = controller.getMethods();
-      for(final ControllerMethod x_1 : _methods_1) {
-        _builder.append("\t");
-        CharSequence _generateControllerParameters = this.generateControllerParameters(x_1, controller.getEntity());
-        _builder.append(_generateControllerParameters, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
     _builder.append("}");
     _builder.newLine();
     fsa.generateFile(_plus_2, _builder);
@@ -513,18 +513,24 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   
   public CharSequence generateControllerConstructor(final Controller controller) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("private readonly IExternalCode ExternalCode;");
-    _builder.newLine();
+    _builder.append("private readonly I");
+    String _name = controller.getEntity().getName();
+    _builder.append(_name);
+    _builder.append("Service Service;");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("public ");
-    String _name = controller.getName();
-    _builder.append(_name);
-    _builder.append("(IExternalCode externalCode)");
+    String _name_1 = controller.getName();
+    _builder.append(_name_1);
+    _builder.append("(I");
+    String _name_2 = controller.getEntity().getName();
+    _builder.append(_name_2);
+    _builder.append("Service service)");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("ExternalCode = externalCode;");
+    _builder.append("Service = service;");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
@@ -548,39 +554,7 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("return new ");
-    String _name_2 = entity.getName();
-    _builder.append(_name_2, "\t");
-    _builder.append("(");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("ExternalCode");
-    {
-      int _size = entity.getAttributes().size();
-      boolean _greaterThan = (_size > 0);
-      if (_greaterThan) {
-        _builder.append(", ");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      EList<Attribute> _attributes = entity.getAttributes();
-      boolean _hasElements = false;
-      for(final Attribute x : _attributes) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(", ", "\t\t");
-        }
-        _builder.append("\t\t");
-        _builder.append("parameters.");
-        String _name_3 = x.getName();
-        _builder.append(_name_3, "\t\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.append(");");
+    _builder.append("return Created(\"\", Service.Create(parameters));");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
@@ -589,84 +563,534 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   
   protected CharSequence _generateControllerMethod(final GetMethod method, final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//GetMethod!");
+    _builder.append("[HttpGet(\"{");
+    String _firstLower = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower);
+    _builder.append("}\")]");
+    _builder.newLineIfNotEmpty();
+    _builder.append("[ProducesResponseType(typeof(");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append("), (int) HttpStatusCode.OK)]");
+    _builder.newLineIfNotEmpty();
+    _builder.append("public ActionResult<");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1);
+    _builder.append("> Get(");
+    String _name_2 = method.getEntityId().getType().getName();
+    _builder.append(_name_2);
+    _builder.append(" ");
+    String _firstLower_1 = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return Ok(Service.Get(new Get");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "    ");
+    _builder.append("Parameters");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("    \t");
+    String _name_4 = method.getEntityId().getName();
+    _builder.append(_name_4, "    \t");
+    _builder.append(" = ");
+    String _firstLower_2 = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower_2, "    \t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}));");
+    _builder.newLine();
+    _builder.append("}");
     _builder.newLine();
     return _builder;
   }
   
   protected CharSequence _generateControllerMethod(final ListMethod method, final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//ListMethod!");
+    _builder.append("[HttpGet]");
+    _builder.newLine();
+    _builder.append("[ProducesResponseType(typeof(");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append("[]), (int) HttpStatusCode.OK)]");
+    _builder.newLineIfNotEmpty();
+    _builder.append("public ActionResult<IList<");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1);
+    _builder.append(">> List()");
+    _builder.newLineIfNotEmpty();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return Ok(Service.List(new List");
+    String _name_2 = entity.getName();
+    _builder.append(_name_2, "    ");
+    _builder.append("Parameters()));");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
     _builder.newLine();
     return _builder;
   }
   
   protected CharSequence _generateControllerMethod(final UpdateMethod method, final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//UpdateMethod!");
+    _builder.append("[HttpPut(\"{");
+    String _firstLower = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower);
+    _builder.append("}\")]");
+    _builder.newLineIfNotEmpty();
+    _builder.append("[ProducesResponseType(typeof(");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append("), (int) HttpStatusCode.OK)]");
+    _builder.newLineIfNotEmpty();
+    _builder.append("public ActionResult<");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1);
+    _builder.append("> Update(");
+    String _name_2 = method.getEntityId().getType().getName();
+    _builder.append(_name_2);
+    _builder.append(" ");
+    String _firstLower_1 = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower_1);
+    _builder.append(", Update");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3);
+    _builder.append("Parameters parameters)");
+    _builder.newLineIfNotEmpty();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("return Ok(Service.Update(new Update");
+    String _name_4 = entity.getName();
+    _builder.append(_name_4, "\t");
+    _builder.append("ParametersWithId");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t");
+    String _name_5 = method.getEntityId().getName();
+    _builder.append(_name_5, "\t\t");
+    _builder.append(" = ");
+    String _firstLower_2 = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower_2, "\t\t");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("Parameters = parameters");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}));");
+    _builder.newLine();
+    _builder.append("}");
     _builder.newLine();
     return _builder;
   }
   
   protected CharSequence _generateControllerMethod(final DeleteMethod method, final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//DeleteMethod!");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  protected CharSequence _generateControllerParameters(final CreateMethod method, final Entity entity) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("public class Create");
-    String _name = entity.getName();
-    _builder.append(_name);
-    _builder.append("Parameters {");
+    _builder.append("[HttpDelete(\"{");
+    String _firstLower = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower);
+    _builder.append("}\")]");
     _builder.newLineIfNotEmpty();
-    {
-      EList<Attribute> _attributes = entity.getAttributes();
-      for(final Attribute x : _attributes) {
-        _builder.append("\t");
-        _builder.append("public ");
-        String _name_1 = x.getType().getName();
-        _builder.append(_name_1, "\t");
-        _builder.append(" ");
-        String _name_2 = x.getName();
-        _builder.append(_name_2, "\t");
-        _builder.append(" { get; set; }");
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    _builder.append("[ProducesResponseType((int) HttpStatusCode.OK)]");
+    _builder.newLine();
+    _builder.append("public ActionResult Delete(");
+    String _name = method.getEntityId().getType().getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    String _firstLower_1 = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return Ok(Service.Delete(new Delete");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1, "    ");
+    _builder.append("Parameters");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("    \t");
+    String _name_2 = method.getEntityId().getName();
+    _builder.append(_name_2, "    \t");
+    _builder.append(" = ");
+    String _firstLower_2 = StringExtensions.toFirstLower(method.getEntityId().getName());
+    _builder.append(_firstLower_2, "    \t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}));");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
   }
   
-  protected CharSequence _generateControllerParameters(final GetMethod method, final Entity entity) {
+  public void generateEntityApplicationInterfaces(final EntityModel em, final IFileSystemAccess2 fsa) {
+    final Consumer<Entity> _function = (Entity it) -> {
+      this.generateEntityApplicationInterface(it, fsa);
+    };
+    Iterables.<Entity>filter(em.getDeclarations(), Entity.class).forEach(_function);
+    final Consumer<Entity> _function_1 = (Entity it) -> {
+      this.generateEntityApplicationParameters(it, fsa);
+    };
+    Iterables.<Entity>filter(em.getDeclarations(), Entity.class).forEach(_function_1);
+  }
+  
+  public void generateEntityApplicationInterface(final Entity entity, final IFileSystemAccess2 fsa) {
+    final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(entity, EntityModel.class);
+    final Function1<Controller, Boolean> _function = (Controller c) -> {
+      Entity _entity = c.getEntity();
+      return Boolean.valueOf((_entity == entity));
+    };
+    final Controller controller = IterableExtensions.<Controller>findFirst(Iterables.<Controller>filter(model.getDeclarations(), Controller.class), _function);
+    if ((controller == null)) {
+      return;
+    }
+    String _name = model.getName();
+    String _plus = (_name + "/Application/Interfaces/I");
+    String _name_1 = entity.getName();
+    String _plus_1 = (_plus + _name_1);
+    String _plus_2 = (_plus_1 + "Service.cs");
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//GetMethod!");
+    _builder.append("using System.Collections.Generic;");
     _builder.newLine();
+    _builder.append("using EmTest.Application.Parameters;");
+    _builder.newLine();
+    _builder.append("using EmTest.Models;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("namespace ");
+    String _name_2 = model.getName();
+    _builder.append(_name_2);
+    _builder.append(".Application.Interfaces {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("public interface I");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append("Service {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<ControllerMethod> _methods = controller.getMethods();
+      for(final ControllerMethod x : _methods) {
+        _builder.append("\t\t");
+        CharSequence _generateServiceMethod = this.generateServiceMethod(x, entity);
+        _builder.append(_generateServiceMethod, "\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    fsa.generateFile(_plus_2, _builder);
+  }
+  
+  protected CharSequence _generateServiceMethod(final CreateMethod method, final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public ");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append(" Create(Create");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1);
+    _builder.append("Parameters parameters);");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _generateControllerParameters(final ListMethod method, final Entity entity) {
+  protected CharSequence _generateServiceMethod(final GetMethod method, final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//ListMethod!");
-    _builder.newLine();
+    _builder.append("public ");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append(" Get(Get");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1);
+    _builder.append("Parameters parameters);");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _generateControllerParameters(final UpdateMethod method, final Entity entity) {
+  protected CharSequence _generateServiceMethod(final ListMethod method, final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//UpdateMethod!");
-    _builder.newLine();
+    _builder.append("public IList<");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append("> List(List");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1);
+    _builder.append("Parameters parameters);");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _generateControllerParameters(final DeleteMethod method, final Entity entity) {
+  protected CharSequence _generateServiceMethod(final UpdateMethod method, final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//DeleteMethod!");
-    _builder.newLine();
+    _builder.append("public ");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append(" Update(Update");
+    String _name_1 = entity.getName();
+    _builder.append(_name_1);
+    _builder.append("ParametersWithId parameters);");
+    _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  protected CharSequence _generateServiceMethod(final DeleteMethod method, final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public void Delete(Delete");
+    String _name = entity.getName();
+    _builder.append(_name);
+    _builder.append("Parameters parameters);");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public void generateEntityApplicationParameters(final Entity entity, final IFileSystemAccess2 fsa) {
+    final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(entity, EntityModel.class);
+    final Function1<Controller, Boolean> _function = (Controller c) -> {
+      Entity _entity = c.getEntity();
+      return Boolean.valueOf((_entity == entity));
+    };
+    final Controller controller = IterableExtensions.<Controller>findFirst(Iterables.<Controller>filter(model.getDeclarations(), Controller.class), _function);
+    if ((controller == null)) {
+      return;
+    }
+    final Consumer<ControllerMethod> _function_1 = (ControllerMethod it) -> {
+      this.generateControllerParameters(it, entity, fsa);
+    };
+    controller.getMethods().forEach(_function_1);
+  }
+  
+  protected void _generateControllerParameters(final CreateMethod method, final Entity entity, final IFileSystemAccess2 fsa) {
+    final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(entity, EntityModel.class);
+    String _name = model.getName();
+    String _plus = (_name + "/Application/Parameters/Create");
+    String _name_1 = entity.getName();
+    String _plus_1 = (_plus + _name_1);
+    String _plus_2 = (_plus_1 + "Parameters.cs");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("namespace ");
+    String _name_2 = model.getName();
+    _builder.append(_name_2);
+    _builder.append(".Application.Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("public class Create");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append("Parameters {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Attribute> _attributes = entity.getAttributes();
+      for(final Attribute x : _attributes) {
+        {
+          boolean _contains = method.getExclude().getAttributes().contains(x);
+          boolean _not = (!_contains);
+          if (_not) {
+            _builder.append("\t\t");
+            _builder.append("public ");
+            String _name_4 = x.getType().getName();
+            _builder.append(_name_4, "\t\t");
+            _builder.append(" ");
+            String _name_5 = x.getName();
+            _builder.append(_name_5, "\t\t");
+            _builder.append(" { get; set; }");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    fsa.generateFile(_plus_2, _builder);
+  }
+  
+  protected void _generateControllerParameters(final GetMethod method, final Entity entity, final IFileSystemAccess2 fsa) {
+    final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(entity, EntityModel.class);
+    String _name = model.getName();
+    String _plus = (_name + "/Application/Parameters/Get");
+    String _name_1 = entity.getName();
+    String _plus_1 = (_plus + _name_1);
+    String _plus_2 = (_plus_1 + "Parameters.cs");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("namespace ");
+    String _name_2 = model.getName();
+    _builder.append(_name_2);
+    _builder.append(".Application.Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("public class Get");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append("Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public ");
+    String _name_4 = method.getEntityId().getType().getName();
+    _builder.append(_name_4, "\t\t");
+    _builder.append(" ");
+    String _name_5 = method.getEntityId().getName();
+    _builder.append(_name_5, "\t\t");
+    _builder.append(" { get; set; }");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    fsa.generateFile(_plus_2, _builder);
+  }
+  
+  protected void _generateControllerParameters(final ListMethod method, final Entity entity, final IFileSystemAccess2 fsa) {
+    final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(entity, EntityModel.class);
+    String _name = model.getName();
+    String _plus = (_name + "/Application/Parameters/List");
+    String _name_1 = entity.getName();
+    String _plus_1 = (_plus + _name_1);
+    String _plus_2 = (_plus_1 + "Parameters.cs");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("namespace ");
+    String _name_2 = model.getName();
+    _builder.append(_name_2);
+    _builder.append(".Application.Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("public class List");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append("Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    fsa.generateFile(_plus_2, _builder);
+  }
+  
+  protected void _generateControllerParameters(final UpdateMethod method, final Entity entity, final IFileSystemAccess2 fsa) {
+    final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(entity, EntityModel.class);
+    String _name = model.getName();
+    String _plus = (_name + "/Application/Parameters/Update");
+    String _name_1 = entity.getName();
+    String _plus_1 = (_plus + _name_1);
+    String _plus_2 = (_plus_1 + "Parameters.cs");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("namespace ");
+    String _name_2 = model.getName();
+    _builder.append(_name_2);
+    _builder.append(".Application.Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("public class Update");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append("ParametersWithId {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public ");
+    String _name_4 = method.getEntityId().getType().getName();
+    _builder.append(_name_4, "\t\t");
+    _builder.append(" ");
+    String _name_5 = method.getEntityId().getName();
+    _builder.append(_name_5, "\t\t");
+    _builder.append(" { get; set; }");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public Update");
+    String _name_6 = entity.getName();
+    _builder.append(_name_6, "\t\t");
+    _builder.append("Parameters Parameters { get; set; }");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public class Update");
+    String _name_7 = entity.getName();
+    _builder.append(_name_7, "\t");
+    _builder.append("Parameters {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Attribute> _attributes = entity.getAttributes();
+      for(final Attribute x : _attributes) {
+        {
+          Attribute _entityId = method.getEntityId();
+          boolean _tripleNotEquals = (x != _entityId);
+          if (_tripleNotEquals) {
+            _builder.append("\t\t");
+            _builder.append("public ");
+            String _name_8 = x.getType().getName();
+            _builder.append(_name_8, "\t\t");
+            _builder.append(" ");
+            String _name_9 = x.getName();
+            _builder.append(_name_9, "\t\t");
+            _builder.append(" { get; set; }");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    fsa.generateFile(_plus_2, _builder);
+  }
+  
+  protected void _generateControllerParameters(final DeleteMethod method, final Entity entity, final IFileSystemAccess2 fsa) {
+    final EntityModel model = EcoreUtil2.<EntityModel>getContainerOfType(entity, EntityModel.class);
+    String _name = model.getName();
+    String _plus = (_name + "/Application/Parameters/Delete");
+    String _name_1 = entity.getName();
+    String _plus_1 = (_plus + _name_1);
+    String _plus_2 = (_plus_1 + "Parameters.cs");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("namespace ");
+    String _name_2 = model.getName();
+    _builder.append(_name_2);
+    _builder.append(".Application.Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("public class Delete");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append("Parameters {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public ");
+    String _name_4 = method.getEntityId().getType().getName();
+    _builder.append(_name_4, "\t\t");
+    _builder.append(" ");
+    String _name_5 = method.getEntityId().getName();
+    _builder.append(_name_5, "\t\t");
+    _builder.append(" { get; set; }");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    fsa.generateFile(_plus_2, _builder);
   }
   
   public CharSequence generateAttributeRequirement(final EObject requirement, final Attribute attribute) {
@@ -729,20 +1153,42 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     }
   }
   
-  public CharSequence generateControllerParameters(final ControllerMethod method, final Entity entity) {
+  public CharSequence generateServiceMethod(final ControllerMethod method, final Entity entity) {
     if (method instanceof CreateMethod) {
-      return _generateControllerParameters((CreateMethod)method, entity);
+      return _generateServiceMethod((CreateMethod)method, entity);
     } else if (method instanceof DeleteMethod) {
-      return _generateControllerParameters((DeleteMethod)method, entity);
+      return _generateServiceMethod((DeleteMethod)method, entity);
     } else if (method instanceof GetMethod) {
-      return _generateControllerParameters((GetMethod)method, entity);
+      return _generateServiceMethod((GetMethod)method, entity);
     } else if (method instanceof ListMethod) {
-      return _generateControllerParameters((ListMethod)method, entity);
+      return _generateServiceMethod((ListMethod)method, entity);
     } else if (method instanceof UpdateMethod) {
-      return _generateControllerParameters((UpdateMethod)method, entity);
+      return _generateServiceMethod((UpdateMethod)method, entity);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(method, entity).toString());
+    }
+  }
+  
+  public void generateControllerParameters(final ControllerMethod method, final Entity entity, final IFileSystemAccess2 fsa) {
+    if (method instanceof CreateMethod) {
+      _generateControllerParameters((CreateMethod)method, entity, fsa);
+      return;
+    } else if (method instanceof DeleteMethod) {
+      _generateControllerParameters((DeleteMethod)method, entity, fsa);
+      return;
+    } else if (method instanceof GetMethod) {
+      _generateControllerParameters((GetMethod)method, entity, fsa);
+      return;
+    } else if (method instanceof ListMethod) {
+      _generateControllerParameters((ListMethod)method, entity, fsa);
+      return;
+    } else if (method instanceof UpdateMethod) {
+      _generateControllerParameters((UpdateMethod)method, entity, fsa);
+      return;
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(method, entity, fsa).toString());
     }
   }
 }
