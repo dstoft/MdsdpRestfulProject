@@ -69,10 +69,11 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
   		res.save(System.out, null);
 	}
 	
+	// ***************************
+	// ***** Generate models *****
 	def generateModelFiles(EntityModel model, IFileSystemAccess2 fsa) {
 		model.declarations.filter(Entity).forEach[generateEntity(fsa)]
 	}
-	
 	def generateEntity(Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name+ "/Models/" + entity.name + ".cs", '''
@@ -104,17 +105,19 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 			«FOR x:entity.attributes»
 				«x.generateConstructorSet»
 			«ENDFOR»
+			CheckRequirements();
 		}
 	'''
-	
 	def externCodeCtorParameter(Entity entity) '''IExternalCode externalCode«IF entity.attributes.size > 0», «ENDIF»'''
 	def generateConstructorParameter(Attribute attribute) '''«attribute.type.name» «attribute.name.toFirstLower»'''
 	def generateConstructorSet(Attribute attribute) '''
 		this.«attribute.name» = «attribute.name.toFirstLower»;
 	'''
 	
+	// *******************************************
+	// ***** Generate attribute requirements *****
 	def generateAttributeRequirements(Entity entity) '''
-		public void checkRequirements() {
+		public void CheckRequirements() {
 			«FOR x:entity.attributes.filter[a | a.requirement !== null]»
 				if(!(«x.requirement.generateAttributeRequirement(x)»)) throw new Exception("Requirement not fulfilled");
 			«ENDFOR»
@@ -138,6 +141,8 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch CharSequence generateExp(Name x) { x.varName.name }	
 	def dispatch CharSequence generateExp(IntExp x) { Integer.toString(x.value) }
 	
+	// ******************************************************
+	// ***** Generate external interface for validation *****
 	def generateExternalInterface(EntityModel em, IFileSystemAccess2 fsa) {
 		fsa.generateFile(em.name + "/IExternalCode.cs", '''
 			namespace «em.name» {
@@ -150,10 +155,11 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		''')
 	}
 	
+	// ********************************
+	// ***** Generate controllers *****
 	def generateControllerFiles(EntityModel em, IFileSystemAccess2 fsa) {
 		em.declarations.filter(Controller).forEach[generateController(fsa)]
 	}
-	
 	def generateController(Controller controller, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(controller, EntityModel)
 		fsa.generateFile(model.name+ "/Controllers/" + controller.name + ".cs", '''
@@ -175,10 +181,6 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 					«x.generateControllerMethod(controller.entity)»
 				«ENDFOR»
 			}
-			
-«««			«FOR x:controller.methods»
-«««				«x.generateControllerParameters(controller.entity)»
-«««			«ENDFOR»
 		}
 		''')
 	}
@@ -192,6 +194,8 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		}
 	'''
 	
+	// ***************************************
+	// ***** Generate controller methods *****
 	def dispatch generateControllerMethod(CreateMethod method, Entity entity) '''
 		[HttpPost]
 		[ProducesResponseType(StatusCodes.Status201Created)]
@@ -243,6 +247,8 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		}
 	'''
 	
+	// ********************************************
+	// ***** Generation application interface *****
 	def generateEntityApplicationInterfaces(EntityModel em, IFileSystemAccess2 fsa) {
 		em.declarations.filter(Entity).forEach[generateEntityApplicationInterface(fsa)]
 		em.declarations.filter(Entity).forEach[generateEntityApplicationParameters(fsa)]
@@ -285,6 +291,8 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		public void Delete(Delete«entity.name»Parameters parameters);
 	'''
 	
+	// *******************************************
+	// ***** Generate application parameters *****
 	def generateEntityApplicationParameters(Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		val Controller controller = model.declarations.filter(Controller).findFirst[c | c.entity === entity]

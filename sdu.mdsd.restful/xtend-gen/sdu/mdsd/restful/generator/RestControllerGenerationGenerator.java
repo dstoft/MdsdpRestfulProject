@@ -193,6 +193,9 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
+    _builder.append("CheckRequirements();");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -236,7 +239,7 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   
   public CharSequence generateAttributeRequirements(final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("public void checkRequirements() {");
+    _builder.append("public void CheckRequirements() {");
     _builder.newLine();
     {
       final Function1<Attribute, Boolean> _function = (Attribute a) -> {
@@ -503,8 +506,6 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     }
     _builder.append("\t");
     _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
