@@ -18,7 +18,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalDef/type"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Entity">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/super"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/base"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/attributes"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Attribute">

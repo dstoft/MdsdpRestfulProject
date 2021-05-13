@@ -39,6 +39,7 @@ import sdu.mdsd.restful.restControllerGeneration.GetMethod
 import sdu.mdsd.restful.restControllerGeneration.ListMethod
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -80,7 +81,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		using System;
 		
 		namespace «model.name».Models {
-			public class «entity.name» {
+			public class «entity.name» «IF entity.base !== null»: «entity.base.name» «ENDIF»{
 				«entity.generateConstructor»
 				«entity.generateAttributes»
 				«entity.generateAttributeRequirements»
@@ -90,7 +91,9 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	}
 	
 	def generateAttributes(Entity entity) '''
-		private readonly IExternalCode ExternalCode;
+		«IF entity.base === null»
+		protected readonly IExternalCode ExternalCode;
+		«ENDIF»
 		«FOR x:entity.attributes»
 			«x.generateAttribute»
 		«ENDFOR»
@@ -100,16 +103,22 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	'''
 	
 	def generateConstructor(Entity entity) '''
-		public «entity.name»(«entity.externCodeCtorParameter»«FOR x:entity.attributes SEPARATOR ', '»«x.generateConstructorParameter»«ENDFOR») {
+		public «entity.name»(«entity.generateConstructorParameters») «IF entity.base !== null»: base(«entity.base.generateConstructorParametersWithoutType») «ENDIF» {
+			«IF entity.base === null»
 			ExternalCode = externalCode;
+			«ENDIF»
 			«FOR x:entity.attributes»
 				«x.generateConstructorSet»
 			«ENDFOR»
 			CheckRequirements();
 		}
 	'''
-	def externCodeCtorParameter(Entity entity) '''IExternalCode externalCode«IF entity.attributes.size > 0», «ENDIF»'''
+	def generateConstructorParameters(Entity entity) '''«entity.externCodeCtorParameter»«FOR x:entity.allAttributes SEPARATOR ', '»«x.generateConstructorParameter»«ENDFOR»'''
+	def generateConstructorParametersWithoutType(Entity entity) '''«entity.externCodeCtorParameterWithoutType»«FOR x:entity.allAttributes SEPARATOR ', '»«x.generateConstructorParameterWithoutType»«ENDFOR»'''
+	def externCodeCtorParameter(Entity entity) '''IExternalCode externalCode«IF entity.allAttributes.size > 0», «ENDIF»'''
+	def externCodeCtorParameterWithoutType(Entity entity) '''externalCode«IF entity.allAttributes.size > 0», «ENDIF»'''
 	def generateConstructorParameter(Attribute attribute) '''«attribute.type.name» «attribute.name.toFirstLower»'''
+	def generateConstructorParameterWithoutType(Attribute attribute) '''«attribute.name.toFirstLower»'''
 	def generateConstructorSet(Attribute attribute) '''
 		this.«attribute.name» = «attribute.name.toFirstLower»;
 	'''
@@ -308,7 +317,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		fsa.generateFile(model.name + "/Application/Parameters/Create" + entity.name + "Parameters.cs", '''
 			namespace «model.name».Application.Parameters {
 				public class Create«entity.name»Parameters {
-					«FOR x:entity.attributes»
+					«FOR x:entity.allAttributes»
 					«IF !method.exclude.attributes.contains(x)»
 					public «x.type.name» «x.name» { get; set; }
 					«ENDIF»
@@ -363,5 +372,21 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 				}
 			}
 		''')
+	}
+	
+	// *******************************
+	// ***** Inheritance methods *****
+	def getAllAttributes(Entity entity) {
+		val attributes = new ArrayList<Attribute>
+		var currentBase = entity
+		while(currentBase !== null) {
+			attributes.addAll(currentBase.attributes)
+			currentBase = currentBase.base
+		}
+		return attributes
+	}
+	
+	def static getAllAttributesStatic(Entity entity) {
+		return (new RestControllerGenerationGenerator).getAllAttributes(entity)
 	}
 }

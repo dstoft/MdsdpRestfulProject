@@ -3,6 +3,14 @@
  */
 package sdu.mdsd.restful.validation
 
+import sdu.mdsd.restful.restControllerGeneration.Entity
+import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage.Literals
+import java.util.HashSet
+import java.util.Set
+import org.eclipse.xtext.validation.Check
+import static sdu.mdsd.restful.generator.RestControllerGenerationGenerator.getAllAttributesStatic
+import sdu.mdsd.restful.restControllerGeneration.Attribute
+import org.eclipse.xtext.EcoreUtil2
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +29,29 @@ class RestControllerGenerationValidator extends AbstractRestControllerGeneration
 //					INVALID_NAME)
 //		}
 //	}
+
+	@Check
+	def checkEntityNoCyclicBase(Entity entity) {
+		val seen = new HashSet<String>
+		seen.add(entity.name)
+		if(entity.base.selfInherits(seen)) {
+			error('Cyclic base relation',Literals.ENTITY__BASE,"cyclicInheritance")
+		}
+	}
+	
+	def boolean selfInherits(Entity next, Set<String> seen) {
+		if(next===null) false
+		else if(seen.contains(next.name)) true
+		else { seen.add(next.name) next.base.selfInherits(seen) }
+	}
+	
+	@Check
+	def checkNoDuplicateAttribute(Attribute attribute) {
+		val entity = EcoreUtil2.getContainerOfType(attribute, Entity)
+		val baseAttributes = getAllAttributesStatic(entity.base)
+		if(baseAttributes.exists[name == attribute.name]) {
+			error('Duplicate attribute name from base',Literals.ATTRIBUTE__NAME,"duplicateName")
+		}
+	}
 	
 }

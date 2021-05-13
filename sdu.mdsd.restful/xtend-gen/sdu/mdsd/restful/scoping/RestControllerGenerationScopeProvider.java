@@ -13,6 +13,7 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import sdu.mdsd.restful.generator.RestControllerGenerationGenerator;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
@@ -96,7 +97,7 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
   private ArrayList<Attribute> getControllersAttributes(final EObject context) {
     final ArrayList<Attribute> candidates = new ArrayList<Attribute>();
     Controller controller = EcoreUtil2.<Controller>getContainerOfType(context, Controller.class);
-    candidates.addAll(controller.getEntity().getAttributes());
+    candidates.addAll(RestControllerGenerationGenerator.getAllAttributesStatic(controller.getEntity()));
     return candidates;
   }
 }

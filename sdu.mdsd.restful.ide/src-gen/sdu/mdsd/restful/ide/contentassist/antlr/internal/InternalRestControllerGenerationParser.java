@@ -4373,31 +4373,31 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Entity__Group_2__1__Impl"
-    // InternalRestControllerGeneration.g:1371:1: rule__Entity__Group_2__1__Impl : ( ( rule__Entity__SuperAssignment_2_1 ) ) ;
+    // InternalRestControllerGeneration.g:1371:1: rule__Entity__Group_2__1__Impl : ( ( rule__Entity__BaseAssignment_2_1 ) ) ;
     public final void rule__Entity__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:1375:1: ( ( ( rule__Entity__SuperAssignment_2_1 ) ) )
-            // InternalRestControllerGeneration.g:1376:1: ( ( rule__Entity__SuperAssignment_2_1 ) )
+            // InternalRestControllerGeneration.g:1375:1: ( ( ( rule__Entity__BaseAssignment_2_1 ) ) )
+            // InternalRestControllerGeneration.g:1376:1: ( ( rule__Entity__BaseAssignment_2_1 ) )
             {
-            // InternalRestControllerGeneration.g:1376:1: ( ( rule__Entity__SuperAssignment_2_1 ) )
-            // InternalRestControllerGeneration.g:1377:2: ( rule__Entity__SuperAssignment_2_1 )
+            // InternalRestControllerGeneration.g:1376:1: ( ( rule__Entity__BaseAssignment_2_1 ) )
+            // InternalRestControllerGeneration.g:1377:2: ( rule__Entity__BaseAssignment_2_1 )
             {
-             before(grammarAccess.getEntityAccess().getSuperAssignment_2_1()); 
-            // InternalRestControllerGeneration.g:1378:2: ( rule__Entity__SuperAssignment_2_1 )
-            // InternalRestControllerGeneration.g:1378:3: rule__Entity__SuperAssignment_2_1
+             before(grammarAccess.getEntityAccess().getBaseAssignment_2_1()); 
+            // InternalRestControllerGeneration.g:1378:2: ( rule__Entity__BaseAssignment_2_1 )
+            // InternalRestControllerGeneration.g:1378:3: rule__Entity__BaseAssignment_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__Entity__SuperAssignment_2_1();
+            rule__Entity__BaseAssignment_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEntityAccess().getSuperAssignment_2_1()); 
+             after(grammarAccess.getEntityAccess().getBaseAssignment_2_1()); 
 
             }
 
@@ -11558,9 +11558,9 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
     // $ANTLR end "rule__Entity__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Entity__SuperAssignment_2_1"
-    // InternalRestControllerGeneration.g:3830:1: rule__Entity__SuperAssignment_2_1 : ( ( RULE_ID ) ) ;
-    public final void rule__Entity__SuperAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Entity__BaseAssignment_2_1"
+    // InternalRestControllerGeneration.g:3830:1: rule__Entity__BaseAssignment_2_1 : ( ( RULE_ID ) ) ;
+    public final void rule__Entity__BaseAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -11571,17 +11571,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             // InternalRestControllerGeneration.g:3835:2: ( ( RULE_ID ) )
             // InternalRestControllerGeneration.g:3836:3: ( RULE_ID )
             {
-             before(grammarAccess.getEntityAccess().getSuperEntityCrossReference_2_1_0()); 
+             before(grammarAccess.getEntityAccess().getBaseEntityCrossReference_2_1_0()); 
             // InternalRestControllerGeneration.g:3837:3: ( RULE_ID )
             // InternalRestControllerGeneration.g:3838:4: RULE_ID
             {
-             before(grammarAccess.getEntityAccess().getSuperEntityIDTerminalRuleCall_2_1_0_1()); 
+             before(grammarAccess.getEntityAccess().getBaseEntityIDTerminalRuleCall_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getEntityAccess().getSuperEntityIDTerminalRuleCall_2_1_0_1()); 
+             after(grammarAccess.getEntityAccess().getBaseEntityIDTerminalRuleCall_2_1_0_1()); 
 
             }
 
-             after(grammarAccess.getEntityAccess().getSuperEntityCrossReference_2_1_0()); 
+             after(grammarAccess.getEntityAccess().getBaseEntityCrossReference_2_1_0()); 
 
             }
 
@@ -11600,7 +11600,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
         }
         return ;
     }
-    // $ANTLR end "rule__Entity__SuperAssignment_2_1"
+    // $ANTLR end "rule__Entity__BaseAssignment_2_1"
 
 
     // $ANTLR start "rule__Entity__AttributesAssignment_4"

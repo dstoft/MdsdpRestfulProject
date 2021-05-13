@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Entity#getSuper <em>Super</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Entity#getBase <em>Base</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Entity#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -25,26 +25,26 @@ import org.eclipse.emf.common.util.EList;
 public interface Entity extends Declaration
 {
   /**
-   * Returns the value of the '<em><b>Super</b></em>' reference.
+   * Returns the value of the '<em><b>Base</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Super</em>' reference.
-   * @see #setSuper(Entity)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getEntity_Super()
+   * @return the value of the '<em>Base</em>' reference.
+   * @see #setBase(Entity)
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getEntity_Base()
    * @model
    * @generated
    */
-  Entity getSuper();
+  Entity getBase();
 
   /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.Entity#getSuper <em>Super</em>}' reference.
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.Entity#getBase <em>Base</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Super</em>' reference.
-   * @see #getSuper()
+   * @param value the new value of the '<em>Base</em>' reference.
+   * @see #getBase()
    * @generated
    */
-  void setSuper(Entity value);
+  void setBase(Entity value);
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

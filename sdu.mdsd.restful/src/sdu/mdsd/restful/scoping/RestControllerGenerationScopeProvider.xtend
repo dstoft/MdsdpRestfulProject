@@ -21,6 +21,9 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
 import sdu.mdsd.restful.restControllerGeneration.EntityModel
 import sdu.mdsd.restful.restControllerGeneration.ExternalDef
 import sdu.mdsd.restful.restControllerGeneration.ExternalUse
+import java.util.Collection
+import sdu.mdsd.restful.restControllerGeneration.Entity
+import static sdu.mdsd.restful.generator.RestControllerGenerationGenerator.getAllAttributesStatic
 
 /**
  * This class contains custom scoping description.
@@ -63,7 +66,7 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 	def private getControllersAttributes(EObject context) {
 		val candidates = new ArrayList<Attribute>
 		var Controller controller = EcoreUtil2.getContainerOfType(context, Controller)
-		candidates.addAll(controller.entity.attributes)
+		candidates.addAll(getAllAttributesStatic(controller.entity))
 		return candidates
 	}
 

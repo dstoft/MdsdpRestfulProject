@@ -30,7 +30,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl#getSuper <em>Super</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl#getBase <em>Base</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -39,14 +39,14 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
 public class EntityImpl extends DeclarationImpl implements Entity
 {
   /**
-   * The cached value of the '{@link #getSuper() <em>Super</em>}' reference.
+   * The cached value of the '{@link #getBase() <em>Base</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSuper()
+   * @see #getBase()
    * @generated
    * @ordered
    */
-  protected Entity super_;
+  protected Entity base;
 
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -85,19 +85,19 @@ public class EntityImpl extends DeclarationImpl implements Entity
    * @generated
    */
   @Override
-  public Entity getSuper()
+  public Entity getBase()
   {
-    if (super_ != null && super_.eIsProxy())
+    if (base != null && base.eIsProxy())
     {
-      InternalEObject oldSuper = (InternalEObject)super_;
-      super_ = (Entity)eResolveProxy(oldSuper);
-      if (super_ != oldSuper)
+      InternalEObject oldBase = (InternalEObject)base;
+      base = (Entity)eResolveProxy(oldBase);
+      if (base != oldBase)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.ENTITY__SUPER, oldSuper, super_));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.ENTITY__BASE, oldBase, base));
       }
     }
-    return super_;
+    return base;
   }
 
   /**
@@ -105,9 +105,9 @@ public class EntityImpl extends DeclarationImpl implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public Entity basicGetSuper()
+  public Entity basicGetBase()
   {
-    return super_;
+    return base;
   }
 
   /**
@@ -116,12 +116,12 @@ public class EntityImpl extends DeclarationImpl implements Entity
    * @generated
    */
   @Override
-  public void setSuper(Entity newSuper)
+  public void setBase(Entity newBase)
   {
-    Entity oldSuper = super_;
-    super_ = newSuper;
+    Entity oldBase = base;
+    base = newBase;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ENTITY__SUPER, oldSuper, super_));
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ENTITY__BASE, oldBase, base));
   }
 
   /**
@@ -165,9 +165,9 @@ public class EntityImpl extends DeclarationImpl implements Entity
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ENTITY__SUPER:
-        if (resolve) return getSuper();
-        return basicGetSuper();
+      case RestControllerGenerationPackage.ENTITY__BASE:
+        if (resolve) return getBase();
+        return basicGetBase();
       case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
         return getAttributes();
     }
@@ -185,8 +185,8 @@ public class EntityImpl extends DeclarationImpl implements Entity
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ENTITY__SUPER:
-        setSuper((Entity)newValue);
+      case RestControllerGenerationPackage.ENTITY__BASE:
+        setBase((Entity)newValue);
         return;
       case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
         getAttributes().clear();
@@ -206,8 +206,8 @@ public class EntityImpl extends DeclarationImpl implements Entity
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ENTITY__SUPER:
-        setSuper((Entity)null);
+      case RestControllerGenerationPackage.ENTITY__BASE:
+        setBase((Entity)null);
         return;
       case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
         getAttributes().clear();
@@ -226,8 +226,8 @@ public class EntityImpl extends DeclarationImpl implements Entity
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ENTITY__SUPER:
-        return super_ != null;
+      case RestControllerGenerationPackage.ENTITY__BASE:
+        return base != null;
       case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
     }

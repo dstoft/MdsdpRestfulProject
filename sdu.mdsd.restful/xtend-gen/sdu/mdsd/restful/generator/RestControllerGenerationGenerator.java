@@ -5,6 +5,7 @@ package sdu.mdsd.restful.generator;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
@@ -108,7 +109,18 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.append("public class ");
     String _name_3 = entity.getName();
     _builder.append(_name_3, "\t");
-    _builder.append(" {");
+    _builder.append(" ");
+    {
+      Entity _base = entity.getBase();
+      boolean _tripleNotEquals = (_base != null);
+      if (_tripleNotEquals) {
+        _builder.append(": ");
+        String _name_4 = entity.getBase().getName();
+        _builder.append(_name_4, "\t");
+        _builder.append(" ");
+      }
+    }
+    _builder.append("{");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     CharSequence _generateConstructor = this.generateConstructor(entity);
@@ -132,8 +144,14 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   
   public CharSequence generateAttributes(final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("private readonly IExternalCode ExternalCode;");
-    _builder.newLine();
+    {
+      Entity _base = entity.getBase();
+      boolean _tripleEquals = (_base == null);
+      if (_tripleEquals) {
+        _builder.append("protected readonly IExternalCode ExternalCode;");
+        _builder.newLine();
+      }
+    }
     {
       EList<Attribute> _attributes = entity.getAttributes();
       for(final Attribute x : _attributes) {
@@ -164,31 +182,35 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _name = entity.getName();
     _builder.append(_name);
     _builder.append("(");
-    CharSequence _externCodeCtorParameter = this.externCodeCtorParameter(entity);
-    _builder.append(_externCodeCtorParameter);
+    CharSequence _generateConstructorParameters = this.generateConstructorParameters(entity);
+    _builder.append(_generateConstructorParameters);
+    _builder.append(") ");
     {
-      EList<Attribute> _attributes = entity.getAttributes();
-      boolean _hasElements = false;
-      for(final Attribute x : _attributes) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(", ", "");
-        }
-        CharSequence _generateConstructorParameter = this.generateConstructorParameter(x);
-        _builder.append(_generateConstructorParameter);
+      Entity _base = entity.getBase();
+      boolean _tripleNotEquals = (_base != null);
+      if (_tripleNotEquals) {
+        _builder.append(": base(");
+        CharSequence _generateConstructorParametersWithoutType = this.generateConstructorParametersWithoutType(entity.getBase());
+        _builder.append(_generateConstructorParametersWithoutType);
+        _builder.append(") ");
       }
     }
-    _builder.append(") {");
+    _builder.append(" {");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("ExternalCode = externalCode;");
-    _builder.newLine();
     {
-      EList<Attribute> _attributes_1 = entity.getAttributes();
-      for(final Attribute x_1 : _attributes_1) {
+      Entity _base_1 = entity.getBase();
+      boolean _tripleEquals = (_base_1 == null);
+      if (_tripleEquals) {
         _builder.append("\t");
-        CharSequence _generateConstructorSet = this.generateConstructorSet(x_1);
+        _builder.append("ExternalCode = externalCode;");
+        _builder.newLine();
+      }
+    }
+    {
+      EList<Attribute> _attributes = entity.getAttributes();
+      for(final Attribute x : _attributes) {
+        _builder.append("\t");
+        CharSequence _generateConstructorSet = this.generateConstructorSet(x);
         _builder.append(_generateConstructorSet, "\t");
         _builder.newLineIfNotEmpty();
       }
@@ -201,11 +223,64 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public CharSequence generateConstructorParameters(final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _externCodeCtorParameter = this.externCodeCtorParameter(entity);
+    _builder.append(_externCodeCtorParameter);
+    {
+      ArrayList<Attribute> _allAttributes = this.getAllAttributes(entity);
+      boolean _hasElements = false;
+      for(final Attribute x : _allAttributes) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        CharSequence _generateConstructorParameter = this.generateConstructorParameter(x);
+        _builder.append(_generateConstructorParameter);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence generateConstructorParametersWithoutType(final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _externCodeCtorParameterWithoutType = this.externCodeCtorParameterWithoutType(entity);
+    _builder.append(_externCodeCtorParameterWithoutType);
+    {
+      ArrayList<Attribute> _allAttributes = this.getAllAttributes(entity);
+      boolean _hasElements = false;
+      for(final Attribute x : _allAttributes) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        CharSequence _generateConstructorParameterWithoutType = this.generateConstructorParameterWithoutType(x);
+        _builder.append(_generateConstructorParameterWithoutType);
+      }
+    }
+    return _builder;
+  }
+  
   public CharSequence externCodeCtorParameter(final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("IExternalCode externalCode");
     {
-      int _size = entity.getAttributes().size();
+      int _size = this.getAllAttributes(entity).size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append(", ");
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence externCodeCtorParameterWithoutType(final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("externalCode");
+    {
+      int _size = this.getAllAttributes(entity).size();
       boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
         _builder.append(", ");
@@ -219,6 +294,13 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _name = attribute.getType().getName();
     _builder.append(_name);
     _builder.append(" ");
+    String _firstLower = StringExtensions.toFirstLower(attribute.getName());
+    _builder.append(_firstLower);
+    return _builder;
+  }
+  
+  public CharSequence generateConstructorParameterWithoutType(final Attribute attribute) {
+    StringConcatenation _builder = new StringConcatenation();
     String _firstLower = StringExtensions.toFirstLower(attribute.getName());
     _builder.append(_firstLower);
     return _builder;
@@ -897,8 +979,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.append("Parameters {");
     _builder.newLineIfNotEmpty();
     {
-      EList<Attribute> _attributes = entity.getAttributes();
-      for(final Attribute x : _attributes) {
+      ArrayList<Attribute> _allAttributes = this.getAllAttributes(entity);
+      for(final Attribute x : _allAttributes) {
         {
           boolean _contains = method.getExclude().getAttributes().contains(x);
           boolean _not = (!_contains);
@@ -1092,6 +1174,22 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.append("}");
     _builder.newLine();
     fsa.generateFile(_plus_2, _builder);
+  }
+  
+  public ArrayList<Attribute> getAllAttributes(final Entity entity) {
+    final ArrayList<Attribute> attributes = new ArrayList<Attribute>();
+    Entity currentBase = entity;
+    while ((currentBase != null)) {
+      {
+        attributes.addAll(currentBase.getAttributes());
+        currentBase = currentBase.getBase();
+      }
+    }
+    return attributes;
+  }
+  
+  public static ArrayList<Attribute> getAllAttributesStatic(final Entity entity) {
+    return new RestControllerGenerationGenerator().getAllAttributes(entity);
   }
   
   public CharSequence generateAttributeRequirement(final EObject requirement, final Attribute attribute) {

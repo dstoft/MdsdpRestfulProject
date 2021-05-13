@@ -19,7 +19,7 @@ ExternalDef:
 ;
 
 Entity:
-	'entity' name=ID (':' super=[Entity])? '{' attributes+=Attribute* '}'
+	'entity' name=ID (':' base=[Entity])? '{' attributes+=Attribute* '}'
 ;
 
 Attribute:

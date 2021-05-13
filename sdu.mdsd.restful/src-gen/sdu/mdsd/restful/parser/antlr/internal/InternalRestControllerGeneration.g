@@ -325,7 +325,7 @@ ruleEntity returns [EObject current=null]
 					}
 					otherlv_3=RULE_ID
 					{
-						newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getSuperEntityCrossReference_2_1_0());
+						newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getBaseEntityCrossReference_2_1_0());
 					}
 				)
 			)

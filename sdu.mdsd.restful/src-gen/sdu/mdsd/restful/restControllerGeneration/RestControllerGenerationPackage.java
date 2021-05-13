@@ -207,13 +207,13 @@ public interface RestControllerGenerationPackage extends EPackage
   int ENTITY__NAME = DECLARATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Super</b></em>' reference.
+   * The feature id for the '<em><b>Base</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__SUPER = DECLARATION_FEATURE_COUNT + 0;
+  int ENTITY__BASE = DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1195,15 +1195,15 @@ public interface RestControllerGenerationPackage extends EPackage
   EClass getEntity();
 
   /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Entity#getSuper <em>Super</em>}'.
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Entity#getBase <em>Base</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.Entity#getSuper()
+   * @return the meta object for the reference '<em>Base</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.Entity#getBase()
    * @see #getEntity()
    * @generated
    */
-  EReference getEntity_Super();
+  EReference getEntity_Base();
 
   /**
    * Returns the meta object for the containment reference list '{@link sdu.mdsd.restful.restControllerGeneration.Entity#getAttributes <em>Attributes</em>}'.
@@ -1986,12 +1986,12 @@ public interface RestControllerGenerationPackage extends EPackage
     EClass ENTITY = eINSTANCE.getEntity();
 
     /**
-     * The meta object literal for the '<em><b>Super</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Base</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ENTITY__SUPER = eINSTANCE.getEntity_Super();
+    EReference ENTITY__BASE = eINSTANCE.getEntity_Base();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.

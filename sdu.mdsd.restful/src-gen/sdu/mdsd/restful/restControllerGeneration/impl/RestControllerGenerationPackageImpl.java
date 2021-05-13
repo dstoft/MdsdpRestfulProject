@@ -461,7 +461,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EReference getEntity_Super()
+  public EReference getEntity_Base()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(0);
   }
@@ -1214,7 +1214,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     createEReference(externalDefEClass, EXTERNAL_DEF__TYPE);
 
     entityEClass = createEClass(ENTITY);
-    createEReference(entityEClass, ENTITY__SUPER);
+    createEReference(entityEClass, ENTITY__BASE);
     createEReference(entityEClass, ENTITY__ATTRIBUTES);
 
     attributeEClass = createEClass(ATTRIBUTE);
@@ -1377,7 +1377,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEReference(getExternalDef_Type(), this.getType(), null, "type", null, 0, 1, ExternalDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEntity_Super(), this.getEntity(), null, "super", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntity_Base(), this.getEntity(), null, "base", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

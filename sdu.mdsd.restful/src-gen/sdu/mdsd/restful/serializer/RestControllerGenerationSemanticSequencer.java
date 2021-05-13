@@ -332,7 +332,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     Entity returns Entity
 	 *
 	 * Constraint:
-	 *     (name=ID super=[Entity|ID]? attributes+=Attribute*)
+	 *     (name=ID base=[Entity|ID]? attributes+=Attribute*)
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

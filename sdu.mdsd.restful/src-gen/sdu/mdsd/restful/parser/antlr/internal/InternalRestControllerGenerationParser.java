@@ -800,7 +800,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
                     					
                     otherlv_3=(Token)match(input,RULE_ID,FOLLOW_7); 
 
-                    						newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getSuperEntityCrossReference_2_1_0());
+                    						newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getBaseEntityCrossReference_2_1_0());
                     					
 
                     }

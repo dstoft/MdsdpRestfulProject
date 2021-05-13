@@ -152,19 +152,19 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSuperAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSuperEntityCrossReference_2_1_0 = (CrossReference)cSuperAssignment_2_1.eContents().get(0);
-		private final RuleCall cSuperEntityIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperEntityCrossReference_2_1_0.eContents().get(1);
+		private final Assignment cBaseAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cBaseEntityCrossReference_2_1_0 = (CrossReference)cBaseAssignment_2_1.eContents().get(0);
+		private final RuleCall cBaseEntityIDTerminalRuleCall_2_1_0_1 = (RuleCall)cBaseEntityCrossReference_2_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cAttributesAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cAttributesAttributeParserRuleCall_4_0 = (RuleCall)cAttributesAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Entity:
-		//	'entity' name=ID (':' super=[Entity])? '{' attributes+=Attribute* '}';
+		//	'entity' name=ID (':' base=[Entity])? '{' attributes+=Attribute* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'entity' name=ID (':' super=[Entity])? '{' attributes+=Attribute* '}'
+		//'entity' name=ID (':' base=[Entity])? '{' attributes+=Attribute* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'entity'
@@ -176,20 +176,20 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//(':' super=[Entity])?
+		//(':' base=[Entity])?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//':'
 		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
 		
-		//super=[Entity]
-		public Assignment getSuperAssignment_2_1() { return cSuperAssignment_2_1; }
+		//base=[Entity]
+		public Assignment getBaseAssignment_2_1() { return cBaseAssignment_2_1; }
 		
 		//[Entity]
-		public CrossReference getSuperEntityCrossReference_2_1_0() { return cSuperEntityCrossReference_2_1_0; }
+		public CrossReference getBaseEntityCrossReference_2_1_0() { return cBaseEntityCrossReference_2_1_0; }
 		
 		//ID
-		public RuleCall getSuperEntityIDTerminalRuleCall_2_1_0_1() { return cSuperEntityIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getBaseEntityIDTerminalRuleCall_2_1_0_1() { return cBaseEntityIDTerminalRuleCall_2_1_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
@@ -1177,7 +1177,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//Entity:
-	//	'entity' name=ID (':' super=[Entity])? '{' attributes+=Attribute* '}';
+	//	'entity' name=ID (':' base=[Entity])? '{' attributes+=Attribute* '}';
 	public EntityElements getEntityAccess() {
 		return pEntity;
 	}
