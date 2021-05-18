@@ -24,7 +24,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import sdu.mdsd.restful.restControllerGeneration.Add;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
-import sdu.mdsd.restful.restControllerGeneration.AttributeRequirement;
 import sdu.mdsd.restful.restControllerGeneration.Comparison;
 import sdu.mdsd.restful.restControllerGeneration.Conjunction;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
@@ -38,9 +37,11 @@ import sdu.mdsd.restful.restControllerGeneration.EntityModel;
 import sdu.mdsd.restful.restControllerGeneration.Expression;
 import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
 import sdu.mdsd.restful.restControllerGeneration.ExternalUse;
+import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.IntExp;
 import sdu.mdsd.restful.restControllerGeneration.ListMethod;
+import sdu.mdsd.restful.restControllerGeneration.LogicRequirement;
 import sdu.mdsd.restful.restControllerGeneration.Mul;
 import sdu.mdsd.restful.restControllerGeneration.Name;
 import sdu.mdsd.restful.restControllerGeneration.Proposition;
@@ -50,6 +51,7 @@ import sdu.mdsd.restful.restControllerGeneration.RelGTE;
 import sdu.mdsd.restful.restControllerGeneration.RelLT;
 import sdu.mdsd.restful.restControllerGeneration.RelLTE;
 import sdu.mdsd.restful.restControllerGeneration.RelationalOp;
+import sdu.mdsd.restful.restControllerGeneration.Requirement;
 import sdu.mdsd.restful.restControllerGeneration.Sub;
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
 
@@ -153,8 +155,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
       }
     }
     {
-      EList<Attribute> _attributes = entity.getAttributes();
-      for(final Attribute x : _attributes) {
+      Iterable<Attribute> _filter = Iterables.<Attribute>filter(entity.getDeclarations(), Attribute.class);
+      for(final Attribute x : _filter) {
         CharSequence _generateAttribute = this.generateAttribute(x);
         _builder.append(_generateAttribute);
         _builder.newLineIfNotEmpty();
@@ -207,8 +209,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
       }
     }
     {
-      EList<Attribute> _attributes = entity.getAttributes();
-      for(final Attribute x : _attributes) {
+      Iterable<Attribute> _filter = Iterables.<Attribute>filter(entity.getDeclarations(), Attribute.class);
+      for(final Attribute x : _filter) {
         _builder.append("\t");
         CharSequence _generateConstructorSet = this.generateConstructorSet(x);
         _builder.append(_generateConstructorSet, "\t");
@@ -325,15 +327,26 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLine();
     {
       final Function1<Attribute, Boolean> _function = (Attribute a) -> {
-        EObject _requirement = a.getRequirement();
-        return Boolean.valueOf((_requirement != null));
+        EObject _requires = a.getRequires();
+        return Boolean.valueOf((_requires != null));
       };
-      Iterable<Attribute> _filter = IterableExtensions.<Attribute>filter(entity.getAttributes(), _function);
+      Iterable<Attribute> _filter = IterableExtensions.<Attribute>filter(Iterables.<Attribute>filter(entity.getDeclarations(), Attribute.class), _function);
       for(final Attribute x : _filter) {
         _builder.append("\t");
         _builder.append("if(!(");
-        CharSequence _generateAttributeRequirement = this.generateAttributeRequirement(x.getRequirement(), x);
+        CharSequence _generateAttributeRequirement = this.generateAttributeRequirement(x.getRequires(), x);
         _builder.append(_generateAttributeRequirement, "\t");
+        _builder.append(")) throw new Exception(\"Requirement not fulfilled\");");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Iterable<Requirement> _filter_1 = Iterables.<Requirement>filter(entity.getDeclarations(), Requirement.class);
+      for(final Requirement x_1 : _filter_1) {
+        _builder.append("\t");
+        _builder.append("if(!(");
+        CharSequence _generateRequirement = this.generateRequirement(x_1.getRequirement());
+        _builder.append(_generateRequirement, "\t");
         _builder.append(")) throw new Exception(\"Requirement not fulfilled\");");
         _builder.newLineIfNotEmpty();
       }
@@ -355,10 +368,29 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  protected CharSequence _generateAttributeRequirement(final AttributeRequirement requirement, final Attribute attribute) {
+  protected CharSequence _generateAttributeRequirement(final LogicRequirement requirement, final Attribute attribute) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _generateLogic = this.generateLogic(requirement.getLogic());
     _builder.append(_generateLogic);
+    return _builder;
+  }
+  
+  protected CharSequence _generateRequirement(final LogicRequirement requirement) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateLogic = this.generateLogic(requirement.getLogic());
+    _builder.append(_generateLogic);
+    return _builder;
+  }
+  
+  protected CharSequence _generateRequirement(final ExternalUseOfAttribute requirement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("ExternalCode.");
+    String _name = requirement.getExternal().getName();
+    _builder.append(_name);
+    _builder.append("(");
+    String _name_1 = requirement.getAttribute().getName();
+    _builder.append(_name_1);
+    _builder.append(")");
     return _builder;
   }
   
@@ -1113,8 +1145,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.append("Parameters {");
     _builder.newLineIfNotEmpty();
     {
-      EList<Attribute> _attributes = entity.getAttributes();
-      for(final Attribute x : _attributes) {
+      Iterable<Attribute> _filter = Iterables.<Attribute>filter(entity.getDeclarations(), Attribute.class);
+      for(final Attribute x : _filter) {
         {
           Attribute _entityId = method.getEntityId();
           boolean _tripleNotEquals = (x != _entityId);
@@ -1181,7 +1213,7 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     Entity currentBase = entity;
     while ((currentBase != null)) {
       {
-        attributes.addAll(currentBase.getAttributes());
+        Iterables.<Attribute>addAll(attributes, Iterables.<Attribute>filter(currentBase.getDeclarations(), Attribute.class));
         currentBase = currentBase.getBase();
       }
     }
@@ -1193,13 +1225,24 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   }
   
   public CharSequence generateAttributeRequirement(final EObject requirement, final Attribute attribute) {
-    if (requirement instanceof AttributeRequirement) {
-      return _generateAttributeRequirement((AttributeRequirement)requirement, attribute);
-    } else if (requirement instanceof ExternalUse) {
+    if (requirement instanceof ExternalUse) {
       return _generateAttributeRequirement((ExternalUse)requirement, attribute);
+    } else if (requirement instanceof LogicRequirement) {
+      return _generateAttributeRequirement((LogicRequirement)requirement, attribute);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(requirement, attribute).toString());
+    }
+  }
+  
+  public CharSequence generateRequirement(final EObject requirement) {
+    if (requirement instanceof ExternalUseOfAttribute) {
+      return _generateRequirement((ExternalUseOfAttribute)requirement);
+    } else if (requirement instanceof LogicRequirement) {
+      return _generateRequirement((LogicRequirement)requirement);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(requirement).toString());
     }
   }
   

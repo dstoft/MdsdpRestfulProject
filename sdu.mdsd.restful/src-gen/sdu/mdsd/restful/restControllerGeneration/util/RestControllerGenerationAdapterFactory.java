@@ -101,19 +101,39 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
         return createEntityAdapter();
       }
       @Override
+      public Adapter caseEntityDeclaration(EntityDeclaration object)
+      {
+        return createEntityDeclarationAdapter();
+      }
+      @Override
       public Adapter caseAttribute(Attribute object)
       {
         return createAttributeAdapter();
       }
       @Override
-      public Adapter caseAttributeRequirement(AttributeRequirement object)
+      public Adapter caseAttributeType(AttributeType object)
       {
-        return createAttributeRequirementAdapter();
+        return createAttributeTypeAdapter();
+      }
+      @Override
+      public Adapter caseLogicRequirement(LogicRequirement object)
+      {
+        return createLogicRequirementAdapter();
       }
       @Override
       public Adapter caseExternalUse(ExternalUse object)
       {
         return createExternalUseAdapter();
+      }
+      @Override
+      public Adapter caseExternalUseOfAttribute(ExternalUseOfAttribute object)
+      {
+        return createExternalUseOfAttributeAdapter();
+      }
+      @Override
+      public Adapter caseRequirement(Requirement object)
+      {
+        return createRequirementAdapter();
       }
       @Override
       public Adapter caseProposition(Proposition object)
@@ -343,6 +363,21 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.EntityDeclaration <em>Entity Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.EntityDeclaration
+   * @generated
+   */
+  public Adapter createEntityDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.Attribute <em>Attribute</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -358,16 +393,31 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.AttributeRequirement <em>Attribute Requirement</em>}'.
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.AttributeType <em>Attribute Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sdu.mdsd.restful.restControllerGeneration.AttributeRequirement
+   * @see sdu.mdsd.restful.restControllerGeneration.AttributeType
    * @generated
    */
-  public Adapter createAttributeRequirementAdapter()
+  public Adapter createAttributeTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.LogicRequirement <em>Logic Requirement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.LogicRequirement
+   * @generated
+   */
+  public Adapter createLogicRequirementAdapter()
   {
     return null;
   }
@@ -383,6 +433,36 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExternalUseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute <em>External Use Of Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute
+   * @generated
+   */
+  public Adapter createExternalUseOfAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.Requirement <em>Requirement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.Requirement
+   * @generated
+   */
+  public Adapter createRequirementAdapter()
   {
     return null;
   }

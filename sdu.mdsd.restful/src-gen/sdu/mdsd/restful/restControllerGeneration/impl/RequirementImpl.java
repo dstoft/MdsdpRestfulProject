@@ -7,46 +7,45 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import sdu.mdsd.restful.restControllerGeneration.AttributeRequirement;
-import sdu.mdsd.restful.restControllerGeneration.Proposition;
+import sdu.mdsd.restful.restControllerGeneration.Requirement;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute Requirement</b></em>'.
+ * An implementation of the model object '<em><b>Requirement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeRequirementImpl#getLogic <em>Logic</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.RequirementImpl#getRequirement <em>Requirement</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributeRequirementImpl extends MinimalEObjectImpl.Container implements AttributeRequirement
+public class RequirementImpl extends EntityDeclarationImpl implements Requirement
 {
   /**
-   * The cached value of the '{@link #getLogic() <em>Logic</em>}' containment reference.
+   * The cached value of the '{@link #getRequirement() <em>Requirement</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLogic()
+   * @see #getRequirement()
    * @generated
    * @ordered
    */
-  protected Proposition logic;
+  protected EObject requirement;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AttributeRequirementImpl()
+  protected RequirementImpl()
   {
     super();
   }
@@ -59,7 +58,7 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
   @Override
   protected EClass eStaticClass()
   {
-    return RestControllerGenerationPackage.Literals.ATTRIBUTE_REQUIREMENT;
+    return RestControllerGenerationPackage.Literals.REQUIREMENT;
   }
 
   /**
@@ -68,9 +67,9 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
    * @generated
    */
   @Override
-  public Proposition getLogic()
+  public EObject getRequirement()
   {
-    return logic;
+    return requirement;
   }
 
   /**
@@ -78,13 +77,13 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLogic(Proposition newLogic, NotificationChain msgs)
+  public NotificationChain basicSetRequirement(EObject newRequirement, NotificationChain msgs)
   {
-    Proposition oldLogic = logic;
-    logic = newLogic;
+    EObject oldRequirement = requirement;
+    requirement = newRequirement;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC, oldLogic, newLogic);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT, oldRequirement, newRequirement);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -96,20 +95,20 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
    * @generated
    */
   @Override
-  public void setLogic(Proposition newLogic)
+  public void setRequirement(EObject newRequirement)
   {
-    if (newLogic != logic)
+    if (newRequirement != requirement)
     {
       NotificationChain msgs = null;
-      if (logic != null)
-        msgs = ((InternalEObject)logic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC, null, msgs);
-      if (newLogic != null)
-        msgs = ((InternalEObject)newLogic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC, null, msgs);
-      msgs = basicSetLogic(newLogic, msgs);
+      if (requirement != null)
+        msgs = ((InternalEObject)requirement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT, null, msgs);
+      if (newRequirement != null)
+        msgs = ((InternalEObject)newRequirement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT, null, msgs);
+      msgs = basicSetRequirement(newRequirement, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC, newLogic, newLogic));
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT, newRequirement, newRequirement));
   }
 
   /**
@@ -122,8 +121,8 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC:
-        return basicSetLogic(null, msgs);
+      case RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT:
+        return basicSetRequirement(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -138,8 +137,8 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC:
-        return getLogic();
+      case RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT:
+        return getRequirement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,8 +153,8 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC:
-        setLogic((Proposition)newValue);
+      case RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT:
+        setRequirement((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,8 +170,8 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC:
-        setLogic((Proposition)null);
+      case RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT:
+        setRequirement((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -188,10 +187,10 @@ public class AttributeRequirementImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT__LOGIC:
-        return logic != null;
+      case RestControllerGenerationPackage.REQUIREMENT__REQUIREMENT:
+        return requirement != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //AttributeRequirementImpl
+} //RequirementImpl

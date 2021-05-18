@@ -19,20 +19,39 @@ ExternalDef:
 ;
 
 Entity:
-	'entity' name=ID (':' base=[Entity])? '{' attributes+=Attribute* '}'
+	'entity' name=ID (':' base=[Entity])? '{' declarations+=EntityDeclaration* '}'
+;
+
+EntityDeclaration:
+	Attribute | Requirement
 ;
 
 Attribute:
-	name=ID ':' type=[Type] ("require" requirement=(AttributeRequirement | ExternalUse))?
+	name=ID ':' type=[Type] ("requires" requires=(LogicRequirement | ExternalUse))?
 ;
 
-AttributeRequirement: 
+AttributeType:
+	(':' type=[Type] | "reference" entity=[Entity] | "list" entity=[Entity])
+;
+
+
+LogicRequirement: 
 	logic=LogicExp
 ;
 
 ExternalUse: 
 	external=[ExternalDef]
 ;
+
+ExternalUseOfAttribute: 
+	external=[ExternalDef] "of" attribute=[Attribute]
+;
+
+Requirement:
+	"require" requirement=(LogicRequirement | ExternalUseOfAttribute)
+;
+
+
 
 LogicExp returns Proposition:
 	Conjunction ('||' {Disjunction.left=current} right=Conjunction)* 

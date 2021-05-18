@@ -14,7 +14,9 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import sdu.mdsd.restful.generator.RestControllerGenerationGenerator;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
+import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
+import sdu.mdsd.restful.restControllerGeneration.Type;
 import sdu.mdsd.restful.validation.AbstractRestControllerGenerationValidator;
 
 /**
@@ -68,6 +70,16 @@ public class RestControllerGenerationValidator extends AbstractRestControllerGen
     boolean _exists = IterableExtensions.<Attribute>exists(baseAttributes, _function);
     if (_exists) {
       this.error("Duplicate attribute name from base", RestControllerGenerationPackage.Literals.ATTRIBUTE__NAME, "duplicateName");
+    }
+  }
+  
+  @Check
+  public void checkRequirementType(final ExternalUseOfAttribute requirement) {
+    Type _type = requirement.getExternal().getType();
+    Type _type_1 = requirement.getAttribute().getType();
+    boolean _tripleNotEquals = (_type != _type_1);
+    if (_tripleNotEquals) {
+      this.error("Type mismatch between external function and attribute", RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, "typeMismatch");
     }
   }
 }

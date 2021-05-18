@@ -24,6 +24,10 @@ import sdu.mdsd.restful.restControllerGeneration.ExternalUse
 import java.util.Collection
 import sdu.mdsd.restful.restControllerGeneration.Entity
 import static sdu.mdsd.restful.generator.RestControllerGenerationGenerator.getAllAttributesStatic
+import sdu.mdsd.restful.restControllerGeneration.Requirement
+import sdu.mdsd.restful.restControllerGeneration.LogicRequirement
+import sdu.mdsd.restful.restControllerGeneration.Name
+import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute
 
 /**
  * This class contains custom scoping description.
@@ -44,7 +48,7 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 			}
 			CreateMethodWith case reference == Literals.CREATE_METHOD_WITH__ENTITY_ID: {
 				val candidates = new ArrayList<Attribute>
-				candidates.addAll(context.entity.attributes)
+				candidates.addAll(context.entity.declarations.filter(Attribute))
 				return Scopes.scopeFor(candidates)
 			}
 			CreateMethodExclude: {
@@ -58,6 +62,14 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 			}
 			DeleteMethod: {
 				return Scopes.scopeFor(getControllersAttributes(context))
+			}
+			Name: {
+				val Entity entity = EcoreUtil2.getContainerOfType(context, Entity)
+				return Scopes.scopeFor(getAllAttributesStatic(entity))
+			}
+			ExternalUseOfAttribute case reference == Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE: {
+				val Entity entity = EcoreUtil2.getContainerOfType(context, Entity)
+				return Scopes.scopeFor(getAllAttributesStatic(entity))
 			}
 			default: super.getScope(context, reference)
 		}

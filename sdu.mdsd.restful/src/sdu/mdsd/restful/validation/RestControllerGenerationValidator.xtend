@@ -11,6 +11,7 @@ import org.eclipse.xtext.validation.Check
 import static sdu.mdsd.restful.generator.RestControllerGenerationGenerator.getAllAttributesStatic
 import sdu.mdsd.restful.restControllerGeneration.Attribute
 import org.eclipse.xtext.EcoreUtil2
+import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute
 
 /**
  * This class contains custom validation rules. 
@@ -51,6 +52,13 @@ class RestControllerGenerationValidator extends AbstractRestControllerGeneration
 		val baseAttributes = getAllAttributesStatic(entity.base)
 		if(baseAttributes.exists[name == attribute.name]) {
 			error('Duplicate attribute name from base',Literals.ATTRIBUTE__NAME,"duplicateName")
+		}
+	}
+	
+	@Check
+	def checkRequirementType(ExternalUseOfAttribute requirement) {
+		if(requirement.external.type !== requirement.attribute.type) {
+			error('Type mismatch between external function and attribute', Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, 'typeMismatch')
 		}
 	}
 	

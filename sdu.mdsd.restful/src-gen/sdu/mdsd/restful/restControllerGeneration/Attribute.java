@@ -16,14 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getType <em>Type</em>}</li>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getRequirement <em>Requirement</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getRequires <em>Requires</em>}</li>
  * </ul>
  *
  * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getAttribute()
  * @model
  * @generated
  */
-public interface Attribute extends EObject
+public interface Attribute extends EntityDeclaration
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -70,25 +70,25 @@ public interface Attribute extends EObject
   void setType(Type value);
 
   /**
-   * Returns the value of the '<em><b>Requirement</b></em>' containment reference.
+   * Returns the value of the '<em><b>Requires</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Requirement</em>' containment reference.
-   * @see #setRequirement(EObject)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getAttribute_Requirement()
+   * @return the value of the '<em>Requires</em>' containment reference.
+   * @see #setRequires(EObject)
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getAttribute_Requires()
    * @model containment="true"
    * @generated
    */
-  EObject getRequirement();
+  EObject getRequires();
 
   /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getRequirement <em>Requirement</em>}' containment reference.
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getRequires <em>Requires</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Requirement</em>' containment reference.
-   * @see #getRequirement()
+   * @param value the new value of the '<em>Requires</em>' containment reference.
+   * @see #getRequires()
    * @generated
    */
-  void setRequirement(EObject value);
+  void setRequires(EObject value);
 
 } // Attribute

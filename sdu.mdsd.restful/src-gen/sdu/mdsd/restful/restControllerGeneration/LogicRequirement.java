@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute Requirement</b></em>'.
+ * A representation of the model object '<em><b>Logic Requirement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.AttributeRequirement#getLogic <em>Logic</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.LogicRequirement#getLogic <em>Logic</em>}</li>
  * </ul>
  *
- * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getAttributeRequirement()
+ * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getLogicRequirement()
  * @model
  * @generated
  */
-public interface AttributeRequirement extends EObject
+public interface LogicRequirement extends EObject
 {
   /**
    * Returns the value of the '<em><b>Logic</b></em>' containment reference.
@@ -29,14 +29,14 @@ public interface AttributeRequirement extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Logic</em>' containment reference.
    * @see #setLogic(Proposition)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getAttributeRequirement_Logic()
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getLogicRequirement_Logic()
    * @model containment="true"
    * @generated
    */
   Proposition getLogic();
 
   /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.AttributeRequirement#getLogic <em>Logic</em>}' containment reference.
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.LogicRequirement#getLogic <em>Logic</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Logic</em>' containment reference.
@@ -45,4 +45,4 @@ public interface AttributeRequirement extends EObject
    */
   void setLogic(Proposition value);
 
-} // AttributeRequirement
+} // LogicRequirement

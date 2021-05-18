@@ -70,9 +70,13 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
       case RestControllerGenerationPackage.TYPE: return createType();
       case RestControllerGenerationPackage.EXTERNAL_DEF: return createExternalDef();
       case RestControllerGenerationPackage.ENTITY: return createEntity();
+      case RestControllerGenerationPackage.ENTITY_DECLARATION: return createEntityDeclaration();
       case RestControllerGenerationPackage.ATTRIBUTE: return createAttribute();
-      case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT: return createAttributeRequirement();
+      case RestControllerGenerationPackage.ATTRIBUTE_TYPE: return createAttributeType();
+      case RestControllerGenerationPackage.LOGIC_REQUIREMENT: return createLogicRequirement();
       case RestControllerGenerationPackage.EXTERNAL_USE: return createExternalUse();
+      case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE: return createExternalUseOfAttribute();
+      case RestControllerGenerationPackage.REQUIREMENT: return createRequirement();
       case RestControllerGenerationPackage.PROPOSITION: return createProposition();
       case RestControllerGenerationPackage.COMPARISON: return createComparison();
       case RestControllerGenerationPackage.RELATIONAL_OP: return createRelationalOp();
@@ -170,6 +174,18 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
    * @generated
    */
   @Override
+  public EntityDeclaration createEntityDeclaration()
+  {
+    EntityDeclarationImpl entityDeclaration = new EntityDeclarationImpl();
+    return entityDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Attribute createAttribute()
   {
     AttributeImpl attribute = new AttributeImpl();
@@ -182,10 +198,22 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
    * @generated
    */
   @Override
-  public AttributeRequirement createAttributeRequirement()
+  public AttributeType createAttributeType()
   {
-    AttributeRequirementImpl attributeRequirement = new AttributeRequirementImpl();
-    return attributeRequirement;
+    AttributeTypeImpl attributeType = new AttributeTypeImpl();
+    return attributeType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicRequirement createLogicRequirement()
+  {
+    LogicRequirementImpl logicRequirement = new LogicRequirementImpl();
+    return logicRequirement;
   }
 
   /**
@@ -198,6 +226,30 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
   {
     ExternalUseImpl externalUse = new ExternalUseImpl();
     return externalUse;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExternalUseOfAttribute createExternalUseOfAttribute()
+  {
+    ExternalUseOfAttributeImpl externalUseOfAttribute = new ExternalUseOfAttributeImpl();
+    return externalUseOfAttribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Requirement createRequirement()
+  {
+    RequirementImpl requirement = new RequirementImpl();
+    return requirement;
   }
 
   /**

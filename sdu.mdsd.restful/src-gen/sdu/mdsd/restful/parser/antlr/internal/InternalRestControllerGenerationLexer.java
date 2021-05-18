@@ -49,6 +49,8 @@ public class InternalRestControllerGenerationLexer extends Lexer {
     public static final int T__32=32;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
+    public static final int T__44=44;
+    public static final int T__45=45;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
@@ -237,10 +239,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:19:7: ( 'require' )
-            // InternalRestControllerGeneration.g:19:9: 'require'
+            // InternalRestControllerGeneration.g:19:7: ( 'requires' )
+            // InternalRestControllerGeneration.g:19:9: 'requires'
             {
-            match("require"); 
+            match("requires"); 
 
 
             }
@@ -258,10 +260,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:20:7: ( '||' )
-            // InternalRestControllerGeneration.g:20:9: '||'
+            // InternalRestControllerGeneration.g:20:7: ( 'of' )
+            // InternalRestControllerGeneration.g:20:9: 'of'
             {
-            match("||"); 
+            match("of"); 
 
 
             }
@@ -279,10 +281,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:21:7: ( '&&' )
-            // InternalRestControllerGeneration.g:21:9: '&&'
+            // InternalRestControllerGeneration.g:21:7: ( 'require' )
+            // InternalRestControllerGeneration.g:21:9: 'require'
             {
-            match("&&"); 
+            match("require"); 
 
 
             }
@@ -300,10 +302,11 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:22:7: ( '=' )
-            // InternalRestControllerGeneration.g:22:9: '='
+            // InternalRestControllerGeneration.g:22:7: ( '||' )
+            // InternalRestControllerGeneration.g:22:9: '||'
             {
-            match('='); 
+            match("||"); 
+
 
             }
 
@@ -320,10 +323,11 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:23:7: ( '<' )
-            // InternalRestControllerGeneration.g:23:9: '<'
+            // InternalRestControllerGeneration.g:23:7: ( '&&' )
+            // InternalRestControllerGeneration.g:23:9: '&&'
             {
-            match('<'); 
+            match("&&"); 
+
 
             }
 
@@ -340,10 +344,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:24:7: ( '>' )
-            // InternalRestControllerGeneration.g:24:9: '>'
+            // InternalRestControllerGeneration.g:24:7: ( '=' )
+            // InternalRestControllerGeneration.g:24:9: '='
             {
-            match('>'); 
+            match('='); 
 
             }
 
@@ -360,11 +364,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:25:7: ( '<=' )
-            // InternalRestControllerGeneration.g:25:9: '<='
+            // InternalRestControllerGeneration.g:25:7: ( '<' )
+            // InternalRestControllerGeneration.g:25:9: '<'
             {
-            match("<="); 
-
+            match('<'); 
 
             }
 
@@ -381,11 +384,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:26:7: ( '>=' )
-            // InternalRestControllerGeneration.g:26:9: '>='
+            // InternalRestControllerGeneration.g:26:7: ( '>' )
+            // InternalRestControllerGeneration.g:26:9: '>'
             {
-            match(">="); 
-
+            match('>'); 
 
             }
 
@@ -402,10 +404,11 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:27:7: ( '+' )
-            // InternalRestControllerGeneration.g:27:9: '+'
+            // InternalRestControllerGeneration.g:27:7: ( '<=' )
+            // InternalRestControllerGeneration.g:27:9: '<='
             {
-            match('+'); 
+            match("<="); 
+
 
             }
 
@@ -422,10 +425,11 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:28:7: ( '-' )
-            // InternalRestControllerGeneration.g:28:9: '-'
+            // InternalRestControllerGeneration.g:28:7: ( '>=' )
+            // InternalRestControllerGeneration.g:28:9: '>='
             {
-            match('-'); 
+            match(">="); 
+
 
             }
 
@@ -442,10 +446,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:29:7: ( '*' )
-            // InternalRestControllerGeneration.g:29:9: '*'
+            // InternalRestControllerGeneration.g:29:7: ( '+' )
+            // InternalRestControllerGeneration.g:29:9: '+'
             {
-            match('*'); 
+            match('+'); 
 
             }
 
@@ -462,10 +466,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:30:7: ( '/' )
-            // InternalRestControllerGeneration.g:30:9: '/'
+            // InternalRestControllerGeneration.g:30:7: ( '-' )
+            // InternalRestControllerGeneration.g:30:9: '-'
             {
-            match('/'); 
+            match('-'); 
 
             }
 
@@ -482,10 +486,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:31:7: ( '(' )
-            // InternalRestControllerGeneration.g:31:9: '('
+            // InternalRestControllerGeneration.g:31:7: ( '*' )
+            // InternalRestControllerGeneration.g:31:9: '*'
             {
-            match('('); 
+            match('*'); 
 
             }
 
@@ -502,10 +506,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:32:7: ( ')' )
-            // InternalRestControllerGeneration.g:32:9: ')'
+            // InternalRestControllerGeneration.g:32:7: ( '/' )
+            // InternalRestControllerGeneration.g:32:9: '/'
             {
-            match(')'); 
+            match('/'); 
 
             }
 
@@ -522,11 +526,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:33:7: ( 'controller' )
-            // InternalRestControllerGeneration.g:33:9: 'controller'
+            // InternalRestControllerGeneration.g:33:7: ( '(' )
+            // InternalRestControllerGeneration.g:33:9: '('
             {
-            match("controller"); 
-
+            match('('); 
 
             }
 
@@ -543,11 +546,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:34:7: ( 'uses' )
-            // InternalRestControllerGeneration.g:34:9: 'uses'
+            // InternalRestControllerGeneration.g:34:7: ( ')' )
+            // InternalRestControllerGeneration.g:34:9: ')'
             {
-            match("uses"); 
-
+            match(')'); 
 
             }
 
@@ -564,10 +566,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:35:7: ( 'CREATE' )
-            // InternalRestControllerGeneration.g:35:9: 'CREATE'
+            // InternalRestControllerGeneration.g:35:7: ( 'controller' )
+            // InternalRestControllerGeneration.g:35:9: 'controller'
             {
-            match("CREATE"); 
+            match("controller"); 
 
 
             }
@@ -585,10 +587,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:36:7: ( 'with' )
-            // InternalRestControllerGeneration.g:36:9: 'with'
+            // InternalRestControllerGeneration.g:36:7: ( 'uses' )
+            // InternalRestControllerGeneration.g:36:9: 'uses'
             {
-            match("with"); 
+            match("uses"); 
 
 
             }
@@ -606,10 +608,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:37:7: ( 'exclude' )
-            // InternalRestControllerGeneration.g:37:9: 'exclude'
+            // InternalRestControllerGeneration.g:37:7: ( 'CREATE' )
+            // InternalRestControllerGeneration.g:37:9: 'CREATE'
             {
-            match("exclude"); 
+            match("CREATE"); 
 
 
             }
@@ -627,10 +629,11 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:38:7: ( ',' )
-            // InternalRestControllerGeneration.g:38:9: ','
+            // InternalRestControllerGeneration.g:38:7: ( 'with' )
+            // InternalRestControllerGeneration.g:38:9: 'with'
             {
-            match(','); 
+            match("with"); 
+
 
             }
 
@@ -647,10 +650,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:39:7: ( 'GET' )
-            // InternalRestControllerGeneration.g:39:9: 'GET'
+            // InternalRestControllerGeneration.g:39:7: ( 'exclude' )
+            // InternalRestControllerGeneration.g:39:9: 'exclude'
             {
-            match("GET"); 
+            match("exclude"); 
 
 
             }
@@ -668,11 +671,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:40:7: ( 'on' )
-            // InternalRestControllerGeneration.g:40:9: 'on'
+            // InternalRestControllerGeneration.g:40:7: ( ',' )
+            // InternalRestControllerGeneration.g:40:9: ','
             {
-            match("on"); 
-
+            match(','); 
 
             }
 
@@ -689,10 +691,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:41:7: ( 'LIST' )
-            // InternalRestControllerGeneration.g:41:9: 'LIST'
+            // InternalRestControllerGeneration.g:41:7: ( 'GET' )
+            // InternalRestControllerGeneration.g:41:9: 'GET'
             {
-            match("LIST"); 
+            match("GET"); 
 
 
             }
@@ -710,10 +712,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:42:7: ( 'UPDATE' )
-            // InternalRestControllerGeneration.g:42:9: 'UPDATE'
+            // InternalRestControllerGeneration.g:42:7: ( 'on' )
+            // InternalRestControllerGeneration.g:42:9: 'on'
             {
-            match("UPDATE"); 
+            match("on"); 
 
 
             }
@@ -731,10 +733,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:43:7: ( 'DELETE' )
-            // InternalRestControllerGeneration.g:43:9: 'DELETE'
+            // InternalRestControllerGeneration.g:43:7: ( 'LIST' )
+            // InternalRestControllerGeneration.g:43:9: 'LIST'
             {
-            match("DELETE"); 
+            match("LIST"); 
 
 
             }
@@ -747,15 +749,57 @@ public class InternalRestControllerGenerationLexer extends Lexer {
     }
     // $ANTLR end "T__43"
 
+    // $ANTLR start "T__44"
+    public final void mT__44() throws RecognitionException {
+        try {
+            int _type = T__44;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalRestControllerGeneration.g:44:7: ( 'UPDATE' )
+            // InternalRestControllerGeneration.g:44:9: 'UPDATE'
+            {
+            match("UPDATE"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__44"
+
+    // $ANTLR start "T__45"
+    public final void mT__45() throws RecognitionException {
+        try {
+            int _type = T__45;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalRestControllerGeneration.g:45:7: ( 'DELETE' )
+            // InternalRestControllerGeneration.g:45:9: 'DELETE'
+            {
+            match("DELETE"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__45"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:1636:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalRestControllerGeneration.g:1636:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalRestControllerGeneration.g:1781:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalRestControllerGeneration.g:1781:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalRestControllerGeneration.g:1636:11: ( '^' )?
+            // InternalRestControllerGeneration.g:1781:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -764,7 +808,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalRestControllerGeneration.g:1636:11: '^'
+                    // InternalRestControllerGeneration.g:1781:11: '^'
                     {
                     match('^'); 
 
@@ -782,7 +826,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalRestControllerGeneration.g:1636:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalRestControllerGeneration.g:1781:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -831,10 +875,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:1638:10: ( ( '0' .. '9' )+ )
-            // InternalRestControllerGeneration.g:1638:12: ( '0' .. '9' )+
+            // InternalRestControllerGeneration.g:1783:10: ( ( '0' .. '9' )+ )
+            // InternalRestControllerGeneration.g:1783:12: ( '0' .. '9' )+
             {
-            // InternalRestControllerGeneration.g:1638:12: ( '0' .. '9' )+
+            // InternalRestControllerGeneration.g:1783:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -848,7 +892,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:1638:13: '0' .. '9'
+            	    // InternalRestControllerGeneration.g:1783:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -880,10 +924,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:1640:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalRestControllerGeneration.g:1640:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalRestControllerGeneration.g:1785:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalRestControllerGeneration.g:1785:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalRestControllerGeneration.g:1640:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalRestControllerGeneration.g:1785:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -901,10 +945,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalRestControllerGeneration.g:1640:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalRestControllerGeneration.g:1785:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalRestControllerGeneration.g:1640:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalRestControllerGeneration.g:1785:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -920,7 +964,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalRestControllerGeneration.g:1640:21: '\\\\' .
+                    	    // InternalRestControllerGeneration.g:1785:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -928,7 +972,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalRestControllerGeneration.g:1640:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalRestControllerGeneration.g:1785:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -953,10 +997,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalRestControllerGeneration.g:1640:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalRestControllerGeneration.g:1785:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalRestControllerGeneration.g:1640:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalRestControllerGeneration.g:1785:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -972,7 +1016,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalRestControllerGeneration.g:1640:54: '\\\\' .
+                    	    // InternalRestControllerGeneration.g:1785:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -980,7 +1024,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalRestControllerGeneration.g:1640:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalRestControllerGeneration.g:1785:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1023,12 +1067,12 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:1642:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalRestControllerGeneration.g:1642:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalRestControllerGeneration.g:1787:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalRestControllerGeneration.g:1787:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalRestControllerGeneration.g:1642:24: ( options {greedy=false; } : . )*
+            // InternalRestControllerGeneration.g:1787:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1053,7 +1097,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:1642:52: .
+            	    // InternalRestControllerGeneration.g:1787:52: .
             	    {
             	    matchAny(); 
 
@@ -1083,12 +1127,12 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:1644:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalRestControllerGeneration.g:1644:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalRestControllerGeneration.g:1789:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalRestControllerGeneration.g:1789:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalRestControllerGeneration.g:1644:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalRestControllerGeneration.g:1789:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1101,7 +1145,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:1644:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalRestControllerGeneration.g:1789:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1121,7 +1165,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalRestControllerGeneration.g:1644:40: ( ( '\\r' )? '\\n' )?
+            // InternalRestControllerGeneration.g:1789:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1130,9 +1174,9 @@ public class InternalRestControllerGenerationLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalRestControllerGeneration.g:1644:41: ( '\\r' )? '\\n'
+                    // InternalRestControllerGeneration.g:1789:41: ( '\\r' )? '\\n'
                     {
-                    // InternalRestControllerGeneration.g:1644:41: ( '\\r' )?
+                    // InternalRestControllerGeneration.g:1789:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1141,7 +1185,7 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalRestControllerGeneration.g:1644:41: '\\r'
+                            // InternalRestControllerGeneration.g:1789:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1173,10 +1217,10 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:1646:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalRestControllerGeneration.g:1646:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalRestControllerGeneration.g:1791:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalRestControllerGeneration.g:1791:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalRestControllerGeneration.g:1646:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalRestControllerGeneration.g:1791:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1230,8 +1274,8 @@ public class InternalRestControllerGenerationLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRestControllerGeneration.g:1648:16: ( . )
-            // InternalRestControllerGeneration.g:1648:18: .
+            // InternalRestControllerGeneration.g:1793:16: ( . )
+            // InternalRestControllerGeneration.g:1793:18: .
             {
             matchAny(); 
 
@@ -1246,8 +1290,8 @@ public class InternalRestControllerGenerationLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalRestControllerGeneration.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=40;
+        // InternalRestControllerGeneration.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=42;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1482,49 +1526,63 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                 }
                 break;
             case 34 :
-                // InternalRestControllerGeneration.g:1:208: RULE_ID
+                // InternalRestControllerGeneration.g:1:208: T__44
+                {
+                mT__44(); 
+
+                }
+                break;
+            case 35 :
+                // InternalRestControllerGeneration.g:1:214: T__45
+                {
+                mT__45(); 
+
+                }
+                break;
+            case 36 :
+                // InternalRestControllerGeneration.g:1:220: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 35 :
-                // InternalRestControllerGeneration.g:1:216: RULE_INT
+            case 37 :
+                // InternalRestControllerGeneration.g:1:228: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 36 :
-                // InternalRestControllerGeneration.g:1:225: RULE_STRING
+            case 38 :
+                // InternalRestControllerGeneration.g:1:237: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 37 :
-                // InternalRestControllerGeneration.g:1:237: RULE_ML_COMMENT
+            case 39 :
+                // InternalRestControllerGeneration.g:1:249: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 38 :
-                // InternalRestControllerGeneration.g:1:253: RULE_SL_COMMENT
+            case 40 :
+                // InternalRestControllerGeneration.g:1:265: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 39 :
-                // InternalRestControllerGeneration.g:1:269: RULE_WS
+            case 41 :
+                // InternalRestControllerGeneration.g:1:281: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 40 :
-                // InternalRestControllerGeneration.g:1:277: RULE_ANY_OTHER
+            case 42 :
+                // InternalRestControllerGeneration.g:1:289: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1538,19 +1596,19 @@ public class InternalRestControllerGenerationLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\4\45\3\uffff\1\45\2\43\1\uffff\1\62\1\64\3\uffff\1\72\2\uffff\3\45\1\uffff\5\45\1\43\2\uffff\2\43\2\uffff\1\45\1\uffff\4\45\3\uffff\1\45\17\uffff\3\45\1\uffff\1\45\1\125\3\45\3\uffff\13\45\1\144\1\uffff\4\45\1\151\4\45\1\156\3\45\1\162\1\uffff\1\163\2\45\1\166\1\uffff\3\45\1\172\1\uffff\3\45\2\uffff\2\45\1\uffff\2\45\1\u0082\1\uffff\2\45\1\u0085\1\u0086\1\u0087\1\45\1\u0089\1\uffff\1\u008a\1\45\3\uffff\1\u008c\2\uffff\1\45\1\uffff\1\45\1\u008f\1\uffff";
+        "\1\uffff\4\45\3\uffff\2\45\2\43\1\uffff\1\64\1\66\3\uffff\1\74\2\uffff\3\45\1\uffff\4\45\1\43\2\uffff\2\43\2\uffff\1\45\1\uffff\4\45\3\uffff\1\45\1\122\1\123\17\uffff\3\45\1\uffff\4\45\3\uffff\10\45\2\uffff\3\45\1\146\4\45\1\153\4\45\1\160\3\45\1\164\1\uffff\1\165\2\45\1\170\1\uffff\3\45\1\174\1\uffff\3\45\2\uffff\2\45\1\uffff\2\45\1\u0084\1\uffff\2\45\1\u0087\1\u0088\1\u0089\1\45\1\u008b\1\uffff\1\u008d\1\45\3\uffff\1\u008f\1\uffff\1\u0090\1\uffff\1\45\2\uffff\1\45\1\u0093\1\uffff";
     static final String DFA12_eofS =
-        "\u0090\uffff";
+        "\u0094\uffff";
     static final String DFA12_minS =
-        "\1\0\1\157\1\171\1\156\1\163\3\uffff\1\145\1\174\1\46\1\uffff\2\75\3\uffff\1\52\2\uffff\1\157\1\122\1\151\1\uffff\1\105\1\156\1\111\1\120\1\105\1\101\2\uffff\2\0\2\uffff\1\144\1\uffff\1\160\1\143\1\164\1\145\3\uffff\1\161\17\uffff\1\156\1\105\1\164\1\uffff\1\124\1\60\1\123\1\104\1\114\3\uffff\3\145\1\154\1\151\1\156\1\163\1\165\1\164\1\101\1\150\1\60\1\uffff\1\124\1\101\1\105\1\154\1\60\1\162\1\165\1\164\1\147\1\60\1\151\1\162\1\124\1\60\1\uffff\1\60\2\124\1\60\1\uffff\1\156\1\144\1\171\1\60\1\uffff\1\162\1\157\1\105\2\uffff\2\105\1\uffff\1\141\1\145\1\60\1\uffff\1\145\1\154\3\60\1\154\1\60\1\uffff\1\60\1\154\3\uffff\1\60\2\uffff\1\145\1\uffff\1\162\1\60\1\uffff";
+        "\1\0\1\157\1\171\1\156\1\163\3\uffff\1\145\1\146\1\174\1\46\1\uffff\2\75\3\uffff\1\52\2\uffff\1\157\1\122\1\151\1\uffff\1\105\1\111\1\120\1\105\1\101\2\uffff\2\0\2\uffff\1\144\1\uffff\1\160\1\143\1\164\1\145\3\uffff\1\161\2\60\17\uffff\1\156\1\105\1\164\1\uffff\1\124\1\123\1\104\1\114\3\uffff\3\145\1\154\1\151\1\156\1\163\1\165\2\uffff\1\164\1\101\1\150\1\60\1\124\1\101\1\105\1\154\1\60\1\162\1\165\1\164\1\147\1\60\1\151\1\162\1\124\1\60\1\uffff\1\60\2\124\1\60\1\uffff\1\156\1\144\1\171\1\60\1\uffff\1\162\1\157\1\105\2\uffff\2\105\1\uffff\1\141\1\145\1\60\1\uffff\1\145\1\154\3\60\1\154\1\60\1\uffff\1\60\1\154\3\uffff\1\60\1\uffff\1\60\1\uffff\1\145\2\uffff\1\162\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\157\1\171\1\170\1\163\3\uffff\1\145\1\174\1\46\1\uffff\2\75\3\uffff\1\57\2\uffff\1\157\1\122\1\151\1\uffff\1\105\1\156\1\111\1\120\1\105\1\172\2\uffff\2\uffff\2\uffff\1\144\1\uffff\1\160\2\164\1\151\3\uffff\1\161\17\uffff\1\156\1\105\1\164\1\uffff\1\124\1\172\1\123\1\104\1\114\3\uffff\3\145\1\154\1\151\1\156\1\163\1\165\1\164\1\101\1\150\1\172\1\uffff\1\124\1\101\1\105\1\154\1\172\1\162\1\165\1\164\1\147\1\172\1\151\1\162\1\124\1\172\1\uffff\1\172\2\124\1\172\1\uffff\1\156\1\144\1\171\1\172\1\uffff\1\162\1\157\1\105\2\uffff\2\105\1\uffff\1\141\1\145\1\172\1\uffff\1\145\1\154\3\172\1\154\1\172\1\uffff\1\172\1\154\3\uffff\1\172\2\uffff\1\145\1\uffff\1\162\1\172\1\uffff";
+        "\1\uffff\1\157\1\171\1\170\1\163\3\uffff\1\145\1\156\1\174\1\46\1\uffff\2\75\3\uffff\1\57\2\uffff\1\157\1\122\1\151\1\uffff\1\105\1\111\1\120\1\105\1\172\2\uffff\2\uffff\2\uffff\1\144\1\uffff\1\160\2\164\1\151\3\uffff\1\161\2\172\17\uffff\1\156\1\105\1\164\1\uffff\1\124\1\123\1\104\1\114\3\uffff\3\145\1\154\1\151\1\156\1\163\1\165\2\uffff\1\164\1\101\1\150\1\172\1\124\1\101\1\105\1\154\1\172\1\162\1\165\1\164\1\147\1\172\1\151\1\162\1\124\1\172\1\uffff\1\172\2\124\1\172\1\uffff\1\156\1\144\1\171\1\172\1\uffff\1\162\1\157\1\105\2\uffff\2\105\1\uffff\1\141\1\145\1\172\1\uffff\1\145\1\154\3\172\1\154\1\172\1\uffff\1\172\1\154\3\uffff\1\172\1\uffff\1\172\1\uffff\1\145\2\uffff\1\162\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\5\uffff\1\6\1\7\1\10\3\uffff\1\14\2\uffff\1\21\1\22\1\23\1\uffff\1\25\1\26\3\uffff\1\34\6\uffff\1\42\1\43\2\uffff\1\47\1\50\1\uffff\1\42\4\uffff\1\6\1\7\1\10\1\uffff\1\12\1\13\1\14\1\17\1\15\1\20\1\16\1\21\1\22\1\23\1\45\1\46\1\24\1\25\1\26\3\uffff\1\34\5\uffff\1\43\1\44\1\47\14\uffff\1\36\16\uffff\1\35\4\uffff\1\2\4\uffff\1\30\3\uffff\1\32\1\37\2\uffff\1\1\3\uffff\1\4\7\uffff\1\5\2\uffff\1\31\1\40\1\41\1\uffff\1\33\1\11\1\uffff\1\3\2\uffff\1\27";
+        "\5\uffff\1\6\1\7\1\10\4\uffff\1\16\2\uffff\1\23\1\24\1\25\1\uffff\1\27\1\30\3\uffff\1\36\5\uffff\1\44\1\45\2\uffff\1\51\1\52\1\uffff\1\44\4\uffff\1\6\1\7\1\10\3\uffff\1\14\1\15\1\16\1\21\1\17\1\22\1\20\1\23\1\24\1\25\1\47\1\50\1\26\1\27\1\30\3\uffff\1\36\4\uffff\1\45\1\46\1\51\10\uffff\1\12\1\40\22\uffff\1\37\4\uffff\1\2\4\uffff\1\32\3\uffff\1\34\1\41\2\uffff\1\1\3\uffff\1\4\7\uffff\1\5\2\uffff\1\33\1\42\1\43\1\uffff\1\35\1\uffff\1\13\1\uffff\1\3\1\11\2\uffff\1\31";
     static final String DFA12_specialS =
-        "\1\2\37\uffff\1\1\1\0\156\uffff}>";
+        "\1\1\37\uffff\1\0\1\2\162\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\43\2\42\2\43\1\42\22\43\1\42\1\43\1\40\3\43\1\12\1\41\1\22\1\23\1\20\1\16\1\27\1\17\1\43\1\21\12\37\1\5\1\43\1\14\1\13\1\15\2\43\2\36\1\25\1\34\2\36\1\30\4\36\1\32\10\36\1\33\5\36\3\43\1\35\1\36\1\43\2\36\1\24\1\36\1\3\7\36\1\1\1\36\1\31\2\36\1\10\1\36\1\2\1\4\1\36\1\26\3\36\1\6\1\11\1\7\uff82\43",
+            "\11\43\2\42\2\43\1\42\22\43\1\42\1\43\1\40\3\43\1\13\1\41\1\23\1\24\1\21\1\17\1\30\1\20\1\43\1\22\12\37\1\5\1\43\1\15\1\14\1\16\2\43\2\36\1\26\1\34\2\36\1\31\4\36\1\32\10\36\1\33\5\36\3\43\1\35\1\36\1\43\2\36\1\25\1\36\1\3\7\36\1\1\1\36\1\11\2\36\1\10\1\36\1\2\1\4\1\36\1\27\3\36\1\6\1\12\1\7\uff82\43",
             "\1\44",
             "\1\46",
             "\1\50\11\uffff\1\47",
@@ -1559,72 +1617,71 @@ public class InternalRestControllerGenerationLexer extends Lexer {
             "",
             "",
             "\1\55",
-            "\1\56",
-            "\1\57",
-            "",
+            "\1\56\7\uffff\1\57",
+            "\1\60",
             "\1\61",
+            "",
             "\1\63",
+            "\1\65",
             "",
             "",
             "",
-            "\1\70\4\uffff\1\71",
+            "\1\72\4\uffff\1\73",
             "",
             "",
-            "\1\75",
-            "\1\76",
             "\1\77",
-            "",
+            "\1\100",
             "\1\101",
-            "\1\102",
+            "",
             "\1\103",
             "\1\104",
             "\1\105",
+            "\1\106",
             "\32\45\4\uffff\1\45\1\uffff\32\45",
             "",
             "",
-            "\0\107",
-            "\0\107",
+            "\0\110",
+            "\0\110",
             "",
-            "",
-            "\1\111",
             "",
             "\1\112",
-            "\1\114\20\uffff\1\113",
-            "\1\115",
-            "\1\117\3\uffff\1\116",
             "",
-            "",
-            "",
-            "\1\120",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\1\113",
+            "\1\115\20\uffff\1\114",
+            "\1\116",
+            "\1\120\3\uffff\1\117",
             "",
             "",
             "",
             "\1\121",
-            "\1\122",
-            "\1\123",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "",
             "\1\124",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\125",
             "\1\126",
+            "",
             "\1\127",
             "\1\130",
-            "",
-            "",
-            "",
             "\1\131",
             "\1\132",
+            "",
+            "",
+            "",
             "\1\133",
             "\1\134",
             "\1\135",
@@ -1633,65 +1690,70 @@ public class InternalRestControllerGenerationLexer extends Lexer {
             "\1\140",
             "\1\141",
             "\1\142",
-            "\1\143",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "",
+            "",
+            "\1\143",
+            "\1\144",
             "\1\145",
-            "\1\146",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\1\147",
             "\1\150",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\151",
             "\1\152",
-            "\1\153",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\1\154",
             "\1\155",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\156",
             "\1\157",
-            "\1\160",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\1\161",
+            "\1\162",
+            "\1\163",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
-            "\1\164",
-            "\1\165",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
-            "",
+            "\1\166",
             "\1\167",
-            "\1\170",
-            "\1\171",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "",
+            "\1\171",
+            "\1\172",
             "\1\173",
-            "\1\174",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
             "\1\175",
-            "",
-            "",
             "\1\176",
             "\1\177",
             "",
+            "",
             "\1\u0080",
             "\1\u0081",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "",
+            "\1\u0082",
             "\1\u0083",
-            "\1\u0084",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\1\u0085",
+            "\1\u0086",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
-            "\1\u0088",
+            "\1\u008a",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
-            "\1\u008b",
-            "",
-            "",
-            "",
-            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
-            "",
-            "",
-            "\1\u008d",
-            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\22\45\1\u008c\7\45",
             "\1\u008e",
+            "",
+            "",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\1\u0091",
+            "",
+            "",
+            "\1\u0092",
             "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             ""
     };
@@ -1726,33 +1788,23 @@ public class InternalRestControllerGenerationLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_33 = input.LA(1);
+                        int LA12_32 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_33>='\u0000' && LA12_33<='\uFFFF')) ) {s = 71;}
+                        if ( ((LA12_32>='\u0000' && LA12_32<='\uFFFF')) ) {s = 72;}
 
                         else s = 35;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_32 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_32>='\u0000' && LA12_32<='\uFFFF')) ) {s = 71;}
-
-                        else s = 35;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -1772,39 +1824,39 @@ public class InternalRestControllerGenerationLexer extends Lexer {
 
                         else if ( (LA12_0=='r') ) {s = 8;}
 
-                        else if ( (LA12_0=='|') ) {s = 9;}
+                        else if ( (LA12_0=='o') ) {s = 9;}
 
-                        else if ( (LA12_0=='&') ) {s = 10;}
+                        else if ( (LA12_0=='|') ) {s = 10;}
 
-                        else if ( (LA12_0=='=') ) {s = 11;}
+                        else if ( (LA12_0=='&') ) {s = 11;}
 
-                        else if ( (LA12_0=='<') ) {s = 12;}
+                        else if ( (LA12_0=='=') ) {s = 12;}
 
-                        else if ( (LA12_0=='>') ) {s = 13;}
+                        else if ( (LA12_0=='<') ) {s = 13;}
 
-                        else if ( (LA12_0=='+') ) {s = 14;}
+                        else if ( (LA12_0=='>') ) {s = 14;}
 
-                        else if ( (LA12_0=='-') ) {s = 15;}
+                        else if ( (LA12_0=='+') ) {s = 15;}
 
-                        else if ( (LA12_0=='*') ) {s = 16;}
+                        else if ( (LA12_0=='-') ) {s = 16;}
 
-                        else if ( (LA12_0=='/') ) {s = 17;}
+                        else if ( (LA12_0=='*') ) {s = 17;}
 
-                        else if ( (LA12_0=='(') ) {s = 18;}
+                        else if ( (LA12_0=='/') ) {s = 18;}
 
-                        else if ( (LA12_0==')') ) {s = 19;}
+                        else if ( (LA12_0=='(') ) {s = 19;}
 
-                        else if ( (LA12_0=='c') ) {s = 20;}
+                        else if ( (LA12_0==')') ) {s = 20;}
 
-                        else if ( (LA12_0=='C') ) {s = 21;}
+                        else if ( (LA12_0=='c') ) {s = 21;}
 
-                        else if ( (LA12_0=='w') ) {s = 22;}
+                        else if ( (LA12_0=='C') ) {s = 22;}
 
-                        else if ( (LA12_0==',') ) {s = 23;}
+                        else if ( (LA12_0=='w') ) {s = 23;}
 
-                        else if ( (LA12_0=='G') ) {s = 24;}
+                        else if ( (LA12_0==',') ) {s = 24;}
 
-                        else if ( (LA12_0=='o') ) {s = 25;}
+                        else if ( (LA12_0=='G') ) {s = 25;}
 
                         else if ( (LA12_0=='L') ) {s = 26;}
 
@@ -1825,6 +1877,16 @@ public class InternalRestControllerGenerationLexer extends Lexer {
                         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 34;}
 
                         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='%')||LA12_0=='.'||LA12_0==';'||(LA12_0>='?' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 35;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_33 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_33>='\u0000' && LA12_33<='\uFFFF')) ) {s = 72;}
+
+                        else s = 35;
 
                         if ( s>=0 ) return s;
                         break;

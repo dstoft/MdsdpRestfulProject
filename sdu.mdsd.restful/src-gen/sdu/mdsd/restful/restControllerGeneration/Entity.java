@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Entity#getBase <em>Base</em>}</li>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Entity#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Entity#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
  * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getEntity()
@@ -47,15 +47,15 @@ public interface Entity extends Declaration
   void setBase(Entity value);
 
   /**
-   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link sdu.mdsd.restful.restControllerGeneration.Attribute}.
+   * Returns the value of the '<em><b>Declarations</b></em>' containment reference list.
+   * The list contents are of type {@link sdu.mdsd.restful.restControllerGeneration.EntityDeclaration}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attributes</em>' containment reference list.
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getEntity_Attributes()
+   * @return the value of the '<em>Declarations</em>' containment reference list.
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getEntity_Declarations()
    * @model containment="true"
    * @generated
    */
-  EList<Attribute> getAttributes();
+  EList<EntityDeclaration> getDeclarations();
 
 } // Entity

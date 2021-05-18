@@ -16,7 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import sdu.mdsd.restful.restControllerGeneration.Add;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
-import sdu.mdsd.restful.restControllerGeneration.AttributeRequirement;
+import sdu.mdsd.restful.restControllerGeneration.AttributeType;
 import sdu.mdsd.restful.restControllerGeneration.Comparison;
 import sdu.mdsd.restful.restControllerGeneration.Conjunction;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
@@ -30,9 +30,11 @@ import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.EntityModel;
 import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
 import sdu.mdsd.restful.restControllerGeneration.ExternalUse;
+import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.IntExp;
 import sdu.mdsd.restful.restControllerGeneration.ListMethod;
+import sdu.mdsd.restful.restControllerGeneration.LogicRequirement;
 import sdu.mdsd.restful.restControllerGeneration.Mul;
 import sdu.mdsd.restful.restControllerGeneration.Name;
 import sdu.mdsd.restful.restControllerGeneration.RelEQ;
@@ -40,6 +42,7 @@ import sdu.mdsd.restful.restControllerGeneration.RelGT;
 import sdu.mdsd.restful.restControllerGeneration.RelGTE;
 import sdu.mdsd.restful.restControllerGeneration.RelLT;
 import sdu.mdsd.restful.restControllerGeneration.RelLTE;
+import sdu.mdsd.restful.restControllerGeneration.Requirement;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 import sdu.mdsd.restful.restControllerGeneration.Sub;
 import sdu.mdsd.restful.restControllerGeneration.Type;
@@ -66,8 +69,8 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 			case RestControllerGenerationPackage.ATTRIBUTE:
 				sequence_Attribute(context, (Attribute) semanticObject); 
 				return; 
-			case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT:
-				sequence_AttributeRequirement(context, (AttributeRequirement) semanticObject); 
+			case RestControllerGenerationPackage.ATTRIBUTE_TYPE:
+				sequence_AttributeType(context, (AttributeType) semanticObject); 
 				return; 
 			case RestControllerGenerationPackage.COMPARISON:
 				sequence_Comparison(context, (Comparison) semanticObject); 
@@ -108,6 +111,9 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 			case RestControllerGenerationPackage.EXTERNAL_USE:
 				sequence_ExternalUse(context, (ExternalUse) semanticObject); 
 				return; 
+			case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE:
+				sequence_ExternalUseOfAttribute(context, (ExternalUseOfAttribute) semanticObject); 
+				return; 
 			case RestControllerGenerationPackage.GET_METHOD:
 				sequence_GetMethod(context, (GetMethod) semanticObject); 
 				return; 
@@ -116,6 +122,9 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 				return; 
 			case RestControllerGenerationPackage.LIST_METHOD:
 				sequence_ListMethod(context, (ListMethod) semanticObject); 
+				return; 
+			case RestControllerGenerationPackage.LOGIC_REQUIREMENT:
+				sequence_LogicRequirement(context, (LogicRequirement) semanticObject); 
 				return; 
 			case RestControllerGenerationPackage.MUL:
 				sequence_Factor(context, (Mul) semanticObject); 
@@ -138,6 +147,9 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 			case RestControllerGenerationPackage.REL_LTE:
 				sequence_RelationalOp(context, (RelLTE) semanticObject); 
 				return; 
+			case RestControllerGenerationPackage.REQUIREMENT:
+				sequence_Requirement(context, (Requirement) semanticObject); 
+				return; 
 			case RestControllerGenerationPackage.SUB:
 				sequence_Exp(context, (Sub) semanticObject); 
 				return; 
@@ -154,28 +166,23 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Contexts:
-	 *     AttributeRequirement returns AttributeRequirement
+	 *     AttributeType returns AttributeType
 	 *
 	 * Constraint:
-	 *     logic=LogicExp
+	 *     (type=[Type|ID] | entity=[Entity|ID] | entity=[Entity|ID])
 	 */
-	protected void sequence_AttributeRequirement(ISerializationContext context, AttributeRequirement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.ATTRIBUTE_REQUIREMENT__LOGIC) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.ATTRIBUTE_REQUIREMENT__LOGIC));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeRequirementAccess().getLogicLogicExpParserRuleCall_0(), semanticObject.getLogic());
-		feeder.finish();
+	protected void sequence_AttributeType(ISerializationContext context, AttributeType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     EntityDeclaration returns Attribute
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=[Type|ID] (requirement=AttributeRequirement | requirement=ExternalUse)?)
+	 *     (name=ID type=[Type|ID] (requires=LogicRequirement | requires=ExternalUse)?)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -332,7 +339,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     Entity returns Entity
 	 *
 	 * Constraint:
-	 *     (name=ID base=[Entity|ID]? attributes+=Attribute*)
+	 *     (name=ID base=[Entity|ID]? declarations+=EntityDeclaration*)
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -411,6 +418,27 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExternalDefAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getExternalDefAccess().getTypeTypeIDTerminalRuleCall_3_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.EXTERNAL_DEF__TYPE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExternalUseOfAttribute returns ExternalUseOfAttribute
+	 *
+	 * Constraint:
+	 *     (external=[ExternalDef|ID] attribute=[Attribute|ID])
+	 */
+	protected void sequence_ExternalUseOfAttribute(ISerializationContext context, ExternalUseOfAttribute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__EXTERNAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__EXTERNAL));
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExternalUseOfAttributeAccess().getExternalExternalDefIDTerminalRuleCall_0_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__EXTERNAL, false));
+		feeder.accept(grammarAccess.getExternalUseOfAttributeAccess().getAttributeAttributeIDTerminalRuleCall_2_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, false));
 		feeder.finish();
 	}
 	
@@ -570,6 +598,24 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Contexts:
+	 *     LogicRequirement returns LogicRequirement
+	 *
+	 * Constraint:
+	 *     logic=LogicExp
+	 */
+	protected void sequence_LogicRequirement(ISerializationContext context, LogicRequirement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.LOGIC_REQUIREMENT__LOGIC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.LOGIC_REQUIREMENT__LOGIC));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLogicRequirementAccess().getLogicLogicExpParserRuleCall_0(), semanticObject.getLogic());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Exp returns Name
 	 *     Exp.Add_1_0_0_1 returns Name
 	 *     Exp.Sub_1_0_1_1 returns Name
@@ -649,6 +695,19 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     {RelLTE}
 	 */
 	protected void sequence_RelationalOp(ISerializationContext context, RelLTE semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EntityDeclaration returns Requirement
+	 *     Requirement returns Requirement
+	 *
+	 * Constraint:
+	 *     (requirement=LogicRequirement | requirement=ExternalUseOfAttribute)
+	 */
+	protected void sequence_Requirement(ISerializationContext context, Requirement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

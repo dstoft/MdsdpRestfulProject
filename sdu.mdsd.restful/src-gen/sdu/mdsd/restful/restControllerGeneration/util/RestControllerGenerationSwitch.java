@@ -111,17 +111,32 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RestControllerGenerationPackage.ENTITY_DECLARATION:
+      {
+        EntityDeclaration entityDeclaration = (EntityDeclaration)theEObject;
+        T result = caseEntityDeclaration(entityDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RestControllerGenerationPackage.ATTRIBUTE:
       {
         Attribute attribute = (Attribute)theEObject;
         T result = caseAttribute(attribute);
+        if (result == null) result = caseEntityDeclaration(attribute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RestControllerGenerationPackage.ATTRIBUTE_REQUIREMENT:
+      case RestControllerGenerationPackage.ATTRIBUTE_TYPE:
       {
-        AttributeRequirement attributeRequirement = (AttributeRequirement)theEObject;
-        T result = caseAttributeRequirement(attributeRequirement);
+        AttributeType attributeType = (AttributeType)theEObject;
+        T result = caseAttributeType(attributeType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RestControllerGenerationPackage.LOGIC_REQUIREMENT:
+      {
+        LogicRequirement logicRequirement = (LogicRequirement)theEObject;
+        T result = caseLogicRequirement(logicRequirement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -129,6 +144,21 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
       {
         ExternalUse externalUse = (ExternalUse)theEObject;
         T result = caseExternalUse(externalUse);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE:
+      {
+        ExternalUseOfAttribute externalUseOfAttribute = (ExternalUseOfAttribute)theEObject;
+        T result = caseExternalUseOfAttribute(externalUseOfAttribute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RestControllerGenerationPackage.REQUIREMENT:
+      {
+        Requirement requirement = (Requirement)theEObject;
+        T result = caseRequirement(requirement);
+        if (result == null) result = caseEntityDeclaration(requirement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -419,6 +449,22 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Entity Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Entity Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntityDeclaration(EntityDeclaration object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -435,17 +481,33 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribute Requirement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Attribute Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribute Requirement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Attribute Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAttributeRequirement(AttributeRequirement object)
+  public T caseAttributeType(AttributeType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logic Requirement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logic Requirement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicRequirement(LogicRequirement object)
   {
     return null;
   }
@@ -462,6 +524,38 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExternalUse(ExternalUse object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>External Use Of Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>External Use Of Attribute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExternalUseOfAttribute(ExternalUseOfAttribute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Requirement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Requirement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRequirement(Requirement object)
   {
     return null;
   }

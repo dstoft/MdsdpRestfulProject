@@ -19,10 +19,13 @@ import sdu.mdsd.restful.restControllerGeneration.Controller;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith;
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod;
+import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.EntityModel;
 import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
 import sdu.mdsd.restful.restControllerGeneration.ExternalUse;
+import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
+import sdu.mdsd.restful.restControllerGeneration.Name;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 import sdu.mdsd.restful.restControllerGeneration.Type;
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
@@ -59,7 +62,7 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
         if (_equals) {
           _matched=true;
           final ArrayList<Attribute> candidates = new ArrayList<Attribute>();
-          candidates.addAll(((CreateMethodWith)context).getEntity().getAttributes());
+          Iterables.<Attribute>addAll(candidates, Iterables.<Attribute>filter(((CreateMethodWith)context).getEntity().getDeclarations(), Attribute.class));
           return Scopes.scopeFor(candidates);
         }
       }
@@ -86,6 +89,23 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
       if (context instanceof DeleteMethod) {
         _matched=true;
         return Scopes.scopeFor(this.getControllersAttributes(context));
+      }
+    }
+    if (!_matched) {
+      if (context instanceof Name) {
+        _matched=true;
+        final Entity entity = EcoreUtil2.<Entity>getContainerOfType(context, Entity.class);
+        return Scopes.scopeFor(RestControllerGenerationGenerator.getAllAttributesStatic(entity));
+      }
+    }
+    if (!_matched) {
+      if (context instanceof ExternalUseOfAttribute) {
+        boolean _equals = Objects.equal(reference, RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE);
+        if (_equals) {
+          _matched=true;
+          final Entity entity = EcoreUtil2.<Entity>getContainerOfType(context, Entity.class);
+          return Scopes.scopeFor(RestControllerGenerationGenerator.getAllAttributesStatic(entity));
+        }
       }
     }
     if (!_matched) {

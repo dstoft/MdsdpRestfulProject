@@ -69,6 +69,15 @@ public interface RestControllerGenerationFactory extends EFactory
   Entity createEntity();
 
   /**
+   * Returns a new object of class '<em>Entity Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity Declaration</em>'.
+   * @generated
+   */
+  EntityDeclaration createEntityDeclaration();
+
+  /**
    * Returns a new object of class '<em>Attribute</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,13 +87,22 @@ public interface RestControllerGenerationFactory extends EFactory
   Attribute createAttribute();
 
   /**
-   * Returns a new object of class '<em>Attribute Requirement</em>'.
+   * Returns a new object of class '<em>Attribute Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribute Requirement</em>'.
+   * @return a new object of class '<em>Attribute Type</em>'.
    * @generated
    */
-  AttributeRequirement createAttributeRequirement();
+  AttributeType createAttributeType();
+
+  /**
+   * Returns a new object of class '<em>Logic Requirement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logic Requirement</em>'.
+   * @generated
+   */
+  LogicRequirement createLogicRequirement();
 
   /**
    * Returns a new object of class '<em>External Use</em>'.
@@ -94,6 +112,24 @@ public interface RestControllerGenerationFactory extends EFactory
    * @generated
    */
   ExternalUse createExternalUse();
+
+  /**
+   * Returns a new object of class '<em>External Use Of Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>External Use Of Attribute</em>'.
+   * @generated
+   */
+  ExternalUseOfAttribute createExternalUseOfAttribute();
+
+  /**
+   * Returns a new object of class '<em>Requirement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Requirement</em>'.
+   * @generated
+   */
+  Requirement createRequirement();
 
   /**
    * Returns a new object of class '<em>Proposition</em>'.

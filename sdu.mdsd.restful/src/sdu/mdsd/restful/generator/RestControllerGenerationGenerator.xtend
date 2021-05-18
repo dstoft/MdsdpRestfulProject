@@ -13,7 +13,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import sdu.mdsd.restful.restControllerGeneration.Add
 import sdu.mdsd.restful.restControllerGeneration.Attribute
-import sdu.mdsd.restful.restControllerGeneration.AttributeRequirement
 import sdu.mdsd.restful.restControllerGeneration.Comparison
 import sdu.mdsd.restful.restControllerGeneration.Conjunction
 import sdu.mdsd.restful.restControllerGeneration.Disjunction
@@ -40,6 +39,9 @@ import sdu.mdsd.restful.restControllerGeneration.ListMethod
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod
 import java.util.ArrayList
+import sdu.mdsd.restful.restControllerGeneration.LogicRequirement
+import sdu.mdsd.restful.restControllerGeneration.Requirement
+import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute
 
 /**
  * Generates code from your model files on save.
@@ -94,7 +96,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		«IF entity.base === null»
 		protected readonly IExternalCode ExternalCode;
 		«ENDIF»
-		«FOR x:entity.attributes»
+		«FOR x:entity.declarations.filter(Attribute)»
 			«x.generateAttribute»
 		«ENDFOR»
 	'''
@@ -107,7 +109,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 			«IF entity.base === null»
 			ExternalCode = externalCode;
 			«ENDIF»
-			«FOR x:entity.attributes»
+			«FOR x:entity.declarations.filter(Attribute)»
 				«x.generateConstructorSet»
 			«ENDFOR»
 			CheckRequirements();
@@ -127,13 +129,19 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	// ***** Generate attribute requirements *****
 	def generateAttributeRequirements(Entity entity) '''
 		public void CheckRequirements() {
-			«FOR x:entity.attributes.filter[a | a.requirement !== null]»
-				if(!(«x.requirement.generateAttributeRequirement(x)»)) throw new Exception("Requirement not fulfilled");
+			«FOR x:entity.declarations.filter(Attribute).filter[a | a.requires !== null]»
+				if(!(«x.requires.generateAttributeRequirement(x)»)) throw new Exception("Requirement not fulfilled");
+			«ENDFOR»
+			«FOR x:entity.declarations.filter(Requirement)»
+				if(!(«x.requirement.generateRequirement()»)) throw new Exception("Requirement not fulfilled");
 			«ENDFOR»
 		}
 	'''
 	def dispatch generateAttributeRequirement(ExternalUse requirement, Attribute attribute) '''ExternalCode.«requirement.external.name»(«attribute.name»)'''
-	def dispatch generateAttributeRequirement(AttributeRequirement requirement, Attribute attribute) '''«requirement.logic.generateLogic»'''
+	def dispatch generateAttributeRequirement(LogicRequirement requirement, Attribute attribute) '''«requirement.logic.generateLogic»'''
+	
+	def dispatch generateRequirement(LogicRequirement requirement) '''«requirement.logic.generateLogic»'''
+	def dispatch generateRequirement(ExternalUseOfAttribute requirement) '''ExternalCode.«requirement.external.name»(«requirement.attribute.name»)'''
 	
 	def dispatch CharSequence generateLogic(Disjunction x) '''(«x.left.generateLogic»||«x.right.generateLogic»)'''
 	def dispatch CharSequence generateLogic(Conjunction x) '''(«x.left.generateLogic»&&«x.right.generateLogic»)'''
@@ -354,7 +362,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 					public Update«entity.name»Parameters Parameters { get; set; }
 				}
 				public class Update«entity.name»Parameters {
-					«FOR x:entity.attributes»
+					«FOR x:entity.declarations.filter(Attribute)»
 					«IF x !== method.entityId»
 					public «x.type.name» «x.name» { get; set; }
 					«ENDIF»
@@ -380,7 +388,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val attributes = new ArrayList<Attribute>
 		var currentBase = entity
 		while(currentBase !== null) {
-			attributes.addAll(currentBase.attributes)
+			attributes.addAll(currentBase.declarations.filter(Attribute))
 			currentBase = currentBase.base
 		}
 		return attributes

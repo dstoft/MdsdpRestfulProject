@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
+import sdu.mdsd.restful.restControllerGeneration.EntityDeclaration;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 
 /**
@@ -31,7 +31,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * </p>
  * <ul>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl#getBase <em>Base</em>}</li>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.EntityImpl#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,14 +49,14 @@ public class EntityImpl extends DeclarationImpl implements Entity
   protected Entity base;
 
   /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributes()
+   * @see #getDeclarations()
    * @generated
    * @ordered
    */
-  protected EList<Attribute> attributes;
+  protected EList<EntityDeclaration> declarations;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,13 +130,13 @@ public class EntityImpl extends DeclarationImpl implements Entity
    * @generated
    */
   @Override
-  public EList<Attribute> getAttributes()
+  public EList<EntityDeclaration> getDeclarations()
   {
-    if (attributes == null)
+    if (declarations == null)
     {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, RestControllerGenerationPackage.ENTITY__ATTRIBUTES);
+      declarations = new EObjectContainmentEList<EntityDeclaration>(EntityDeclaration.class, this, RestControllerGenerationPackage.ENTITY__DECLARATIONS);
     }
-    return attributes;
+    return declarations;
   }
 
   /**
@@ -149,8 +149,8 @@ public class EntityImpl extends DeclarationImpl implements Entity
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case RestControllerGenerationPackage.ENTITY__DECLARATIONS:
+        return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -168,8 +168,8 @@ public class EntityImpl extends DeclarationImpl implements Entity
       case RestControllerGenerationPackage.ENTITY__BASE:
         if (resolve) return getBase();
         return basicGetBase();
-      case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
-        return getAttributes();
+      case RestControllerGenerationPackage.ENTITY__DECLARATIONS:
+        return getDeclarations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -188,9 +188,9 @@ public class EntityImpl extends DeclarationImpl implements Entity
       case RestControllerGenerationPackage.ENTITY__BASE:
         setBase((Entity)newValue);
         return;
-      case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attribute>)newValue);
+      case RestControllerGenerationPackage.ENTITY__DECLARATIONS:
+        getDeclarations().clear();
+        getDeclarations().addAll((Collection<? extends EntityDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -209,8 +209,8 @@ public class EntityImpl extends DeclarationImpl implements Entity
       case RestControllerGenerationPackage.ENTITY__BASE:
         setBase((Entity)null);
         return;
-      case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
-        getAttributes().clear();
+      case RestControllerGenerationPackage.ENTITY__DECLARATIONS:
+        getDeclarations().clear();
         return;
     }
     super.eUnset(featureID);
@@ -228,8 +228,8 @@ public class EntityImpl extends DeclarationImpl implements Entity
     {
       case RestControllerGenerationPackage.ENTITY__BASE:
         return base != null;
-      case RestControllerGenerationPackage.ENTITY__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
+      case RestControllerGenerationPackage.ENTITY__DECLARATIONS:
+        return declarations != null && !declarations.isEmpty();
     }
     return super.eIsSet(featureID);
   }

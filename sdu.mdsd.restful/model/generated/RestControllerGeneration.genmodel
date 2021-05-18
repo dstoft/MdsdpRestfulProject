@@ -19,18 +19,30 @@
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Entity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/base"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/declarations"/>
     </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//EntityDeclaration"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RestControllerGeneration.ecore#//Attribute/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Attribute/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Attribute/requirement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Attribute/requires"/>
     </genClasses>
-    <genClasses ecoreClass="RestControllerGeneration.ecore#//AttributeRequirement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//AttributeRequirement/logic"/>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//AttributeType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//AttributeType/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//AttributeType/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//LogicRequirement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//LogicRequirement/logic"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalUse">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUse/external"/>
+    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalUseOfAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUseOfAttribute/external"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUseOfAttribute/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//Requirement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Requirement/requirement"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Proposition"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Comparison">

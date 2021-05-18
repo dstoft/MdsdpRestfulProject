@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
@@ -27,12 +26,12 @@ import sdu.mdsd.restful.restControllerGeneration.Type;
  * <ul>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeImpl#getType <em>Type</em>}</li>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeImpl#getRequirement <em>Requirement</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeImpl#getRequires <em>Requires</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributeImpl extends MinimalEObjectImpl.Container implements Attribute
+public class AttributeImpl extends EntityDeclarationImpl implements Attribute
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -65,14 +64,14 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   protected Type type;
 
   /**
-   * The cached value of the '{@link #getRequirement() <em>Requirement</em>}' containment reference.
+   * The cached value of the '{@link #getRequires() <em>Requires</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRequirement()
+   * @see #getRequires()
    * @generated
    * @ordered
    */
-  protected EObject requirement;
+  protected EObject requires;
 
   /**
    * <!-- begin-user-doc -->
@@ -171,9 +170,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
-  public EObject getRequirement()
+  public EObject getRequires()
   {
-    return requirement;
+    return requires;
   }
 
   /**
@@ -181,13 +180,13 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRequirement(EObject newRequirement, NotificationChain msgs)
+  public NotificationChain basicSetRequires(EObject newRequires, NotificationChain msgs)
   {
-    EObject oldRequirement = requirement;
-    requirement = newRequirement;
+    EObject oldRequires = requires;
+    requires = newRequires;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT, oldRequirement, newRequirement);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE__REQUIRES, oldRequires, newRequires);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -199,20 +198,20 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
-  public void setRequirement(EObject newRequirement)
+  public void setRequires(EObject newRequires)
   {
-    if (newRequirement != requirement)
+    if (newRequires != requires)
     {
       NotificationChain msgs = null;
-      if (requirement != null)
-        msgs = ((InternalEObject)requirement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT, null, msgs);
-      if (newRequirement != null)
-        msgs = ((InternalEObject)newRequirement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT, null, msgs);
-      msgs = basicSetRequirement(newRequirement, msgs);
+      if (requires != null)
+        msgs = ((InternalEObject)requires).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE__REQUIRES, null, msgs);
+      if (newRequires != null)
+        msgs = ((InternalEObject)newRequires).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE__REQUIRES, null, msgs);
+      msgs = basicSetRequires(newRequires, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT, newRequirement, newRequirement));
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE__REQUIRES, newRequires, newRequires));
   }
 
   /**
@@ -225,8 +224,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT:
-        return basicSetRequirement(null, msgs);
+      case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
+        return basicSetRequires(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -246,8 +245,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
         if (resolve) return getType();
         return basicGetType();
-      case RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT:
-        return getRequirement();
+      case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
+        return getRequires();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -268,8 +267,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
         setType((Type)newValue);
         return;
-      case RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT:
-        setRequirement((EObject)newValue);
+      case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
+        setRequires((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -291,8 +290,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
         setType((Type)null);
         return;
-      case RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT:
-        setRequirement((EObject)null);
+      case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
+        setRequires((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -312,8 +311,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
         return type != null;
-      case RestControllerGenerationPackage.ATTRIBUTE__REQUIREMENT:
-        return requirement != null;
+      case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
+        return requires != null;
     }
     return super.eIsSet(featureID);
   }
