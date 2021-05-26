@@ -31,6 +31,7 @@ import sdu.mdsd.restful.restControllerGeneration.Conjunction;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
 import sdu.mdsd.restful.restControllerGeneration.ControllerMethod;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethod;
+import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith;
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod;
 import sdu.mdsd.restful.restControllerGeneration.Disjunction;
 import sdu.mdsd.restful.restControllerGeneration.Div;
@@ -1090,8 +1091,12 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.append("Parameters {");
     _builder.newLineIfNotEmpty();
     {
-      ArrayList<Attribute> _allAttributes = this.getAllAttributes(entity);
-      for(final Attribute x : _allAttributes) {
+      final Function1<Attribute, Boolean> _function = (Attribute it) -> {
+        AttributeType _type = it.getType();
+        return Boolean.valueOf((_type instanceof SimpleType));
+      };
+      Iterable<Attribute> _filter = IterableExtensions.<Attribute>filter(this.getAllAttributes(entity), _function);
+      for(final Attribute x : _filter) {
         {
           boolean _contains = method.getExclude().getAttributes().contains(x);
           boolean _not = (!_contains);
@@ -1109,12 +1114,47 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
         }
       }
     }
+    {
+      EList<CreateMethodWith> _withEntity = method.getWithEntity();
+      for(final CreateMethodWith x_1 : _withEntity) {
+        _builder.append("\t\t");
+        _builder.append("public ");
+        CharSequence _generateControllerParametersType = this.generateControllerParametersType(x_1.getReference());
+        _builder.append(_generateControllerParametersType, "\t\t");
+        _builder.append(" ");
+        String _name_5 = x_1.getReference().getReference().getName();
+        _builder.append(_name_5, "\t\t");
+        String _name_6 = x_1.getReference().getAttribute().getName();
+        _builder.append(_name_6, "\t\t");
+        _builder.append(" { get; set; }");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     fsa.generateFile(_plus_2, _builder);
+  }
+  
+  public CharSequence generateControllerParametersType(final Reference reference) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      AttributeType _type = reference.getReference().getType();
+      if ((_type instanceof ListType)) {
+        _builder.append("List<");
+      }
+    }
+    CharSequence _generateAttributeType = this.generateAttributeType(reference.getAttribute().getType());
+    _builder.append(_generateAttributeType);
+    {
+      AttributeType _type_1 = reference.getReference().getType();
+      if ((_type_1 instanceof ListType)) {
+        _builder.append(">");
+      }
+    }
+    return _builder;
   }
   
   protected void _generateControllerParameters(final GetMethod method, final Entity entity, final IFileSystemAccess2 fsa) {

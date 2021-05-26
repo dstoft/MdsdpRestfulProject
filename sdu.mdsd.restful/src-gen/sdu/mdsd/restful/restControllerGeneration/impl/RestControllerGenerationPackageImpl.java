@@ -995,20 +995,9 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EReference getCreateMethodWith_Entity()
+  public EReference getCreateMethodWith_Reference()
   {
     return (EReference)createMethodWithEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getCreateMethodWith_EntityId()
-  {
-    return (EReference)createMethodWithEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1545,8 +1534,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     createEReference(createMethodEClass, CREATE_METHOD__EXCLUDE);
 
     createMethodWithEClass = createEClass(CREATE_METHOD_WITH);
-    createEReference(createMethodWithEClass, CREATE_METHOD_WITH__ENTITY);
-    createEReference(createMethodWithEClass, CREATE_METHOD_WITH__ENTITY_ID);
+    createEReference(createMethodWithEClass, CREATE_METHOD_WITH__REFERENCE);
 
     createMethodExcludeEClass = createEClass(CREATE_METHOD_EXCLUDE);
     createEReference(createMethodExcludeEClass, CREATE_METHOD_EXCLUDE__ATTRIBUTES);
@@ -1737,12 +1725,11 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEClass(controllerMethodEClass, ControllerMethod.class, "ControllerMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(createMethodEClass, CreateMethod.class, "CreateMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCreateMethod_WithEntity(), this.getCreateMethodWith(), null, "withEntity", null, 0, 1, CreateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCreateMethod_WithEntity(), this.getCreateMethodWith(), null, "withEntity", null, 0, -1, CreateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCreateMethod_Exclude(), this.getCreateMethodExclude(), null, "exclude", null, 0, 1, CreateMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createMethodWithEClass, CreateMethodWith.class, "CreateMethodWith", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCreateMethodWith_Entity(), this.getEntity(), null, "entity", null, 0, 1, CreateMethodWith.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCreateMethodWith_EntityId(), this.getAttribute(), null, "entityId", null, 0, 1, CreateMethodWith.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCreateMethodWith_Reference(), this.getReference(), null, "reference", null, 0, 1, CreateMethodWith.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createMethodExcludeEClass, CreateMethodExclude.class, "CreateMethodExclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCreateMethodExclude_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, CreateMethodExclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

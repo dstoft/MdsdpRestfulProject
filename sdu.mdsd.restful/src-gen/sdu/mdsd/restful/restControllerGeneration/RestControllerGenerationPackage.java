@@ -747,7 +747,7 @@ public interface RestControllerGenerationPackage extends EPackage
   int CREATE_METHOD = 22;
 
   /**
-   * The feature id for the '<em><b>With Entity</b></em>' containment reference.
+   * The feature id for the '<em><b>With Entity</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -784,22 +784,13 @@ public interface RestControllerGenerationPackage extends EPackage
   int CREATE_METHOD_WITH = 23;
 
   /**
-   * The feature id for the '<em><b>Entity</b></em>' reference.
+   * The feature id for the '<em><b>Reference</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_METHOD_WITH__ENTITY = 0;
-
-  /**
-   * The feature id for the '<em><b>Entity Id</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATE_METHOD_WITH__ENTITY_ID = 1;
+  int CREATE_METHOD_WITH__REFERENCE = 0;
 
   /**
    * The number of structural features of the '<em>Create Method With</em>' class.
@@ -808,7 +799,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CREATE_METHOD_WITH_FEATURE_COUNT = 2;
+  int CREATE_METHOD_WITH_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodExcludeImpl <em>Create Method Exclude</em>}' class.
@@ -1858,10 +1849,10 @@ public interface RestControllerGenerationPackage extends EPackage
   EClass getCreateMethod();
 
   /**
-   * Returns the meta object for the containment reference '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethod#getWithEntity <em>With Entity</em>}'.
+   * Returns the meta object for the containment reference list '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethod#getWithEntity <em>With Entity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>With Entity</em>'.
+   * @return the meta object for the containment reference list '<em>With Entity</em>'.
    * @see sdu.mdsd.restful.restControllerGeneration.CreateMethod#getWithEntity()
    * @see #getCreateMethod()
    * @generated
@@ -1890,26 +1881,15 @@ public interface RestControllerGenerationPackage extends EPackage
   EClass getCreateMethodWith();
 
   /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntity <em>Entity</em>}'.
+   * Returns the meta object for the containment reference '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getReference <em>Reference</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Entity</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntity()
+   * @return the meta object for the containment reference '<em>Reference</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getReference()
    * @see #getCreateMethodWith()
    * @generated
    */
-  EReference getCreateMethodWith_Entity();
-
-  /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntityId <em>Entity Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Entity Id</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntityId()
-   * @see #getCreateMethodWith()
-   * @generated
-   */
-  EReference getCreateMethodWith_EntityId();
+  EReference getCreateMethodWith_Reference();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude <em>Create Method Exclude</em>}'.
@@ -2775,7 +2755,7 @@ public interface RestControllerGenerationPackage extends EPackage
     EClass CREATE_METHOD = eINSTANCE.getCreateMethod();
 
     /**
-     * The meta object literal for the '<em><b>With Entity</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>With Entity</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2801,20 +2781,12 @@ public interface RestControllerGenerationPackage extends EPackage
     EClass CREATE_METHOD_WITH = eINSTANCE.getCreateMethodWith();
 
     /**
-     * The meta object literal for the '<em><b>Entity</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Reference</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CREATE_METHOD_WITH__ENTITY = eINSTANCE.getCreateMethodWith_Entity();
-
-    /**
-     * The meta object literal for the '<em><b>Entity Id</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CREATE_METHOD_WITH__ENTITY_ID = eINSTANCE.getCreateMethodWith_EntityId();
+    EReference CREATE_METHOD_WITH__REFERENCE = eINSTANCE.getCreateMethodWith_Reference();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodExcludeImpl <em>Create Method Exclude</em>}' class.

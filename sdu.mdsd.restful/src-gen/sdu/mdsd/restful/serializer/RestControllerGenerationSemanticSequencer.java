@@ -347,18 +347,15 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     CreateMethodWith returns CreateMethodWith
 	 *
 	 * Constraint:
-	 *     (entity=[Entity|ID] entityId=[Attribute|ID])
+	 *     reference=Reference
 	 */
 	protected void sequence_CreateMethodWith(ISerializationContext context, CreateMethodWith semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY));
-			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY_ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY_ID));
+			if (transientValues.isValueTransient(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__REFERENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__REFERENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCreateMethodWithAccess().getEntityEntityIDTerminalRuleCall_1_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY, false));
-		feeder.accept(grammarAccess.getCreateMethodWithAccess().getEntityIdAttributeIDTerminalRuleCall_3_0_1(), semanticObject.eGet(RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY_ID, false));
+		feeder.accept(grammarAccess.getCreateMethodWithAccess().getReferenceReferenceParserRuleCall_1_0(), semanticObject.getReference());
 		feeder.finish();
 	}
 	
@@ -370,7 +367,7 @@ public class RestControllerGenerationSemanticSequencer extends AbstractDelegatin
 	 *     CreateMethod returns CreateMethod
 	 *
 	 * Constraint:
-	 *     (withEntity=CreateMethodWith? exclude=CreateMethodExclude?)
+	 *     (withEntity+=CreateMethodWith* exclude=CreateMethodExclude?)
 	 */
 	protected void sequence_CreateMethod(ISerializationContext context, CreateMethod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

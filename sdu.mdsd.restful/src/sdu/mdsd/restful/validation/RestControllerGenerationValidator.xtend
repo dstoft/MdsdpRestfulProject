@@ -18,7 +18,8 @@ import sdu.mdsd.restful.restControllerGeneration.RefType
 import sdu.mdsd.restful.restControllerGeneration.ListType
 import sdu.mdsd.restful.restControllerGeneration.AttributeUse
 import sdu.mdsd.restful.restControllerGeneration.Reference
-import sdu.mdsd.restful.restControllerGeneration.LogicRequirement
+import sdu.mdsd.restful.restControllerGeneration.CreateMethod
+import sdu.mdsd.restful.restControllerGeneration.Controller
 
 /**
  * This class contains custom validation rules. 
@@ -97,9 +98,19 @@ class RestControllerGenerationValidator extends AbstractRestControllerGeneration
 	@Check
 	def checkLogicExpToExcludeListType(Reference reference) {
 		if(reference.reference.type instanceof SimpleType || reference.reference.type instanceof RefType) return
-		val LogicRequirement logicReq = EcoreUtil2.getContainerOfType(reference, LogicRequirement)
-		if(logicReq !== null) {
-			error('List attribute type not allowed in logic expressions', Literals.REFERENCE__REFERENCE, 'illegalAttributeType')
+		val Controller controller = EcoreUtil2.getContainerOfType(reference, Controller)
+		if(controller === null) {
+			error('Referencing list attribute type only allowed in controller methods', Literals.REFERENCE__REFERENCE, 'illegalAttributeType')
+		}
+	}
+	
+	@Check
+	def checkCorrectCreateWithCount(CreateMethod method) {
+		val Controller controller = EcoreUtil2.getContainerOfType(method, Controller)
+		val int nonSimpleAttributeCount = getAllAttributesStatic(controller.entity).filter[type instanceof RefType || type instanceof ListType].length
+		val int withMethodCount = method.withEntity.length
+		if(nonSimpleAttributeCount != withMethodCount) {
+			error('All entity relationships must be mentioned', Literals.CREATE_METHOD__WITH_ENTITY, 'incorrectWithEntityCount')
 		}
 	}
 }

@@ -14,8 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntity <em>Entity</em>}</li>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntityId <em>Entity Id</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethodWith()
@@ -25,47 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface CreateMethodWith extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Entity</b></em>' reference.
+   * Returns the value of the '<em><b>Reference</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Entity</em>' reference.
-   * @see #setEntity(Entity)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethodWith_Entity()
-   * @model
+   * @return the value of the '<em>Reference</em>' containment reference.
+   * @see #setReference(Reference)
+   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethodWith_Reference()
+   * @model containment="true"
    * @generated
    */
-  Entity getEntity();
+  Reference getReference();
 
   /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntity <em>Entity</em>}' reference.
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getReference <em>Reference</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Entity</em>' reference.
-   * @see #getEntity()
+   * @param value the new value of the '<em>Reference</em>' containment reference.
+   * @see #getReference()
    * @generated
    */
-  void setEntity(Entity value);
-
-  /**
-   * Returns the value of the '<em><b>Entity Id</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Entity Id</em>' reference.
-   * @see #setEntityId(Attribute)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethodWith_EntityId()
-   * @model
-   * @generated
-   */
-  Attribute getEntityId();
-
-  /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith#getEntityId <em>Entity Id</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Entity Id</em>' reference.
-   * @see #getEntityId()
-   * @generated
-   */
-  void setEntityId(Attribute value);
+  void setReference(Reference value);
 
 } // CreateMethodWith

@@ -1668,7 +1668,7 @@ ruleCreateMethod returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCreateMethodRule());
 					}
-					set(
+					add(
 						$current,
 						"withEntity",
 						lv_withEntity_2_0,
@@ -1676,7 +1676,7 @@ ruleCreateMethod returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)*
 		(
 			(
 				{
@@ -1722,30 +1722,19 @@ ruleCreateMethodWith returns [EObject current=null]
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCreateMethodWithRule());
-					}
+					newCompositeNode(grammarAccess.getCreateMethodWithAccess().getReferenceReferenceParserRuleCall_1_0());
 				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getCreateMethodWithAccess().getEntityEntityCrossReference_1_0());
-				}
-			)
-		)
-		otherlv_2=':'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getCreateMethodWithAccess().getColonKeyword_2());
-		}
-		(
-			(
+				lv_reference_1_0=ruleReference
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCreateMethodWithRule());
+						$current = createModelElementForParent(grammarAccess.getCreateMethodWithRule());
 					}
-				}
-				otherlv_3=RULE_ID
-				{
-					newLeafNode(otherlv_3, grammarAccess.getCreateMethodWithAccess().getEntityIdAttributeCrossReference_3_0());
+					set(
+						$current,
+						"reference",
+						lv_reference_1_0,
+						"sdu.mdsd.restful.RestControllerGeneration.Reference");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

@@ -122,8 +122,7 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 			builder.put(grammarAccess.getControllerAccess().getMethodsAssignment_6(), "rule__Controller__MethodsAssignment_6");
 			builder.put(grammarAccess.getCreateMethodAccess().getWithEntityAssignment_2(), "rule__CreateMethod__WithEntityAssignment_2");
 			builder.put(grammarAccess.getCreateMethodAccess().getExcludeAssignment_3(), "rule__CreateMethod__ExcludeAssignment_3");
-			builder.put(grammarAccess.getCreateMethodWithAccess().getEntityAssignment_1(), "rule__CreateMethodWith__EntityAssignment_1");
-			builder.put(grammarAccess.getCreateMethodWithAccess().getEntityIdAssignment_3(), "rule__CreateMethodWith__EntityIdAssignment_3");
+			builder.put(grammarAccess.getCreateMethodWithAccess().getReferenceAssignment_1(), "rule__CreateMethodWith__ReferenceAssignment_1");
 			builder.put(grammarAccess.getCreateMethodExcludeAccess().getAttributesAssignment_1(), "rule__CreateMethodExclude__AttributesAssignment_1");
 			builder.put(grammarAccess.getCreateMethodExcludeAccess().getAttributesAssignment_2_1(), "rule__CreateMethodExclude__AttributesAssignment_2_1");
 			builder.put(grammarAccess.getGetMethodAccess().getEntityIdAssignment_2(), "rule__GetMethod__EntityIdAssignment_2");

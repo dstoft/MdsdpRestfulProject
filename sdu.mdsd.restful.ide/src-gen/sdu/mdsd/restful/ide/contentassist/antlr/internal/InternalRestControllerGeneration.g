@@ -3674,7 +3674,7 @@ rule__CreateMethod__Group__2__Impl
 :
 (
 	{ before(grammarAccess.getCreateMethodAccess().getWithEntityAssignment_2()); }
-	(rule__CreateMethod__WithEntityAssignment_2)?
+	(rule__CreateMethod__WithEntityAssignment_2)*
 	{ after(grammarAccess.getCreateMethodAccess().getWithEntityAssignment_2()); }
 )
 ;
@@ -3742,7 +3742,6 @@ rule__CreateMethodWith__Group__1
 	}
 :
 	rule__CreateMethodWith__Group__1__Impl
-	rule__CreateMethodWith__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3754,62 +3753,9 @@ rule__CreateMethodWith__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCreateMethodWithAccess().getEntityAssignment_1()); }
-	(rule__CreateMethodWith__EntityAssignment_1)
-	{ after(grammarAccess.getCreateMethodWithAccess().getEntityAssignment_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CreateMethodWith__Group__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__CreateMethodWith__Group__2__Impl
-	rule__CreateMethodWith__Group__3
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CreateMethodWith__Group__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getCreateMethodWithAccess().getColonKeyword_2()); }
-	':'
-	{ after(grammarAccess.getCreateMethodWithAccess().getColonKeyword_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CreateMethodWith__Group__3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__CreateMethodWith__Group__3__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CreateMethodWith__Group__3__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getCreateMethodWithAccess().getEntityIdAssignment_3()); }
-	(rule__CreateMethodWith__EntityIdAssignment_3)
-	{ after(grammarAccess.getCreateMethodWithAccess().getEntityIdAssignment_3()); }
+	{ before(grammarAccess.getCreateMethodWithAccess().getReferenceAssignment_1()); }
+	(rule__CreateMethodWith__ReferenceAssignment_1)
+	{ after(grammarAccess.getCreateMethodWithAccess().getReferenceAssignment_1()); }
 )
 ;
 finally {
@@ -4987,38 +4933,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CreateMethodWith__EntityAssignment_1
+rule__CreateMethodWith__ReferenceAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCreateMethodWithAccess().getEntityEntityCrossReference_1_0()); }
-		(
-			{ before(grammarAccess.getCreateMethodWithAccess().getEntityEntityIDTerminalRuleCall_1_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getCreateMethodWithAccess().getEntityEntityIDTerminalRuleCall_1_0_1()); }
-		)
-		{ after(grammarAccess.getCreateMethodWithAccess().getEntityEntityCrossReference_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CreateMethodWith__EntityIdAssignment_3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getCreateMethodWithAccess().getEntityIdAttributeCrossReference_3_0()); }
-		(
-			{ before(grammarAccess.getCreateMethodWithAccess().getEntityIdAttributeIDTerminalRuleCall_3_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getCreateMethodWithAccess().getEntityIdAttributeIDTerminalRuleCall_3_0_1()); }
-		)
-		{ after(grammarAccess.getCreateMethodWithAccess().getEntityIdAttributeCrossReference_3_0()); }
+		{ before(grammarAccess.getCreateMethodWithAccess().getReferenceReferenceParserRuleCall_1_0()); }
+		ruleReference
+		{ after(grammarAccess.getCreateMethodWithAccess().getReferenceReferenceParserRuleCall_1_0()); }
 	)
 ;
 finally {

@@ -345,15 +345,21 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 			
 			namespace «model.name».Application.Parameters {
 				public class Create«entity.name»Parameters {
-					«FOR x:entity.allAttributes»
+					«FOR x:entity.allAttributes.filter[type instanceof SimpleType]»
 					«IF !method.exclude.attributes.contains(x)»
 					public «x.type.generateAttributeType» «x.name» { get; set; }
 					«ENDIF»
+					«ENDFOR»
+					«FOR x:method.withEntity»
+					public «x.reference.generateControllerParametersType» «x.reference.reference.name»«x.reference.attribute.name» { get; set; }
 					«ENDFOR»
 				}
 			}
 		''')
 	}
+	
+	def generateControllerParametersType(Reference reference) '''«IF reference.reference.type instanceof ListType»List<«ENDIF»«reference.attribute.type.generateAttributeType»«IF reference.reference.type instanceof ListType»>«ENDIF»'''
+	
 	def dispatch generateControllerParameters(GetMethod method, Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Get" + entity.name + "Parameters.cs", '''

@@ -20,7 +20,6 @@ import sdu.mdsd.restful.restControllerGeneration.AttributeType;
 import sdu.mdsd.restful.restControllerGeneration.AttributeUse;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
-import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith;
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.EntityModel;
@@ -75,17 +74,6 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
       }
     }
     if (!_matched) {
-      if (context instanceof CreateMethodWith) {
-        boolean _equals = Objects.equal(reference, RestControllerGenerationPackage.Literals.CREATE_METHOD_WITH__ENTITY_ID);
-        if (_equals) {
-          _matched=true;
-          final ArrayList<Attribute> candidates = new ArrayList<Attribute>();
-          Iterables.<Attribute>addAll(candidates, Iterables.<Attribute>filter(((CreateMethodWith)context).getEntity().getDeclarations(), Attribute.class));
-          return Scopes.scopeFor(candidates);
-        }
-      }
-    }
-    if (!_matched) {
       if (context instanceof CreateMethodExclude) {
         _matched=true;
         return Scopes.scopeFor(this.getControllersAttributes(context));
@@ -121,7 +109,13 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
         boolean _equals = Objects.equal(reference, RestControllerGenerationPackage.Literals.REFERENCE__REFERENCE);
         if (_equals) {
           _matched=true;
-          final Entity entity = EcoreUtil2.<Entity>getContainerOfType(context, Entity.class);
+          final Controller controller = EcoreUtil2.<Controller>getContainerOfType(context, Controller.class);
+          Entity entity = null;
+          if ((controller != null)) {
+            entity = controller.getEntity();
+          } else {
+            entity = EcoreUtil2.<Entity>getContainerOfType(context, Entity.class);
+          }
           final Function1<Attribute, Boolean> _function = (Attribute it) -> {
             return Boolean.valueOf(((it.getType() instanceof RefType) || (it.getType() instanceof ListType)));
           };
@@ -135,7 +129,15 @@ public class RestControllerGenerationScopeProvider extends AbstractRestControlle
         boolean _equals = Objects.equal(reference, RestControllerGenerationPackage.Literals.REFERENCE__ATTRIBUTE);
         if (_equals) {
           _matched=true;
-          _switchResult = Scopes.scopeFor(RestControllerGenerationGenerator.getAllAttributesStatic(this.getReferenceAttributeEntity(((Reference)context).getReference().getType())));
+          IScope _xblockexpression = null;
+          {
+            if ((((context == null) || (((Reference)context).getReference() == null)) || (((Reference)context).getReference().getType() == null))) {
+              ArrayList<Attribute> _arrayList = new ArrayList<Attribute>();
+              Scopes.scopeFor(_arrayList);
+            }
+            _xblockexpression = Scopes.scopeFor(RestControllerGenerationGenerator.getAllAttributesStatic(this.getReferenceAttributeEntity(((Reference)context).getReference().getType())));
+          }
+          _switchResult = _xblockexpression;
         }
       }
     }

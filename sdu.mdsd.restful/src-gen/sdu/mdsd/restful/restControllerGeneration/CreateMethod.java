@@ -3,6 +3,7 @@
  */
 package sdu.mdsd.restful.restControllerGeneration;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,26 +25,16 @@ package sdu.mdsd.restful.restControllerGeneration;
 public interface CreateMethod extends ControllerMethod
 {
   /**
-   * Returns the value of the '<em><b>With Entity</b></em>' containment reference.
+   * Returns the value of the '<em><b>With Entity</b></em>' containment reference list.
+   * The list contents are of type {@link sdu.mdsd.restful.restControllerGeneration.CreateMethodWith}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>With Entity</em>' containment reference.
-   * @see #setWithEntity(CreateMethodWith)
+   * @return the value of the '<em>With Entity</em>' containment reference list.
    * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getCreateMethod_WithEntity()
    * @model containment="true"
    * @generated
    */
-  CreateMethodWith getWithEntity();
-
-  /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.CreateMethod#getWithEntity <em>With Entity</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>With Entity</em>' containment reference.
-   * @see #getWithEntity()
-   * @generated
-   */
-  void setWithEntity(CreateMethodWith value);
+  EList<CreateMethodWith> getWithEntity();
 
   /**
    * Returns the value of the '<em><b>Exclude</b></em>' containment reference.

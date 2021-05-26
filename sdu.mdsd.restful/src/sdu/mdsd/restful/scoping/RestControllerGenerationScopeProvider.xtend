@@ -14,7 +14,6 @@ import org.eclipse.xtext.EcoreUtil2
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod
-import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage.Literals
 import sdu.mdsd.restful.restControllerGeneration.EntityModel
 import sdu.mdsd.restful.restControllerGeneration.ExternalDef
@@ -55,11 +54,6 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 				candidates.addAll(getAllAttributesStatic(entity).filter[compareAttributeType(type, externalDef.type)])
 				return Scopes.scopeFor(candidates)
 			}
-			CreateMethodWith case reference == Literals.CREATE_METHOD_WITH__ENTITY_ID: {
-				val candidates = new ArrayList<Attribute>
-				candidates.addAll(context.entity.declarations.filter(Attribute))
-				return Scopes.scopeFor(candidates)
-			}
 			CreateMethodExclude: {
 				return Scopes.scopeFor(getControllersAttributes(context))
 			}
@@ -76,17 +70,21 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 				val Entity entity = EcoreUtil2.getContainerOfType(context, Entity)
 				return Scopes.scopeFor(getAllAttributesStatic(entity))
 			}
-			//Reference case reference == Literals.REFERENCE__ATTRIBUTE: {
-			//	val ExternalUseOfAttribute externalUse = EcoreUtil2.getContainerOfType(context, ExternalUseOfAttribute)
-			//	val ExternalDef externalDef = externalUse.external
-			//	Scopes.scopeFor(getAllAttributesStatic(context.reference.type.getReferenceAttributeEntity).filter[compareAttributeType(type, externalDef.type)])
-			//}
 			Reference case reference == Literals.REFERENCE__REFERENCE: {
-				val Entity entity = EcoreUtil2.getContainerOfType(context, Entity)
+				val Controller controller = EcoreUtil2.getContainerOfType(context, Controller)
+				var Entity entity
+				if(controller !== null) {
+					entity = controller.entity
+				} else {
+					entity = EcoreUtil2.getContainerOfType(context, Entity)
+				}
 				val candidates = getAllAttributesStatic(entity).filter[type instanceof RefType || type instanceof ListType]
 				return Scopes.scopeFor(candidates)
 			}
 			Reference case reference == Literals.REFERENCE__ATTRIBUTE: {
+				if(context === null || context.reference === null || context.reference.type === null) {
+					Scopes.scopeFor(new ArrayList<Attribute>)
+				}
 				Scopes.scopeFor(getAllAttributesStatic(context.reference.type.getReferenceAttributeEntity))
 			}
 			default: super.getScope(context, reference)

@@ -112,11 +112,11 @@ MethodType returns ControllerMethod:
 ;
 
 CreateMethod:
-	{CreateMethod} "CREATE" (withEntity=CreateMethodWith)? (exclude=CreateMethodExclude)?
+	{CreateMethod} "CREATE" (withEntity+=CreateMethodWith)* (exclude=CreateMethodExclude)?
 ;
 
 CreateMethodWith:
-	"with" entity=[Entity] ":" entityId=[Attribute]
+	"with" reference=Reference
 ;
 
 CreateMethodExclude:

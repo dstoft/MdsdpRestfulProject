@@ -11,16 +11,18 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import sdu.mdsd.restful.generator.RestControllerGenerationGenerator;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.AttributeType;
 import sdu.mdsd.restful.restControllerGeneration.AttributeUse;
+import sdu.mdsd.restful.restControllerGeneration.Controller;
+import sdu.mdsd.restful.restControllerGeneration.CreateMethod;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.ListType;
-import sdu.mdsd.restful.restControllerGeneration.LogicRequirement;
 import sdu.mdsd.restful.restControllerGeneration.RefType;
 import sdu.mdsd.restful.restControllerGeneration.Reference;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
@@ -165,9 +167,22 @@ public class RestControllerGenerationValidator extends AbstractRestControllerGen
     if (((reference.getReference().getType() instanceof SimpleType) || (reference.getReference().getType() instanceof RefType))) {
       return;
     }
-    final LogicRequirement logicReq = EcoreUtil2.<LogicRequirement>getContainerOfType(reference, LogicRequirement.class);
-    if ((logicReq != null)) {
-      this.error("List attribute type not allowed in logic expressions", RestControllerGenerationPackage.Literals.REFERENCE__REFERENCE, "illegalAttributeType");
+    final Controller controller = EcoreUtil2.<Controller>getContainerOfType(reference, Controller.class);
+    if ((controller == null)) {
+      this.error("Referencing list attribute type only allowed in controller methods", RestControllerGenerationPackage.Literals.REFERENCE__REFERENCE, "illegalAttributeType");
+    }
+  }
+  
+  @Check
+  public void checkCorrectCreateWithCount(final CreateMethod method) {
+    final Controller controller = EcoreUtil2.<Controller>getContainerOfType(method, Controller.class);
+    final Function1<Attribute, Boolean> _function = (Attribute it) -> {
+      return Boolean.valueOf(((it.getType() instanceof RefType) || (it.getType() instanceof ListType)));
+    };
+    final int nonSimpleAttributeCount = ((Object[])Conversions.unwrapArray(IterableExtensions.<Attribute>filter(RestControllerGenerationGenerator.getAllAttributesStatic(controller.getEntity()), _function), Object.class)).length;
+    final int withMethodCount = ((Object[])Conversions.unwrapArray(method.getWithEntity(), Object.class)).length;
+    if ((nonSimpleAttributeCount != withMethodCount)) {
+      this.error("All entity relationships must be mentioned", RestControllerGenerationPackage.Literals.CREATE_METHOD__WITH_ENTITY, "incorrectWithEntityCount");
     }
   }
   

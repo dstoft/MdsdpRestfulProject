@@ -4,6 +4,7 @@
 package sdu.mdsd.restful.restControllerGeneration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,9 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith;
-import sdu.mdsd.restful.restControllerGeneration.Entity;
+import sdu.mdsd.restful.restControllerGeneration.Reference;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
 
 /**
@@ -24,8 +24,7 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodWithImpl#getEntity <em>Entity</em>}</li>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodWithImpl#getEntityId <em>Entity Id</em>}</li>
+ *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.CreateMethodWithImpl#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,24 +32,14 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
 public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implements CreateMethodWith
 {
   /**
-   * The cached value of the '{@link #getEntity() <em>Entity</em>}' reference.
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEntity()
+   * @see #getReference()
    * @generated
    * @ordered
    */
-  protected Entity entity;
-
-  /**
-   * The cached value of the '{@link #getEntityId() <em>Entity Id</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEntityId()
-   * @generated
-   * @ordered
-   */
-  protected Attribute entityId;
+  protected Reference reference;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,19 +68,9 @@ public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public Entity getEntity()
+  public Reference getReference()
   {
-    if (entity != null && entity.eIsProxy())
-    {
-      InternalEObject oldEntity = (InternalEObject)entity;
-      entity = (Entity)eResolveProxy(oldEntity);
-      if (entity != oldEntity)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY, oldEntity, entity));
-      }
-    }
-    return entity;
+    return reference;
   }
 
   /**
@@ -99,54 +78,16 @@ public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Entity basicGetEntity()
+  public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs)
   {
-    return entity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setEntity(Entity newEntity)
-  {
-    Entity oldEntity = entity;
-    entity = newEntity;
+    Reference oldReference = reference;
+    reference = newReference;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY, oldEntity, entity));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Attribute getEntityId()
-  {
-    if (entityId != null && entityId.eIsProxy())
     {
-      InternalEObject oldEntityId = (InternalEObject)entityId;
-      entityId = (Attribute)eResolveProxy(oldEntityId);
-      if (entityId != oldEntityId)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY_ID, oldEntityId, entityId));
-      }
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE, oldReference, newReference);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return entityId;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute basicGetEntityId()
-  {
-    return entityId;
+    return msgs;
   }
 
   /**
@@ -155,12 +96,36 @@ public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public void setEntityId(Attribute newEntityId)
+  public void setReference(Reference newReference)
   {
-    Attribute oldEntityId = entityId;
-    entityId = newEntityId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY_ID, oldEntityId, entityId));
+    if (newReference != reference)
+    {
+      NotificationChain msgs = null;
+      if (reference != null)
+        msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE, null, msgs);
+      if (newReference != null)
+        msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE, null, msgs);
+      msgs = basicSetReference(newReference, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE, newReference, newReference));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE:
+        return basicSetReference(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -173,12 +138,8 @@ public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY:
-        if (resolve) return getEntity();
-        return basicGetEntity();
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY_ID:
-        if (resolve) return getEntityId();
-        return basicGetEntityId();
+      case RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE:
+        return getReference();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -193,11 +154,8 @@ public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY:
-        setEntity((Entity)newValue);
-        return;
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY_ID:
-        setEntityId((Attribute)newValue);
+      case RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE:
+        setReference((Reference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,11 +171,8 @@ public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY:
-        setEntity((Entity)null);
-        return;
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY_ID:
-        setEntityId((Attribute)null);
+      case RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE:
+        setReference((Reference)null);
         return;
     }
     super.eUnset(featureID);
@@ -233,10 +188,8 @@ public class CreateMethodWithImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY:
-        return entity != null;
-      case RestControllerGenerationPackage.CREATE_METHOD_WITH__ENTITY_ID:
-        return entityId != null;
+      case RestControllerGenerationPackage.CREATE_METHOD_WITH__REFERENCE:
+        return reference != null;
     }
     return super.eIsSet(featureID);
   }

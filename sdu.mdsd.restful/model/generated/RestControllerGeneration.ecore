@@ -77,14 +77,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControllerMethod"/>
   <eClassifiers xsi:type="ecore:EClass" name="CreateMethod" eSuperTypes="#//ControllerMethod">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="withEntity" eType="#//CreateMethodWith"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="withEntity" upperBound="-1"
+        eType="#//CreateMethodWith" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exclude" eType="#//CreateMethodExclude"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateMethodWith">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entityId" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//Reference"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateMethodExclude">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" unique="false"

@@ -1001,10 +1001,10 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final RuleCall cExcludeCreateMethodExcludeParserRuleCall_3_0 = (RuleCall)cExcludeAssignment_3.eContents().get(0);
 		
 		//CreateMethod:
-		//	{CreateMethod} "CREATE" withEntity=CreateMethodWith? exclude=CreateMethodExclude?;
+		//	{CreateMethod} "CREATE" withEntity+=CreateMethodWith* exclude=CreateMethodExclude?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{CreateMethod} "CREATE" withEntity=CreateMethodWith? exclude=CreateMethodExclude?
+		//{CreateMethod} "CREATE" withEntity+=CreateMethodWith* exclude=CreateMethodExclude?
 		public Group getGroup() { return cGroup; }
 		
 		//{CreateMethod}
@@ -1013,7 +1013,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		//"CREATE"
 		public Keyword getCREATEKeyword_1() { return cCREATEKeyword_1; }
 		
-		//withEntity=CreateMethodWith?
+		//withEntity+=CreateMethodWith*
 		public Assignment getWithEntityAssignment_2() { return cWithEntityAssignment_2; }
 		
 		//CreateMethodWith
@@ -1029,44 +1029,24 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.CreateMethodWith");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cWithKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cEntityAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cEntityEntityCrossReference_1_0 = (CrossReference)cEntityAssignment_1.eContents().get(0);
-		private final RuleCall cEntityEntityIDTerminalRuleCall_1_0_1 = (RuleCall)cEntityEntityCrossReference_1_0.eContents().get(1);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cEntityIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cEntityIdAttributeCrossReference_3_0 = (CrossReference)cEntityIdAssignment_3.eContents().get(0);
-		private final RuleCall cEntityIdAttributeIDTerminalRuleCall_3_0_1 = (RuleCall)cEntityIdAttributeCrossReference_3_0.eContents().get(1);
+		private final Assignment cReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cReferenceReferenceParserRuleCall_1_0 = (RuleCall)cReferenceAssignment_1.eContents().get(0);
 		
 		//CreateMethodWith:
-		//	"with" entity=[Entity] ":" entityId=[Attribute];
+		//	"with" reference=Reference;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"with" entity=[Entity] ":" entityId=[Attribute]
+		//"with" reference=Reference
 		public Group getGroup() { return cGroup; }
 		
 		//"with"
 		public Keyword getWithKeyword_0() { return cWithKeyword_0; }
 		
-		//entity=[Entity]
-		public Assignment getEntityAssignment_1() { return cEntityAssignment_1; }
+		//reference=Reference
+		public Assignment getReferenceAssignment_1() { return cReferenceAssignment_1; }
 		
-		//[Entity]
-		public CrossReference getEntityEntityCrossReference_1_0() { return cEntityEntityCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getEntityEntityIDTerminalRuleCall_1_0_1() { return cEntityEntityIDTerminalRuleCall_1_0_1; }
-		
-		//":"
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
-		
-		//entityId=[Attribute]
-		public Assignment getEntityIdAssignment_3() { return cEntityIdAssignment_3; }
-		
-		//[Attribute]
-		public CrossReference getEntityIdAttributeCrossReference_3_0() { return cEntityIdAttributeCrossReference_3_0; }
-		
-		//ID
-		public RuleCall getEntityIdAttributeIDTerminalRuleCall_3_0_1() { return cEntityIdAttributeIDTerminalRuleCall_3_0_1; }
+		//Reference
+		public RuleCall getReferenceReferenceParserRuleCall_1_0() { return cReferenceReferenceParserRuleCall_1_0; }
 	}
 	public class CreateMethodExcludeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.CreateMethodExclude");
@@ -1631,7 +1611,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//CreateMethod:
-	//	{CreateMethod} "CREATE" withEntity=CreateMethodWith? exclude=CreateMethodExclude?;
+	//	{CreateMethod} "CREATE" withEntity+=CreateMethodWith* exclude=CreateMethodExclude?;
 	public CreateMethodElements getCreateMethodAccess() {
 		return pCreateMethod;
 	}
@@ -1641,7 +1621,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//CreateMethodWith:
-	//	"with" entity=[Entity] ":" entityId=[Attribute];
+	//	"with" reference=Reference;
 	public CreateMethodWithElements getCreateMethodWithAccess() {
 		return pCreateMethodWith;
 	}

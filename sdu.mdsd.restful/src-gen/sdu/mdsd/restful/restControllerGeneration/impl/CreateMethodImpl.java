@@ -3,13 +3,20 @@
  */
 package sdu.mdsd.restful.restControllerGeneration.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import sdu.mdsd.restful.restControllerGeneration.CreateMethod;
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude;
@@ -33,14 +40,14 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
 public class CreateMethodImpl extends ControllerMethodImpl implements CreateMethod
 {
   /**
-   * The cached value of the '{@link #getWithEntity() <em>With Entity</em>}' containment reference.
+   * The cached value of the '{@link #getWithEntity() <em>With Entity</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getWithEntity()
    * @generated
    * @ordered
    */
-  protected CreateMethodWith withEntity;
+  protected EList<CreateMethodWith> withEntity;
 
   /**
    * The cached value of the '{@link #getExclude() <em>Exclude</em>}' containment reference.
@@ -79,48 +86,13 @@ public class CreateMethodImpl extends ControllerMethodImpl implements CreateMeth
    * @generated
    */
   @Override
-  public CreateMethodWith getWithEntity()
+  public EList<CreateMethodWith> getWithEntity()
   {
+    if (withEntity == null)
+    {
+      withEntity = new EObjectContainmentEList<CreateMethodWith>(CreateMethodWith.class, this, RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY);
+    }
     return withEntity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetWithEntity(CreateMethodWith newWithEntity, NotificationChain msgs)
-  {
-    CreateMethodWith oldWithEntity = withEntity;
-    withEntity = newWithEntity;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY, oldWithEntity, newWithEntity);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setWithEntity(CreateMethodWith newWithEntity)
-  {
-    if (newWithEntity != withEntity)
-    {
-      NotificationChain msgs = null;
-      if (withEntity != null)
-        msgs = ((InternalEObject)withEntity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY, null, msgs);
-      if (newWithEntity != null)
-        msgs = ((InternalEObject)newWithEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY, null, msgs);
-      msgs = basicSetWithEntity(newWithEntity, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY, newWithEntity, newWithEntity));
   }
 
   /**
@@ -184,7 +156,7 @@ public class CreateMethodImpl extends ControllerMethodImpl implements CreateMeth
     switch (featureID)
     {
       case RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY:
-        return basicSetWithEntity(null, msgs);
+        return ((InternalEList<?>)getWithEntity()).basicRemove(otherEnd, msgs);
       case RestControllerGenerationPackage.CREATE_METHOD__EXCLUDE:
         return basicSetExclude(null, msgs);
     }
@@ -214,13 +186,15 @@ public class CreateMethodImpl extends ControllerMethodImpl implements CreateMeth
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY:
-        setWithEntity((CreateMethodWith)newValue);
+        getWithEntity().clear();
+        getWithEntity().addAll((Collection<? extends CreateMethodWith>)newValue);
         return;
       case RestControllerGenerationPackage.CREATE_METHOD__EXCLUDE:
         setExclude((CreateMethodExclude)newValue);
@@ -240,7 +214,7 @@ public class CreateMethodImpl extends ControllerMethodImpl implements CreateMeth
     switch (featureID)
     {
       case RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY:
-        setWithEntity((CreateMethodWith)null);
+        getWithEntity().clear();
         return;
       case RestControllerGenerationPackage.CREATE_METHOD__EXCLUDE:
         setExclude((CreateMethodExclude)null);
@@ -260,7 +234,7 @@ public class CreateMethodImpl extends ControllerMethodImpl implements CreateMeth
     switch (featureID)
     {
       case RestControllerGenerationPackage.CREATE_METHOD__WITH_ENTITY:
-        return withEntity != null;
+        return withEntity != null && !withEntity.isEmpty();
       case RestControllerGenerationPackage.CREATE_METHOD__EXCLUDE:
         return exclude != null;
     }
