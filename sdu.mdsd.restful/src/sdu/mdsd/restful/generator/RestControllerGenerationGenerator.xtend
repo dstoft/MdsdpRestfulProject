@@ -177,7 +177,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def generateExternalInterface(EntityModel em, IFileSystemAccess2 fsa) {
 		fsa.generateFile(em.name + "/IExternalCode.cs", '''
 			using System.Collections.Generic;
-			using EmTest.Models;
+			using «em.name».Models;
 			
 			namespace «em.name» {
 				public interface IExternalCode {
@@ -197,9 +197,9 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def generateController(Controller controller, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(controller, EntityModel)
 		fsa.generateFile(model.name+ "/Controllers/" + controller.name + ".cs", '''
-		using EmTest.Models;
-		using EmTest.Application.Interfaces;
-		using EmTest.Application.Parameters;
+		using «model.name».Models;
+		using «model.name».Application.Interfaces;
+		using «model.name».Application.Parameters;
 		using Microsoft.AspNetCore.Http;
 		using Microsoft.AspNetCore.Mvc;
 		using System.Collections.Generic;
@@ -274,10 +274,11 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		[ProducesResponseType((int) HttpStatusCode.OK)]
 		public ActionResult Delete(«method.entityId.type.generateAttributeType» «method.entityId.name.toFirstLower»)
 		{
-		    return Ok(Service.Delete(new Delete«entity.name»Parameters
+		    Service.Delete(new Delete«entity.name»Parameters
 		    {
 		    	«method.entityId.name» = «method.entityId.name.toFirstLower»
-			}));
+			});
+			return Ok();
 		}
 	'''
 	
@@ -297,8 +298,8 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		
 		fsa.generateFile(model.name + "/Application/Interfaces/I" + entity.name + "Service.cs", '''
 			using System.Collections.Generic;
-			using EmTest.Application.Parameters;
-			using EmTest.Models;
+			using «model.name».Application.Parameters;
+			using «model.name».Models;
 			
 			namespace «model.name».Application.Interfaces {
 				public interface I«entity.name»Service {
@@ -341,12 +342,12 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Create" + entity.name + "Parameters.cs", '''
 			using System.Collections.Generic;
-			using EmTest.Models;
+			using «model.name».Models;
 			
 			namespace «model.name».Application.Parameters {
 				public class Create«entity.name»Parameters {
 					«FOR x:entity.allAttributes.filter[type instanceof SimpleType]»
-					«IF !method.exclude.attributes.contains(x)»
+					«IF (method.exclude !== null && !method.exclude.attributes.contains(x))»
 					public «x.type.generateAttributeType» «x.name» { get; set; }
 					«ENDIF»
 					«ENDFOR»
@@ -364,7 +365,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Get" + entity.name + "Parameters.cs", '''
 			using System.Collections.Generic;
-			using EmTest.Models;
+			using «model.name».Models;
 			
 			namespace «model.name».Application.Parameters {
 				public class Get«entity.name»Parameters {
@@ -377,7 +378,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/List" + entity.name + "Parameters.cs", '''
 			using System.Collections.Generic;
-			using EmTest.Models;
+			using «model.name».Models;
 			
 			namespace «model.name».Application.Parameters {
 				public class List«entity.name»Parameters {
@@ -389,7 +390,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Update" + entity.name + "Parameters.cs", '''
 			using System.Collections.Generic;
-			using EmTest.Models;
+			using «model.name».Models;
 			
 			namespace «model.name».Application.Parameters {
 				public class Update«entity.name»ParametersWithId {
@@ -410,7 +411,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Delete" + entity.name + "Parameters.cs", '''
 			using System.Collections.Generic;
-			using EmTest.Models;
+			using «model.name».Models;
 			
 			namespace «model.name».Application.Parameters {
 				public class Delete«entity.name»Parameters {
