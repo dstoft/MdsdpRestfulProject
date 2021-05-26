@@ -3,55 +3,22 @@
  */
 package sdu.mdsd.restful.restControllerGeneration.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import sdu.mdsd.restful.restControllerGeneration.AttributeType;
-import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
-import sdu.mdsd.restful.restControllerGeneration.Type;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Attribute Type</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeTypeImpl#getType <em>Type</em>}</li>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeTypeImpl#getEntity <em>Entity</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class AttributeTypeImpl extends MinimalEObjectImpl.Container implements AttributeType
 {
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected Type type;
-
-  /**
-   * The cached value of the '{@link #getEntity() <em>Entity</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEntity()
-   * @generated
-   * @ordered
-   */
-  protected Entity entity;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -71,174 +38,6 @@ public class AttributeTypeImpl extends MinimalEObjectImpl.Container implements A
   protected EClass eStaticClass()
   {
     return RestControllerGenerationPackage.Literals.ATTRIBUTE_TYPE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Type getType()
-  {
-    if (type != null && type.eIsProxy())
-    {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (Type)eResolveProxy(oldType);
-      if (type != oldType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.ATTRIBUTE_TYPE__TYPE, oldType, type));
-      }
-    }
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Type basicGetType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setType(Type newType)
-  {
-    Type oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE_TYPE__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Entity getEntity()
-  {
-    if (entity != null && entity.eIsProxy())
-    {
-      InternalEObject oldEntity = (InternalEObject)entity;
-      entity = (Entity)eResolveProxy(oldEntity);
-      if (entity != oldEntity)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.ATTRIBUTE_TYPE__ENTITY, oldEntity, entity));
-      }
-    }
-    return entity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Entity basicGetEntity()
-  {
-    return entity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setEntity(Entity newEntity)
-  {
-    Entity oldEntity = entity;
-    entity = newEntity;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE_TYPE__ENTITY, oldEntity, entity));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__ENTITY:
-        if (resolve) return getEntity();
-        return basicGetEntity();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__TYPE:
-        setType((Type)newValue);
-        return;
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__ENTITY:
-        setEntity((Entity)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__TYPE:
-        setType((Type)null);
-        return;
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__ENTITY:
-        setEntity((Entity)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__TYPE:
-        return type != null;
-      case RestControllerGenerationPackage.ATTRIBUTE_TYPE__ENTITY:
-        return entity != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //AttributeTypeImpl

@@ -170,7 +170,7 @@ public interface RestControllerGenerationPackage extends EPackage
   int EXTERNAL_DEF__NAME = DECLARATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -272,7 +272,7 @@ public interface RestControllerGenerationPackage extends EPackage
   int ATTRIBUTE__NAME = ENTITY_DECLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -309,31 +309,13 @@ public interface RestControllerGenerationPackage extends EPackage
   int ATTRIBUTE_TYPE = 7;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATTRIBUTE_TYPE__TYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Entity</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATTRIBUTE_TYPE__ENTITY = 1;
-
-  /**
    * The number of structural features of the '<em>Attribute Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_TYPE_FEATURE_COUNT = 2;
+  int ATTRIBUTE_TYPE_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.LogicRequirementImpl <em>Logic Requirement</em>}' class.
@@ -392,6 +374,34 @@ public interface RestControllerGenerationPackage extends EPackage
   int EXTERNAL_USE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeUseImpl <em>Attribute Use</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.AttributeUseImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getAttributeUse()
+   * @generated
+   */
+  int ATTRIBUTE_USE = 10;
+
+  /**
+   * The feature id for the '<em><b>Attribute</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_USE__ATTRIBUTE = 0;
+
+  /**
+   * The number of structural features of the '<em>Attribute Use</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_USE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalUseOfAttributeImpl <em>External Use Of Attribute</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -399,7 +409,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExternalUseOfAttribute()
    * @generated
    */
-  int EXTERNAL_USE_OF_ATTRIBUTE = 10;
+  int EXTERNAL_USE_OF_ATTRIBUTE = 11;
 
   /**
    * The feature id for the '<em><b>External</b></em>' reference.
@@ -411,7 +421,7 @@ public interface RestControllerGenerationPackage extends EPackage
   int EXTERNAL_USE_OF_ATTRIBUTE__EXTERNAL = 0;
 
   /**
-   * The feature id for the '<em><b>Attribute</b></em>' reference.
+   * The feature id for the '<em><b>Attribute</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -436,7 +446,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRequirement()
    * @generated
    */
-  int REQUIREMENT = 11;
+  int REQUIREMENT = 12;
 
   /**
    * The feature id for the '<em><b>Requirement</b></em>' containment reference.
@@ -464,7 +474,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getProposition()
    * @generated
    */
-  int PROPOSITION = 12;
+  int PROPOSITION = 13;
 
   /**
    * The number of structural features of the '<em>Proposition</em>' class.
@@ -483,7 +493,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 13;
+  int COMPARISON = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -529,7 +539,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelationalOp()
    * @generated
    */
-  int RELATIONAL_OP = 14;
+  int RELATIONAL_OP = 15;
 
   /**
    * The number of structural features of the '<em>Relational Op</em>' class.
@@ -548,7 +558,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 15;
+  int EXPRESSION = 16;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -567,7 +577,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getName_()
    * @generated
    */
-  int NAME = 16;
+  int NAME = 17;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' reference.
@@ -588,6 +598,43 @@ public interface RestControllerGenerationPackage extends EPackage
   int NAME_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ReferenceImpl <em>Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.ReferenceImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getReference()
+   * @generated
+   */
+  int REFERENCE = 18;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE__REFERENCE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Attribute</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE__ATTRIBUTE = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.IntExpImpl <em>Int Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -595,7 +642,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getIntExp()
    * @generated
    */
-  int INT_EXP = 17;
+  int INT_EXP = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -623,7 +670,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getController()
    * @generated
    */
-  int CONTROLLER = 18;
+  int CONTROLLER = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -678,7 +725,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getControllerMethod()
    * @generated
    */
-  int CONTROLLER_METHOD = 19;
+  int CONTROLLER_METHOD = 21;
 
   /**
    * The number of structural features of the '<em>Controller Method</em>' class.
@@ -697,7 +744,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethod()
    * @generated
    */
-  int CREATE_METHOD = 20;
+  int CREATE_METHOD = 22;
 
   /**
    * The feature id for the '<em><b>With Entity</b></em>' containment reference.
@@ -734,7 +781,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethodWith()
    * @generated
    */
-  int CREATE_METHOD_WITH = 21;
+  int CREATE_METHOD_WITH = 23;
 
   /**
    * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -771,7 +818,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getCreateMethodExclude()
    * @generated
    */
-  int CREATE_METHOD_EXCLUDE = 22;
+  int CREATE_METHOD_EXCLUDE = 24;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' reference list.
@@ -799,7 +846,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getGetMethod()
    * @generated
    */
-  int GET_METHOD = 23;
+  int GET_METHOD = 25;
 
   /**
    * The feature id for the '<em><b>Entity Id</b></em>' reference.
@@ -827,7 +874,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getListMethod()
    * @generated
    */
-  int LIST_METHOD = 24;
+  int LIST_METHOD = 26;
 
   /**
    * The number of structural features of the '<em>List Method</em>' class.
@@ -846,7 +893,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getUpdateMethod()
    * @generated
    */
-  int UPDATE_METHOD = 25;
+  int UPDATE_METHOD = 27;
 
   /**
    * The feature id for the '<em><b>Entity Id</b></em>' reference.
@@ -883,7 +930,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDeleteMethod()
    * @generated
    */
-  int DELETE_METHOD = 26;
+  int DELETE_METHOD = 28;
 
   /**
    * The feature id for the '<em><b>Entity Id</b></em>' reference.
@@ -904,6 +951,90 @@ public interface RestControllerGenerationPackage extends EPackage
   int DELETE_METHOD_FEATURE_COUNT = CONTROLLER_METHOD_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.SimpleTypeImpl <em>Simple Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.SimpleTypeImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getSimpleType()
+   * @generated
+   */
+  int SIMPLE_TYPE = 29;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TYPE__TYPE = ATTRIBUTE_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Simple Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TYPE_FEATURE_COUNT = ATTRIBUTE_TYPE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.RefTypeImpl <em>Ref Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RefTypeImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRefType()
+   * @generated
+   */
+  int REF_TYPE = 30;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_TYPE__TYPE = ATTRIBUTE_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Ref Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_TYPE_FEATURE_COUNT = ATTRIBUTE_TYPE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ListTypeImpl <em>List Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.ListTypeImpl
+   * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getListType()
+   * @generated
+   */
+  int LIST_TYPE = 31;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_TYPE__TYPE = ATTRIBUTE_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>List Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_TYPE_FEATURE_COUNT = ATTRIBUTE_TYPE_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.DisjunctionImpl <em>Disjunction</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -911,7 +1042,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDisjunction()
    * @generated
    */
-  int DISJUNCTION = 27;
+  int DISJUNCTION = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -948,7 +1079,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getConjunction()
    * @generated
    */
-  int CONJUNCTION = 28;
+  int CONJUNCTION = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -985,7 +1116,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelEQ()
    * @generated
    */
-  int REL_EQ = 29;
+  int REL_EQ = 34;
 
   /**
    * The number of structural features of the '<em>Rel EQ</em>' class.
@@ -1004,7 +1135,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelLT()
    * @generated
    */
-  int REL_LT = 30;
+  int REL_LT = 35;
 
   /**
    * The number of structural features of the '<em>Rel LT</em>' class.
@@ -1023,7 +1154,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelGT()
    * @generated
    */
-  int REL_GT = 31;
+  int REL_GT = 36;
 
   /**
    * The number of structural features of the '<em>Rel GT</em>' class.
@@ -1042,7 +1173,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelLTE()
    * @generated
    */
-  int REL_LTE = 32;
+  int REL_LTE = 37;
 
   /**
    * The number of structural features of the '<em>Rel LTE</em>' class.
@@ -1061,7 +1192,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRelGTE()
    * @generated
    */
-  int REL_GTE = 33;
+  int REL_GTE = 38;
 
   /**
    * The number of structural features of the '<em>Rel GTE</em>' class.
@@ -1080,7 +1211,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getAdd()
    * @generated
    */
-  int ADD = 34;
+  int ADD = 39;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1117,7 +1248,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getSub()
    * @generated
    */
-  int SUB = 35;
+  int SUB = 40;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1154,7 +1285,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getMul()
    * @generated
    */
-  int MUL = 36;
+  int MUL = 41;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1191,7 +1322,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getDiv()
    * @generated
    */
-  int DIV = 37;
+  int DIV = 42;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1295,10 +1426,10 @@ public interface RestControllerGenerationPackage extends EPackage
   EClass getExternalDef();
 
   /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.ExternalDef#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link sdu.mdsd.restful.restControllerGeneration.ExternalDef#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
+   * @return the meta object for the containment reference '<em>Type</em>'.
    * @see sdu.mdsd.restful.restControllerGeneration.ExternalDef#getType()
    * @see #getExternalDef()
    * @generated
@@ -1369,10 +1500,10 @@ public interface RestControllerGenerationPackage extends EPackage
   EAttribute getAttribute_Name();
 
   /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link sdu.mdsd.restful.restControllerGeneration.Attribute#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
+   * @return the meta object for the containment reference '<em>Type</em>'.
    * @see sdu.mdsd.restful.restControllerGeneration.Attribute#getType()
    * @see #getAttribute()
    * @generated
@@ -1399,28 +1530,6 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    */
   EClass getAttributeType();
-
-  /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.AttributeType#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.AttributeType#getType()
-   * @see #getAttributeType()
-   * @generated
-   */
-  EReference getAttributeType_Type();
-
-  /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.AttributeType#getEntity <em>Entity</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Entity</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.AttributeType#getEntity()
-   * @see #getAttributeType()
-   * @generated
-   */
-  EReference getAttributeType_Entity();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.LogicRequirement <em>Logic Requirement</em>}'.
@@ -1465,6 +1574,27 @@ public interface RestControllerGenerationPackage extends EPackage
   EReference getExternalUse_External();
 
   /**
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.AttributeUse <em>Attribute Use</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute Use</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.AttributeUse
+   * @generated
+   */
+  EClass getAttributeUse();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.AttributeUse#getAttribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Attribute</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.AttributeUse#getAttribute()
+   * @see #getAttributeUse()
+   * @generated
+   */
+  EReference getAttributeUse_Attribute();
+
+  /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute <em>External Use Of Attribute</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1486,10 +1616,10 @@ public interface RestControllerGenerationPackage extends EPackage
   EReference getExternalUseOfAttribute_External();
 
   /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute#getAttribute <em>Attribute</em>}'.
+   * Returns the meta object for the containment reference '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute#getAttribute <em>Attribute</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Attribute</em>'.
+   * @return the meta object for the containment reference '<em>Attribute</em>'.
    * @see sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute#getAttribute()
    * @see #getExternalUseOfAttribute()
    * @generated
@@ -1610,6 +1740,38 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    */
   EReference getName_VarName();
+
+  /**
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.Reference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Reference</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.Reference
+   * @generated
+   */
+  EClass getReference();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Reference#getReference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Reference</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.Reference#getReference()
+   * @see #getReference()
+   * @generated
+   */
+  EReference getReference_Reference();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Reference#getAttribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Attribute</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.Reference#getAttribute()
+   * @see #getReference()
+   * @generated
+   */
+  EReference getReference_Attribute();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.IntExp <em>Int Exp</em>}'.
@@ -1853,6 +2015,69 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    */
   EReference getDeleteMethod_EntityId();
+
+  /**
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.SimpleType <em>Simple Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Type</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.SimpleType
+   * @generated
+   */
+  EClass getSimpleType();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.SimpleType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.SimpleType#getType()
+   * @see #getSimpleType()
+   * @generated
+   */
+  EReference getSimpleType_Type();
+
+  /**
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.RefType <em>Ref Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Type</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.RefType
+   * @generated
+   */
+  EClass getRefType();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.RefType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.RefType#getType()
+   * @see #getRefType()
+   * @generated
+   */
+  EReference getRefType_Type();
+
+  /**
+   * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.ListType <em>List Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>List Type</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ListType
+   * @generated
+   */
+  EClass getListType();
+
+  /**
+   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.ListType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see sdu.mdsd.restful.restControllerGeneration.ListType#getType()
+   * @see #getListType()
+   * @generated
+   */
+  EReference getListType_Type();
 
   /**
    * Returns the meta object for class '{@link sdu.mdsd.restful.restControllerGeneration.Disjunction <em>Disjunction</em>}'.
@@ -2184,7 +2409,7 @@ public interface RestControllerGenerationPackage extends EPackage
     EClass EXTERNAL_DEF = eINSTANCE.getExternalDef();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2246,7 +2471,7 @@ public interface RestControllerGenerationPackage extends EPackage
     EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2270,22 +2495,6 @@ public interface RestControllerGenerationPackage extends EPackage
      * @generated
      */
     EClass ATTRIBUTE_TYPE = eINSTANCE.getAttributeType();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ATTRIBUTE_TYPE__TYPE = eINSTANCE.getAttributeType_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Entity</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ATTRIBUTE_TYPE__ENTITY = eINSTANCE.getAttributeType_Entity();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.LogicRequirementImpl <em>Logic Requirement</em>}' class.
@@ -2324,6 +2533,24 @@ public interface RestControllerGenerationPackage extends EPackage
     EReference EXTERNAL_USE__EXTERNAL = eINSTANCE.getExternalUse_External();
 
     /**
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.AttributeUseImpl <em>Attribute Use</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.AttributeUseImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getAttributeUse()
+     * @generated
+     */
+    EClass ATTRIBUTE_USE = eINSTANCE.getAttributeUse();
+
+    /**
+     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUTE_USE__ATTRIBUTE = eINSTANCE.getAttributeUse_Attribute();
+
+    /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ExternalUseOfAttributeImpl <em>External Use Of Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2342,7 +2569,7 @@ public interface RestControllerGenerationPackage extends EPackage
     EReference EXTERNAL_USE_OF_ATTRIBUTE__EXTERNAL = eINSTANCE.getExternalUseOfAttribute_External();
 
     /**
-     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Attribute</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2448,6 +2675,32 @@ public interface RestControllerGenerationPackage extends EPackage
      * @generated
      */
     EReference NAME__VAR_NAME = eINSTANCE.getName_VarName();
+
+    /**
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ReferenceImpl <em>Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.ReferenceImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getReference()
+     * @generated
+     */
+    EClass REFERENCE = eINSTANCE.getReference();
+
+    /**
+     * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFERENCE__REFERENCE = eINSTANCE.getReference_Reference();
+
+    /**
+     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFERENCE__ATTRIBUTE = eINSTANCE.getReference_Attribute();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.IntExpImpl <em>Int Exp</em>}' class.
@@ -2652,6 +2905,60 @@ public interface RestControllerGenerationPackage extends EPackage
      * @generated
      */
     EReference DELETE_METHOD__ENTITY_ID = eINSTANCE.getDeleteMethod_EntityId();
+
+    /**
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.SimpleTypeImpl <em>Simple Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.SimpleTypeImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getSimpleType()
+     * @generated
+     */
+    EClass SIMPLE_TYPE = eINSTANCE.getSimpleType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_TYPE__TYPE = eINSTANCE.getSimpleType_Type();
+
+    /**
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.RefTypeImpl <em>Ref Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RefTypeImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getRefType()
+     * @generated
+     */
+    EClass REF_TYPE = eINSTANCE.getRefType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_TYPE__TYPE = eINSTANCE.getRefType_Type();
+
+    /**
+     * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ListTypeImpl <em>List Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.ListTypeImpl
+     * @see sdu.mdsd.restful.restControllerGeneration.impl.RestControllerGenerationPackageImpl#getListType()
+     * @generated
+     */
+    EClass LIST_TYPE = eINSTANCE.getListType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIST_TYPE__TYPE = eINSTANCE.getListType_Type();
 
     /**
      * The meta object literal for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.DisjunctionImpl <em>Disjunction</em>}' class.

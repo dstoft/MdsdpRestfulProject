@@ -9,25 +9,26 @@ import sdu.mdsd.restful.restControllerGeneration.Controller
 import sdu.mdsd.restful.restControllerGeneration.Attribute
 import java.util.ArrayList
 import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.resource.IEObjectDescription
 import sdu.mdsd.restful.restControllerGeneration.GetMethod
 import org.eclipse.xtext.EcoreUtil2
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodExclude
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod
 import sdu.mdsd.restful.restControllerGeneration.DeleteMethod
 import sdu.mdsd.restful.restControllerGeneration.CreateMethodWith
-import org.eclipse.xtext.scoping.IScope
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage.Literals
 import sdu.mdsd.restful.restControllerGeneration.EntityModel
 import sdu.mdsd.restful.restControllerGeneration.ExternalDef
 import sdu.mdsd.restful.restControllerGeneration.ExternalUse
-import java.util.Collection
 import sdu.mdsd.restful.restControllerGeneration.Entity
 import static sdu.mdsd.restful.generator.RestControllerGenerationGenerator.getAllAttributesStatic
-import sdu.mdsd.restful.restControllerGeneration.Requirement
-import sdu.mdsd.restful.restControllerGeneration.LogicRequirement
 import sdu.mdsd.restful.restControllerGeneration.Name
 import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute
+import sdu.mdsd.restful.restControllerGeneration.AttributeType
+import sdu.mdsd.restful.restControllerGeneration.SimpleType
+import sdu.mdsd.restful.restControllerGeneration.RefType
+import sdu.mdsd.restful.restControllerGeneration.ListType
+import sdu.mdsd.restful.restControllerGeneration.Reference
+import sdu.mdsd.restful.restControllerGeneration.AttributeUse
 
 /**
  * This class contains custom scoping description.
@@ -43,7 +44,15 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 				val EntityModel model = EcoreUtil2.getContainerOfType(context, EntityModel)
 				val Attribute attribute = EcoreUtil2.getContainerOfType(context, Attribute)
 				val candidates = new ArrayList<ExternalDef>
-				candidates.addAll(model.declarations.filter(ExternalDef).filter[type == attribute.type])
+				candidates.addAll(model.declarations.filter(ExternalDef).filter[compareAttributeType(type, attribute.type)])
+				return Scopes.scopeFor(candidates)
+			}
+			AttributeUse: {
+				val ExternalUseOfAttribute externalUse = EcoreUtil2.getContainerOfType(context, ExternalUseOfAttribute)
+				val ExternalDef externalDef = externalUse.external
+				val Entity entity = EcoreUtil2.getContainerOfType(context, Entity)
+				val candidates = new ArrayList<Attribute>
+				candidates.addAll(getAllAttributesStatic(entity).filter[compareAttributeType(type, externalDef.type)])
 				return Scopes.scopeFor(candidates)
 			}
 			CreateMethodWith case reference == Literals.CREATE_METHOD_WITH__ENTITY_ID: {
@@ -67,9 +76,18 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 				val Entity entity = EcoreUtil2.getContainerOfType(context, Entity)
 				return Scopes.scopeFor(getAllAttributesStatic(entity))
 			}
-			ExternalUseOfAttribute case reference == Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE: {
+			//Reference case reference == Literals.REFERENCE__ATTRIBUTE: {
+			//	val ExternalUseOfAttribute externalUse = EcoreUtil2.getContainerOfType(context, ExternalUseOfAttribute)
+			//	val ExternalDef externalDef = externalUse.external
+			//	Scopes.scopeFor(getAllAttributesStatic(context.reference.type.getReferenceAttributeEntity).filter[compareAttributeType(type, externalDef.type)])
+			//}
+			Reference case reference == Literals.REFERENCE__REFERENCE: {
 				val Entity entity = EcoreUtil2.getContainerOfType(context, Entity)
-				return Scopes.scopeFor(getAllAttributesStatic(entity))
+				val candidates = getAllAttributesStatic(entity).filter[type instanceof RefType || type instanceof ListType]
+				return Scopes.scopeFor(candidates)
+			}
+			Reference case reference == Literals.REFERENCE__ATTRIBUTE: {
+				Scopes.scopeFor(getAllAttributesStatic(context.reference.type.getReferenceAttributeEntity))
 			}
 			default: super.getScope(context, reference)
 		}
@@ -81,5 +99,30 @@ class RestControllerGenerationScopeProvider extends AbstractRestControllerGenera
 		candidates.addAll(getAllAttributesStatic(controller.entity))
 		return candidates
 	}
+	
+	def private boolean compareAttributeType(AttributeType type, AttributeType other) {
+		if(type === null) return false
+		if(other === null) return false
+		if(type.class != other.class) return false
+		
+		switch type {
+			SimpleType: {
+				val type2 = other as SimpleType
+				type.type.name == type2.type.name
+			}
+			RefType: {
+				val type2 = other as RefType
+				type.type.name == type2.type.name
+			}
+			ListType: {
+				val type2 = other as ListType
+				type.type.name == type2.type.name
+			}
+			default: false
+		}
+	}
+	
+	def dispatch private getReferenceAttributeEntity(RefType type) { type.type }
+	def dispatch private getReferenceAttributeEntity(ListType type) { type.type }
 
 }

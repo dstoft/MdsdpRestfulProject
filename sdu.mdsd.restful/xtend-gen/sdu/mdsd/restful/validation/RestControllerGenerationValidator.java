@@ -5,18 +5,26 @@ package sdu.mdsd.restful.validation;
 
 import com.google.common.base.Objects;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import sdu.mdsd.restful.generator.RestControllerGenerationGenerator;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
+import sdu.mdsd.restful.restControllerGeneration.AttributeType;
+import sdu.mdsd.restful.restControllerGeneration.AttributeUse;
 import sdu.mdsd.restful.restControllerGeneration.Entity;
 import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
+import sdu.mdsd.restful.restControllerGeneration.ListType;
+import sdu.mdsd.restful.restControllerGeneration.LogicRequirement;
+import sdu.mdsd.restful.restControllerGeneration.RefType;
+import sdu.mdsd.restful.restControllerGeneration.Reference;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
-import sdu.mdsd.restful.restControllerGeneration.Type;
+import sdu.mdsd.restful.restControllerGeneration.SimpleType;
 import sdu.mdsd.restful.validation.AbstractRestControllerGenerationValidator;
 
 /**
@@ -75,11 +83,102 @@ public class RestControllerGenerationValidator extends AbstractRestControllerGen
   
   @Check
   public void checkRequirementType(final ExternalUseOfAttribute requirement) {
-    Type _type = requirement.getExternal().getType();
-    Type _type_1 = requirement.getAttribute().getType();
-    boolean _tripleNotEquals = (_type != _type_1);
-    if (_tripleNotEquals) {
+    boolean _compareAttributeType = this.compareAttributeType(requirement.getExternal().getType(), this.getAttributeType(requirement.getAttribute()));
+    boolean _not = (!_compareAttributeType);
+    if (_not) {
       this.error("Type mismatch between external function and attribute", RestControllerGenerationPackage.Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, "typeMismatch");
+    }
+  }
+  
+  private boolean compareAttributeType(final AttributeType type, final AttributeType other) {
+    boolean _xblockexpression = false;
+    {
+      if ((type == null)) {
+        return false;
+      }
+      if ((other == null)) {
+        return false;
+      }
+      Class<? extends AttributeType> _class = type.getClass();
+      Class<? extends AttributeType> _class_1 = other.getClass();
+      boolean _notEquals = (!Objects.equal(_class, _class_1));
+      if (_notEquals) {
+        return false;
+      }
+      boolean _switchResult = false;
+      boolean _matched = false;
+      if (type instanceof SimpleType) {
+        _matched=true;
+        boolean _xblockexpression_1 = false;
+        {
+          final SimpleType type2 = ((SimpleType) other);
+          String _name = ((SimpleType)type).getType().getName();
+          String _name_1 = type2.getType().getName();
+          _xblockexpression_1 = Objects.equal(_name, _name_1);
+        }
+        _switchResult = _xblockexpression_1;
+      }
+      if (!_matched) {
+        if (type instanceof RefType) {
+          _matched=true;
+          boolean _xblockexpression_1 = false;
+          {
+            final RefType type2 = ((RefType) other);
+            String _name = ((RefType)type).getType().getName();
+            String _name_1 = type2.getType().getName();
+            _xblockexpression_1 = Objects.equal(_name, _name_1);
+          }
+          _switchResult = _xblockexpression_1;
+        }
+      }
+      if (!_matched) {
+        if (type instanceof ListType) {
+          _matched=true;
+          boolean _xblockexpression_1 = false;
+          {
+            final RefType type2 = ((RefType) other);
+            String _name = ((ListType)type).getType().getName();
+            String _name_1 = type2.getType().getName();
+            _xblockexpression_1 = Objects.equal(_name, _name_1);
+          }
+          _switchResult = _xblockexpression_1;
+        }
+      }
+      if (!_matched) {
+        _switchResult = false;
+      }
+      _xblockexpression = _switchResult;
+    }
+    return _xblockexpression;
+  }
+  
+  private AttributeType _getAttributeType(final AttributeUse attribute) {
+    return attribute.getAttribute().getType();
+  }
+  
+  private AttributeType _getAttributeType(final Reference reference) {
+    return reference.getAttribute().getType();
+  }
+  
+  @Check
+  public void checkLogicExpToExcludeListType(final Reference reference) {
+    if (((reference.getReference().getType() instanceof SimpleType) || (reference.getReference().getType() instanceof RefType))) {
+      return;
+    }
+    final LogicRequirement logicReq = EcoreUtil2.<LogicRequirement>getContainerOfType(reference, LogicRequirement.class);
+    if ((logicReq != null)) {
+      this.error("List attribute type not allowed in logic expressions", RestControllerGenerationPackage.Literals.REFERENCE__REFERENCE, "illegalAttributeType");
+    }
+  }
+  
+  private AttributeType getAttributeType(final EObject reference) {
+    if (reference instanceof Reference) {
+      return _getAttributeType((Reference)reference);
+    } else if (reference instanceof AttributeUse) {
+      return _getAttributeType((AttributeUse)reference);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(reference).toString());
     }
   }
 }

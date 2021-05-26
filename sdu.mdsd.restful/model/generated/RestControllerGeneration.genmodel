@@ -15,7 +15,7 @@
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Type"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalDef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalDef/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalDef/type"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Entity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Entity/base"/>
@@ -24,22 +24,22 @@
     <genClasses ecoreClass="RestControllerGeneration.ecore#//EntityDeclaration"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RestControllerGeneration.ecore#//Attribute/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Attribute/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Attribute/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Attribute/requires"/>
     </genClasses>
-    <genClasses ecoreClass="RestControllerGeneration.ecore#//AttributeType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//AttributeType/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//AttributeType/entity"/>
-    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//AttributeType"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//LogicRequirement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//LogicRequirement/logic"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalUse">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUse/external"/>
     </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//AttributeUse">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//AttributeUse/attribute"/>
+    </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//ExternalUseOfAttribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUseOfAttribute/external"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUseOfAttribute/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ExternalUseOfAttribute/attribute"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Requirement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Requirement/requirement"/>
@@ -54,6 +54,10 @@
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Expression"/>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Name">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Name/varName"/>
+    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Reference/reference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Reference/attribute"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//IntExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RestControllerGeneration.ecore#//IntExp/value"/>
@@ -85,6 +89,15 @@
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//DeleteMethod">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//DeleteMethod/entityId"/>
+    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//SimpleType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//SimpleType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//RefType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//RefType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="RestControllerGeneration.ecore#//ListType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//ListType/type"/>
     </genClasses>
     <genClasses ecoreClass="RestControllerGeneration.ecore#//Disjunction">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RestControllerGeneration.ecore#//Disjunction/left"/>

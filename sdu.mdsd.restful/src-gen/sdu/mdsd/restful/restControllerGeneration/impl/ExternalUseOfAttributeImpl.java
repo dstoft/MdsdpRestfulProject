@@ -4,14 +4,15 @@
 package sdu.mdsd.restful.restControllerGeneration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.ExternalDef;
 import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
@@ -43,14 +44,14 @@ public class ExternalUseOfAttributeImpl extends MinimalEObjectImpl.Container imp
   protected ExternalDef external;
 
   /**
-   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
+   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAttribute()
    * @generated
    * @ordered
    */
-  protected Attribute attribute;
+  protected EObject attribute;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,18 +125,8 @@ public class ExternalUseOfAttributeImpl extends MinimalEObjectImpl.Container imp
    * @generated
    */
   @Override
-  public Attribute getAttribute()
+  public EObject getAttribute()
   {
-    if (attribute != null && attribute.eIsProxy())
-    {
-      InternalEObject oldAttribute = (InternalEObject)attribute;
-      attribute = (Attribute)eResolveProxy(oldAttribute);
-      if (attribute != oldAttribute)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, oldAttribute, attribute));
-      }
-    }
     return attribute;
   }
 
@@ -144,9 +135,16 @@ public class ExternalUseOfAttributeImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute basicGetAttribute()
+  public NotificationChain basicSetAttribute(EObject newAttribute, NotificationChain msgs)
   {
-    return attribute;
+    EObject oldAttribute = attribute;
+    attribute = newAttribute;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, oldAttribute, newAttribute);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -155,12 +153,36 @@ public class ExternalUseOfAttributeImpl extends MinimalEObjectImpl.Container imp
    * @generated
    */
   @Override
-  public void setAttribute(Attribute newAttribute)
+  public void setAttribute(EObject newAttribute)
   {
-    Attribute oldAttribute = attribute;
-    attribute = newAttribute;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, oldAttribute, attribute));
+    if (newAttribute != attribute)
+    {
+      NotificationChain msgs = null;
+      if (attribute != null)
+        msgs = ((InternalEObject)attribute).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, null, msgs);
+      if (newAttribute != null)
+        msgs = ((InternalEObject)newAttribute).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, null, msgs);
+      msgs = basicSetAttribute(newAttribute, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, newAttribute, newAttribute));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE:
+        return basicSetAttribute(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -177,8 +199,7 @@ public class ExternalUseOfAttributeImpl extends MinimalEObjectImpl.Container imp
         if (resolve) return getExternal();
         return basicGetExternal();
       case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE:
-        if (resolve) return getAttribute();
-        return basicGetAttribute();
+        return getAttribute();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,7 +218,7 @@ public class ExternalUseOfAttributeImpl extends MinimalEObjectImpl.Container imp
         setExternal((ExternalDef)newValue);
         return;
       case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE:
-        setAttribute((Attribute)newValue);
+        setAttribute((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -217,7 +238,7 @@ public class ExternalUseOfAttributeImpl extends MinimalEObjectImpl.Container imp
         setExternal((ExternalDef)null);
         return;
       case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE:
-        setAttribute((Attribute)null);
+        setAttribute((EObject)null);
         return;
     }
     super.eUnset(featureID);

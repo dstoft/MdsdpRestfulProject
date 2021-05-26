@@ -31,7 +31,6 @@ import sdu.mdsd.restful.restControllerGeneration.RelLT
 import sdu.mdsd.restful.restControllerGeneration.RelLTE
 import sdu.mdsd.restful.restControllerGeneration.RelationalOp
 import sdu.mdsd.restful.restControllerGeneration.Sub
-import sdu.mdsd.restful.services.RestControllerGenerationGrammarAccess.LogicExpElements
 import sdu.mdsd.restful.restControllerGeneration.Controller
 import sdu.mdsd.restful.restControllerGeneration.CreateMethod
 import sdu.mdsd.restful.restControllerGeneration.GetMethod
@@ -42,6 +41,11 @@ import java.util.ArrayList
 import sdu.mdsd.restful.restControllerGeneration.LogicRequirement
 import sdu.mdsd.restful.restControllerGeneration.Requirement
 import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute
+import sdu.mdsd.restful.restControllerGeneration.SimpleType
+import sdu.mdsd.restful.restControllerGeneration.ListType
+import sdu.mdsd.restful.restControllerGeneration.RefType
+import sdu.mdsd.restful.restControllerGeneration.Reference
+import sdu.mdsd.restful.restControllerGeneration.AttributeUse
 
 /**
  * Generates code from your model files on save.
@@ -58,7 +62,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 //				.join(', '))
 		val em = resource.allContents.filter(EntityModel).next
 		System::out.println("Model:")
-		em.display
+		//em.display
 		em.generateExternalInterface(fsa)
 		em.generateModelFiles(fsa)
 		em.generateControllerFiles(fsa)
@@ -81,6 +85,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name+ "/Models/" + entity.name + ".cs", '''
 		using System;
+		using System.Collections.Generic;
 		
 		namespace «model.name».Models {
 			public class «entity.name» «IF entity.base !== null»: «entity.base.name» «ENDIF»{
@@ -101,8 +106,11 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 		«ENDFOR»
 	'''
 	def generateAttribute(Attribute attribute) '''
-		public «attribute.type.name» «attribute.name» { get; }
+		public «attribute.type.generateAttributeType» «attribute.name» { get; }
 	'''
+	def dispatch generateAttributeType(SimpleType type) '''«type.type.name»'''
+	def dispatch generateAttributeType(RefType type) '''«type.type.name»'''
+	def dispatch generateAttributeType(ListType type) '''List<«type.type.name»>'''
 	
 	def generateConstructor(Entity entity) '''
 		public «entity.name»(«entity.generateConstructorParameters») «IF entity.base !== null»: base(«entity.base.generateConstructorParametersWithoutType») «ENDIF» {
@@ -119,7 +127,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def generateConstructorParametersWithoutType(Entity entity) '''«entity.externCodeCtorParameterWithoutType»«FOR x:entity.allAttributes SEPARATOR ', '»«x.generateConstructorParameterWithoutType»«ENDFOR»'''
 	def externCodeCtorParameter(Entity entity) '''IExternalCode externalCode«IF entity.allAttributes.size > 0», «ENDIF»'''
 	def externCodeCtorParameterWithoutType(Entity entity) '''externalCode«IF entity.allAttributes.size > 0», «ENDIF»'''
-	def generateConstructorParameter(Attribute attribute) '''«attribute.type.name» «attribute.name.toFirstLower»'''
+	def generateConstructorParameter(Attribute attribute) '''«attribute.type.generateAttributeType» «attribute.name.toFirstLower»'''
 	def generateConstructorParameterWithoutType(Attribute attribute) '''«attribute.name.toFirstLower»'''
 	def generateConstructorSet(Attribute attribute) '''
 		this.«attribute.name» = «attribute.name.toFirstLower»;
@@ -141,7 +149,10 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateAttributeRequirement(LogicRequirement requirement, Attribute attribute) '''«requirement.logic.generateLogic»'''
 	
 	def dispatch generateRequirement(LogicRequirement requirement) '''«requirement.logic.generateLogic»'''
-	def dispatch generateRequirement(ExternalUseOfAttribute requirement) '''ExternalCode.«requirement.external.name»(«requirement.attribute.name»)'''
+	def dispatch generateRequirement(ExternalUseOfAttribute requirement) '''ExternalCode.«requirement.external.name»(«requirement.attribute.generateAttributeName»)'''
+	
+	def dispatch CharSequence generateAttributeName(AttributeUse x) { x.attribute.name }
+	def dispatch CharSequence generateAttributeName(Reference x) '''«x.reference.name».«x.attribute.name»'''
 	
 	def dispatch CharSequence generateLogic(Disjunction x) '''(«x.left.generateLogic»||«x.right.generateLogic»)'''
 	def dispatch CharSequence generateLogic(Conjunction x) '''(«x.left.generateLogic»&&«x.right.generateLogic»)'''
@@ -157,15 +168,21 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch CharSequence generateExp(Div x) '''(«x.left.generateExp»/«x.right.generateExp»)'''
 	def dispatch CharSequence generateExp(Name x) { x.varName.name }	
 	def dispatch CharSequence generateExp(IntExp x) { Integer.toString(x.value) }
+	def dispatch CharSequence generateExp(Reference x) '''«x.reference.name».«x.attribute.name»'''
+	def dispatch generateAttributeNameOnType(RefType type, Reference x) '''«x.reference.name».«x.attribute.name»'''
+	def dispatch generateAttributeNameOnType(ListType type, Reference x) '''''' // Validator should make this case impossiblee
 	
 	// ******************************************************
 	// ***** Generate external interface for validation *****
 	def generateExternalInterface(EntityModel em, IFileSystemAccess2 fsa) {
 		fsa.generateFile(em.name + "/IExternalCode.cs", '''
+			using System.Collections.Generic;
+			using EmTest.Models;
+			
 			namespace «em.name» {
 				public interface IExternalCode {
 					«FOR x:em.declarations.filter(ExternalDef)»
-						public bool «x.name»(«x.type.name» parameter);
+						public bool «x.name»(«x.type.generateAttributeType» parameter);
 					«ENDFOR»
 				}
 			}
@@ -224,7 +241,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerMethod(GetMethod method, Entity entity) '''
 		[HttpGet("{«method.entityId.name.toFirstLower»}")]
 		[ProducesResponseType(typeof(«entity.name»), (int) HttpStatusCode.OK)]
-		public ActionResult<«entity.name»> Get(«method.entityId.type.name» «method.entityId.name.toFirstLower»)
+		public ActionResult<«entity.name»> Get(«method.entityId.type.generateAttributeType» «method.entityId.name.toFirstLower»)
 		{
 		    return Ok(Service.Get(new Get«entity.name»Parameters
 		    {
@@ -243,7 +260,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerMethod(UpdateMethod method, Entity entity) '''
 		[HttpPut("{«method.entityId.name.toFirstLower»}")]
 		[ProducesResponseType(typeof(«entity.name»), (int) HttpStatusCode.OK)]
-		public ActionResult<«entity.name»> Update(«method.entityId.type.name» «method.entityId.name.toFirstLower», Update«entity.name»Parameters parameters)
+		public ActionResult<«entity.name»> Update(«method.entityId.type.generateAttributeType» «method.entityId.name.toFirstLower», Update«entity.name»Parameters parameters)
 		{
 			return Ok(Service.Update(new Update«entity.name»ParametersWithId
 			{
@@ -255,7 +272,7 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerMethod(DeleteMethod method, Entity entity) '''
 		[HttpDelete("{«method.entityId.name.toFirstLower»}")]
 		[ProducesResponseType((int) HttpStatusCode.OK)]
-		public ActionResult Delete(«method.entityId.type.name» «method.entityId.name.toFirstLower»)
+		public ActionResult Delete(«method.entityId.type.generateAttributeType» «method.entityId.name.toFirstLower»)
 		{
 		    return Ok(Service.Delete(new Delete«entity.name»Parameters
 		    {
@@ -323,11 +340,14 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerParameters(CreateMethod method, Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Create" + entity.name + "Parameters.cs", '''
+			using System.Collections.Generic;
+			using EmTest.Models;
+			
 			namespace «model.name».Application.Parameters {
 				public class Create«entity.name»Parameters {
 					«FOR x:entity.allAttributes»
 					«IF !method.exclude.attributes.contains(x)»
-					public «x.type.name» «x.name» { get; set; }
+					public «x.type.generateAttributeType» «x.name» { get; set; }
 					«ENDIF»
 					«ENDFOR»
 				}
@@ -337,9 +357,12 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerParameters(GetMethod method, Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Get" + entity.name + "Parameters.cs", '''
+			using System.Collections.Generic;
+			using EmTest.Models;
+			
 			namespace «model.name».Application.Parameters {
 				public class Get«entity.name»Parameters {
-					public «method.entityId.type.name» «method.entityId.name» { get; set; }
+					public «method.entityId.type.generateAttributeType» «method.entityId.name» { get; set; }
 				}
 			}
 		''')
@@ -347,6 +370,9 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerParameters(ListMethod method, Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/List" + entity.name + "Parameters.cs", '''
+			using System.Collections.Generic;
+			using EmTest.Models;
+			
 			namespace «model.name».Application.Parameters {
 				public class List«entity.name»Parameters {
 				}
@@ -356,15 +382,18 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerParameters(UpdateMethod method, Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Update" + entity.name + "Parameters.cs", '''
+			using System.Collections.Generic;
+			using EmTest.Models;
+			
 			namespace «model.name».Application.Parameters {
 				public class Update«entity.name»ParametersWithId {
-					public «method.entityId.type.name» «method.entityId.name» { get; set; }
+					public «method.entityId.type.generateAttributeType» «method.entityId.name» { get; set; }
 					public Update«entity.name»Parameters Parameters { get; set; }
 				}
 				public class Update«entity.name»Parameters {
 					«FOR x:entity.declarations.filter(Attribute)»
 					«IF x !== method.entityId»
-					public «x.type.name» «x.name» { get; set; }
+					public «x.type.generateAttributeType» «x.name» { get; set; }
 					«ENDIF»
 					«ENDFOR»
 				}
@@ -374,9 +403,12 @@ class RestControllerGenerationGenerator extends AbstractGenerator {
 	def dispatch generateControllerParameters(DeleteMethod method, Entity entity, IFileSystemAccess2 fsa) {
 		val EntityModel model = EcoreUtil2.getContainerOfType(entity, EntityModel)
 		fsa.generateFile(model.name + "/Application/Parameters/Delete" + entity.name + "Parameters.cs", '''
+			using System.Collections.Generic;
+			using EmTest.Models;
+			
 			namespace «model.name».Application.Parameters {
 				public class Delete«entity.name»Parameters {
-					public «method.entityId.type.name» «method.entityId.name» { get; set; }
+					public «method.entityId.type.generateAttributeType» «method.entityId.name» { get; set; }
 				}
 			}
 		''')

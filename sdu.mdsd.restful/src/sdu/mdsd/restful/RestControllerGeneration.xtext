@@ -15,7 +15,7 @@ Type:
 ;
 
 ExternalDef:
-	"external" name=ID "using" type=[Type]
+	"external" name=ID type=AttributeType
 ;
 
 Entity:
@@ -27,11 +27,11 @@ EntityDeclaration:
 ;
 
 Attribute:
-	name=ID ':' type=[Type] ("requires" requires=(LogicRequirement | ExternalUse))?
+	name=ID type=AttributeType ("requires" requires=(LogicRequirement | ExternalUse))?
 ;
 
 AttributeType:
-	(':' type=[Type] | "reference" entity=[Entity] | "list" entity=[Entity])
+	({SimpleType} 'using' type=[Type] | {RefType} "reference" type=[Entity] | {ListType} "list" type=[Entity])
 ;
 
 
@@ -43,8 +43,12 @@ ExternalUse:
 	external=[ExternalDef]
 ;
 
+AttributeUse:
+	attribute=[Attribute]
+;
+
 ExternalUseOfAttribute: 
-	external=[ExternalDef] "of" attribute=[Attribute]
+	external=[ExternalDef] "of" attribute=(AttributeUse | Reference)
 ;
 
 Requirement:
@@ -78,11 +82,15 @@ Factor returns Expression:
 ;
 
 Primitive returns Expression:
-	Name | IntExp | '(' Exp ')'
+	Name | Reference | IntExp | '(' Exp ')'
 ;
 
 Name:
 	varName=[Attribute]
+;
+
+Reference:
+	reference=[Attribute] "." attribute=[Attribute]
 ;
 
 IntExp:

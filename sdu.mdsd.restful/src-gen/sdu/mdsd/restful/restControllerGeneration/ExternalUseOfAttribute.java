@@ -47,25 +47,25 @@ public interface ExternalUseOfAttribute extends EObject
   void setExternal(ExternalDef value);
 
   /**
-   * Returns the value of the '<em><b>Attribute</b></em>' reference.
+   * Returns the value of the '<em><b>Attribute</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute</em>' reference.
-   * @see #setAttribute(Attribute)
+   * @return the value of the '<em>Attribute</em>' containment reference.
+   * @see #setAttribute(EObject)
    * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getExternalUseOfAttribute_Attribute()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Attribute getAttribute();
+  EObject getAttribute();
 
   /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute#getAttribute <em>Attribute</em>}' reference.
+   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute#getAttribute <em>Attribute</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute</em>' reference.
+   * @param value the new value of the '<em>Attribute</em>' containment reference.
    * @see #getAttribute()
    * @generated
    */
-  void setAttribute(Attribute value);
+  void setAttribute(EObject value);
 
 } // ExternalUseOfAttribute

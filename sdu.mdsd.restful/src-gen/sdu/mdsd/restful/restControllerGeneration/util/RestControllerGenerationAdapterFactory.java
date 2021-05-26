@@ -126,6 +126,11 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
         return createExternalUseAdapter();
       }
       @Override
+      public Adapter caseAttributeUse(AttributeUse object)
+      {
+        return createAttributeUseAdapter();
+      }
+      @Override
       public Adapter caseExternalUseOfAttribute(ExternalUseOfAttribute object)
       {
         return createExternalUseOfAttributeAdapter();
@@ -159,6 +164,11 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
       public Adapter caseName(Name object)
       {
         return createNameAdapter();
+      }
+      @Override
+      public Adapter caseReference(Reference object)
+      {
+        return createReferenceAdapter();
       }
       @Override
       public Adapter caseIntExp(IntExp object)
@@ -209,6 +219,21 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDeleteMethod(DeleteMethod object)
       {
         return createDeleteMethodAdapter();
+      }
+      @Override
+      public Adapter caseSimpleType(SimpleType object)
+      {
+        return createSimpleTypeAdapter();
+      }
+      @Override
+      public Adapter caseRefType(RefType object)
+      {
+        return createRefTypeAdapter();
+      }
+      @Override
+      public Adapter caseListType(ListType object)
+      {
+        return createListTypeAdapter();
       }
       @Override
       public Adapter caseDisjunction(Disjunction object)
@@ -438,6 +463,21 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.AttributeUse <em>Attribute Use</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.AttributeUse
+   * @generated
+   */
+  public Adapter createAttributeUseAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute <em>External Use Of Attribute</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -538,6 +578,21 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.Reference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.Reference
+   * @generated
+   */
+  public Adapter createReferenceAdapter()
   {
     return null;
   }
@@ -688,6 +743,51 @@ public class RestControllerGenerationAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDeleteMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.SimpleType <em>Simple Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.SimpleType
+   * @generated
+   */
+  public Adapter createSimpleTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.RefType <em>Ref Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.RefType
+   * @generated
+   */
+  public Adapter createRefTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sdu.mdsd.restful.restControllerGeneration.ListType <em>List Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sdu.mdsd.restful.restControllerGeneration.ListType
+   * @generated
+   */
+  public Adapter createListTypeAdapter()
   {
     return null;
   }

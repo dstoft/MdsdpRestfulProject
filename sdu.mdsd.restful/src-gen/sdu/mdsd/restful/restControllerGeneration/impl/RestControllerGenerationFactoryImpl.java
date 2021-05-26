@@ -75,6 +75,7 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
       case RestControllerGenerationPackage.ATTRIBUTE_TYPE: return createAttributeType();
       case RestControllerGenerationPackage.LOGIC_REQUIREMENT: return createLogicRequirement();
       case RestControllerGenerationPackage.EXTERNAL_USE: return createExternalUse();
+      case RestControllerGenerationPackage.ATTRIBUTE_USE: return createAttributeUse();
       case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE: return createExternalUseOfAttribute();
       case RestControllerGenerationPackage.REQUIREMENT: return createRequirement();
       case RestControllerGenerationPackage.PROPOSITION: return createProposition();
@@ -82,6 +83,7 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
       case RestControllerGenerationPackage.RELATIONAL_OP: return createRelationalOp();
       case RestControllerGenerationPackage.EXPRESSION: return createExpression();
       case RestControllerGenerationPackage.NAME: return createName();
+      case RestControllerGenerationPackage.REFERENCE: return createReference();
       case RestControllerGenerationPackage.INT_EXP: return createIntExp();
       case RestControllerGenerationPackage.CONTROLLER: return createController();
       case RestControllerGenerationPackage.CONTROLLER_METHOD: return createControllerMethod();
@@ -92,6 +94,9 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
       case RestControllerGenerationPackage.LIST_METHOD: return createListMethod();
       case RestControllerGenerationPackage.UPDATE_METHOD: return createUpdateMethod();
       case RestControllerGenerationPackage.DELETE_METHOD: return createDeleteMethod();
+      case RestControllerGenerationPackage.SIMPLE_TYPE: return createSimpleType();
+      case RestControllerGenerationPackage.REF_TYPE: return createRefType();
+      case RestControllerGenerationPackage.LIST_TYPE: return createListType();
       case RestControllerGenerationPackage.DISJUNCTION: return createDisjunction();
       case RestControllerGenerationPackage.CONJUNCTION: return createConjunction();
       case RestControllerGenerationPackage.REL_EQ: return createRelEQ();
@@ -234,6 +239,18 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
    * @generated
    */
   @Override
+  public AttributeUse createAttributeUse()
+  {
+    AttributeUseImpl attributeUse = new AttributeUseImpl();
+    return attributeUse;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ExternalUseOfAttribute createExternalUseOfAttribute()
   {
     ExternalUseOfAttributeImpl externalUseOfAttribute = new ExternalUseOfAttributeImpl();
@@ -310,6 +327,18 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
   {
     NameImpl name = new NameImpl();
     return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Reference createReference()
+  {
+    ReferenceImpl reference = new ReferenceImpl();
+    return reference;
   }
 
   /**
@@ -430,6 +459,42 @@ public class RestControllerGenerationFactoryImpl extends EFactoryImpl implements
   {
     DeleteMethodImpl deleteMethod = new DeleteMethodImpl();
     return deleteMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SimpleType createSimpleType()
+  {
+    SimpleTypeImpl simpleType = new SimpleTypeImpl();
+    return simpleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RefType createRefType()
+  {
+    RefTypeImpl refType = new RefTypeImpl();
+    return refType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ListType createListType()
+  {
+    ListTypeImpl listType = new ListTypeImpl();
+    return listType;
   }
 
   /**

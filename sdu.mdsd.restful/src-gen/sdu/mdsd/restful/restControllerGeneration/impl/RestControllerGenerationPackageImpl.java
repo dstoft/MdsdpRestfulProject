@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import sdu.mdsd.restful.restControllerGeneration.Add;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
 import sdu.mdsd.restful.restControllerGeneration.AttributeType;
+import sdu.mdsd.restful.restControllerGeneration.AttributeUse;
 import sdu.mdsd.restful.restControllerGeneration.Comparison;
 import sdu.mdsd.restful.restControllerGeneration.Conjunction;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
@@ -34,10 +35,13 @@ import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.IntExp;
 import sdu.mdsd.restful.restControllerGeneration.ListMethod;
+import sdu.mdsd.restful.restControllerGeneration.ListType;
 import sdu.mdsd.restful.restControllerGeneration.LogicRequirement;
 import sdu.mdsd.restful.restControllerGeneration.Mul;
 import sdu.mdsd.restful.restControllerGeneration.Name;
 import sdu.mdsd.restful.restControllerGeneration.Proposition;
+import sdu.mdsd.restful.restControllerGeneration.RefType;
+import sdu.mdsd.restful.restControllerGeneration.Reference;
 import sdu.mdsd.restful.restControllerGeneration.RelEQ;
 import sdu.mdsd.restful.restControllerGeneration.RelGT;
 import sdu.mdsd.restful.restControllerGeneration.RelGTE;
@@ -47,6 +51,7 @@ import sdu.mdsd.restful.restControllerGeneration.RelationalOp;
 import sdu.mdsd.restful.restControllerGeneration.Requirement;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationFactory;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
+import sdu.mdsd.restful.restControllerGeneration.SimpleType;
 import sdu.mdsd.restful.restControllerGeneration.Sub;
 import sdu.mdsd.restful.restControllerGeneration.Type;
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
@@ -134,6 +139,13 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass attributeUseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass externalUseOfAttributeEClass = null;
 
   /**
@@ -177,6 +189,13 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   private EClass nameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass referenceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -247,6 +266,27 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   private EClass deleteMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass refTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass listTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -581,28 +621,6 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
    * @generated
    */
   @Override
-  public EReference getAttributeType_Type()
-  {
-    return (EReference)attributeTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getAttributeType_Entity()
-  {
-    return (EReference)attributeTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getLogicRequirement()
   {
     return logicRequirementEClass;
@@ -639,6 +657,28 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
   public EReference getExternalUse_External()
   {
     return (EReference)externalUseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAttributeUse()
+  {
+    return attributeUseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAttributeUse_Attribute()
+  {
+    return (EReference)attributeUseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -793,6 +833,39 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
   public EReference getName_VarName()
   {
     return (EReference)nameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReference()
+  {
+    return referenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReference_Reference()
+  {
+    return (EReference)referenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReference_Attribute()
+  {
+    return (EReference)referenceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1046,6 +1119,72 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
   public EReference getDeleteMethod_EntityId()
   {
     return (EReference)deleteMethodEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSimpleType()
+  {
+    return simpleTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSimpleType_Type()
+  {
+    return (EReference)simpleTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRefType()
+  {
+    return refTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRefType_Type()
+  {
+    return (EReference)refTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getListType()
+  {
+    return listTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getListType_Type()
+  {
+    return (EReference)listTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1356,14 +1495,15 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     createEReference(attributeEClass, ATTRIBUTE__REQUIRES);
 
     attributeTypeEClass = createEClass(ATTRIBUTE_TYPE);
-    createEReference(attributeTypeEClass, ATTRIBUTE_TYPE__TYPE);
-    createEReference(attributeTypeEClass, ATTRIBUTE_TYPE__ENTITY);
 
     logicRequirementEClass = createEClass(LOGIC_REQUIREMENT);
     createEReference(logicRequirementEClass, LOGIC_REQUIREMENT__LOGIC);
 
     externalUseEClass = createEClass(EXTERNAL_USE);
     createEReference(externalUseEClass, EXTERNAL_USE__EXTERNAL);
+
+    attributeUseEClass = createEClass(ATTRIBUTE_USE);
+    createEReference(attributeUseEClass, ATTRIBUTE_USE__ATTRIBUTE);
 
     externalUseOfAttributeEClass = createEClass(EXTERNAL_USE_OF_ATTRIBUTE);
     createEReference(externalUseOfAttributeEClass, EXTERNAL_USE_OF_ATTRIBUTE__EXTERNAL);
@@ -1385,6 +1525,10 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     nameEClass = createEClass(NAME);
     createEReference(nameEClass, NAME__VAR_NAME);
+
+    referenceEClass = createEClass(REFERENCE);
+    createEReference(referenceEClass, REFERENCE__REFERENCE);
+    createEReference(referenceEClass, REFERENCE__ATTRIBUTE);
 
     intExpEClass = createEClass(INT_EXP);
     createEAttribute(intExpEClass, INT_EXP__VALUE);
@@ -1418,6 +1562,15 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     deleteMethodEClass = createEClass(DELETE_METHOD);
     createEReference(deleteMethodEClass, DELETE_METHOD__ENTITY_ID);
+
+    simpleTypeEClass = createEClass(SIMPLE_TYPE);
+    createEReference(simpleTypeEClass, SIMPLE_TYPE__TYPE);
+
+    refTypeEClass = createEClass(REF_TYPE);
+    createEReference(refTypeEClass, REF_TYPE__TYPE);
+
+    listTypeEClass = createEClass(LIST_TYPE);
+    createEReference(listTypeEClass, LIST_TYPE__TYPE);
 
     disjunctionEClass = createEClass(DISJUNCTION);
     createEReference(disjunctionEClass, DISJUNCTION__LEFT);
@@ -1490,6 +1643,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     requirementEClass.getESuperTypes().add(this.getEntityDeclaration());
     comparisonEClass.getESuperTypes().add(this.getProposition());
     nameEClass.getESuperTypes().add(this.getExpression());
+    referenceEClass.getESuperTypes().add(this.getExpression());
     intExpEClass.getESuperTypes().add(this.getExpression());
     controllerEClass.getESuperTypes().add(this.getDeclaration());
     createMethodEClass.getESuperTypes().add(this.getControllerMethod());
@@ -1497,6 +1651,9 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     listMethodEClass.getESuperTypes().add(this.getControllerMethod());
     updateMethodEClass.getESuperTypes().add(this.getControllerMethod());
     deleteMethodEClass.getESuperTypes().add(this.getControllerMethod());
+    simpleTypeEClass.getESuperTypes().add(this.getAttributeType());
+    refTypeEClass.getESuperTypes().add(this.getAttributeType());
+    listTypeEClass.getESuperTypes().add(this.getAttributeType());
     disjunctionEClass.getESuperTypes().add(this.getProposition());
     conjunctionEClass.getESuperTypes().add(this.getProposition());
     relEQEClass.getESuperTypes().add(this.getRelationalOp());
@@ -1520,7 +1677,7 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(externalDefEClass, ExternalDef.class, "ExternalDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExternalDef_Type(), this.getType(), null, "type", null, 0, 1, ExternalDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternalDef_Type(), this.getAttributeType(), null, "type", null, 0, 1, ExternalDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEntity_Base(), this.getEntity(), null, "base", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1530,12 +1687,10 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAttribute_Type(), this.getType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAttribute_Type(), this.getAttributeType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAttribute_Requires(), ecorePackage.getEObject(), null, "requires", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeTypeEClass, AttributeType.class, "AttributeType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAttributeType_Type(), this.getType(), null, "type", null, 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAttributeType_Entity(), this.getEntity(), null, "entity", null, 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicRequirementEClass, LogicRequirement.class, "LogicRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLogicRequirement_Logic(), this.getProposition(), null, "logic", null, 0, 1, LogicRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1543,9 +1698,12 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
     initEClass(externalUseEClass, ExternalUse.class, "ExternalUse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExternalUse_External(), this.getExternalDef(), null, "external", null, 0, 1, ExternalUse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(attributeUseEClass, AttributeUse.class, "AttributeUse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAttributeUse_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, AttributeUse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(externalUseOfAttributeEClass, ExternalUseOfAttribute.class, "ExternalUseOfAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExternalUseOfAttribute_External(), this.getExternalDef(), null, "external", null, 0, 1, ExternalUseOfAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExternalUseOfAttribute_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, ExternalUseOfAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternalUseOfAttribute_Attribute(), ecorePackage.getEObject(), null, "attribute", null, 0, 1, ExternalUseOfAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRequirement_Requirement(), ecorePackage.getEObject(), null, "requirement", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1563,6 +1721,10 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     initEClass(nameEClass, Name.class, "Name", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getName_VarName(), this.getAttribute(), null, "varName", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReference_Reference(), this.getAttribute(), null, "reference", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReference_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intExpEClass, IntExp.class, "IntExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntExp_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1596,6 +1758,15 @@ public class RestControllerGenerationPackageImpl extends EPackageImpl implements
 
     initEClass(deleteMethodEClass, DeleteMethod.class, "DeleteMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeleteMethod_EntityId(), this.getAttribute(), null, "entityId", null, 0, 1, DeleteMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleTypeEClass, SimpleType.class, "SimpleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSimpleType_Type(), this.getType(), null, "type", null, 0, 1, SimpleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(refTypeEClass, RefType.class, "RefType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRefType_Type(), this.getEntity(), null, "type", null, 0, 1, RefType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(listTypeEClass, ListType.class, "ListType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getListType_Type(), this.getEntity(), null, "type", null, 0, 1, ListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(disjunctionEClass, Disjunction.class, "Disjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDisjunction_Left(), this.getProposition(), null, "left", null, 0, 1, Disjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

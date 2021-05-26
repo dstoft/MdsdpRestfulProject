@@ -20,14 +20,14 @@ import sdu.mdsd.restful.services.RestControllerGenerationGrammarAccess;
 public class RestControllerGenerationSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RestControllerGenerationGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Primitive_LeftParenthesisKeyword_2_0_a;
-	protected AbstractElementAlias match_Primitive_LeftParenthesisKeyword_2_0_p;
+	protected AbstractElementAlias match_Primitive_LeftParenthesisKeyword_3_0_a;
+	protected AbstractElementAlias match_Primitive_LeftParenthesisKeyword_3_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RestControllerGenerationGrammarAccess) access;
-		match_Primitive_LeftParenthesisKeyword_2_0_a = new TokenAlias(true, true, grammarAccess.getPrimitiveAccess().getLeftParenthesisKeyword_2_0());
-		match_Primitive_LeftParenthesisKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getPrimitiveAccess().getLeftParenthesisKeyword_2_0());
+		match_Primitive_LeftParenthesisKeyword_3_0_a = new TokenAlias(true, true, grammarAccess.getPrimitiveAccess().getLeftParenthesisKeyword_3_0());
+		match_Primitive_LeftParenthesisKeyword_3_0_p = new TokenAlias(true, false, grammarAccess.getPrimitiveAccess().getLeftParenthesisKeyword_3_0());
 	}
 	
 	@Override
@@ -42,10 +42,10 @@ public class RestControllerGenerationSyntacticSequencer extends AbstractSyntacti
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Primitive_LeftParenthesisKeyword_2_0_a.equals(syntax))
-				emit_Primitive_LeftParenthesisKeyword_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primitive_LeftParenthesisKeyword_2_0_p.equals(syntax))
-				emit_Primitive_LeftParenthesisKeyword_2_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Primitive_LeftParenthesisKeyword_3_0_a.equals(syntax))
+				emit_Primitive_LeftParenthesisKeyword_3_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Primitive_LeftParenthesisKeyword_3_0_p.equals(syntax))
+				emit_Primitive_LeftParenthesisKeyword_3_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -55,6 +55,7 @@ public class RestControllerGenerationSyntacticSequencer extends AbstractSyntacti
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) reference=[Attribute|ID]
 	 *     (rule start) (ambiguity) value=INT
 	 *     (rule start) (ambiguity) varName=[Attribute|ID]
 	 *     (rule start) (ambiguity) {Add.left=}
@@ -62,7 +63,7 @@ public class RestControllerGenerationSyntacticSequencer extends AbstractSyntacti
 	 *     (rule start) (ambiguity) {Mul.left=}
 	 *     (rule start) (ambiguity) {Sub.left=}
 	 */
-	protected void emit_Primitive_LeftParenthesisKeyword_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Primitive_LeftParenthesisKeyword_3_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -76,7 +77,7 @@ public class RestControllerGenerationSyntacticSequencer extends AbstractSyntacti
 	 *     (rule start) (ambiguity) {Mul.left=}
 	 *     (rule start) (ambiguity) {Sub.left=}
 	 */
-	protected void emit_Primitive_LeftParenthesisKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Primitive_LeftParenthesisKeyword_3_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

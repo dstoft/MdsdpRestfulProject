@@ -147,6 +147,13 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RestControllerGenerationPackage.ATTRIBUTE_USE:
+      {
+        AttributeUse attributeUse = (AttributeUse)theEObject;
+        T result = caseAttributeUse(attributeUse);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RestControllerGenerationPackage.EXTERNAL_USE_OF_ATTRIBUTE:
       {
         ExternalUseOfAttribute externalUseOfAttribute = (ExternalUseOfAttribute)theEObject;
@@ -196,6 +203,14 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
         Name name = (Name)theEObject;
         T result = caseName(name);
         if (result == null) result = caseExpression(name);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RestControllerGenerationPackage.REFERENCE:
+      {
+        Reference reference = (Reference)theEObject;
+        T result = caseReference(reference);
+        if (result == null) result = caseExpression(reference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -273,6 +288,30 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
         DeleteMethod deleteMethod = (DeleteMethod)theEObject;
         T result = caseDeleteMethod(deleteMethod);
         if (result == null) result = caseControllerMethod(deleteMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RestControllerGenerationPackage.SIMPLE_TYPE:
+      {
+        SimpleType simpleType = (SimpleType)theEObject;
+        T result = caseSimpleType(simpleType);
+        if (result == null) result = caseAttributeType(simpleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RestControllerGenerationPackage.REF_TYPE:
+      {
+        RefType refType = (RefType)theEObject;
+        T result = caseRefType(refType);
+        if (result == null) result = caseAttributeType(refType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RestControllerGenerationPackage.LIST_TYPE:
+      {
+        ListType listType = (ListType)theEObject;
+        T result = caseListType(listType);
+        if (result == null) result = caseAttributeType(listType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -529,6 +568,22 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Attribute Use</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attribute Use</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttributeUse(AttributeUse object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>External Use Of Attribute</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -636,6 +691,22 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseName(Name object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReference(Reference object)
   {
     return null;
   }
@@ -796,6 +867,54 @@ public class RestControllerGenerationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDeleteMethod(DeleteMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleType(SimpleType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefType(RefType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>List Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>List Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseListType(ListType object)
   {
     return null;
   }

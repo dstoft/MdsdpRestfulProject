@@ -12,6 +12,13 @@ import static sdu.mdsd.restful.generator.RestControllerGenerationGenerator.getAl
 import sdu.mdsd.restful.restControllerGeneration.Attribute
 import org.eclipse.xtext.EcoreUtil2
 import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute
+import sdu.mdsd.restful.restControllerGeneration.AttributeType
+import sdu.mdsd.restful.restControllerGeneration.SimpleType
+import sdu.mdsd.restful.restControllerGeneration.RefType
+import sdu.mdsd.restful.restControllerGeneration.ListType
+import sdu.mdsd.restful.restControllerGeneration.AttributeUse
+import sdu.mdsd.restful.restControllerGeneration.Reference
+import sdu.mdsd.restful.restControllerGeneration.LogicRequirement
 
 /**
  * This class contains custom validation rules. 
@@ -57,9 +64,42 @@ class RestControllerGenerationValidator extends AbstractRestControllerGeneration
 	
 	@Check
 	def checkRequirementType(ExternalUseOfAttribute requirement) {
-		if(requirement.external.type !== requirement.attribute.type) {
+		if(!compareAttributeType(requirement.external.type, requirement.attribute.getAttributeType)) {
 			error('Type mismatch between external function and attribute', Literals.EXTERNAL_USE_OF_ATTRIBUTE__ATTRIBUTE, 'typeMismatch')
 		}
 	}
 	
+	def private boolean compareAttributeType(AttributeType type, AttributeType other) {
+		if(type === null) return false
+		if(other === null) return false
+		if(type.class != other.class) return false
+		
+		switch type {
+			SimpleType: {
+				val type2 = other as SimpleType
+				type.type.name == type2.type.name
+			}
+			RefType: {
+				val type2 = other as RefType
+				type.type.name == type2.type.name
+			}
+			ListType: {
+				val type2 = other as RefType
+				type.type.name == type2.type.name
+			}
+			default: false
+		}
+	}
+	
+	def dispatch private getAttributeType(AttributeUse attribute) { attribute.attribute.type }
+	def dispatch private getAttributeType(Reference reference) { reference.attribute.type }
+	
+	@Check
+	def checkLogicExpToExcludeListType(Reference reference) {
+		if(reference.reference.type instanceof SimpleType || reference.reference.type instanceof RefType) return
+		val LogicRequirement logicReq = EcoreUtil2.getContainerOfType(reference, LogicRequirement)
+		if(logicReq !== null) {
+			error('List attribute type not allowed in logic expressions', Literals.REFERENCE__REFERENCE, 'illegalAttributeType')
+		}
+	}
 }

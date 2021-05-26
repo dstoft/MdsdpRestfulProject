@@ -24,6 +24,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import sdu.mdsd.restful.restControllerGeneration.Add;
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
+import sdu.mdsd.restful.restControllerGeneration.AttributeType;
+import sdu.mdsd.restful.restControllerGeneration.AttributeUse;
 import sdu.mdsd.restful.restControllerGeneration.Comparison;
 import sdu.mdsd.restful.restControllerGeneration.Conjunction;
 import sdu.mdsd.restful.restControllerGeneration.Controller;
@@ -41,10 +43,13 @@ import sdu.mdsd.restful.restControllerGeneration.ExternalUseOfAttribute;
 import sdu.mdsd.restful.restControllerGeneration.GetMethod;
 import sdu.mdsd.restful.restControllerGeneration.IntExp;
 import sdu.mdsd.restful.restControllerGeneration.ListMethod;
+import sdu.mdsd.restful.restControllerGeneration.ListType;
 import sdu.mdsd.restful.restControllerGeneration.LogicRequirement;
 import sdu.mdsd.restful.restControllerGeneration.Mul;
 import sdu.mdsd.restful.restControllerGeneration.Name;
 import sdu.mdsd.restful.restControllerGeneration.Proposition;
+import sdu.mdsd.restful.restControllerGeneration.RefType;
+import sdu.mdsd.restful.restControllerGeneration.Reference;
 import sdu.mdsd.restful.restControllerGeneration.RelEQ;
 import sdu.mdsd.restful.restControllerGeneration.RelGT;
 import sdu.mdsd.restful.restControllerGeneration.RelGTE;
@@ -52,6 +57,7 @@ import sdu.mdsd.restful.restControllerGeneration.RelLT;
 import sdu.mdsd.restful.restControllerGeneration.RelLTE;
 import sdu.mdsd.restful.restControllerGeneration.RelationalOp;
 import sdu.mdsd.restful.restControllerGeneration.Requirement;
+import sdu.mdsd.restful.restControllerGeneration.SimpleType;
 import sdu.mdsd.restful.restControllerGeneration.Sub;
 import sdu.mdsd.restful.restControllerGeneration.UpdateMethod;
 
@@ -66,7 +72,6 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final EntityModel em = Iterators.<EntityModel>filter(resource.getAllContents(), EntityModel.class).next();
     System.out.println("Model:");
-    this.display(em);
     this.generateExternalInterface(em, fsa);
     this.generateModelFiles(em, fsa);
     this.generateControllerFiles(em, fsa);
@@ -100,6 +105,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _plus_2 = (_plus_1 + ".cs");
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("using System;");
+    _builder.newLine();
+    _builder.append("using System.Collections.Generic;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("namespace ");
@@ -168,13 +175,36 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   public CharSequence generateAttribute(final Attribute attribute) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("public ");
-    String _name = attribute.getType().getName();
-    _builder.append(_name);
+    CharSequence _generateAttributeType = this.generateAttributeType(attribute.getType());
+    _builder.append(_generateAttributeType);
     _builder.append(" ");
-    String _name_1 = attribute.getName();
-    _builder.append(_name_1);
+    String _name = attribute.getName();
+    _builder.append(_name);
     _builder.append(" { get; }");
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _generateAttributeType(final SimpleType type) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = type.getType().getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  protected CharSequence _generateAttributeType(final RefType type) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = type.getType().getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  protected CharSequence _generateAttributeType(final ListType type) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("List<");
+    String _name = type.getType().getName();
+    _builder.append(_name);
+    _builder.append(">");
     return _builder;
   }
   
@@ -293,8 +323,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
   
   public CharSequence generateConstructorParameter(final Attribute attribute) {
     StringConcatenation _builder = new StringConcatenation();
-    String _name = attribute.getType().getName();
-    _builder.append(_name);
+    CharSequence _generateAttributeType = this.generateAttributeType(attribute.getType());
+    _builder.append(_generateAttributeType);
     _builder.append(" ");
     String _firstLower = StringExtensions.toFirstLower(attribute.getName());
     _builder.append(_firstLower);
@@ -388,9 +418,23 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _name = requirement.getExternal().getName();
     _builder.append(_name);
     _builder.append("(");
-    String _name_1 = requirement.getAttribute().getName();
-    _builder.append(_name_1);
+    CharSequence _generateAttributeName = this.generateAttributeName(requirement.getAttribute());
+    _builder.append(_generateAttributeName);
     _builder.append(")");
+    return _builder;
+  }
+  
+  protected CharSequence _generateAttributeName(final AttributeUse x) {
+    return x.getAttribute().getName();
+  }
+  
+  protected CharSequence _generateAttributeName(final Reference x) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = x.getReference().getName();
+    _builder.append(_name);
+    _builder.append(".");
+    String _name_1 = x.getAttribute().getName();
+    _builder.append(_name_1);
     return _builder;
   }
   
@@ -521,10 +565,40 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     return Integer.toString(x.getValue());
   }
   
+  protected CharSequence _generateExp(final Reference x) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = x.getReference().getName();
+    _builder.append(_name);
+    _builder.append(".");
+    String _name_1 = x.getAttribute().getName();
+    _builder.append(_name_1);
+    return _builder;
+  }
+  
+  protected CharSequence _generateAttributeNameOnType(final RefType type, final Reference x) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = x.getReference().getName();
+    _builder.append(_name);
+    _builder.append(".");
+    String _name_1 = x.getAttribute().getName();
+    _builder.append(_name_1);
+    return _builder;
+  }
+  
+  protected CharSequence _generateAttributeNameOnType(final ListType type, final Reference x) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
   public void generateExternalInterface(final EntityModel em, final IFileSystemAccess2 fsa) {
     String _name = em.getName();
     String _plus = (_name + "/IExternalCode.cs");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("using System.Collections.Generic;");
+    _builder.newLine();
+    _builder.append("using EmTest.Models;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("namespace ");
     String _name_1 = em.getName();
     _builder.append(_name_1);
@@ -541,8 +615,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
         String _name_2 = x.getName();
         _builder.append(_name_2, "\t\t");
         _builder.append("(");
-        String _name_3 = x.getType().getName();
-        _builder.append(_name_3, "\t\t");
+        CharSequence _generateAttributeType = this.generateAttributeType(x.getType());
+        _builder.append(_generateAttributeType, "\t\t");
         _builder.append(" parameter);");
         _builder.newLineIfNotEmpty();
       }
@@ -692,8 +766,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _name_1 = entity.getName();
     _builder.append(_name_1);
     _builder.append("> Get(");
-    String _name_2 = method.getEntityId().getType().getName();
-    _builder.append(_name_2);
+    CharSequence _generateAttributeType = this.generateAttributeType(method.getEntityId().getType());
+    _builder.append(_generateAttributeType);
     _builder.append(" ");
     String _firstLower_1 = StringExtensions.toFirstLower(method.getEntityId().getName());
     _builder.append(_firstLower_1);
@@ -703,16 +777,16 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("    ");
     _builder.append("return Ok(Service.Get(new Get");
-    String _name_3 = entity.getName();
-    _builder.append(_name_3, "    ");
+    String _name_2 = entity.getName();
+    _builder.append(_name_2, "    ");
     _builder.append("Parameters");
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
     _builder.append("{");
     _builder.newLine();
     _builder.append("    \t");
-    String _name_4 = method.getEntityId().getName();
-    _builder.append(_name_4, "    \t");
+    String _name_3 = method.getEntityId().getName();
+    _builder.append(_name_3, "    \t");
     _builder.append(" = ");
     String _firstLower_2 = StringExtensions.toFirstLower(method.getEntityId().getName());
     _builder.append(_firstLower_2, "    \t");
@@ -768,30 +842,30 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _name_1 = entity.getName();
     _builder.append(_name_1);
     _builder.append("> Update(");
-    String _name_2 = method.getEntityId().getType().getName();
-    _builder.append(_name_2);
+    CharSequence _generateAttributeType = this.generateAttributeType(method.getEntityId().getType());
+    _builder.append(_generateAttributeType);
     _builder.append(" ");
     String _firstLower_1 = StringExtensions.toFirstLower(method.getEntityId().getName());
     _builder.append(_firstLower_1);
     _builder.append(", Update");
-    String _name_3 = entity.getName();
-    _builder.append(_name_3);
+    String _name_2 = entity.getName();
+    _builder.append(_name_2);
     _builder.append("Parameters parameters)");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("return Ok(Service.Update(new Update");
-    String _name_4 = entity.getName();
-    _builder.append(_name_4, "\t");
+    String _name_3 = entity.getName();
+    _builder.append(_name_3, "\t");
     _builder.append("ParametersWithId");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    String _name_5 = method.getEntityId().getName();
-    _builder.append(_name_5, "\t\t");
+    String _name_4 = method.getEntityId().getName();
+    _builder.append(_name_4, "\t\t");
     _builder.append(" = ");
     String _firstLower_2 = StringExtensions.toFirstLower(method.getEntityId().getName());
     _builder.append(_firstLower_2, "\t\t");
@@ -818,8 +892,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.append("[ProducesResponseType((int) HttpStatusCode.OK)]");
     _builder.newLine();
     _builder.append("public ActionResult Delete(");
-    String _name = method.getEntityId().getType().getName();
-    _builder.append(_name);
+    CharSequence _generateAttributeType = this.generateAttributeType(method.getEntityId().getType());
+    _builder.append(_generateAttributeType);
     _builder.append(" ");
     String _firstLower_1 = StringExtensions.toFirstLower(method.getEntityId().getName());
     _builder.append(_firstLower_1);
@@ -829,16 +903,16 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("    ");
     _builder.append("return Ok(Service.Delete(new Delete");
-    String _name_1 = entity.getName();
-    _builder.append(_name_1, "    ");
+    String _name = entity.getName();
+    _builder.append(_name, "    ");
     _builder.append("Parameters");
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
     _builder.append("{");
     _builder.newLine();
     _builder.append("    \t");
-    String _name_2 = method.getEntityId().getName();
-    _builder.append(_name_2, "    \t");
+    String _name_1 = method.getEntityId().getName();
+    _builder.append(_name_1, "    \t");
     _builder.append(" = ");
     String _firstLower_2 = StringExtensions.toFirstLower(method.getEntityId().getName());
     _builder.append(_firstLower_2, "    \t");
@@ -999,6 +1073,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _plus_1 = (_plus + _name_1);
     String _plus_2 = (_plus_1 + "Parameters.cs");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("using System.Collections.Generic;");
+    _builder.newLine();
+    _builder.append("using EmTest.Models;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("namespace ");
     String _name_2 = model.getName();
     _builder.append(_name_2);
@@ -1019,11 +1098,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
           if (_not) {
             _builder.append("\t\t");
             _builder.append("public ");
-            String _name_4 = x.getType().getName();
-            _builder.append(_name_4, "\t\t");
+            CharSequence _generateAttributeType = this.generateAttributeType(x.getType());
+            _builder.append(_generateAttributeType, "\t\t");
             _builder.append(" ");
-            String _name_5 = x.getName();
-            _builder.append(_name_5, "\t\t");
+            String _name_4 = x.getName();
+            _builder.append(_name_4, "\t\t");
             _builder.append(" { get; set; }");
             _builder.newLineIfNotEmpty();
           }
@@ -1046,6 +1125,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _plus_1 = (_plus + _name_1);
     String _plus_2 = (_plus_1 + "Parameters.cs");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("using System.Collections.Generic;");
+    _builder.newLine();
+    _builder.append("using EmTest.Models;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("namespace ");
     String _name_2 = model.getName();
     _builder.append(_name_2);
@@ -1059,11 +1143,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("public ");
-    String _name_4 = method.getEntityId().getType().getName();
-    _builder.append(_name_4, "\t\t");
+    CharSequence _generateAttributeType = this.generateAttributeType(method.getEntityId().getType());
+    _builder.append(_generateAttributeType, "\t\t");
     _builder.append(" ");
-    String _name_5 = method.getEntityId().getName();
-    _builder.append(_name_5, "\t\t");
+    String _name_4 = method.getEntityId().getName();
+    _builder.append(_name_4, "\t\t");
     _builder.append(" { get; set; }");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -1082,6 +1166,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _plus_1 = (_plus + _name_1);
     String _plus_2 = (_plus_1 + "Parameters.cs");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("using System.Collections.Generic;");
+    _builder.newLine();
+    _builder.append("using EmTest.Models;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("namespace ");
     String _name_2 = model.getName();
     _builder.append(_name_2);
@@ -1109,6 +1198,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _plus_1 = (_plus + _name_1);
     String _plus_2 = (_plus_1 + "Parameters.cs");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("using System.Collections.Generic;");
+    _builder.newLine();
+    _builder.append("using EmTest.Models;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("namespace ");
     String _name_2 = model.getName();
     _builder.append(_name_2);
@@ -1122,17 +1216,17 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("public ");
-    String _name_4 = method.getEntityId().getType().getName();
-    _builder.append(_name_4, "\t\t");
+    CharSequence _generateAttributeType = this.generateAttributeType(method.getEntityId().getType());
+    _builder.append(_generateAttributeType, "\t\t");
     _builder.append(" ");
-    String _name_5 = method.getEntityId().getName();
-    _builder.append(_name_5, "\t\t");
+    String _name_4 = method.getEntityId().getName();
+    _builder.append(_name_4, "\t\t");
     _builder.append(" { get; set; }");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("public Update");
-    String _name_6 = entity.getName();
-    _builder.append(_name_6, "\t\t");
+    String _name_5 = entity.getName();
+    _builder.append(_name_5, "\t\t");
     _builder.append("Parameters Parameters { get; set; }");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -1140,8 +1234,8 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public class Update");
-    String _name_7 = entity.getName();
-    _builder.append(_name_7, "\t");
+    String _name_6 = entity.getName();
+    _builder.append(_name_6, "\t");
     _builder.append("Parameters {");
     _builder.newLineIfNotEmpty();
     {
@@ -1153,11 +1247,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
           if (_tripleNotEquals) {
             _builder.append("\t\t");
             _builder.append("public ");
-            String _name_8 = x.getType().getName();
-            _builder.append(_name_8, "\t\t");
+            CharSequence _generateAttributeType_1 = this.generateAttributeType(x.getType());
+            _builder.append(_generateAttributeType_1, "\t\t");
             _builder.append(" ");
-            String _name_9 = x.getName();
-            _builder.append(_name_9, "\t\t");
+            String _name_7 = x.getName();
+            _builder.append(_name_7, "\t\t");
             _builder.append(" { get; set; }");
             _builder.newLineIfNotEmpty();
           }
@@ -1180,6 +1274,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     String _plus_1 = (_plus + _name_1);
     String _plus_2 = (_plus_1 + "Parameters.cs");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("using System.Collections.Generic;");
+    _builder.newLine();
+    _builder.append("using EmTest.Models;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("namespace ");
     String _name_2 = model.getName();
     _builder.append(_name_2);
@@ -1193,11 +1292,11 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("public ");
-    String _name_4 = method.getEntityId().getType().getName();
-    _builder.append(_name_4, "\t\t");
+    CharSequence _generateAttributeType = this.generateAttributeType(method.getEntityId().getType());
+    _builder.append(_generateAttributeType, "\t\t");
     _builder.append(" ");
-    String _name_5 = method.getEntityId().getName();
-    _builder.append(_name_5, "\t\t");
+    String _name_4 = method.getEntityId().getName();
+    _builder.append(_name_4, "\t\t");
     _builder.append(" { get; set; }");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -1224,6 +1323,19 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     return new RestControllerGenerationGenerator().getAllAttributes(entity);
   }
   
+  public CharSequence generateAttributeType(final AttributeType type) {
+    if (type instanceof ListType) {
+      return _generateAttributeType((ListType)type);
+    } else if (type instanceof RefType) {
+      return _generateAttributeType((RefType)type);
+    } else if (type instanceof SimpleType) {
+      return _generateAttributeType((SimpleType)type);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(type).toString());
+    }
+  }
+  
   public CharSequence generateAttributeRequirement(final EObject requirement, final Attribute attribute) {
     if (requirement instanceof ExternalUse) {
       return _generateAttributeRequirement((ExternalUse)requirement, attribute);
@@ -1243,6 +1355,17 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(requirement).toString());
+    }
+  }
+  
+  public CharSequence generateAttributeName(final EObject x) {
+    if (x instanceof Reference) {
+      return _generateAttributeName((Reference)x);
+    } else if (x instanceof AttributeUse) {
+      return _generateAttributeName((AttributeUse)x);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(x).toString());
     }
   }
   
@@ -1270,11 +1393,24 @@ public class RestControllerGenerationGenerator extends AbstractGenerator {
       return _generateExp((Mul)x);
     } else if (x instanceof Name) {
       return _generateExp((Name)x);
+    } else if (x instanceof Reference) {
+      return _generateExp((Reference)x);
     } else if (x instanceof Sub) {
       return _generateExp((Sub)x);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(x).toString());
+    }
+  }
+  
+  public CharSequence generateAttributeNameOnType(final AttributeType type, final Reference x) {
+    if (type instanceof ListType) {
+      return _generateAttributeNameOnType((ListType)type, x);
+    } else if (type instanceof RefType) {
+      return _generateAttributeNameOnType((RefType)type, x);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(type, x).toString());
     }
   }
   

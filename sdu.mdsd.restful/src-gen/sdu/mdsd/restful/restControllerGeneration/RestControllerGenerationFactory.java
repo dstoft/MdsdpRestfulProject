@@ -114,6 +114,15 @@ public interface RestControllerGenerationFactory extends EFactory
   ExternalUse createExternalUse();
 
   /**
+   * Returns a new object of class '<em>Attribute Use</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribute Use</em>'.
+   * @generated
+   */
+  AttributeUse createAttributeUse();
+
+  /**
    * Returns a new object of class '<em>External Use Of Attribute</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -175,6 +184,15 @@ public interface RestControllerGenerationFactory extends EFactory
    * @generated
    */
   Name createName();
+
+  /**
+   * Returns a new object of class '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reference</em>'.
+   * @generated
+   */
+  Reference createReference();
 
   /**
    * Returns a new object of class '<em>Int Exp</em>'.
@@ -265,6 +283,33 @@ public interface RestControllerGenerationFactory extends EFactory
    * @generated
    */
   DeleteMethod createDeleteMethod();
+
+  /**
+   * Returns a new object of class '<em>Simple Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Type</em>'.
+   * @generated
+   */
+  SimpleType createSimpleType();
+
+  /**
+   * Returns a new object of class '<em>Ref Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Type</em>'.
+   * @generated
+   */
+  RefType createRefType();
+
+  /**
+   * Returns a new object of class '<em>List Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>List Type</em>'.
+   * @generated
+   */
+  ListType createListType();
 
   /**
    * Returns a new object of class '<em>Disjunction</em>'.

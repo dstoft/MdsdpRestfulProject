@@ -12,7 +12,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//Declaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDef" eSuperTypes="#//Declaration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AttributeType"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//Declaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//Entity"/>
@@ -22,14 +23,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="EntityDeclaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//EntityDeclaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AttributeType"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requires" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AttributeType">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeType"/>
   <eClassifiers xsi:type="ecore:EClass" name="LogicRequirement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="logic" eType="#//Proposition"
         containment="true"/>
@@ -37,9 +36,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExternalUse">
     <eStructuralFeatures xsi:type="ecore:EReference" name="external" eType="#//ExternalDef"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeUse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalUseOfAttribute">
     <eStructuralFeatures xsi:type="ecore:EReference" name="external" eType="#//ExternalDef"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//EntityDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
@@ -58,6 +61,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Name" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="varName" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntExp" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -94,6 +101,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeleteMethod" eSuperTypes="#//ControllerMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entityId" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleType" eSuperTypes="#//AttributeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefType" eSuperTypes="#//AttributeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Entity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListType" eSuperTypes="#//AttributeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Entity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="#//Proposition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Proposition"

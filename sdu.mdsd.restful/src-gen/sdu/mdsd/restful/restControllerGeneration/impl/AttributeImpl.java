@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sdu.mdsd.restful.restControllerGeneration.Attribute;
+import sdu.mdsd.restful.restControllerGeneration.AttributeType;
 import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage;
-import sdu.mdsd.restful.restControllerGeneration.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,14 +54,14 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected Type type;
+  protected AttributeType type;
 
   /**
    * The cached value of the '{@link #getRequires() <em>Requires</em>}' containment reference.
@@ -125,18 +125,8 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
    * @generated
    */
   @Override
-  public Type getType()
+  public AttributeType getType()
   {
-    if (type != null && type.eIsProxy())
-    {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (Type)eResolveProxy(oldType);
-      if (type != oldType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.ATTRIBUTE__TYPE, oldType, type));
-      }
-    }
     return type;
   }
 
@@ -145,9 +135,16 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type basicGetType()
+  public NotificationChain basicSetType(AttributeType newType, NotificationChain msgs)
   {
-    return type;
+    AttributeType oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -156,12 +153,20 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
    * @generated
    */
   @Override
-  public void setType(Type newType)
+  public void setType(AttributeType newType)
   {
-    Type oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE__TYPE, oldType, type));
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RestControllerGenerationPackage.ATTRIBUTE__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.ATTRIBUTE__TYPE, newType, newType));
   }
 
   /**
@@ -224,6 +229,8 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
   {
     switch (featureID)
     {
+      case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
+        return basicSetType(null, msgs);
       case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
         return basicSetRequires(null, msgs);
     }
@@ -243,8 +250,7 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
       case RestControllerGenerationPackage.ATTRIBUTE__NAME:
         return getName();
       case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+        return getType();
       case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
         return getRequires();
     }
@@ -265,7 +271,7 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
         setName((String)newValue);
         return;
       case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
-        setType((Type)newValue);
+        setType((AttributeType)newValue);
         return;
       case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
         setRequires((EObject)newValue);
@@ -288,7 +294,7 @@ public class AttributeImpl extends EntityDeclarationImpl implements Attribute
         setName(NAME_EDEFAULT);
         return;
       case RestControllerGenerationPackage.ATTRIBUTE__TYPE:
-        setType((Type)null);
+        setType((AttributeType)null);
         return;
       case RestControllerGenerationPackage.ATTRIBUTE__REQUIRES:
         setRequires((EObject)null);
