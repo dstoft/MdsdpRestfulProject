@@ -682,22 +682,13 @@ public interface RestControllerGenerationPackage extends EPackage
   int CONTROLLER__NAME = DECLARATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Super</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTROLLER__SUPER = DECLARATION_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Entity</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTROLLER__ENTITY = DECLARATION_FEATURE_COUNT + 1;
+  int CONTROLLER__ENTITY = DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Methods</b></em>' containment reference list.
@@ -706,7 +697,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTROLLER__METHODS = DECLARATION_FEATURE_COUNT + 2;
+  int CONTROLLER__METHODS = DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Controller</em>' class.
@@ -715,7 +706,7 @@ public interface RestControllerGenerationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTROLLER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
+  int CONTROLLER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerMethodImpl <em>Controller Method</em>}' class.
@@ -1796,17 +1787,6 @@ public interface RestControllerGenerationPackage extends EPackage
   EClass getController();
 
   /**
-   * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Controller#getSuper <em>Super</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super</em>'.
-   * @see sdu.mdsd.restful.restControllerGeneration.Controller#getSuper()
-   * @see #getController()
-   * @generated
-   */
-  EReference getController_Super();
-
-  /**
    * Returns the meta object for the reference '{@link sdu.mdsd.restful.restControllerGeneration.Controller#getEntity <em>Entity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2709,14 +2689,6 @@ public interface RestControllerGenerationPackage extends EPackage
      * @generated
      */
     EClass CONTROLLER = eINSTANCE.getController();
-
-    /**
-     * The meta object literal for the '<em><b>Super</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTROLLER__SUPER = eINSTANCE.getController_Super();
 
     /**
      * The meta object literal for the '<em><b>Entity</b></em>' reference feature.

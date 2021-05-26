@@ -1477,28 +1477,9 @@ ruleController returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2=':'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getControllerAccess().getColonKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getControllerRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getControllerAccess().getSuperControllerCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4='uses'
+		otherlv_2='uses'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getControllerAccess().getUsesKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getControllerAccess().getUsesKeyword_2());
 		}
 		(
 			(
@@ -1507,22 +1488,22 @@ ruleController returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getControllerRule());
 					}
 				}
-				otherlv_5=RULE_ID
+				otherlv_3=RULE_ID
 				{
-					newLeafNode(otherlv_5, grammarAccess.getControllerAccess().getEntityEntityCrossReference_4_0());
+					newLeafNode(otherlv_3, grammarAccess.getControllerAccess().getEntityEntityCrossReference_3_0());
 				}
 			)
 		)
-		otherlv_6='{'
+		otherlv_4='{'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_5());
+			newLeafNode(otherlv_4, grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_5_0());
 				}
-				lv_methods_7_0=ruleMethodDef
+				lv_methods_5_0=ruleMethodDef
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getControllerRule());
@@ -1530,15 +1511,15 @@ ruleController returns [EObject current=null]
 					add(
 						$current,
 						"methods",
-						lv_methods_7_0,
+						lv_methods_5_0,
 						"sdu.mdsd.restful.RestControllerGeneration.MethodDef");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_8='}'
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_6, grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

@@ -100,7 +100,7 @@ IntExp:
 
 
 Controller:
-	'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}'
+	'controller' name=ID "uses" entity=[Entity] '{' methods+=MethodDef* '}'
 ;
 
 MethodDef returns ControllerMethod:

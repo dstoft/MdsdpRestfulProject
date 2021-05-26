@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Controller#getSuper <em>Super</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Controller#getEntity <em>Entity</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.Controller#getMethods <em>Methods</em>}</li>
  * </ul>
@@ -25,28 +24,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Controller extends Declaration
 {
-  /**
-   * Returns the value of the '<em><b>Super</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Super</em>' reference.
-   * @see #setSuper(Controller)
-   * @see sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage#getController_Super()
-   * @model
-   * @generated
-   */
-  Controller getSuper();
-
-  /**
-   * Sets the value of the '{@link sdu.mdsd.restful.restControllerGeneration.Controller#getSuper <em>Super</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Super</em>' reference.
-   * @see #getSuper()
-   * @generated
-   */
-  void setSuper(Controller value);
-
   /**
    * Returns the value of the '<em><b>Entity</b></em>' reference.
    * <!-- begin-user-doc -->

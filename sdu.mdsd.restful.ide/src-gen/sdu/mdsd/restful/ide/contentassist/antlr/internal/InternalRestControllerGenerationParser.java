@@ -3171,11 +3171,11 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             if ( (LA6_0==RULE_ID) ) {
                 int LA6_1 = input.LA(2);
 
-                if ( ((LA6_1>=26 && LA6_1<=34)||LA6_1==37) ) {
-                    alt6=1;
-                }
-                else if ( (LA6_1==22) ) {
+                if ( (LA6_1==22) ) {
                     alt6=2;
+                }
+                else if ( ((LA6_1>=26 && LA6_1<=34)||LA6_1==37) ) {
+                    alt6=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -3630,11 +3630,11 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
                 {
                 int LA10_1 = input.LA(2);
 
-                if ( (LA10_1==EOF||LA10_1==RULE_ID||LA10_1==16||(LA10_1>=23 && LA10_1<=34)||LA10_1==36) ) {
-                    alt10=1;
-                }
-                else if ( (LA10_1==37) ) {
+                if ( (LA10_1==37) ) {
                     alt10=2;
+                }
+                else if ( (LA10_1==EOF||LA10_1==RULE_ID||LA10_1==16||(LA10_1>=23 && LA10_1<=34)||LA10_1==36) ) {
+                    alt10=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -10416,7 +10416,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             // InternalRestControllerGeneration.g:3392:1: ( rule__Controller__Group__2__Impl rule__Controller__Group__3 )
             // InternalRestControllerGeneration.g:3393:2: rule__Controller__Group__2__Impl rule__Controller__Group__3
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_3);
             rule__Controller__Group__2__Impl();
 
             state._fsp--;
@@ -10445,42 +10445,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Controller__Group__2__Impl"
-    // InternalRestControllerGeneration.g:3400:1: rule__Controller__Group__2__Impl : ( ( rule__Controller__Group_2__0 )? ) ;
+    // InternalRestControllerGeneration.g:3400:1: rule__Controller__Group__2__Impl : ( 'uses' ) ;
     public final void rule__Controller__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3404:1: ( ( ( rule__Controller__Group_2__0 )? ) )
-            // InternalRestControllerGeneration.g:3405:1: ( ( rule__Controller__Group_2__0 )? )
+            // InternalRestControllerGeneration.g:3404:1: ( ( 'uses' ) )
+            // InternalRestControllerGeneration.g:3405:1: ( 'uses' )
             {
-            // InternalRestControllerGeneration.g:3405:1: ( ( rule__Controller__Group_2__0 )? )
-            // InternalRestControllerGeneration.g:3406:2: ( rule__Controller__Group_2__0 )?
+            // InternalRestControllerGeneration.g:3405:1: ( 'uses' )
+            // InternalRestControllerGeneration.g:3406:2: 'uses'
             {
-             before(grammarAccess.getControllerAccess().getGroup_2()); 
-            // InternalRestControllerGeneration.g:3407:2: ( rule__Controller__Group_2__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
-
-            if ( (LA20_0==17) ) {
-                alt20=1;
-            }
-            switch (alt20) {
-                case 1 :
-                    // InternalRestControllerGeneration.g:3407:3: rule__Controller__Group_2__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Controller__Group_2__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getControllerAccess().getGroup_2()); 
+             before(grammarAccess.getControllerAccess().getUsesKeyword_2()); 
+            match(input,39,FOLLOW_2); 
+             after(grammarAccess.getControllerAccess().getUsesKeyword_2()); 
 
             }
 
@@ -10512,7 +10491,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             // InternalRestControllerGeneration.g:3419:1: ( rule__Controller__Group__3__Impl rule__Controller__Group__4 )
             // InternalRestControllerGeneration.g:3420:2: rule__Controller__Group__3__Impl rule__Controller__Group__4
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_31);
             rule__Controller__Group__3__Impl();
 
             state._fsp--;
@@ -10541,21 +10520,31 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Controller__Group__3__Impl"
-    // InternalRestControllerGeneration.g:3427:1: rule__Controller__Group__3__Impl : ( 'uses' ) ;
+    // InternalRestControllerGeneration.g:3427:1: rule__Controller__Group__3__Impl : ( ( rule__Controller__EntityAssignment_3 ) ) ;
     public final void rule__Controller__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3431:1: ( ( 'uses' ) )
-            // InternalRestControllerGeneration.g:3432:1: ( 'uses' )
+            // InternalRestControllerGeneration.g:3431:1: ( ( ( rule__Controller__EntityAssignment_3 ) ) )
+            // InternalRestControllerGeneration.g:3432:1: ( ( rule__Controller__EntityAssignment_3 ) )
             {
-            // InternalRestControllerGeneration.g:3432:1: ( 'uses' )
-            // InternalRestControllerGeneration.g:3433:2: 'uses'
+            // InternalRestControllerGeneration.g:3432:1: ( ( rule__Controller__EntityAssignment_3 ) )
+            // InternalRestControllerGeneration.g:3433:2: ( rule__Controller__EntityAssignment_3 )
             {
-             before(grammarAccess.getControllerAccess().getUsesKeyword_3()); 
-            match(input,39,FOLLOW_2); 
-             after(grammarAccess.getControllerAccess().getUsesKeyword_3()); 
+             before(grammarAccess.getControllerAccess().getEntityAssignment_3()); 
+            // InternalRestControllerGeneration.g:3434:2: ( rule__Controller__EntityAssignment_3 )
+            // InternalRestControllerGeneration.g:3434:3: rule__Controller__EntityAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__Controller__EntityAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getControllerAccess().getEntityAssignment_3()); 
 
             }
 
@@ -10587,7 +10576,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             // InternalRestControllerGeneration.g:3446:1: ( rule__Controller__Group__4__Impl rule__Controller__Group__5 )
             // InternalRestControllerGeneration.g:3447:2: rule__Controller__Group__4__Impl rule__Controller__Group__5
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Controller__Group__4__Impl();
 
             state._fsp--;
@@ -10616,31 +10605,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Controller__Group__4__Impl"
-    // InternalRestControllerGeneration.g:3454:1: rule__Controller__Group__4__Impl : ( ( rule__Controller__EntityAssignment_4 ) ) ;
+    // InternalRestControllerGeneration.g:3454:1: rule__Controller__Group__4__Impl : ( '{' ) ;
     public final void rule__Controller__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3458:1: ( ( ( rule__Controller__EntityAssignment_4 ) ) )
-            // InternalRestControllerGeneration.g:3459:1: ( ( rule__Controller__EntityAssignment_4 ) )
+            // InternalRestControllerGeneration.g:3458:1: ( ( '{' ) )
+            // InternalRestControllerGeneration.g:3459:1: ( '{' )
             {
-            // InternalRestControllerGeneration.g:3459:1: ( ( rule__Controller__EntityAssignment_4 ) )
-            // InternalRestControllerGeneration.g:3460:2: ( rule__Controller__EntityAssignment_4 )
+            // InternalRestControllerGeneration.g:3459:1: ( '{' )
+            // InternalRestControllerGeneration.g:3460:2: '{'
             {
-             before(grammarAccess.getControllerAccess().getEntityAssignment_4()); 
-            // InternalRestControllerGeneration.g:3461:2: ( rule__Controller__EntityAssignment_4 )
-            // InternalRestControllerGeneration.g:3461:3: rule__Controller__EntityAssignment_4
-            {
-            pushFollow(FOLLOW_2);
-            rule__Controller__EntityAssignment_4();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getControllerAccess().getEntityAssignment_4()); 
+             before(grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_4()); 
+            match(input,15,FOLLOW_2); 
+             after(grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_4()); 
 
             }
 
@@ -10701,21 +10680,49 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Controller__Group__5__Impl"
-    // InternalRestControllerGeneration.g:3481:1: rule__Controller__Group__5__Impl : ( '{' ) ;
+    // InternalRestControllerGeneration.g:3481:1: rule__Controller__Group__5__Impl : ( ( rule__Controller__MethodsAssignment_5 )* ) ;
     public final void rule__Controller__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3485:1: ( ( '{' ) )
-            // InternalRestControllerGeneration.g:3486:1: ( '{' )
+            // InternalRestControllerGeneration.g:3485:1: ( ( ( rule__Controller__MethodsAssignment_5 )* ) )
+            // InternalRestControllerGeneration.g:3486:1: ( ( rule__Controller__MethodsAssignment_5 )* )
             {
-            // InternalRestControllerGeneration.g:3486:1: ( '{' )
-            // InternalRestControllerGeneration.g:3487:2: '{'
+            // InternalRestControllerGeneration.g:3486:1: ( ( rule__Controller__MethodsAssignment_5 )* )
+            // InternalRestControllerGeneration.g:3487:2: ( rule__Controller__MethodsAssignment_5 )*
             {
-             before(grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_5()); 
-            match(input,15,FOLLOW_2); 
-             after(grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_5()); 
+             before(grammarAccess.getControllerAccess().getMethodsAssignment_5()); 
+            // InternalRestControllerGeneration.g:3488:2: ( rule__Controller__MethodsAssignment_5 )*
+            loop20:
+            do {
+                int alt20=2;
+                int LA20_0 = input.LA(1);
+
+                if ( (LA20_0==40||LA20_0==44||(LA20_0>=46 && LA20_0<=48)) ) {
+                    alt20=1;
+                }
+
+
+                switch (alt20) {
+            	case 1 :
+            	    // InternalRestControllerGeneration.g:3488:3: rule__Controller__MethodsAssignment_5
+            	    {
+            	    pushFollow(FOLLOW_33);
+            	    rule__Controller__MethodsAssignment_5();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop20;
+                }
+            } while (true);
+
+             after(grammarAccess.getControllerAccess().getMethodsAssignment_5()); 
 
             }
 
@@ -10738,22 +10745,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Controller__Group__6"
-    // InternalRestControllerGeneration.g:3496:1: rule__Controller__Group__6 : rule__Controller__Group__6__Impl rule__Controller__Group__7 ;
+    // InternalRestControllerGeneration.g:3496:1: rule__Controller__Group__6 : rule__Controller__Group__6__Impl ;
     public final void rule__Controller__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3500:1: ( rule__Controller__Group__6__Impl rule__Controller__Group__7 )
-            // InternalRestControllerGeneration.g:3501:2: rule__Controller__Group__6__Impl rule__Controller__Group__7
+            // InternalRestControllerGeneration.g:3500:1: ( rule__Controller__Group__6__Impl )
+            // InternalRestControllerGeneration.g:3501:2: rule__Controller__Group__6__Impl
             {
-            pushFollow(FOLLOW_32);
-            rule__Controller__Group__6__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Controller__Group__7();
+            rule__Controller__Group__6__Impl();
 
             state._fsp--;
 
@@ -10776,49 +10778,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Controller__Group__6__Impl"
-    // InternalRestControllerGeneration.g:3508:1: rule__Controller__Group__6__Impl : ( ( rule__Controller__MethodsAssignment_6 )* ) ;
+    // InternalRestControllerGeneration.g:3507:1: rule__Controller__Group__6__Impl : ( '}' ) ;
     public final void rule__Controller__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3512:1: ( ( ( rule__Controller__MethodsAssignment_6 )* ) )
-            // InternalRestControllerGeneration.g:3513:1: ( ( rule__Controller__MethodsAssignment_6 )* )
+            // InternalRestControllerGeneration.g:3511:1: ( ( '}' ) )
+            // InternalRestControllerGeneration.g:3512:1: ( '}' )
             {
-            // InternalRestControllerGeneration.g:3513:1: ( ( rule__Controller__MethodsAssignment_6 )* )
-            // InternalRestControllerGeneration.g:3514:2: ( rule__Controller__MethodsAssignment_6 )*
+            // InternalRestControllerGeneration.g:3512:1: ( '}' )
+            // InternalRestControllerGeneration.g:3513:2: '}'
             {
-             before(grammarAccess.getControllerAccess().getMethodsAssignment_6()); 
-            // InternalRestControllerGeneration.g:3515:2: ( rule__Controller__MethodsAssignment_6 )*
-            loop21:
-            do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
-
-                if ( (LA21_0==40||LA21_0==44||(LA21_0>=46 && LA21_0<=48)) ) {
-                    alt21=1;
-                }
-
-
-                switch (alt21) {
-            	case 1 :
-            	    // InternalRestControllerGeneration.g:3515:3: rule__Controller__MethodsAssignment_6
-            	    {
-            	    pushFollow(FOLLOW_33);
-            	    rule__Controller__MethodsAssignment_6();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop21;
-                }
-            } while (true);
-
-             after(grammarAccess.getControllerAccess().getMethodsAssignment_6()); 
+             before(grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_6()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_6()); 
 
             }
 
@@ -10840,240 +10814,15 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
     // $ANTLR end "rule__Controller__Group__6__Impl"
 
 
-    // $ANTLR start "rule__Controller__Group__7"
-    // InternalRestControllerGeneration.g:3523:1: rule__Controller__Group__7 : rule__Controller__Group__7__Impl ;
-    public final void rule__Controller__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalRestControllerGeneration.g:3527:1: ( rule__Controller__Group__7__Impl )
-            // InternalRestControllerGeneration.g:3528:2: rule__Controller__Group__7__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Controller__Group__7__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Controller__Group__7"
-
-
-    // $ANTLR start "rule__Controller__Group__7__Impl"
-    // InternalRestControllerGeneration.g:3534:1: rule__Controller__Group__7__Impl : ( '}' ) ;
-    public final void rule__Controller__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalRestControllerGeneration.g:3538:1: ( ( '}' ) )
-            // InternalRestControllerGeneration.g:3539:1: ( '}' )
-            {
-            // InternalRestControllerGeneration.g:3539:1: ( '}' )
-            // InternalRestControllerGeneration.g:3540:2: '}'
-            {
-             before(grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,16,FOLLOW_2); 
-             after(grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Controller__Group__7__Impl"
-
-
-    // $ANTLR start "rule__Controller__Group_2__0"
-    // InternalRestControllerGeneration.g:3550:1: rule__Controller__Group_2__0 : rule__Controller__Group_2__0__Impl rule__Controller__Group_2__1 ;
-    public final void rule__Controller__Group_2__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalRestControllerGeneration.g:3554:1: ( rule__Controller__Group_2__0__Impl rule__Controller__Group_2__1 )
-            // InternalRestControllerGeneration.g:3555:2: rule__Controller__Group_2__0__Impl rule__Controller__Group_2__1
-            {
-            pushFollow(FOLLOW_3);
-            rule__Controller__Group_2__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Controller__Group_2__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Controller__Group_2__0"
-
-
-    // $ANTLR start "rule__Controller__Group_2__0__Impl"
-    // InternalRestControllerGeneration.g:3562:1: rule__Controller__Group_2__0__Impl : ( ':' ) ;
-    public final void rule__Controller__Group_2__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalRestControllerGeneration.g:3566:1: ( ( ':' ) )
-            // InternalRestControllerGeneration.g:3567:1: ( ':' )
-            {
-            // InternalRestControllerGeneration.g:3567:1: ( ':' )
-            // InternalRestControllerGeneration.g:3568:2: ':'
-            {
-             before(grammarAccess.getControllerAccess().getColonKeyword_2_0()); 
-            match(input,17,FOLLOW_2); 
-             after(grammarAccess.getControllerAccess().getColonKeyword_2_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Controller__Group_2__0__Impl"
-
-
-    // $ANTLR start "rule__Controller__Group_2__1"
-    // InternalRestControllerGeneration.g:3577:1: rule__Controller__Group_2__1 : rule__Controller__Group_2__1__Impl ;
-    public final void rule__Controller__Group_2__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalRestControllerGeneration.g:3581:1: ( rule__Controller__Group_2__1__Impl )
-            // InternalRestControllerGeneration.g:3582:2: rule__Controller__Group_2__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Controller__Group_2__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Controller__Group_2__1"
-
-
-    // $ANTLR start "rule__Controller__Group_2__1__Impl"
-    // InternalRestControllerGeneration.g:3588:1: rule__Controller__Group_2__1__Impl : ( ( rule__Controller__SuperAssignment_2_1 ) ) ;
-    public final void rule__Controller__Group_2__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalRestControllerGeneration.g:3592:1: ( ( ( rule__Controller__SuperAssignment_2_1 ) ) )
-            // InternalRestControllerGeneration.g:3593:1: ( ( rule__Controller__SuperAssignment_2_1 ) )
-            {
-            // InternalRestControllerGeneration.g:3593:1: ( ( rule__Controller__SuperAssignment_2_1 ) )
-            // InternalRestControllerGeneration.g:3594:2: ( rule__Controller__SuperAssignment_2_1 )
-            {
-             before(grammarAccess.getControllerAccess().getSuperAssignment_2_1()); 
-            // InternalRestControllerGeneration.g:3595:2: ( rule__Controller__SuperAssignment_2_1 )
-            // InternalRestControllerGeneration.g:3595:3: rule__Controller__SuperAssignment_2_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Controller__SuperAssignment_2_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getControllerAccess().getSuperAssignment_2_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Controller__Group_2__1__Impl"
-
-
     // $ANTLR start "rule__CreateMethod__Group__0"
-    // InternalRestControllerGeneration.g:3604:1: rule__CreateMethod__Group__0 : rule__CreateMethod__Group__0__Impl rule__CreateMethod__Group__1 ;
+    // InternalRestControllerGeneration.g:3523:1: rule__CreateMethod__Group__0 : rule__CreateMethod__Group__0__Impl rule__CreateMethod__Group__1 ;
     public final void rule__CreateMethod__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3608:1: ( rule__CreateMethod__Group__0__Impl rule__CreateMethod__Group__1 )
-            // InternalRestControllerGeneration.g:3609:2: rule__CreateMethod__Group__0__Impl rule__CreateMethod__Group__1
+            // InternalRestControllerGeneration.g:3527:1: ( rule__CreateMethod__Group__0__Impl rule__CreateMethod__Group__1 )
+            // InternalRestControllerGeneration.g:3528:2: rule__CreateMethod__Group__0__Impl rule__CreateMethod__Group__1
             {
             pushFollow(FOLLOW_34);
             rule__CreateMethod__Group__0__Impl();
@@ -11104,21 +10853,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__Group__0__Impl"
-    // InternalRestControllerGeneration.g:3616:1: rule__CreateMethod__Group__0__Impl : ( () ) ;
+    // InternalRestControllerGeneration.g:3535:1: rule__CreateMethod__Group__0__Impl : ( () ) ;
     public final void rule__CreateMethod__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3620:1: ( ( () ) )
-            // InternalRestControllerGeneration.g:3621:1: ( () )
+            // InternalRestControllerGeneration.g:3539:1: ( ( () ) )
+            // InternalRestControllerGeneration.g:3540:1: ( () )
             {
-            // InternalRestControllerGeneration.g:3621:1: ( () )
-            // InternalRestControllerGeneration.g:3622:2: ()
+            // InternalRestControllerGeneration.g:3540:1: ( () )
+            // InternalRestControllerGeneration.g:3541:2: ()
             {
              before(grammarAccess.getCreateMethodAccess().getCreateMethodAction_0()); 
-            // InternalRestControllerGeneration.g:3623:2: ()
-            // InternalRestControllerGeneration.g:3623:3: 
+            // InternalRestControllerGeneration.g:3542:2: ()
+            // InternalRestControllerGeneration.g:3542:3: 
             {
             }
 
@@ -11141,14 +10890,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__Group__1"
-    // InternalRestControllerGeneration.g:3631:1: rule__CreateMethod__Group__1 : rule__CreateMethod__Group__1__Impl rule__CreateMethod__Group__2 ;
+    // InternalRestControllerGeneration.g:3550:1: rule__CreateMethod__Group__1 : rule__CreateMethod__Group__1__Impl rule__CreateMethod__Group__2 ;
     public final void rule__CreateMethod__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3635:1: ( rule__CreateMethod__Group__1__Impl rule__CreateMethod__Group__2 )
-            // InternalRestControllerGeneration.g:3636:2: rule__CreateMethod__Group__1__Impl rule__CreateMethod__Group__2
+            // InternalRestControllerGeneration.g:3554:1: ( rule__CreateMethod__Group__1__Impl rule__CreateMethod__Group__2 )
+            // InternalRestControllerGeneration.g:3555:2: rule__CreateMethod__Group__1__Impl rule__CreateMethod__Group__2
             {
             pushFollow(FOLLOW_35);
             rule__CreateMethod__Group__1__Impl();
@@ -11179,17 +10928,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__Group__1__Impl"
-    // InternalRestControllerGeneration.g:3643:1: rule__CreateMethod__Group__1__Impl : ( 'CREATE' ) ;
+    // InternalRestControllerGeneration.g:3562:1: rule__CreateMethod__Group__1__Impl : ( 'CREATE' ) ;
     public final void rule__CreateMethod__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3647:1: ( ( 'CREATE' ) )
-            // InternalRestControllerGeneration.g:3648:1: ( 'CREATE' )
+            // InternalRestControllerGeneration.g:3566:1: ( ( 'CREATE' ) )
+            // InternalRestControllerGeneration.g:3567:1: ( 'CREATE' )
             {
-            // InternalRestControllerGeneration.g:3648:1: ( 'CREATE' )
-            // InternalRestControllerGeneration.g:3649:2: 'CREATE'
+            // InternalRestControllerGeneration.g:3567:1: ( 'CREATE' )
+            // InternalRestControllerGeneration.g:3568:2: 'CREATE'
             {
              before(grammarAccess.getCreateMethodAccess().getCREATEKeyword_1()); 
             match(input,40,FOLLOW_2); 
@@ -11216,14 +10965,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__Group__2"
-    // InternalRestControllerGeneration.g:3658:1: rule__CreateMethod__Group__2 : rule__CreateMethod__Group__2__Impl rule__CreateMethod__Group__3 ;
+    // InternalRestControllerGeneration.g:3577:1: rule__CreateMethod__Group__2 : rule__CreateMethod__Group__2__Impl rule__CreateMethod__Group__3 ;
     public final void rule__CreateMethod__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3662:1: ( rule__CreateMethod__Group__2__Impl rule__CreateMethod__Group__3 )
-            // InternalRestControllerGeneration.g:3663:2: rule__CreateMethod__Group__2__Impl rule__CreateMethod__Group__3
+            // InternalRestControllerGeneration.g:3581:1: ( rule__CreateMethod__Group__2__Impl rule__CreateMethod__Group__3 )
+            // InternalRestControllerGeneration.g:3582:2: rule__CreateMethod__Group__2__Impl rule__CreateMethod__Group__3
             {
             pushFollow(FOLLOW_35);
             rule__CreateMethod__Group__2__Impl();
@@ -11254,33 +11003,33 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__Group__2__Impl"
-    // InternalRestControllerGeneration.g:3670:1: rule__CreateMethod__Group__2__Impl : ( ( rule__CreateMethod__WithEntityAssignment_2 )* ) ;
+    // InternalRestControllerGeneration.g:3589:1: rule__CreateMethod__Group__2__Impl : ( ( rule__CreateMethod__WithEntityAssignment_2 )* ) ;
     public final void rule__CreateMethod__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3674:1: ( ( ( rule__CreateMethod__WithEntityAssignment_2 )* ) )
-            // InternalRestControllerGeneration.g:3675:1: ( ( rule__CreateMethod__WithEntityAssignment_2 )* )
+            // InternalRestControllerGeneration.g:3593:1: ( ( ( rule__CreateMethod__WithEntityAssignment_2 )* ) )
+            // InternalRestControllerGeneration.g:3594:1: ( ( rule__CreateMethod__WithEntityAssignment_2 )* )
             {
-            // InternalRestControllerGeneration.g:3675:1: ( ( rule__CreateMethod__WithEntityAssignment_2 )* )
-            // InternalRestControllerGeneration.g:3676:2: ( rule__CreateMethod__WithEntityAssignment_2 )*
+            // InternalRestControllerGeneration.g:3594:1: ( ( rule__CreateMethod__WithEntityAssignment_2 )* )
+            // InternalRestControllerGeneration.g:3595:2: ( rule__CreateMethod__WithEntityAssignment_2 )*
             {
              before(grammarAccess.getCreateMethodAccess().getWithEntityAssignment_2()); 
-            // InternalRestControllerGeneration.g:3677:2: ( rule__CreateMethod__WithEntityAssignment_2 )*
-            loop22:
+            // InternalRestControllerGeneration.g:3596:2: ( rule__CreateMethod__WithEntityAssignment_2 )*
+            loop21:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA22_0==41) ) {
-                    alt22=1;
+                if ( (LA21_0==41) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:3677:3: rule__CreateMethod__WithEntityAssignment_2
+            	    // InternalRestControllerGeneration.g:3596:3: rule__CreateMethod__WithEntityAssignment_2
             	    {
             	    pushFollow(FOLLOW_36);
             	    rule__CreateMethod__WithEntityAssignment_2();
@@ -11292,7 +11041,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             	    break;
 
             	default :
-            	    break loop22;
+            	    break loop21;
                 }
             } while (true);
 
@@ -11319,14 +11068,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__Group__3"
-    // InternalRestControllerGeneration.g:3685:1: rule__CreateMethod__Group__3 : rule__CreateMethod__Group__3__Impl ;
+    // InternalRestControllerGeneration.g:3604:1: rule__CreateMethod__Group__3 : rule__CreateMethod__Group__3__Impl ;
     public final void rule__CreateMethod__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3689:1: ( rule__CreateMethod__Group__3__Impl )
-            // InternalRestControllerGeneration.g:3690:2: rule__CreateMethod__Group__3__Impl
+            // InternalRestControllerGeneration.g:3608:1: ( rule__CreateMethod__Group__3__Impl )
+            // InternalRestControllerGeneration.g:3609:2: rule__CreateMethod__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CreateMethod__Group__3__Impl();
@@ -11352,29 +11101,29 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__Group__3__Impl"
-    // InternalRestControllerGeneration.g:3696:1: rule__CreateMethod__Group__3__Impl : ( ( rule__CreateMethod__ExcludeAssignment_3 )? ) ;
+    // InternalRestControllerGeneration.g:3615:1: rule__CreateMethod__Group__3__Impl : ( ( rule__CreateMethod__ExcludeAssignment_3 )? ) ;
     public final void rule__CreateMethod__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3700:1: ( ( ( rule__CreateMethod__ExcludeAssignment_3 )? ) )
-            // InternalRestControllerGeneration.g:3701:1: ( ( rule__CreateMethod__ExcludeAssignment_3 )? )
+            // InternalRestControllerGeneration.g:3619:1: ( ( ( rule__CreateMethod__ExcludeAssignment_3 )? ) )
+            // InternalRestControllerGeneration.g:3620:1: ( ( rule__CreateMethod__ExcludeAssignment_3 )? )
             {
-            // InternalRestControllerGeneration.g:3701:1: ( ( rule__CreateMethod__ExcludeAssignment_3 )? )
-            // InternalRestControllerGeneration.g:3702:2: ( rule__CreateMethod__ExcludeAssignment_3 )?
+            // InternalRestControllerGeneration.g:3620:1: ( ( rule__CreateMethod__ExcludeAssignment_3 )? )
+            // InternalRestControllerGeneration.g:3621:2: ( rule__CreateMethod__ExcludeAssignment_3 )?
             {
              before(grammarAccess.getCreateMethodAccess().getExcludeAssignment_3()); 
-            // InternalRestControllerGeneration.g:3703:2: ( rule__CreateMethod__ExcludeAssignment_3 )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalRestControllerGeneration.g:3622:2: ( rule__CreateMethod__ExcludeAssignment_3 )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA23_0==42) ) {
-                alt23=1;
+            if ( (LA22_0==42) ) {
+                alt22=1;
             }
-            switch (alt23) {
+            switch (alt22) {
                 case 1 :
-                    // InternalRestControllerGeneration.g:3703:3: rule__CreateMethod__ExcludeAssignment_3
+                    // InternalRestControllerGeneration.g:3622:3: rule__CreateMethod__ExcludeAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__CreateMethod__ExcludeAssignment_3();
@@ -11410,14 +11159,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodWith__Group__0"
-    // InternalRestControllerGeneration.g:3712:1: rule__CreateMethodWith__Group__0 : rule__CreateMethodWith__Group__0__Impl rule__CreateMethodWith__Group__1 ;
+    // InternalRestControllerGeneration.g:3631:1: rule__CreateMethodWith__Group__0 : rule__CreateMethodWith__Group__0__Impl rule__CreateMethodWith__Group__1 ;
     public final void rule__CreateMethodWith__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3716:1: ( rule__CreateMethodWith__Group__0__Impl rule__CreateMethodWith__Group__1 )
-            // InternalRestControllerGeneration.g:3717:2: rule__CreateMethodWith__Group__0__Impl rule__CreateMethodWith__Group__1
+            // InternalRestControllerGeneration.g:3635:1: ( rule__CreateMethodWith__Group__0__Impl rule__CreateMethodWith__Group__1 )
+            // InternalRestControllerGeneration.g:3636:2: rule__CreateMethodWith__Group__0__Impl rule__CreateMethodWith__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__CreateMethodWith__Group__0__Impl();
@@ -11448,17 +11197,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodWith__Group__0__Impl"
-    // InternalRestControllerGeneration.g:3724:1: rule__CreateMethodWith__Group__0__Impl : ( 'with' ) ;
+    // InternalRestControllerGeneration.g:3643:1: rule__CreateMethodWith__Group__0__Impl : ( 'with' ) ;
     public final void rule__CreateMethodWith__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3728:1: ( ( 'with' ) )
-            // InternalRestControllerGeneration.g:3729:1: ( 'with' )
+            // InternalRestControllerGeneration.g:3647:1: ( ( 'with' ) )
+            // InternalRestControllerGeneration.g:3648:1: ( 'with' )
             {
-            // InternalRestControllerGeneration.g:3729:1: ( 'with' )
-            // InternalRestControllerGeneration.g:3730:2: 'with'
+            // InternalRestControllerGeneration.g:3648:1: ( 'with' )
+            // InternalRestControllerGeneration.g:3649:2: 'with'
             {
              before(grammarAccess.getCreateMethodWithAccess().getWithKeyword_0()); 
             match(input,41,FOLLOW_2); 
@@ -11485,14 +11234,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodWith__Group__1"
-    // InternalRestControllerGeneration.g:3739:1: rule__CreateMethodWith__Group__1 : rule__CreateMethodWith__Group__1__Impl ;
+    // InternalRestControllerGeneration.g:3658:1: rule__CreateMethodWith__Group__1 : rule__CreateMethodWith__Group__1__Impl ;
     public final void rule__CreateMethodWith__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3743:1: ( rule__CreateMethodWith__Group__1__Impl )
-            // InternalRestControllerGeneration.g:3744:2: rule__CreateMethodWith__Group__1__Impl
+            // InternalRestControllerGeneration.g:3662:1: ( rule__CreateMethodWith__Group__1__Impl )
+            // InternalRestControllerGeneration.g:3663:2: rule__CreateMethodWith__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CreateMethodWith__Group__1__Impl();
@@ -11518,21 +11267,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodWith__Group__1__Impl"
-    // InternalRestControllerGeneration.g:3750:1: rule__CreateMethodWith__Group__1__Impl : ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) ) ;
+    // InternalRestControllerGeneration.g:3669:1: rule__CreateMethodWith__Group__1__Impl : ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) ) ;
     public final void rule__CreateMethodWith__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3754:1: ( ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) ) )
-            // InternalRestControllerGeneration.g:3755:1: ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) )
+            // InternalRestControllerGeneration.g:3673:1: ( ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) ) )
+            // InternalRestControllerGeneration.g:3674:1: ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) )
             {
-            // InternalRestControllerGeneration.g:3755:1: ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) )
-            // InternalRestControllerGeneration.g:3756:2: ( rule__CreateMethodWith__ReferenceAssignment_1 )
+            // InternalRestControllerGeneration.g:3674:1: ( ( rule__CreateMethodWith__ReferenceAssignment_1 ) )
+            // InternalRestControllerGeneration.g:3675:2: ( rule__CreateMethodWith__ReferenceAssignment_1 )
             {
              before(grammarAccess.getCreateMethodWithAccess().getReferenceAssignment_1()); 
-            // InternalRestControllerGeneration.g:3757:2: ( rule__CreateMethodWith__ReferenceAssignment_1 )
-            // InternalRestControllerGeneration.g:3757:3: rule__CreateMethodWith__ReferenceAssignment_1
+            // InternalRestControllerGeneration.g:3676:2: ( rule__CreateMethodWith__ReferenceAssignment_1 )
+            // InternalRestControllerGeneration.g:3676:3: rule__CreateMethodWith__ReferenceAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__CreateMethodWith__ReferenceAssignment_1();
@@ -11565,14 +11314,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group__0"
-    // InternalRestControllerGeneration.g:3766:1: rule__CreateMethodExclude__Group__0 : rule__CreateMethodExclude__Group__0__Impl rule__CreateMethodExclude__Group__1 ;
+    // InternalRestControllerGeneration.g:3685:1: rule__CreateMethodExclude__Group__0 : rule__CreateMethodExclude__Group__0__Impl rule__CreateMethodExclude__Group__1 ;
     public final void rule__CreateMethodExclude__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3770:1: ( rule__CreateMethodExclude__Group__0__Impl rule__CreateMethodExclude__Group__1 )
-            // InternalRestControllerGeneration.g:3771:2: rule__CreateMethodExclude__Group__0__Impl rule__CreateMethodExclude__Group__1
+            // InternalRestControllerGeneration.g:3689:1: ( rule__CreateMethodExclude__Group__0__Impl rule__CreateMethodExclude__Group__1 )
+            // InternalRestControllerGeneration.g:3690:2: rule__CreateMethodExclude__Group__0__Impl rule__CreateMethodExclude__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__CreateMethodExclude__Group__0__Impl();
@@ -11603,17 +11352,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group__0__Impl"
-    // InternalRestControllerGeneration.g:3778:1: rule__CreateMethodExclude__Group__0__Impl : ( 'exclude' ) ;
+    // InternalRestControllerGeneration.g:3697:1: rule__CreateMethodExclude__Group__0__Impl : ( 'exclude' ) ;
     public final void rule__CreateMethodExclude__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3782:1: ( ( 'exclude' ) )
-            // InternalRestControllerGeneration.g:3783:1: ( 'exclude' )
+            // InternalRestControllerGeneration.g:3701:1: ( ( 'exclude' ) )
+            // InternalRestControllerGeneration.g:3702:1: ( 'exclude' )
             {
-            // InternalRestControllerGeneration.g:3783:1: ( 'exclude' )
-            // InternalRestControllerGeneration.g:3784:2: 'exclude'
+            // InternalRestControllerGeneration.g:3702:1: ( 'exclude' )
+            // InternalRestControllerGeneration.g:3703:2: 'exclude'
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getExcludeKeyword_0()); 
             match(input,42,FOLLOW_2); 
@@ -11640,14 +11389,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group__1"
-    // InternalRestControllerGeneration.g:3793:1: rule__CreateMethodExclude__Group__1 : rule__CreateMethodExclude__Group__1__Impl rule__CreateMethodExclude__Group__2 ;
+    // InternalRestControllerGeneration.g:3712:1: rule__CreateMethodExclude__Group__1 : rule__CreateMethodExclude__Group__1__Impl rule__CreateMethodExclude__Group__2 ;
     public final void rule__CreateMethodExclude__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3797:1: ( rule__CreateMethodExclude__Group__1__Impl rule__CreateMethodExclude__Group__2 )
-            // InternalRestControllerGeneration.g:3798:2: rule__CreateMethodExclude__Group__1__Impl rule__CreateMethodExclude__Group__2
+            // InternalRestControllerGeneration.g:3716:1: ( rule__CreateMethodExclude__Group__1__Impl rule__CreateMethodExclude__Group__2 )
+            // InternalRestControllerGeneration.g:3717:2: rule__CreateMethodExclude__Group__1__Impl rule__CreateMethodExclude__Group__2
             {
             pushFollow(FOLLOW_37);
             rule__CreateMethodExclude__Group__1__Impl();
@@ -11678,21 +11427,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group__1__Impl"
-    // InternalRestControllerGeneration.g:3805:1: rule__CreateMethodExclude__Group__1__Impl : ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) ) ;
+    // InternalRestControllerGeneration.g:3724:1: rule__CreateMethodExclude__Group__1__Impl : ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) ) ;
     public final void rule__CreateMethodExclude__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3809:1: ( ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) ) )
-            // InternalRestControllerGeneration.g:3810:1: ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) )
+            // InternalRestControllerGeneration.g:3728:1: ( ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) ) )
+            // InternalRestControllerGeneration.g:3729:1: ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) )
             {
-            // InternalRestControllerGeneration.g:3810:1: ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) )
-            // InternalRestControllerGeneration.g:3811:2: ( rule__CreateMethodExclude__AttributesAssignment_1 )
+            // InternalRestControllerGeneration.g:3729:1: ( ( rule__CreateMethodExclude__AttributesAssignment_1 ) )
+            // InternalRestControllerGeneration.g:3730:2: ( rule__CreateMethodExclude__AttributesAssignment_1 )
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getAttributesAssignment_1()); 
-            // InternalRestControllerGeneration.g:3812:2: ( rule__CreateMethodExclude__AttributesAssignment_1 )
-            // InternalRestControllerGeneration.g:3812:3: rule__CreateMethodExclude__AttributesAssignment_1
+            // InternalRestControllerGeneration.g:3731:2: ( rule__CreateMethodExclude__AttributesAssignment_1 )
+            // InternalRestControllerGeneration.g:3731:3: rule__CreateMethodExclude__AttributesAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__CreateMethodExclude__AttributesAssignment_1();
@@ -11725,14 +11474,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group__2"
-    // InternalRestControllerGeneration.g:3820:1: rule__CreateMethodExclude__Group__2 : rule__CreateMethodExclude__Group__2__Impl ;
+    // InternalRestControllerGeneration.g:3739:1: rule__CreateMethodExclude__Group__2 : rule__CreateMethodExclude__Group__2__Impl ;
     public final void rule__CreateMethodExclude__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3824:1: ( rule__CreateMethodExclude__Group__2__Impl )
-            // InternalRestControllerGeneration.g:3825:2: rule__CreateMethodExclude__Group__2__Impl
+            // InternalRestControllerGeneration.g:3743:1: ( rule__CreateMethodExclude__Group__2__Impl )
+            // InternalRestControllerGeneration.g:3744:2: rule__CreateMethodExclude__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CreateMethodExclude__Group__2__Impl();
@@ -11758,33 +11507,33 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group__2__Impl"
-    // InternalRestControllerGeneration.g:3831:1: rule__CreateMethodExclude__Group__2__Impl : ( ( rule__CreateMethodExclude__Group_2__0 )* ) ;
+    // InternalRestControllerGeneration.g:3750:1: rule__CreateMethodExclude__Group__2__Impl : ( ( rule__CreateMethodExclude__Group_2__0 )* ) ;
     public final void rule__CreateMethodExclude__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3835:1: ( ( ( rule__CreateMethodExclude__Group_2__0 )* ) )
-            // InternalRestControllerGeneration.g:3836:1: ( ( rule__CreateMethodExclude__Group_2__0 )* )
+            // InternalRestControllerGeneration.g:3754:1: ( ( ( rule__CreateMethodExclude__Group_2__0 )* ) )
+            // InternalRestControllerGeneration.g:3755:1: ( ( rule__CreateMethodExclude__Group_2__0 )* )
             {
-            // InternalRestControllerGeneration.g:3836:1: ( ( rule__CreateMethodExclude__Group_2__0 )* )
-            // InternalRestControllerGeneration.g:3837:2: ( rule__CreateMethodExclude__Group_2__0 )*
+            // InternalRestControllerGeneration.g:3755:1: ( ( rule__CreateMethodExclude__Group_2__0 )* )
+            // InternalRestControllerGeneration.g:3756:2: ( rule__CreateMethodExclude__Group_2__0 )*
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getGroup_2()); 
-            // InternalRestControllerGeneration.g:3838:2: ( rule__CreateMethodExclude__Group_2__0 )*
-            loop24:
+            // InternalRestControllerGeneration.g:3757:2: ( rule__CreateMethodExclude__Group_2__0 )*
+            loop23:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( (LA24_0==43) ) {
-                    alt24=1;
+                if ( (LA23_0==43) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt23) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:3838:3: rule__CreateMethodExclude__Group_2__0
+            	    // InternalRestControllerGeneration.g:3757:3: rule__CreateMethodExclude__Group_2__0
             	    {
             	    pushFollow(FOLLOW_38);
             	    rule__CreateMethodExclude__Group_2__0();
@@ -11796,7 +11545,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop23;
                 }
             } while (true);
 
@@ -11823,14 +11572,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group_2__0"
-    // InternalRestControllerGeneration.g:3847:1: rule__CreateMethodExclude__Group_2__0 : rule__CreateMethodExclude__Group_2__0__Impl rule__CreateMethodExclude__Group_2__1 ;
+    // InternalRestControllerGeneration.g:3766:1: rule__CreateMethodExclude__Group_2__0 : rule__CreateMethodExclude__Group_2__0__Impl rule__CreateMethodExclude__Group_2__1 ;
     public final void rule__CreateMethodExclude__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3851:1: ( rule__CreateMethodExclude__Group_2__0__Impl rule__CreateMethodExclude__Group_2__1 )
-            // InternalRestControllerGeneration.g:3852:2: rule__CreateMethodExclude__Group_2__0__Impl rule__CreateMethodExclude__Group_2__1
+            // InternalRestControllerGeneration.g:3770:1: ( rule__CreateMethodExclude__Group_2__0__Impl rule__CreateMethodExclude__Group_2__1 )
+            // InternalRestControllerGeneration.g:3771:2: rule__CreateMethodExclude__Group_2__0__Impl rule__CreateMethodExclude__Group_2__1
             {
             pushFollow(FOLLOW_3);
             rule__CreateMethodExclude__Group_2__0__Impl();
@@ -11861,17 +11610,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group_2__0__Impl"
-    // InternalRestControllerGeneration.g:3859:1: rule__CreateMethodExclude__Group_2__0__Impl : ( ',' ) ;
+    // InternalRestControllerGeneration.g:3778:1: rule__CreateMethodExclude__Group_2__0__Impl : ( ',' ) ;
     public final void rule__CreateMethodExclude__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3863:1: ( ( ',' ) )
-            // InternalRestControllerGeneration.g:3864:1: ( ',' )
+            // InternalRestControllerGeneration.g:3782:1: ( ( ',' ) )
+            // InternalRestControllerGeneration.g:3783:1: ( ',' )
             {
-            // InternalRestControllerGeneration.g:3864:1: ( ',' )
-            // InternalRestControllerGeneration.g:3865:2: ','
+            // InternalRestControllerGeneration.g:3783:1: ( ',' )
+            // InternalRestControllerGeneration.g:3784:2: ','
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getCommaKeyword_2_0()); 
             match(input,43,FOLLOW_2); 
@@ -11898,14 +11647,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group_2__1"
-    // InternalRestControllerGeneration.g:3874:1: rule__CreateMethodExclude__Group_2__1 : rule__CreateMethodExclude__Group_2__1__Impl ;
+    // InternalRestControllerGeneration.g:3793:1: rule__CreateMethodExclude__Group_2__1 : rule__CreateMethodExclude__Group_2__1__Impl ;
     public final void rule__CreateMethodExclude__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3878:1: ( rule__CreateMethodExclude__Group_2__1__Impl )
-            // InternalRestControllerGeneration.g:3879:2: rule__CreateMethodExclude__Group_2__1__Impl
+            // InternalRestControllerGeneration.g:3797:1: ( rule__CreateMethodExclude__Group_2__1__Impl )
+            // InternalRestControllerGeneration.g:3798:2: rule__CreateMethodExclude__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CreateMethodExclude__Group_2__1__Impl();
@@ -11931,21 +11680,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__Group_2__1__Impl"
-    // InternalRestControllerGeneration.g:3885:1: rule__CreateMethodExclude__Group_2__1__Impl : ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) ) ;
+    // InternalRestControllerGeneration.g:3804:1: rule__CreateMethodExclude__Group_2__1__Impl : ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) ) ;
     public final void rule__CreateMethodExclude__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3889:1: ( ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) ) )
-            // InternalRestControllerGeneration.g:3890:1: ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) )
+            // InternalRestControllerGeneration.g:3808:1: ( ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) ) )
+            // InternalRestControllerGeneration.g:3809:1: ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) )
             {
-            // InternalRestControllerGeneration.g:3890:1: ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) )
-            // InternalRestControllerGeneration.g:3891:2: ( rule__CreateMethodExclude__AttributesAssignment_2_1 )
+            // InternalRestControllerGeneration.g:3809:1: ( ( rule__CreateMethodExclude__AttributesAssignment_2_1 ) )
+            // InternalRestControllerGeneration.g:3810:2: ( rule__CreateMethodExclude__AttributesAssignment_2_1 )
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getAttributesAssignment_2_1()); 
-            // InternalRestControllerGeneration.g:3892:2: ( rule__CreateMethodExclude__AttributesAssignment_2_1 )
-            // InternalRestControllerGeneration.g:3892:3: rule__CreateMethodExclude__AttributesAssignment_2_1
+            // InternalRestControllerGeneration.g:3811:2: ( rule__CreateMethodExclude__AttributesAssignment_2_1 )
+            // InternalRestControllerGeneration.g:3811:3: rule__CreateMethodExclude__AttributesAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__CreateMethodExclude__AttributesAssignment_2_1();
@@ -11978,14 +11727,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__GetMethod__Group__0"
-    // InternalRestControllerGeneration.g:3901:1: rule__GetMethod__Group__0 : rule__GetMethod__Group__0__Impl rule__GetMethod__Group__1 ;
+    // InternalRestControllerGeneration.g:3820:1: rule__GetMethod__Group__0 : rule__GetMethod__Group__0__Impl rule__GetMethod__Group__1 ;
     public final void rule__GetMethod__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3905:1: ( rule__GetMethod__Group__0__Impl rule__GetMethod__Group__1 )
-            // InternalRestControllerGeneration.g:3906:2: rule__GetMethod__Group__0__Impl rule__GetMethod__Group__1
+            // InternalRestControllerGeneration.g:3824:1: ( rule__GetMethod__Group__0__Impl rule__GetMethod__Group__1 )
+            // InternalRestControllerGeneration.g:3825:2: rule__GetMethod__Group__0__Impl rule__GetMethod__Group__1
             {
             pushFollow(FOLLOW_39);
             rule__GetMethod__Group__0__Impl();
@@ -12016,17 +11765,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__GetMethod__Group__0__Impl"
-    // InternalRestControllerGeneration.g:3913:1: rule__GetMethod__Group__0__Impl : ( 'GET' ) ;
+    // InternalRestControllerGeneration.g:3832:1: rule__GetMethod__Group__0__Impl : ( 'GET' ) ;
     public final void rule__GetMethod__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3917:1: ( ( 'GET' ) )
-            // InternalRestControllerGeneration.g:3918:1: ( 'GET' )
+            // InternalRestControllerGeneration.g:3836:1: ( ( 'GET' ) )
+            // InternalRestControllerGeneration.g:3837:1: ( 'GET' )
             {
-            // InternalRestControllerGeneration.g:3918:1: ( 'GET' )
-            // InternalRestControllerGeneration.g:3919:2: 'GET'
+            // InternalRestControllerGeneration.g:3837:1: ( 'GET' )
+            // InternalRestControllerGeneration.g:3838:2: 'GET'
             {
              before(grammarAccess.getGetMethodAccess().getGETKeyword_0()); 
             match(input,44,FOLLOW_2); 
@@ -12053,14 +11802,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__GetMethod__Group__1"
-    // InternalRestControllerGeneration.g:3928:1: rule__GetMethod__Group__1 : rule__GetMethod__Group__1__Impl rule__GetMethod__Group__2 ;
+    // InternalRestControllerGeneration.g:3847:1: rule__GetMethod__Group__1 : rule__GetMethod__Group__1__Impl rule__GetMethod__Group__2 ;
     public final void rule__GetMethod__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3932:1: ( rule__GetMethod__Group__1__Impl rule__GetMethod__Group__2 )
-            // InternalRestControllerGeneration.g:3933:2: rule__GetMethod__Group__1__Impl rule__GetMethod__Group__2
+            // InternalRestControllerGeneration.g:3851:1: ( rule__GetMethod__Group__1__Impl rule__GetMethod__Group__2 )
+            // InternalRestControllerGeneration.g:3852:2: rule__GetMethod__Group__1__Impl rule__GetMethod__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__GetMethod__Group__1__Impl();
@@ -12091,17 +11840,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__GetMethod__Group__1__Impl"
-    // InternalRestControllerGeneration.g:3940:1: rule__GetMethod__Group__1__Impl : ( 'on' ) ;
+    // InternalRestControllerGeneration.g:3859:1: rule__GetMethod__Group__1__Impl : ( 'on' ) ;
     public final void rule__GetMethod__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3944:1: ( ( 'on' ) )
-            // InternalRestControllerGeneration.g:3945:1: ( 'on' )
+            // InternalRestControllerGeneration.g:3863:1: ( ( 'on' ) )
+            // InternalRestControllerGeneration.g:3864:1: ( 'on' )
             {
-            // InternalRestControllerGeneration.g:3945:1: ( 'on' )
-            // InternalRestControllerGeneration.g:3946:2: 'on'
+            // InternalRestControllerGeneration.g:3864:1: ( 'on' )
+            // InternalRestControllerGeneration.g:3865:2: 'on'
             {
              before(grammarAccess.getGetMethodAccess().getOnKeyword_1()); 
             match(input,45,FOLLOW_2); 
@@ -12128,14 +11877,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__GetMethod__Group__2"
-    // InternalRestControllerGeneration.g:3955:1: rule__GetMethod__Group__2 : rule__GetMethod__Group__2__Impl ;
+    // InternalRestControllerGeneration.g:3874:1: rule__GetMethod__Group__2 : rule__GetMethod__Group__2__Impl ;
     public final void rule__GetMethod__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3959:1: ( rule__GetMethod__Group__2__Impl )
-            // InternalRestControllerGeneration.g:3960:2: rule__GetMethod__Group__2__Impl
+            // InternalRestControllerGeneration.g:3878:1: ( rule__GetMethod__Group__2__Impl )
+            // InternalRestControllerGeneration.g:3879:2: rule__GetMethod__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__GetMethod__Group__2__Impl();
@@ -12161,21 +11910,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__GetMethod__Group__2__Impl"
-    // InternalRestControllerGeneration.g:3966:1: rule__GetMethod__Group__2__Impl : ( ( rule__GetMethod__EntityIdAssignment_2 ) ) ;
+    // InternalRestControllerGeneration.g:3885:1: rule__GetMethod__Group__2__Impl : ( ( rule__GetMethod__EntityIdAssignment_2 ) ) ;
     public final void rule__GetMethod__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3970:1: ( ( ( rule__GetMethod__EntityIdAssignment_2 ) ) )
-            // InternalRestControllerGeneration.g:3971:1: ( ( rule__GetMethod__EntityIdAssignment_2 ) )
+            // InternalRestControllerGeneration.g:3889:1: ( ( ( rule__GetMethod__EntityIdAssignment_2 ) ) )
+            // InternalRestControllerGeneration.g:3890:1: ( ( rule__GetMethod__EntityIdAssignment_2 ) )
             {
-            // InternalRestControllerGeneration.g:3971:1: ( ( rule__GetMethod__EntityIdAssignment_2 ) )
-            // InternalRestControllerGeneration.g:3972:2: ( rule__GetMethod__EntityIdAssignment_2 )
+            // InternalRestControllerGeneration.g:3890:1: ( ( rule__GetMethod__EntityIdAssignment_2 ) )
+            // InternalRestControllerGeneration.g:3891:2: ( rule__GetMethod__EntityIdAssignment_2 )
             {
              before(grammarAccess.getGetMethodAccess().getEntityIdAssignment_2()); 
-            // InternalRestControllerGeneration.g:3973:2: ( rule__GetMethod__EntityIdAssignment_2 )
-            // InternalRestControllerGeneration.g:3973:3: rule__GetMethod__EntityIdAssignment_2
+            // InternalRestControllerGeneration.g:3892:2: ( rule__GetMethod__EntityIdAssignment_2 )
+            // InternalRestControllerGeneration.g:3892:3: rule__GetMethod__EntityIdAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__GetMethod__EntityIdAssignment_2();
@@ -12208,14 +11957,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ListMethod__Group__0"
-    // InternalRestControllerGeneration.g:3982:1: rule__ListMethod__Group__0 : rule__ListMethod__Group__0__Impl rule__ListMethod__Group__1 ;
+    // InternalRestControllerGeneration.g:3901:1: rule__ListMethod__Group__0 : rule__ListMethod__Group__0__Impl rule__ListMethod__Group__1 ;
     public final void rule__ListMethod__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3986:1: ( rule__ListMethod__Group__0__Impl rule__ListMethod__Group__1 )
-            // InternalRestControllerGeneration.g:3987:2: rule__ListMethod__Group__0__Impl rule__ListMethod__Group__1
+            // InternalRestControllerGeneration.g:3905:1: ( rule__ListMethod__Group__0__Impl rule__ListMethod__Group__1 )
+            // InternalRestControllerGeneration.g:3906:2: rule__ListMethod__Group__0__Impl rule__ListMethod__Group__1
             {
             pushFollow(FOLLOW_40);
             rule__ListMethod__Group__0__Impl();
@@ -12246,21 +11995,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ListMethod__Group__0__Impl"
-    // InternalRestControllerGeneration.g:3994:1: rule__ListMethod__Group__0__Impl : ( () ) ;
+    // InternalRestControllerGeneration.g:3913:1: rule__ListMethod__Group__0__Impl : ( () ) ;
     public final void rule__ListMethod__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:3998:1: ( ( () ) )
-            // InternalRestControllerGeneration.g:3999:1: ( () )
+            // InternalRestControllerGeneration.g:3917:1: ( ( () ) )
+            // InternalRestControllerGeneration.g:3918:1: ( () )
             {
-            // InternalRestControllerGeneration.g:3999:1: ( () )
-            // InternalRestControllerGeneration.g:4000:2: ()
+            // InternalRestControllerGeneration.g:3918:1: ( () )
+            // InternalRestControllerGeneration.g:3919:2: ()
             {
              before(grammarAccess.getListMethodAccess().getListMethodAction_0()); 
-            // InternalRestControllerGeneration.g:4001:2: ()
-            // InternalRestControllerGeneration.g:4001:3: 
+            // InternalRestControllerGeneration.g:3920:2: ()
+            // InternalRestControllerGeneration.g:3920:3: 
             {
             }
 
@@ -12283,14 +12032,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ListMethod__Group__1"
-    // InternalRestControllerGeneration.g:4009:1: rule__ListMethod__Group__1 : rule__ListMethod__Group__1__Impl ;
+    // InternalRestControllerGeneration.g:3928:1: rule__ListMethod__Group__1 : rule__ListMethod__Group__1__Impl ;
     public final void rule__ListMethod__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4013:1: ( rule__ListMethod__Group__1__Impl )
-            // InternalRestControllerGeneration.g:4014:2: rule__ListMethod__Group__1__Impl
+            // InternalRestControllerGeneration.g:3932:1: ( rule__ListMethod__Group__1__Impl )
+            // InternalRestControllerGeneration.g:3933:2: rule__ListMethod__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ListMethod__Group__1__Impl();
@@ -12316,17 +12065,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ListMethod__Group__1__Impl"
-    // InternalRestControllerGeneration.g:4020:1: rule__ListMethod__Group__1__Impl : ( 'LIST' ) ;
+    // InternalRestControllerGeneration.g:3939:1: rule__ListMethod__Group__1__Impl : ( 'LIST' ) ;
     public final void rule__ListMethod__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4024:1: ( ( 'LIST' ) )
-            // InternalRestControllerGeneration.g:4025:1: ( 'LIST' )
+            // InternalRestControllerGeneration.g:3943:1: ( ( 'LIST' ) )
+            // InternalRestControllerGeneration.g:3944:1: ( 'LIST' )
             {
-            // InternalRestControllerGeneration.g:4025:1: ( 'LIST' )
-            // InternalRestControllerGeneration.g:4026:2: 'LIST'
+            // InternalRestControllerGeneration.g:3944:1: ( 'LIST' )
+            // InternalRestControllerGeneration.g:3945:2: 'LIST'
             {
              before(grammarAccess.getListMethodAccess().getLISTKeyword_1()); 
             match(input,46,FOLLOW_2); 
@@ -12353,14 +12102,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__0"
-    // InternalRestControllerGeneration.g:4036:1: rule__UpdateMethod__Group__0 : rule__UpdateMethod__Group__0__Impl rule__UpdateMethod__Group__1 ;
+    // InternalRestControllerGeneration.g:3955:1: rule__UpdateMethod__Group__0 : rule__UpdateMethod__Group__0__Impl rule__UpdateMethod__Group__1 ;
     public final void rule__UpdateMethod__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4040:1: ( rule__UpdateMethod__Group__0__Impl rule__UpdateMethod__Group__1 )
-            // InternalRestControllerGeneration.g:4041:2: rule__UpdateMethod__Group__0__Impl rule__UpdateMethod__Group__1
+            // InternalRestControllerGeneration.g:3959:1: ( rule__UpdateMethod__Group__0__Impl rule__UpdateMethod__Group__1 )
+            // InternalRestControllerGeneration.g:3960:2: rule__UpdateMethod__Group__0__Impl rule__UpdateMethod__Group__1
             {
             pushFollow(FOLLOW_39);
             rule__UpdateMethod__Group__0__Impl();
@@ -12391,17 +12140,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__0__Impl"
-    // InternalRestControllerGeneration.g:4048:1: rule__UpdateMethod__Group__0__Impl : ( 'UPDATE' ) ;
+    // InternalRestControllerGeneration.g:3967:1: rule__UpdateMethod__Group__0__Impl : ( 'UPDATE' ) ;
     public final void rule__UpdateMethod__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4052:1: ( ( 'UPDATE' ) )
-            // InternalRestControllerGeneration.g:4053:1: ( 'UPDATE' )
+            // InternalRestControllerGeneration.g:3971:1: ( ( 'UPDATE' ) )
+            // InternalRestControllerGeneration.g:3972:1: ( 'UPDATE' )
             {
-            // InternalRestControllerGeneration.g:4053:1: ( 'UPDATE' )
-            // InternalRestControllerGeneration.g:4054:2: 'UPDATE'
+            // InternalRestControllerGeneration.g:3972:1: ( 'UPDATE' )
+            // InternalRestControllerGeneration.g:3973:2: 'UPDATE'
             {
              before(grammarAccess.getUpdateMethodAccess().getUPDATEKeyword_0()); 
             match(input,47,FOLLOW_2); 
@@ -12428,14 +12177,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__1"
-    // InternalRestControllerGeneration.g:4063:1: rule__UpdateMethod__Group__1 : rule__UpdateMethod__Group__1__Impl rule__UpdateMethod__Group__2 ;
+    // InternalRestControllerGeneration.g:3982:1: rule__UpdateMethod__Group__1 : rule__UpdateMethod__Group__1__Impl rule__UpdateMethod__Group__2 ;
     public final void rule__UpdateMethod__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4067:1: ( rule__UpdateMethod__Group__1__Impl rule__UpdateMethod__Group__2 )
-            // InternalRestControllerGeneration.g:4068:2: rule__UpdateMethod__Group__1__Impl rule__UpdateMethod__Group__2
+            // InternalRestControllerGeneration.g:3986:1: ( rule__UpdateMethod__Group__1__Impl rule__UpdateMethod__Group__2 )
+            // InternalRestControllerGeneration.g:3987:2: rule__UpdateMethod__Group__1__Impl rule__UpdateMethod__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__UpdateMethod__Group__1__Impl();
@@ -12466,17 +12215,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__1__Impl"
-    // InternalRestControllerGeneration.g:4075:1: rule__UpdateMethod__Group__1__Impl : ( 'on' ) ;
+    // InternalRestControllerGeneration.g:3994:1: rule__UpdateMethod__Group__1__Impl : ( 'on' ) ;
     public final void rule__UpdateMethod__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4079:1: ( ( 'on' ) )
-            // InternalRestControllerGeneration.g:4080:1: ( 'on' )
+            // InternalRestControllerGeneration.g:3998:1: ( ( 'on' ) )
+            // InternalRestControllerGeneration.g:3999:1: ( 'on' )
             {
-            // InternalRestControllerGeneration.g:4080:1: ( 'on' )
-            // InternalRestControllerGeneration.g:4081:2: 'on'
+            // InternalRestControllerGeneration.g:3999:1: ( 'on' )
+            // InternalRestControllerGeneration.g:4000:2: 'on'
             {
              before(grammarAccess.getUpdateMethodAccess().getOnKeyword_1()); 
             match(input,45,FOLLOW_2); 
@@ -12503,14 +12252,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__2"
-    // InternalRestControllerGeneration.g:4090:1: rule__UpdateMethod__Group__2 : rule__UpdateMethod__Group__2__Impl rule__UpdateMethod__Group__3 ;
+    // InternalRestControllerGeneration.g:4009:1: rule__UpdateMethod__Group__2 : rule__UpdateMethod__Group__2__Impl rule__UpdateMethod__Group__3 ;
     public final void rule__UpdateMethod__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4094:1: ( rule__UpdateMethod__Group__2__Impl rule__UpdateMethod__Group__3 )
-            // InternalRestControllerGeneration.g:4095:2: rule__UpdateMethod__Group__2__Impl rule__UpdateMethod__Group__3
+            // InternalRestControllerGeneration.g:4013:1: ( rule__UpdateMethod__Group__2__Impl rule__UpdateMethod__Group__3 )
+            // InternalRestControllerGeneration.g:4014:2: rule__UpdateMethod__Group__2__Impl rule__UpdateMethod__Group__3
             {
             pushFollow(FOLLOW_41);
             rule__UpdateMethod__Group__2__Impl();
@@ -12541,21 +12290,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__2__Impl"
-    // InternalRestControllerGeneration.g:4102:1: rule__UpdateMethod__Group__2__Impl : ( ( rule__UpdateMethod__EntityIdAssignment_2 ) ) ;
+    // InternalRestControllerGeneration.g:4021:1: rule__UpdateMethod__Group__2__Impl : ( ( rule__UpdateMethod__EntityIdAssignment_2 ) ) ;
     public final void rule__UpdateMethod__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4106:1: ( ( ( rule__UpdateMethod__EntityIdAssignment_2 ) ) )
-            // InternalRestControllerGeneration.g:4107:1: ( ( rule__UpdateMethod__EntityIdAssignment_2 ) )
+            // InternalRestControllerGeneration.g:4025:1: ( ( ( rule__UpdateMethod__EntityIdAssignment_2 ) ) )
+            // InternalRestControllerGeneration.g:4026:1: ( ( rule__UpdateMethod__EntityIdAssignment_2 ) )
             {
-            // InternalRestControllerGeneration.g:4107:1: ( ( rule__UpdateMethod__EntityIdAssignment_2 ) )
-            // InternalRestControllerGeneration.g:4108:2: ( rule__UpdateMethod__EntityIdAssignment_2 )
+            // InternalRestControllerGeneration.g:4026:1: ( ( rule__UpdateMethod__EntityIdAssignment_2 ) )
+            // InternalRestControllerGeneration.g:4027:2: ( rule__UpdateMethod__EntityIdAssignment_2 )
             {
              before(grammarAccess.getUpdateMethodAccess().getEntityIdAssignment_2()); 
-            // InternalRestControllerGeneration.g:4109:2: ( rule__UpdateMethod__EntityIdAssignment_2 )
-            // InternalRestControllerGeneration.g:4109:3: rule__UpdateMethod__EntityIdAssignment_2
+            // InternalRestControllerGeneration.g:4028:2: ( rule__UpdateMethod__EntityIdAssignment_2 )
+            // InternalRestControllerGeneration.g:4028:3: rule__UpdateMethod__EntityIdAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__UpdateMethod__EntityIdAssignment_2();
@@ -12588,14 +12337,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__3"
-    // InternalRestControllerGeneration.g:4117:1: rule__UpdateMethod__Group__3 : rule__UpdateMethod__Group__3__Impl rule__UpdateMethod__Group__4 ;
+    // InternalRestControllerGeneration.g:4036:1: rule__UpdateMethod__Group__3 : rule__UpdateMethod__Group__3__Impl rule__UpdateMethod__Group__4 ;
     public final void rule__UpdateMethod__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4121:1: ( rule__UpdateMethod__Group__3__Impl rule__UpdateMethod__Group__4 )
-            // InternalRestControllerGeneration.g:4122:2: rule__UpdateMethod__Group__3__Impl rule__UpdateMethod__Group__4
+            // InternalRestControllerGeneration.g:4040:1: ( rule__UpdateMethod__Group__3__Impl rule__UpdateMethod__Group__4 )
+            // InternalRestControllerGeneration.g:4041:2: rule__UpdateMethod__Group__3__Impl rule__UpdateMethod__Group__4
             {
             pushFollow(FOLLOW_3);
             rule__UpdateMethod__Group__3__Impl();
@@ -12626,17 +12375,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__3__Impl"
-    // InternalRestControllerGeneration.g:4129:1: rule__UpdateMethod__Group__3__Impl : ( 'with' ) ;
+    // InternalRestControllerGeneration.g:4048:1: rule__UpdateMethod__Group__3__Impl : ( 'with' ) ;
     public final void rule__UpdateMethod__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4133:1: ( ( 'with' ) )
-            // InternalRestControllerGeneration.g:4134:1: ( 'with' )
+            // InternalRestControllerGeneration.g:4052:1: ( ( 'with' ) )
+            // InternalRestControllerGeneration.g:4053:1: ( 'with' )
             {
-            // InternalRestControllerGeneration.g:4134:1: ( 'with' )
-            // InternalRestControllerGeneration.g:4135:2: 'with'
+            // InternalRestControllerGeneration.g:4053:1: ( 'with' )
+            // InternalRestControllerGeneration.g:4054:2: 'with'
             {
              before(grammarAccess.getUpdateMethodAccess().getWithKeyword_3()); 
             match(input,41,FOLLOW_2); 
@@ -12663,14 +12412,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__4"
-    // InternalRestControllerGeneration.g:4144:1: rule__UpdateMethod__Group__4 : rule__UpdateMethod__Group__4__Impl rule__UpdateMethod__Group__5 ;
+    // InternalRestControllerGeneration.g:4063:1: rule__UpdateMethod__Group__4 : rule__UpdateMethod__Group__4__Impl rule__UpdateMethod__Group__5 ;
     public final void rule__UpdateMethod__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4148:1: ( rule__UpdateMethod__Group__4__Impl rule__UpdateMethod__Group__5 )
-            // InternalRestControllerGeneration.g:4149:2: rule__UpdateMethod__Group__4__Impl rule__UpdateMethod__Group__5
+            // InternalRestControllerGeneration.g:4067:1: ( rule__UpdateMethod__Group__4__Impl rule__UpdateMethod__Group__5 )
+            // InternalRestControllerGeneration.g:4068:2: rule__UpdateMethod__Group__4__Impl rule__UpdateMethod__Group__5
             {
             pushFollow(FOLLOW_37);
             rule__UpdateMethod__Group__4__Impl();
@@ -12701,21 +12450,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__4__Impl"
-    // InternalRestControllerGeneration.g:4156:1: rule__UpdateMethod__Group__4__Impl : ( ( rule__UpdateMethod__AttributesAssignment_4 ) ) ;
+    // InternalRestControllerGeneration.g:4075:1: rule__UpdateMethod__Group__4__Impl : ( ( rule__UpdateMethod__AttributesAssignment_4 ) ) ;
     public final void rule__UpdateMethod__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4160:1: ( ( ( rule__UpdateMethod__AttributesAssignment_4 ) ) )
-            // InternalRestControllerGeneration.g:4161:1: ( ( rule__UpdateMethod__AttributesAssignment_4 ) )
+            // InternalRestControllerGeneration.g:4079:1: ( ( ( rule__UpdateMethod__AttributesAssignment_4 ) ) )
+            // InternalRestControllerGeneration.g:4080:1: ( ( rule__UpdateMethod__AttributesAssignment_4 ) )
             {
-            // InternalRestControllerGeneration.g:4161:1: ( ( rule__UpdateMethod__AttributesAssignment_4 ) )
-            // InternalRestControllerGeneration.g:4162:2: ( rule__UpdateMethod__AttributesAssignment_4 )
+            // InternalRestControllerGeneration.g:4080:1: ( ( rule__UpdateMethod__AttributesAssignment_4 ) )
+            // InternalRestControllerGeneration.g:4081:2: ( rule__UpdateMethod__AttributesAssignment_4 )
             {
              before(grammarAccess.getUpdateMethodAccess().getAttributesAssignment_4()); 
-            // InternalRestControllerGeneration.g:4163:2: ( rule__UpdateMethod__AttributesAssignment_4 )
-            // InternalRestControllerGeneration.g:4163:3: rule__UpdateMethod__AttributesAssignment_4
+            // InternalRestControllerGeneration.g:4082:2: ( rule__UpdateMethod__AttributesAssignment_4 )
+            // InternalRestControllerGeneration.g:4082:3: rule__UpdateMethod__AttributesAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__UpdateMethod__AttributesAssignment_4();
@@ -12748,14 +12497,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__5"
-    // InternalRestControllerGeneration.g:4171:1: rule__UpdateMethod__Group__5 : rule__UpdateMethod__Group__5__Impl ;
+    // InternalRestControllerGeneration.g:4090:1: rule__UpdateMethod__Group__5 : rule__UpdateMethod__Group__5__Impl ;
     public final void rule__UpdateMethod__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4175:1: ( rule__UpdateMethod__Group__5__Impl )
-            // InternalRestControllerGeneration.g:4176:2: rule__UpdateMethod__Group__5__Impl
+            // InternalRestControllerGeneration.g:4094:1: ( rule__UpdateMethod__Group__5__Impl )
+            // InternalRestControllerGeneration.g:4095:2: rule__UpdateMethod__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__UpdateMethod__Group__5__Impl();
@@ -12781,33 +12530,33 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group__5__Impl"
-    // InternalRestControllerGeneration.g:4182:1: rule__UpdateMethod__Group__5__Impl : ( ( rule__UpdateMethod__Group_5__0 )* ) ;
+    // InternalRestControllerGeneration.g:4101:1: rule__UpdateMethod__Group__5__Impl : ( ( rule__UpdateMethod__Group_5__0 )* ) ;
     public final void rule__UpdateMethod__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4186:1: ( ( ( rule__UpdateMethod__Group_5__0 )* ) )
-            // InternalRestControllerGeneration.g:4187:1: ( ( rule__UpdateMethod__Group_5__0 )* )
+            // InternalRestControllerGeneration.g:4105:1: ( ( ( rule__UpdateMethod__Group_5__0 )* ) )
+            // InternalRestControllerGeneration.g:4106:1: ( ( rule__UpdateMethod__Group_5__0 )* )
             {
-            // InternalRestControllerGeneration.g:4187:1: ( ( rule__UpdateMethod__Group_5__0 )* )
-            // InternalRestControllerGeneration.g:4188:2: ( rule__UpdateMethod__Group_5__0 )*
+            // InternalRestControllerGeneration.g:4106:1: ( ( rule__UpdateMethod__Group_5__0 )* )
+            // InternalRestControllerGeneration.g:4107:2: ( rule__UpdateMethod__Group_5__0 )*
             {
              before(grammarAccess.getUpdateMethodAccess().getGroup_5()); 
-            // InternalRestControllerGeneration.g:4189:2: ( rule__UpdateMethod__Group_5__0 )*
-            loop25:
+            // InternalRestControllerGeneration.g:4108:2: ( rule__UpdateMethod__Group_5__0 )*
+            loop24:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA25_0==43) ) {
-                    alt25=1;
+                if ( (LA24_0==43) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt24) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:4189:3: rule__UpdateMethod__Group_5__0
+            	    // InternalRestControllerGeneration.g:4108:3: rule__UpdateMethod__Group_5__0
             	    {
             	    pushFollow(FOLLOW_38);
             	    rule__UpdateMethod__Group_5__0();
@@ -12819,7 +12568,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop24;
                 }
             } while (true);
 
@@ -12846,14 +12595,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group_5__0"
-    // InternalRestControllerGeneration.g:4198:1: rule__UpdateMethod__Group_5__0 : rule__UpdateMethod__Group_5__0__Impl rule__UpdateMethod__Group_5__1 ;
+    // InternalRestControllerGeneration.g:4117:1: rule__UpdateMethod__Group_5__0 : rule__UpdateMethod__Group_5__0__Impl rule__UpdateMethod__Group_5__1 ;
     public final void rule__UpdateMethod__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4202:1: ( rule__UpdateMethod__Group_5__0__Impl rule__UpdateMethod__Group_5__1 )
-            // InternalRestControllerGeneration.g:4203:2: rule__UpdateMethod__Group_5__0__Impl rule__UpdateMethod__Group_5__1
+            // InternalRestControllerGeneration.g:4121:1: ( rule__UpdateMethod__Group_5__0__Impl rule__UpdateMethod__Group_5__1 )
+            // InternalRestControllerGeneration.g:4122:2: rule__UpdateMethod__Group_5__0__Impl rule__UpdateMethod__Group_5__1
             {
             pushFollow(FOLLOW_3);
             rule__UpdateMethod__Group_5__0__Impl();
@@ -12884,17 +12633,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group_5__0__Impl"
-    // InternalRestControllerGeneration.g:4210:1: rule__UpdateMethod__Group_5__0__Impl : ( ',' ) ;
+    // InternalRestControllerGeneration.g:4129:1: rule__UpdateMethod__Group_5__0__Impl : ( ',' ) ;
     public final void rule__UpdateMethod__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4214:1: ( ( ',' ) )
-            // InternalRestControllerGeneration.g:4215:1: ( ',' )
+            // InternalRestControllerGeneration.g:4133:1: ( ( ',' ) )
+            // InternalRestControllerGeneration.g:4134:1: ( ',' )
             {
-            // InternalRestControllerGeneration.g:4215:1: ( ',' )
-            // InternalRestControllerGeneration.g:4216:2: ','
+            // InternalRestControllerGeneration.g:4134:1: ( ',' )
+            // InternalRestControllerGeneration.g:4135:2: ','
             {
              before(grammarAccess.getUpdateMethodAccess().getCommaKeyword_5_0()); 
             match(input,43,FOLLOW_2); 
@@ -12921,14 +12670,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group_5__1"
-    // InternalRestControllerGeneration.g:4225:1: rule__UpdateMethod__Group_5__1 : rule__UpdateMethod__Group_5__1__Impl ;
+    // InternalRestControllerGeneration.g:4144:1: rule__UpdateMethod__Group_5__1 : rule__UpdateMethod__Group_5__1__Impl ;
     public final void rule__UpdateMethod__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4229:1: ( rule__UpdateMethod__Group_5__1__Impl )
-            // InternalRestControllerGeneration.g:4230:2: rule__UpdateMethod__Group_5__1__Impl
+            // InternalRestControllerGeneration.g:4148:1: ( rule__UpdateMethod__Group_5__1__Impl )
+            // InternalRestControllerGeneration.g:4149:2: rule__UpdateMethod__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__UpdateMethod__Group_5__1__Impl();
@@ -12954,21 +12703,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__Group_5__1__Impl"
-    // InternalRestControllerGeneration.g:4236:1: rule__UpdateMethod__Group_5__1__Impl : ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) ) ;
+    // InternalRestControllerGeneration.g:4155:1: rule__UpdateMethod__Group_5__1__Impl : ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) ) ;
     public final void rule__UpdateMethod__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4240:1: ( ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) ) )
-            // InternalRestControllerGeneration.g:4241:1: ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) )
+            // InternalRestControllerGeneration.g:4159:1: ( ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) ) )
+            // InternalRestControllerGeneration.g:4160:1: ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) )
             {
-            // InternalRestControllerGeneration.g:4241:1: ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) )
-            // InternalRestControllerGeneration.g:4242:2: ( rule__UpdateMethod__AttributesAssignment_5_1 )
+            // InternalRestControllerGeneration.g:4160:1: ( ( rule__UpdateMethod__AttributesAssignment_5_1 ) )
+            // InternalRestControllerGeneration.g:4161:2: ( rule__UpdateMethod__AttributesAssignment_5_1 )
             {
              before(grammarAccess.getUpdateMethodAccess().getAttributesAssignment_5_1()); 
-            // InternalRestControllerGeneration.g:4243:2: ( rule__UpdateMethod__AttributesAssignment_5_1 )
-            // InternalRestControllerGeneration.g:4243:3: rule__UpdateMethod__AttributesAssignment_5_1
+            // InternalRestControllerGeneration.g:4162:2: ( rule__UpdateMethod__AttributesAssignment_5_1 )
+            // InternalRestControllerGeneration.g:4162:3: rule__UpdateMethod__AttributesAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__UpdateMethod__AttributesAssignment_5_1();
@@ -13001,14 +12750,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__DeleteMethod__Group__0"
-    // InternalRestControllerGeneration.g:4252:1: rule__DeleteMethod__Group__0 : rule__DeleteMethod__Group__0__Impl rule__DeleteMethod__Group__1 ;
+    // InternalRestControllerGeneration.g:4171:1: rule__DeleteMethod__Group__0 : rule__DeleteMethod__Group__0__Impl rule__DeleteMethod__Group__1 ;
     public final void rule__DeleteMethod__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4256:1: ( rule__DeleteMethod__Group__0__Impl rule__DeleteMethod__Group__1 )
-            // InternalRestControllerGeneration.g:4257:2: rule__DeleteMethod__Group__0__Impl rule__DeleteMethod__Group__1
+            // InternalRestControllerGeneration.g:4175:1: ( rule__DeleteMethod__Group__0__Impl rule__DeleteMethod__Group__1 )
+            // InternalRestControllerGeneration.g:4176:2: rule__DeleteMethod__Group__0__Impl rule__DeleteMethod__Group__1
             {
             pushFollow(FOLLOW_39);
             rule__DeleteMethod__Group__0__Impl();
@@ -13039,17 +12788,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__DeleteMethod__Group__0__Impl"
-    // InternalRestControllerGeneration.g:4264:1: rule__DeleteMethod__Group__0__Impl : ( 'DELETE' ) ;
+    // InternalRestControllerGeneration.g:4183:1: rule__DeleteMethod__Group__0__Impl : ( 'DELETE' ) ;
     public final void rule__DeleteMethod__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4268:1: ( ( 'DELETE' ) )
-            // InternalRestControllerGeneration.g:4269:1: ( 'DELETE' )
+            // InternalRestControllerGeneration.g:4187:1: ( ( 'DELETE' ) )
+            // InternalRestControllerGeneration.g:4188:1: ( 'DELETE' )
             {
-            // InternalRestControllerGeneration.g:4269:1: ( 'DELETE' )
-            // InternalRestControllerGeneration.g:4270:2: 'DELETE'
+            // InternalRestControllerGeneration.g:4188:1: ( 'DELETE' )
+            // InternalRestControllerGeneration.g:4189:2: 'DELETE'
             {
              before(grammarAccess.getDeleteMethodAccess().getDELETEKeyword_0()); 
             match(input,48,FOLLOW_2); 
@@ -13076,14 +12825,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__DeleteMethod__Group__1"
-    // InternalRestControllerGeneration.g:4279:1: rule__DeleteMethod__Group__1 : rule__DeleteMethod__Group__1__Impl rule__DeleteMethod__Group__2 ;
+    // InternalRestControllerGeneration.g:4198:1: rule__DeleteMethod__Group__1 : rule__DeleteMethod__Group__1__Impl rule__DeleteMethod__Group__2 ;
     public final void rule__DeleteMethod__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4283:1: ( rule__DeleteMethod__Group__1__Impl rule__DeleteMethod__Group__2 )
-            // InternalRestControllerGeneration.g:4284:2: rule__DeleteMethod__Group__1__Impl rule__DeleteMethod__Group__2
+            // InternalRestControllerGeneration.g:4202:1: ( rule__DeleteMethod__Group__1__Impl rule__DeleteMethod__Group__2 )
+            // InternalRestControllerGeneration.g:4203:2: rule__DeleteMethod__Group__1__Impl rule__DeleteMethod__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__DeleteMethod__Group__1__Impl();
@@ -13114,17 +12863,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__DeleteMethod__Group__1__Impl"
-    // InternalRestControllerGeneration.g:4291:1: rule__DeleteMethod__Group__1__Impl : ( 'on' ) ;
+    // InternalRestControllerGeneration.g:4210:1: rule__DeleteMethod__Group__1__Impl : ( 'on' ) ;
     public final void rule__DeleteMethod__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4295:1: ( ( 'on' ) )
-            // InternalRestControllerGeneration.g:4296:1: ( 'on' )
+            // InternalRestControllerGeneration.g:4214:1: ( ( 'on' ) )
+            // InternalRestControllerGeneration.g:4215:1: ( 'on' )
             {
-            // InternalRestControllerGeneration.g:4296:1: ( 'on' )
-            // InternalRestControllerGeneration.g:4297:2: 'on'
+            // InternalRestControllerGeneration.g:4215:1: ( 'on' )
+            // InternalRestControllerGeneration.g:4216:2: 'on'
             {
              before(grammarAccess.getDeleteMethodAccess().getOnKeyword_1()); 
             match(input,45,FOLLOW_2); 
@@ -13151,14 +12900,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__DeleteMethod__Group__2"
-    // InternalRestControllerGeneration.g:4306:1: rule__DeleteMethod__Group__2 : rule__DeleteMethod__Group__2__Impl ;
+    // InternalRestControllerGeneration.g:4225:1: rule__DeleteMethod__Group__2 : rule__DeleteMethod__Group__2__Impl ;
     public final void rule__DeleteMethod__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4310:1: ( rule__DeleteMethod__Group__2__Impl )
-            // InternalRestControllerGeneration.g:4311:2: rule__DeleteMethod__Group__2__Impl
+            // InternalRestControllerGeneration.g:4229:1: ( rule__DeleteMethod__Group__2__Impl )
+            // InternalRestControllerGeneration.g:4230:2: rule__DeleteMethod__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DeleteMethod__Group__2__Impl();
@@ -13184,21 +12933,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__DeleteMethod__Group__2__Impl"
-    // InternalRestControllerGeneration.g:4317:1: rule__DeleteMethod__Group__2__Impl : ( ( rule__DeleteMethod__EntityIdAssignment_2 ) ) ;
+    // InternalRestControllerGeneration.g:4236:1: rule__DeleteMethod__Group__2__Impl : ( ( rule__DeleteMethod__EntityIdAssignment_2 ) ) ;
     public final void rule__DeleteMethod__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4321:1: ( ( ( rule__DeleteMethod__EntityIdAssignment_2 ) ) )
-            // InternalRestControllerGeneration.g:4322:1: ( ( rule__DeleteMethod__EntityIdAssignment_2 ) )
+            // InternalRestControllerGeneration.g:4240:1: ( ( ( rule__DeleteMethod__EntityIdAssignment_2 ) ) )
+            // InternalRestControllerGeneration.g:4241:1: ( ( rule__DeleteMethod__EntityIdAssignment_2 ) )
             {
-            // InternalRestControllerGeneration.g:4322:1: ( ( rule__DeleteMethod__EntityIdAssignment_2 ) )
-            // InternalRestControllerGeneration.g:4323:2: ( rule__DeleteMethod__EntityIdAssignment_2 )
+            // InternalRestControllerGeneration.g:4241:1: ( ( rule__DeleteMethod__EntityIdAssignment_2 ) )
+            // InternalRestControllerGeneration.g:4242:2: ( rule__DeleteMethod__EntityIdAssignment_2 )
             {
              before(grammarAccess.getDeleteMethodAccess().getEntityIdAssignment_2()); 
-            // InternalRestControllerGeneration.g:4324:2: ( rule__DeleteMethod__EntityIdAssignment_2 )
-            // InternalRestControllerGeneration.g:4324:3: rule__DeleteMethod__EntityIdAssignment_2
+            // InternalRestControllerGeneration.g:4243:2: ( rule__DeleteMethod__EntityIdAssignment_2 )
+            // InternalRestControllerGeneration.g:4243:3: rule__DeleteMethod__EntityIdAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DeleteMethod__EntityIdAssignment_2();
@@ -13231,17 +12980,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__EntityModel__NameAssignment_1"
-    // InternalRestControllerGeneration.g:4333:1: rule__EntityModel__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRestControllerGeneration.g:4252:1: rule__EntityModel__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EntityModel__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4337:1: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4338:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4256:1: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4257:2: ( RULE_ID )
             {
-            // InternalRestControllerGeneration.g:4338:2: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4339:3: RULE_ID
+            // InternalRestControllerGeneration.g:4257:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4258:3: RULE_ID
             {
              before(grammarAccess.getEntityModelAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13268,17 +13017,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__EntityModel__DeclarationsAssignment_2"
-    // InternalRestControllerGeneration.g:4348:1: rule__EntityModel__DeclarationsAssignment_2 : ( ruleDeclaration ) ;
+    // InternalRestControllerGeneration.g:4267:1: rule__EntityModel__DeclarationsAssignment_2 : ( ruleDeclaration ) ;
     public final void rule__EntityModel__DeclarationsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4352:1: ( ( ruleDeclaration ) )
-            // InternalRestControllerGeneration.g:4353:2: ( ruleDeclaration )
+            // InternalRestControllerGeneration.g:4271:1: ( ( ruleDeclaration ) )
+            // InternalRestControllerGeneration.g:4272:2: ( ruleDeclaration )
             {
-            // InternalRestControllerGeneration.g:4353:2: ( ruleDeclaration )
-            // InternalRestControllerGeneration.g:4354:3: ruleDeclaration
+            // InternalRestControllerGeneration.g:4272:2: ( ruleDeclaration )
+            // InternalRestControllerGeneration.g:4273:3: ruleDeclaration
             {
              before(grammarAccess.getEntityModelAccess().getDeclarationsDeclarationParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -13309,17 +13058,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Type__NameAssignment_1"
-    // InternalRestControllerGeneration.g:4363:1: rule__Type__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRestControllerGeneration.g:4282:1: rule__Type__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Type__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4367:1: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4368:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4286:1: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4287:2: ( RULE_ID )
             {
-            // InternalRestControllerGeneration.g:4368:2: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4369:3: RULE_ID
+            // InternalRestControllerGeneration.g:4287:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4288:3: RULE_ID
             {
              before(grammarAccess.getTypeAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13346,17 +13095,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ExternalDef__NameAssignment_1"
-    // InternalRestControllerGeneration.g:4378:1: rule__ExternalDef__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRestControllerGeneration.g:4297:1: rule__ExternalDef__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__ExternalDef__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4382:1: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4383:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4301:1: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4302:2: ( RULE_ID )
             {
-            // InternalRestControllerGeneration.g:4383:2: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4384:3: RULE_ID
+            // InternalRestControllerGeneration.g:4302:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4303:3: RULE_ID
             {
              before(grammarAccess.getExternalDefAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13383,17 +13132,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ExternalDef__TypeAssignment_2"
-    // InternalRestControllerGeneration.g:4393:1: rule__ExternalDef__TypeAssignment_2 : ( ruleAttributeType ) ;
+    // InternalRestControllerGeneration.g:4312:1: rule__ExternalDef__TypeAssignment_2 : ( ruleAttributeType ) ;
     public final void rule__ExternalDef__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4397:1: ( ( ruleAttributeType ) )
-            // InternalRestControllerGeneration.g:4398:2: ( ruleAttributeType )
+            // InternalRestControllerGeneration.g:4316:1: ( ( ruleAttributeType ) )
+            // InternalRestControllerGeneration.g:4317:2: ( ruleAttributeType )
             {
-            // InternalRestControllerGeneration.g:4398:2: ( ruleAttributeType )
-            // InternalRestControllerGeneration.g:4399:3: ruleAttributeType
+            // InternalRestControllerGeneration.g:4317:2: ( ruleAttributeType )
+            // InternalRestControllerGeneration.g:4318:3: ruleAttributeType
             {
              before(grammarAccess.getExternalDefAccess().getTypeAttributeTypeParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -13424,17 +13173,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Entity__NameAssignment_1"
-    // InternalRestControllerGeneration.g:4408:1: rule__Entity__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRestControllerGeneration.g:4327:1: rule__Entity__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Entity__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4412:1: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4413:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4331:1: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4332:2: ( RULE_ID )
             {
-            // InternalRestControllerGeneration.g:4413:2: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4414:3: RULE_ID
+            // InternalRestControllerGeneration.g:4332:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4333:3: RULE_ID
             {
              before(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13461,21 +13210,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Entity__BaseAssignment_2_1"
-    // InternalRestControllerGeneration.g:4423:1: rule__Entity__BaseAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4342:1: rule__Entity__BaseAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__Entity__BaseAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4427:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4428:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4346:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4347:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4428:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4429:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4347:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4348:3: ( RULE_ID )
             {
              before(grammarAccess.getEntityAccess().getBaseEntityCrossReference_2_1_0()); 
-            // InternalRestControllerGeneration.g:4430:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4431:4: RULE_ID
+            // InternalRestControllerGeneration.g:4349:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4350:4: RULE_ID
             {
              before(grammarAccess.getEntityAccess().getBaseEntityIDTerminalRuleCall_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13506,17 +13255,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Entity__DeclarationsAssignment_4"
-    // InternalRestControllerGeneration.g:4442:1: rule__Entity__DeclarationsAssignment_4 : ( ruleEntityDeclaration ) ;
+    // InternalRestControllerGeneration.g:4361:1: rule__Entity__DeclarationsAssignment_4 : ( ruleEntityDeclaration ) ;
     public final void rule__Entity__DeclarationsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4446:1: ( ( ruleEntityDeclaration ) )
-            // InternalRestControllerGeneration.g:4447:2: ( ruleEntityDeclaration )
+            // InternalRestControllerGeneration.g:4365:1: ( ( ruleEntityDeclaration ) )
+            // InternalRestControllerGeneration.g:4366:2: ( ruleEntityDeclaration )
             {
-            // InternalRestControllerGeneration.g:4447:2: ( ruleEntityDeclaration )
-            // InternalRestControllerGeneration.g:4448:3: ruleEntityDeclaration
+            // InternalRestControllerGeneration.g:4366:2: ( ruleEntityDeclaration )
+            // InternalRestControllerGeneration.g:4367:3: ruleEntityDeclaration
             {
              before(grammarAccess.getEntityAccess().getDeclarationsEntityDeclarationParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -13547,17 +13296,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_0"
-    // InternalRestControllerGeneration.g:4457:1: rule__Attribute__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalRestControllerGeneration.g:4376:1: rule__Attribute__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Attribute__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4461:1: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4462:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4380:1: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4381:2: ( RULE_ID )
             {
-            // InternalRestControllerGeneration.g:4462:2: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4463:3: RULE_ID
+            // InternalRestControllerGeneration.g:4381:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4382:3: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13584,17 +13333,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Attribute__TypeAssignment_1"
-    // InternalRestControllerGeneration.g:4472:1: rule__Attribute__TypeAssignment_1 : ( ruleAttributeType ) ;
+    // InternalRestControllerGeneration.g:4391:1: rule__Attribute__TypeAssignment_1 : ( ruleAttributeType ) ;
     public final void rule__Attribute__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4476:1: ( ( ruleAttributeType ) )
-            // InternalRestControllerGeneration.g:4477:2: ( ruleAttributeType )
+            // InternalRestControllerGeneration.g:4395:1: ( ( ruleAttributeType ) )
+            // InternalRestControllerGeneration.g:4396:2: ( ruleAttributeType )
             {
-            // InternalRestControllerGeneration.g:4477:2: ( ruleAttributeType )
-            // InternalRestControllerGeneration.g:4478:3: ruleAttributeType
+            // InternalRestControllerGeneration.g:4396:2: ( ruleAttributeType )
+            // InternalRestControllerGeneration.g:4397:3: ruleAttributeType
             {
              before(grammarAccess.getAttributeAccess().getTypeAttributeTypeParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13625,21 +13374,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Attribute__RequiresAssignment_2_1"
-    // InternalRestControllerGeneration.g:4487:1: rule__Attribute__RequiresAssignment_2_1 : ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) ) ;
+    // InternalRestControllerGeneration.g:4406:1: rule__Attribute__RequiresAssignment_2_1 : ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) ) ;
     public final void rule__Attribute__RequiresAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4491:1: ( ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) ) )
-            // InternalRestControllerGeneration.g:4492:2: ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) )
+            // InternalRestControllerGeneration.g:4410:1: ( ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) ) )
+            // InternalRestControllerGeneration.g:4411:2: ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) )
             {
-            // InternalRestControllerGeneration.g:4492:2: ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) )
-            // InternalRestControllerGeneration.g:4493:3: ( rule__Attribute__RequiresAlternatives_2_1_0 )
+            // InternalRestControllerGeneration.g:4411:2: ( ( rule__Attribute__RequiresAlternatives_2_1_0 ) )
+            // InternalRestControllerGeneration.g:4412:3: ( rule__Attribute__RequiresAlternatives_2_1_0 )
             {
              before(grammarAccess.getAttributeAccess().getRequiresAlternatives_2_1_0()); 
-            // InternalRestControllerGeneration.g:4494:3: ( rule__Attribute__RequiresAlternatives_2_1_0 )
-            // InternalRestControllerGeneration.g:4494:4: rule__Attribute__RequiresAlternatives_2_1_0
+            // InternalRestControllerGeneration.g:4413:3: ( rule__Attribute__RequiresAlternatives_2_1_0 )
+            // InternalRestControllerGeneration.g:4413:4: rule__Attribute__RequiresAlternatives_2_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__RequiresAlternatives_2_1_0();
@@ -13672,21 +13421,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__AttributeType__TypeAssignment_0_2"
-    // InternalRestControllerGeneration.g:4502:1: rule__AttributeType__TypeAssignment_0_2 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4421:1: rule__AttributeType__TypeAssignment_0_2 : ( ( RULE_ID ) ) ;
     public final void rule__AttributeType__TypeAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4506:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4507:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4425:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4426:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4507:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4508:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4426:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4427:3: ( RULE_ID )
             {
              before(grammarAccess.getAttributeTypeAccess().getTypeTypeCrossReference_0_2_0()); 
-            // InternalRestControllerGeneration.g:4509:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4510:4: RULE_ID
+            // InternalRestControllerGeneration.g:4428:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4429:4: RULE_ID
             {
              before(grammarAccess.getAttributeTypeAccess().getTypeTypeIDTerminalRuleCall_0_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13717,21 +13466,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__AttributeType__TypeAssignment_1_2"
-    // InternalRestControllerGeneration.g:4521:1: rule__AttributeType__TypeAssignment_1_2 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4440:1: rule__AttributeType__TypeAssignment_1_2 : ( ( RULE_ID ) ) ;
     public final void rule__AttributeType__TypeAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4525:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4526:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4444:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4445:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4526:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4527:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4445:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4446:3: ( RULE_ID )
             {
              before(grammarAccess.getAttributeTypeAccess().getTypeEntityCrossReference_1_2_0()); 
-            // InternalRestControllerGeneration.g:4528:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4529:4: RULE_ID
+            // InternalRestControllerGeneration.g:4447:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4448:4: RULE_ID
             {
              before(grammarAccess.getAttributeTypeAccess().getTypeEntityIDTerminalRuleCall_1_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13762,21 +13511,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__AttributeType__TypeAssignment_2_2"
-    // InternalRestControllerGeneration.g:4540:1: rule__AttributeType__TypeAssignment_2_2 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4459:1: rule__AttributeType__TypeAssignment_2_2 : ( ( RULE_ID ) ) ;
     public final void rule__AttributeType__TypeAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4544:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4545:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4463:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4464:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4545:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4546:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4464:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4465:3: ( RULE_ID )
             {
              before(grammarAccess.getAttributeTypeAccess().getTypeEntityCrossReference_2_2_0()); 
-            // InternalRestControllerGeneration.g:4547:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4548:4: RULE_ID
+            // InternalRestControllerGeneration.g:4466:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4467:4: RULE_ID
             {
              before(grammarAccess.getAttributeTypeAccess().getTypeEntityIDTerminalRuleCall_2_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13807,17 +13556,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__LogicRequirement__LogicAssignment"
-    // InternalRestControllerGeneration.g:4559:1: rule__LogicRequirement__LogicAssignment : ( ruleLogicExp ) ;
+    // InternalRestControllerGeneration.g:4478:1: rule__LogicRequirement__LogicAssignment : ( ruleLogicExp ) ;
     public final void rule__LogicRequirement__LogicAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4563:1: ( ( ruleLogicExp ) )
-            // InternalRestControllerGeneration.g:4564:2: ( ruleLogicExp )
+            // InternalRestControllerGeneration.g:4482:1: ( ( ruleLogicExp ) )
+            // InternalRestControllerGeneration.g:4483:2: ( ruleLogicExp )
             {
-            // InternalRestControllerGeneration.g:4564:2: ( ruleLogicExp )
-            // InternalRestControllerGeneration.g:4565:3: ruleLogicExp
+            // InternalRestControllerGeneration.g:4483:2: ( ruleLogicExp )
+            // InternalRestControllerGeneration.g:4484:3: ruleLogicExp
             {
              before(grammarAccess.getLogicRequirementAccess().getLogicLogicExpParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -13848,21 +13597,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ExternalUse__ExternalAssignment"
-    // InternalRestControllerGeneration.g:4574:1: rule__ExternalUse__ExternalAssignment : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4493:1: rule__ExternalUse__ExternalAssignment : ( ( RULE_ID ) ) ;
     public final void rule__ExternalUse__ExternalAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4578:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4579:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4497:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4498:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4579:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4580:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4498:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4499:3: ( RULE_ID )
             {
              before(grammarAccess.getExternalUseAccess().getExternalExternalDefCrossReference_0()); 
-            // InternalRestControllerGeneration.g:4581:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4582:4: RULE_ID
+            // InternalRestControllerGeneration.g:4500:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4501:4: RULE_ID
             {
              before(grammarAccess.getExternalUseAccess().getExternalExternalDefIDTerminalRuleCall_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13893,21 +13642,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__AttributeUse__AttributeAssignment"
-    // InternalRestControllerGeneration.g:4593:1: rule__AttributeUse__AttributeAssignment : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4512:1: rule__AttributeUse__AttributeAssignment : ( ( RULE_ID ) ) ;
     public final void rule__AttributeUse__AttributeAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4597:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4598:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4516:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4517:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4598:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4599:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4517:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4518:3: ( RULE_ID )
             {
              before(grammarAccess.getAttributeUseAccess().getAttributeAttributeCrossReference_0()); 
-            // InternalRestControllerGeneration.g:4600:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4601:4: RULE_ID
+            // InternalRestControllerGeneration.g:4519:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4520:4: RULE_ID
             {
              before(grammarAccess.getAttributeUseAccess().getAttributeAttributeIDTerminalRuleCall_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13938,21 +13687,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ExternalUseOfAttribute__ExternalAssignment_0"
-    // InternalRestControllerGeneration.g:4612:1: rule__ExternalUseOfAttribute__ExternalAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4531:1: rule__ExternalUseOfAttribute__ExternalAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__ExternalUseOfAttribute__ExternalAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4616:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4617:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4535:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4536:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4617:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4618:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4536:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4537:3: ( RULE_ID )
             {
              before(grammarAccess.getExternalUseOfAttributeAccess().getExternalExternalDefCrossReference_0_0()); 
-            // InternalRestControllerGeneration.g:4619:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4620:4: RULE_ID
+            // InternalRestControllerGeneration.g:4538:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4539:4: RULE_ID
             {
              before(grammarAccess.getExternalUseOfAttributeAccess().getExternalExternalDefIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13983,21 +13732,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__ExternalUseOfAttribute__AttributeAssignment_2"
-    // InternalRestControllerGeneration.g:4631:1: rule__ExternalUseOfAttribute__AttributeAssignment_2 : ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) ) ;
+    // InternalRestControllerGeneration.g:4550:1: rule__ExternalUseOfAttribute__AttributeAssignment_2 : ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) ) ;
     public final void rule__ExternalUseOfAttribute__AttributeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4635:1: ( ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) ) )
-            // InternalRestControllerGeneration.g:4636:2: ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) )
+            // InternalRestControllerGeneration.g:4554:1: ( ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) ) )
+            // InternalRestControllerGeneration.g:4555:2: ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) )
             {
-            // InternalRestControllerGeneration.g:4636:2: ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) )
-            // InternalRestControllerGeneration.g:4637:3: ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 )
+            // InternalRestControllerGeneration.g:4555:2: ( ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 ) )
+            // InternalRestControllerGeneration.g:4556:3: ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 )
             {
              before(grammarAccess.getExternalUseOfAttributeAccess().getAttributeAlternatives_2_0()); 
-            // InternalRestControllerGeneration.g:4638:3: ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 )
-            // InternalRestControllerGeneration.g:4638:4: rule__ExternalUseOfAttribute__AttributeAlternatives_2_0
+            // InternalRestControllerGeneration.g:4557:3: ( rule__ExternalUseOfAttribute__AttributeAlternatives_2_0 )
+            // InternalRestControllerGeneration.g:4557:4: rule__ExternalUseOfAttribute__AttributeAlternatives_2_0
             {
             pushFollow(FOLLOW_2);
             rule__ExternalUseOfAttribute__AttributeAlternatives_2_0();
@@ -14030,21 +13779,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Requirement__RequirementAssignment_1"
-    // InternalRestControllerGeneration.g:4646:1: rule__Requirement__RequirementAssignment_1 : ( ( rule__Requirement__RequirementAlternatives_1_0 ) ) ;
+    // InternalRestControllerGeneration.g:4565:1: rule__Requirement__RequirementAssignment_1 : ( ( rule__Requirement__RequirementAlternatives_1_0 ) ) ;
     public final void rule__Requirement__RequirementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4650:1: ( ( ( rule__Requirement__RequirementAlternatives_1_0 ) ) )
-            // InternalRestControllerGeneration.g:4651:2: ( ( rule__Requirement__RequirementAlternatives_1_0 ) )
+            // InternalRestControllerGeneration.g:4569:1: ( ( ( rule__Requirement__RequirementAlternatives_1_0 ) ) )
+            // InternalRestControllerGeneration.g:4570:2: ( ( rule__Requirement__RequirementAlternatives_1_0 ) )
             {
-            // InternalRestControllerGeneration.g:4651:2: ( ( rule__Requirement__RequirementAlternatives_1_0 ) )
-            // InternalRestControllerGeneration.g:4652:3: ( rule__Requirement__RequirementAlternatives_1_0 )
+            // InternalRestControllerGeneration.g:4570:2: ( ( rule__Requirement__RequirementAlternatives_1_0 ) )
+            // InternalRestControllerGeneration.g:4571:3: ( rule__Requirement__RequirementAlternatives_1_0 )
             {
              before(grammarAccess.getRequirementAccess().getRequirementAlternatives_1_0()); 
-            // InternalRestControllerGeneration.g:4653:3: ( rule__Requirement__RequirementAlternatives_1_0 )
-            // InternalRestControllerGeneration.g:4653:4: rule__Requirement__RequirementAlternatives_1_0
+            // InternalRestControllerGeneration.g:4572:3: ( rule__Requirement__RequirementAlternatives_1_0 )
+            // InternalRestControllerGeneration.g:4572:4: rule__Requirement__RequirementAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Requirement__RequirementAlternatives_1_0();
@@ -14077,17 +13826,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__LogicExp__RightAssignment_1_2"
-    // InternalRestControllerGeneration.g:4661:1: rule__LogicExp__RightAssignment_1_2 : ( ruleConjunction ) ;
+    // InternalRestControllerGeneration.g:4580:1: rule__LogicExp__RightAssignment_1_2 : ( ruleConjunction ) ;
     public final void rule__LogicExp__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4665:1: ( ( ruleConjunction ) )
-            // InternalRestControllerGeneration.g:4666:2: ( ruleConjunction )
+            // InternalRestControllerGeneration.g:4584:1: ( ( ruleConjunction ) )
+            // InternalRestControllerGeneration.g:4585:2: ( ruleConjunction )
             {
-            // InternalRestControllerGeneration.g:4666:2: ( ruleConjunction )
-            // InternalRestControllerGeneration.g:4667:3: ruleConjunction
+            // InternalRestControllerGeneration.g:4585:2: ( ruleConjunction )
+            // InternalRestControllerGeneration.g:4586:3: ruleConjunction
             {
              before(grammarAccess.getLogicExpAccess().getRightConjunctionParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -14118,17 +13867,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Conjunction__RightAssignment_1_2"
-    // InternalRestControllerGeneration.g:4676:1: rule__Conjunction__RightAssignment_1_2 : ( ruleComparison ) ;
+    // InternalRestControllerGeneration.g:4595:1: rule__Conjunction__RightAssignment_1_2 : ( ruleComparison ) ;
     public final void rule__Conjunction__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4680:1: ( ( ruleComparison ) )
-            // InternalRestControllerGeneration.g:4681:2: ( ruleComparison )
+            // InternalRestControllerGeneration.g:4599:1: ( ( ruleComparison ) )
+            // InternalRestControllerGeneration.g:4600:2: ( ruleComparison )
             {
-            // InternalRestControllerGeneration.g:4681:2: ( ruleComparison )
-            // InternalRestControllerGeneration.g:4682:3: ruleComparison
+            // InternalRestControllerGeneration.g:4600:2: ( ruleComparison )
+            // InternalRestControllerGeneration.g:4601:3: ruleComparison
             {
              before(grammarAccess.getConjunctionAccess().getRightComparisonParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -14159,17 +13908,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Comparison__LeftAssignment_0"
-    // InternalRestControllerGeneration.g:4691:1: rule__Comparison__LeftAssignment_0 : ( ruleExp ) ;
+    // InternalRestControllerGeneration.g:4610:1: rule__Comparison__LeftAssignment_0 : ( ruleExp ) ;
     public final void rule__Comparison__LeftAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4695:1: ( ( ruleExp ) )
-            // InternalRestControllerGeneration.g:4696:2: ( ruleExp )
+            // InternalRestControllerGeneration.g:4614:1: ( ( ruleExp ) )
+            // InternalRestControllerGeneration.g:4615:2: ( ruleExp )
             {
-            // InternalRestControllerGeneration.g:4696:2: ( ruleExp )
-            // InternalRestControllerGeneration.g:4697:3: ruleExp
+            // InternalRestControllerGeneration.g:4615:2: ( ruleExp )
+            // InternalRestControllerGeneration.g:4616:3: ruleExp
             {
              before(grammarAccess.getComparisonAccess().getLeftExpParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -14200,17 +13949,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Comparison__OpAssignment_1"
-    // InternalRestControllerGeneration.g:4706:1: rule__Comparison__OpAssignment_1 : ( ruleRelationalOp ) ;
+    // InternalRestControllerGeneration.g:4625:1: rule__Comparison__OpAssignment_1 : ( ruleRelationalOp ) ;
     public final void rule__Comparison__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4710:1: ( ( ruleRelationalOp ) )
-            // InternalRestControllerGeneration.g:4711:2: ( ruleRelationalOp )
+            // InternalRestControllerGeneration.g:4629:1: ( ( ruleRelationalOp ) )
+            // InternalRestControllerGeneration.g:4630:2: ( ruleRelationalOp )
             {
-            // InternalRestControllerGeneration.g:4711:2: ( ruleRelationalOp )
-            // InternalRestControllerGeneration.g:4712:3: ruleRelationalOp
+            // InternalRestControllerGeneration.g:4630:2: ( ruleRelationalOp )
+            // InternalRestControllerGeneration.g:4631:3: ruleRelationalOp
             {
              before(grammarAccess.getComparisonAccess().getOpRelationalOpParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -14241,17 +13990,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Comparison__RightAssignment_2"
-    // InternalRestControllerGeneration.g:4721:1: rule__Comparison__RightAssignment_2 : ( ruleExp ) ;
+    // InternalRestControllerGeneration.g:4640:1: rule__Comparison__RightAssignment_2 : ( ruleExp ) ;
     public final void rule__Comparison__RightAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4725:1: ( ( ruleExp ) )
-            // InternalRestControllerGeneration.g:4726:2: ( ruleExp )
+            // InternalRestControllerGeneration.g:4644:1: ( ( ruleExp ) )
+            // InternalRestControllerGeneration.g:4645:2: ( ruleExp )
             {
-            // InternalRestControllerGeneration.g:4726:2: ( ruleExp )
-            // InternalRestControllerGeneration.g:4727:3: ruleExp
+            // InternalRestControllerGeneration.g:4645:2: ( ruleExp )
+            // InternalRestControllerGeneration.g:4646:3: ruleExp
             {
              before(grammarAccess.getComparisonAccess().getRightExpParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -14282,17 +14031,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Exp__RightAssignment_1_1"
-    // InternalRestControllerGeneration.g:4736:1: rule__Exp__RightAssignment_1_1 : ( ruleFactor ) ;
+    // InternalRestControllerGeneration.g:4655:1: rule__Exp__RightAssignment_1_1 : ( ruleFactor ) ;
     public final void rule__Exp__RightAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4740:1: ( ( ruleFactor ) )
-            // InternalRestControllerGeneration.g:4741:2: ( ruleFactor )
+            // InternalRestControllerGeneration.g:4659:1: ( ( ruleFactor ) )
+            // InternalRestControllerGeneration.g:4660:2: ( ruleFactor )
             {
-            // InternalRestControllerGeneration.g:4741:2: ( ruleFactor )
-            // InternalRestControllerGeneration.g:4742:3: ruleFactor
+            // InternalRestControllerGeneration.g:4660:2: ( ruleFactor )
+            // InternalRestControllerGeneration.g:4661:3: ruleFactor
             {
              before(grammarAccess.getExpAccess().getRightFactorParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -14323,17 +14072,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Factor__RightAssignment_1_1"
-    // InternalRestControllerGeneration.g:4751:1: rule__Factor__RightAssignment_1_1 : ( rulePrimitive ) ;
+    // InternalRestControllerGeneration.g:4670:1: rule__Factor__RightAssignment_1_1 : ( rulePrimitive ) ;
     public final void rule__Factor__RightAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4755:1: ( ( rulePrimitive ) )
-            // InternalRestControllerGeneration.g:4756:2: ( rulePrimitive )
+            // InternalRestControllerGeneration.g:4674:1: ( ( rulePrimitive ) )
+            // InternalRestControllerGeneration.g:4675:2: ( rulePrimitive )
             {
-            // InternalRestControllerGeneration.g:4756:2: ( rulePrimitive )
-            // InternalRestControllerGeneration.g:4757:3: rulePrimitive
+            // InternalRestControllerGeneration.g:4675:2: ( rulePrimitive )
+            // InternalRestControllerGeneration.g:4676:3: rulePrimitive
             {
              before(grammarAccess.getFactorAccess().getRightPrimitiveParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -14364,21 +14113,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Name__VarNameAssignment"
-    // InternalRestControllerGeneration.g:4766:1: rule__Name__VarNameAssignment : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4685:1: rule__Name__VarNameAssignment : ( ( RULE_ID ) ) ;
     public final void rule__Name__VarNameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4770:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4771:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4689:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4690:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4771:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4772:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4690:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4691:3: ( RULE_ID )
             {
              before(grammarAccess.getNameAccess().getVarNameAttributeCrossReference_0()); 
-            // InternalRestControllerGeneration.g:4773:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4774:4: RULE_ID
+            // InternalRestControllerGeneration.g:4692:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4693:4: RULE_ID
             {
              before(grammarAccess.getNameAccess().getVarNameAttributeIDTerminalRuleCall_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14409,21 +14158,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Reference__ReferenceAssignment_0"
-    // InternalRestControllerGeneration.g:4785:1: rule__Reference__ReferenceAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4704:1: rule__Reference__ReferenceAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Reference__ReferenceAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4789:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4790:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4708:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4709:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4790:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4791:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4709:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4710:3: ( RULE_ID )
             {
              before(grammarAccess.getReferenceAccess().getReferenceAttributeCrossReference_0_0()); 
-            // InternalRestControllerGeneration.g:4792:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4793:4: RULE_ID
+            // InternalRestControllerGeneration.g:4711:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4712:4: RULE_ID
             {
              before(grammarAccess.getReferenceAccess().getReferenceAttributeIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14454,21 +14203,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Reference__AttributeAssignment_2"
-    // InternalRestControllerGeneration.g:4804:1: rule__Reference__AttributeAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4723:1: rule__Reference__AttributeAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__Reference__AttributeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4808:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4809:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4727:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4728:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4809:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4810:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4728:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4729:3: ( RULE_ID )
             {
              before(grammarAccess.getReferenceAccess().getAttributeAttributeCrossReference_2_0()); 
-            // InternalRestControllerGeneration.g:4811:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4812:4: RULE_ID
+            // InternalRestControllerGeneration.g:4730:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4731:4: RULE_ID
             {
              before(grammarAccess.getReferenceAccess().getAttributeAttributeIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14499,17 +14248,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__IntExp__ValueAssignment"
-    // InternalRestControllerGeneration.g:4823:1: rule__IntExp__ValueAssignment : ( RULE_INT ) ;
+    // InternalRestControllerGeneration.g:4742:1: rule__IntExp__ValueAssignment : ( RULE_INT ) ;
     public final void rule__IntExp__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4827:1: ( ( RULE_INT ) )
-            // InternalRestControllerGeneration.g:4828:2: ( RULE_INT )
+            // InternalRestControllerGeneration.g:4746:1: ( ( RULE_INT ) )
+            // InternalRestControllerGeneration.g:4747:2: ( RULE_INT )
             {
-            // InternalRestControllerGeneration.g:4828:2: ( RULE_INT )
-            // InternalRestControllerGeneration.g:4829:3: RULE_INT
+            // InternalRestControllerGeneration.g:4747:2: ( RULE_INT )
+            // InternalRestControllerGeneration.g:4748:3: RULE_INT
             {
              before(grammarAccess.getIntExpAccess().getValueINTTerminalRuleCall_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -14536,17 +14285,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__Controller__NameAssignment_1"
-    // InternalRestControllerGeneration.g:4838:1: rule__Controller__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRestControllerGeneration.g:4757:1: rule__Controller__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Controller__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4842:1: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4843:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4761:1: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4762:2: ( RULE_ID )
             {
-            // InternalRestControllerGeneration.g:4843:2: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4844:3: RULE_ID
+            // InternalRestControllerGeneration.g:4762:2: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4763:3: RULE_ID
             {
              before(grammarAccess.getControllerAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14572,30 +14321,30 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
     // $ANTLR end "rule__Controller__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Controller__SuperAssignment_2_1"
-    // InternalRestControllerGeneration.g:4853:1: rule__Controller__SuperAssignment_2_1 : ( ( RULE_ID ) ) ;
-    public final void rule__Controller__SuperAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Controller__EntityAssignment_3"
+    // InternalRestControllerGeneration.g:4772:1: rule__Controller__EntityAssignment_3 : ( ( RULE_ID ) ) ;
+    public final void rule__Controller__EntityAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4857:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4858:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4776:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4777:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4858:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4859:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4777:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4778:3: ( RULE_ID )
             {
-             before(grammarAccess.getControllerAccess().getSuperControllerCrossReference_2_1_0()); 
-            // InternalRestControllerGeneration.g:4860:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4861:4: RULE_ID
+             before(grammarAccess.getControllerAccess().getEntityEntityCrossReference_3_0()); 
+            // InternalRestControllerGeneration.g:4779:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4780:4: RULE_ID
             {
-             before(grammarAccess.getControllerAccess().getSuperControllerIDTerminalRuleCall_2_1_0_1()); 
+             before(grammarAccess.getControllerAccess().getEntityEntityIDTerminalRuleCall_3_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getControllerAccess().getSuperControllerIDTerminalRuleCall_2_1_0_1()); 
+             after(grammarAccess.getControllerAccess().getEntityEntityIDTerminalRuleCall_3_0_1()); 
 
             }
 
-             after(grammarAccess.getControllerAccess().getSuperControllerCrossReference_2_1_0()); 
+             after(grammarAccess.getControllerAccess().getEntityEntityCrossReference_3_0()); 
 
             }
 
@@ -14614,74 +14363,29 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
         }
         return ;
     }
-    // $ANTLR end "rule__Controller__SuperAssignment_2_1"
+    // $ANTLR end "rule__Controller__EntityAssignment_3"
 
 
-    // $ANTLR start "rule__Controller__EntityAssignment_4"
-    // InternalRestControllerGeneration.g:4872:1: rule__Controller__EntityAssignment_4 : ( ( RULE_ID ) ) ;
-    public final void rule__Controller__EntityAssignment_4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalRestControllerGeneration.g:4876:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4877:2: ( ( RULE_ID ) )
-            {
-            // InternalRestControllerGeneration.g:4877:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4878:3: ( RULE_ID )
-            {
-             before(grammarAccess.getControllerAccess().getEntityEntityCrossReference_4_0()); 
-            // InternalRestControllerGeneration.g:4879:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4880:4: RULE_ID
-            {
-             before(grammarAccess.getControllerAccess().getEntityEntityIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getControllerAccess().getEntityEntityIDTerminalRuleCall_4_0_1()); 
-
-            }
-
-             after(grammarAccess.getControllerAccess().getEntityEntityCrossReference_4_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Controller__EntityAssignment_4"
-
-
-    // $ANTLR start "rule__Controller__MethodsAssignment_6"
-    // InternalRestControllerGeneration.g:4891:1: rule__Controller__MethodsAssignment_6 : ( ruleMethodDef ) ;
-    public final void rule__Controller__MethodsAssignment_6() throws RecognitionException {
+    // $ANTLR start "rule__Controller__MethodsAssignment_5"
+    // InternalRestControllerGeneration.g:4791:1: rule__Controller__MethodsAssignment_5 : ( ruleMethodDef ) ;
+    public final void rule__Controller__MethodsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4895:1: ( ( ruleMethodDef ) )
-            // InternalRestControllerGeneration.g:4896:2: ( ruleMethodDef )
+            // InternalRestControllerGeneration.g:4795:1: ( ( ruleMethodDef ) )
+            // InternalRestControllerGeneration.g:4796:2: ( ruleMethodDef )
             {
-            // InternalRestControllerGeneration.g:4896:2: ( ruleMethodDef )
-            // InternalRestControllerGeneration.g:4897:3: ruleMethodDef
+            // InternalRestControllerGeneration.g:4796:2: ( ruleMethodDef )
+            // InternalRestControllerGeneration.g:4797:3: ruleMethodDef
             {
-             before(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_6_0()); 
+             before(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
             ruleMethodDef();
 
             state._fsp--;
 
-             after(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_6_0()); 
+             after(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_5_0()); 
 
             }
 
@@ -14700,21 +14404,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
         }
         return ;
     }
-    // $ANTLR end "rule__Controller__MethodsAssignment_6"
+    // $ANTLR end "rule__Controller__MethodsAssignment_5"
 
 
     // $ANTLR start "rule__CreateMethod__WithEntityAssignment_2"
-    // InternalRestControllerGeneration.g:4906:1: rule__CreateMethod__WithEntityAssignment_2 : ( ruleCreateMethodWith ) ;
+    // InternalRestControllerGeneration.g:4806:1: rule__CreateMethod__WithEntityAssignment_2 : ( ruleCreateMethodWith ) ;
     public final void rule__CreateMethod__WithEntityAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4910:1: ( ( ruleCreateMethodWith ) )
-            // InternalRestControllerGeneration.g:4911:2: ( ruleCreateMethodWith )
+            // InternalRestControllerGeneration.g:4810:1: ( ( ruleCreateMethodWith ) )
+            // InternalRestControllerGeneration.g:4811:2: ( ruleCreateMethodWith )
             {
-            // InternalRestControllerGeneration.g:4911:2: ( ruleCreateMethodWith )
-            // InternalRestControllerGeneration.g:4912:3: ruleCreateMethodWith
+            // InternalRestControllerGeneration.g:4811:2: ( ruleCreateMethodWith )
+            // InternalRestControllerGeneration.g:4812:3: ruleCreateMethodWith
             {
              before(grammarAccess.getCreateMethodAccess().getWithEntityCreateMethodWithParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -14745,17 +14449,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethod__ExcludeAssignment_3"
-    // InternalRestControllerGeneration.g:4921:1: rule__CreateMethod__ExcludeAssignment_3 : ( ruleCreateMethodExclude ) ;
+    // InternalRestControllerGeneration.g:4821:1: rule__CreateMethod__ExcludeAssignment_3 : ( ruleCreateMethodExclude ) ;
     public final void rule__CreateMethod__ExcludeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4925:1: ( ( ruleCreateMethodExclude ) )
-            // InternalRestControllerGeneration.g:4926:2: ( ruleCreateMethodExclude )
+            // InternalRestControllerGeneration.g:4825:1: ( ( ruleCreateMethodExclude ) )
+            // InternalRestControllerGeneration.g:4826:2: ( ruleCreateMethodExclude )
             {
-            // InternalRestControllerGeneration.g:4926:2: ( ruleCreateMethodExclude )
-            // InternalRestControllerGeneration.g:4927:3: ruleCreateMethodExclude
+            // InternalRestControllerGeneration.g:4826:2: ( ruleCreateMethodExclude )
+            // InternalRestControllerGeneration.g:4827:3: ruleCreateMethodExclude
             {
              before(grammarAccess.getCreateMethodAccess().getExcludeCreateMethodExcludeParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -14786,17 +14490,17 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodWith__ReferenceAssignment_1"
-    // InternalRestControllerGeneration.g:4936:1: rule__CreateMethodWith__ReferenceAssignment_1 : ( ruleReference ) ;
+    // InternalRestControllerGeneration.g:4836:1: rule__CreateMethodWith__ReferenceAssignment_1 : ( ruleReference ) ;
     public final void rule__CreateMethodWith__ReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4940:1: ( ( ruleReference ) )
-            // InternalRestControllerGeneration.g:4941:2: ( ruleReference )
+            // InternalRestControllerGeneration.g:4840:1: ( ( ruleReference ) )
+            // InternalRestControllerGeneration.g:4841:2: ( ruleReference )
             {
-            // InternalRestControllerGeneration.g:4941:2: ( ruleReference )
-            // InternalRestControllerGeneration.g:4942:3: ruleReference
+            // InternalRestControllerGeneration.g:4841:2: ( ruleReference )
+            // InternalRestControllerGeneration.g:4842:3: ruleReference
             {
              before(grammarAccess.getCreateMethodWithAccess().getReferenceReferenceParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -14827,21 +14531,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__AttributesAssignment_1"
-    // InternalRestControllerGeneration.g:4951:1: rule__CreateMethodExclude__AttributesAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4851:1: rule__CreateMethodExclude__AttributesAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__CreateMethodExclude__AttributesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4955:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4956:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4855:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4856:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4956:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4957:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4856:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4857:3: ( RULE_ID )
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeCrossReference_1_0()); 
-            // InternalRestControllerGeneration.g:4958:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4959:4: RULE_ID
+            // InternalRestControllerGeneration.g:4858:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4859:4: RULE_ID
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14872,21 +14576,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__CreateMethodExclude__AttributesAssignment_2_1"
-    // InternalRestControllerGeneration.g:4970:1: rule__CreateMethodExclude__AttributesAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4870:1: rule__CreateMethodExclude__AttributesAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__CreateMethodExclude__AttributesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4974:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4975:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4874:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4875:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4975:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4976:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4875:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4876:3: ( RULE_ID )
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeCrossReference_2_1_0()); 
-            // InternalRestControllerGeneration.g:4977:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4978:4: RULE_ID
+            // InternalRestControllerGeneration.g:4877:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4878:4: RULE_ID
             {
              before(grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeIDTerminalRuleCall_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14917,21 +14621,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__GetMethod__EntityIdAssignment_2"
-    // InternalRestControllerGeneration.g:4989:1: rule__GetMethod__EntityIdAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4889:1: rule__GetMethod__EntityIdAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__GetMethod__EntityIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:4993:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:4994:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4893:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4894:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:4994:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:4995:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4894:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4895:3: ( RULE_ID )
             {
              before(grammarAccess.getGetMethodAccess().getEntityIdAttributeCrossReference_2_0()); 
-            // InternalRestControllerGeneration.g:4996:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:4997:4: RULE_ID
+            // InternalRestControllerGeneration.g:4896:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4897:4: RULE_ID
             {
              before(grammarAccess.getGetMethodAccess().getEntityIdAttributeIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14962,21 +14666,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__EntityIdAssignment_2"
-    // InternalRestControllerGeneration.g:5008:1: rule__UpdateMethod__EntityIdAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4908:1: rule__UpdateMethod__EntityIdAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__UpdateMethod__EntityIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:5012:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:5013:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4912:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4913:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:5013:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:5014:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4913:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4914:3: ( RULE_ID )
             {
              before(grammarAccess.getUpdateMethodAccess().getEntityIdAttributeCrossReference_2_0()); 
-            // InternalRestControllerGeneration.g:5015:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:5016:4: RULE_ID
+            // InternalRestControllerGeneration.g:4915:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4916:4: RULE_ID
             {
              before(grammarAccess.getUpdateMethodAccess().getEntityIdAttributeIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -15007,21 +14711,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__AttributesAssignment_4"
-    // InternalRestControllerGeneration.g:5027:1: rule__UpdateMethod__AttributesAssignment_4 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4927:1: rule__UpdateMethod__AttributesAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__UpdateMethod__AttributesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:5031:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:5032:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4931:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4932:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:5032:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:5033:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4932:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4933:3: ( RULE_ID )
             {
              before(grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_4_0()); 
-            // InternalRestControllerGeneration.g:5034:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:5035:4: RULE_ID
+            // InternalRestControllerGeneration.g:4934:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4935:4: RULE_ID
             {
              before(grammarAccess.getUpdateMethodAccess().getAttributesAttributeIDTerminalRuleCall_4_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -15052,21 +14756,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__UpdateMethod__AttributesAssignment_5_1"
-    // InternalRestControllerGeneration.g:5046:1: rule__UpdateMethod__AttributesAssignment_5_1 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4946:1: rule__UpdateMethod__AttributesAssignment_5_1 : ( ( RULE_ID ) ) ;
     public final void rule__UpdateMethod__AttributesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:5050:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:5051:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4950:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4951:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:5051:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:5052:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4951:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4952:3: ( RULE_ID )
             {
              before(grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_5_1_0()); 
-            // InternalRestControllerGeneration.g:5053:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:5054:4: RULE_ID
+            // InternalRestControllerGeneration.g:4953:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4954:4: RULE_ID
             {
              before(grammarAccess.getUpdateMethodAccess().getAttributesAttributeIDTerminalRuleCall_5_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -15097,21 +14801,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
 
 
     // $ANTLR start "rule__DeleteMethod__EntityIdAssignment_2"
-    // InternalRestControllerGeneration.g:5065:1: rule__DeleteMethod__EntityIdAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalRestControllerGeneration.g:4965:1: rule__DeleteMethod__EntityIdAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__DeleteMethod__EntityIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRestControllerGeneration.g:5069:1: ( ( ( RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:5070:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4969:1: ( ( ( RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:4970:2: ( ( RULE_ID ) )
             {
-            // InternalRestControllerGeneration.g:5070:2: ( ( RULE_ID ) )
-            // InternalRestControllerGeneration.g:5071:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4970:2: ( ( RULE_ID ) )
+            // InternalRestControllerGeneration.g:4971:3: ( RULE_ID )
             {
              before(grammarAccess.getDeleteMethodAccess().getEntityIdAttributeCrossReference_2_0()); 
-            // InternalRestControllerGeneration.g:5072:3: ( RULE_ID )
-            // InternalRestControllerGeneration.g:5073:4: RULE_ID
+            // InternalRestControllerGeneration.g:4972:3: ( RULE_ID )
+            // InternalRestControllerGeneration.g:4973:4: RULE_ID
             {
              before(grammarAccess.getDeleteMethodAccess().getEntityIdAttributeIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -15174,7 +14878,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalCont
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000600000002L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000008000020000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0001D10000010000L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0001D10000000002L});

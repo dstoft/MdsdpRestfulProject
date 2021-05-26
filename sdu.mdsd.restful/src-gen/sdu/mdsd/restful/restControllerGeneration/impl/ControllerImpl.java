@@ -31,7 +31,6 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerImpl#getSuper <em>Super</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerImpl#getEntity <em>Entity</em>}</li>
  *   <li>{@link sdu.mdsd.restful.restControllerGeneration.impl.ControllerImpl#getMethods <em>Methods</em>}</li>
  * </ul>
@@ -40,16 +39,6 @@ import sdu.mdsd.restful.restControllerGeneration.RestControllerGenerationPackage
  */
 public class ControllerImpl extends DeclarationImpl implements Controller
 {
-  /**
-   * The cached value of the '{@link #getSuper() <em>Super</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSuper()
-   * @generated
-   * @ordered
-   */
-  protected Controller super_;
-
   /**
    * The cached value of the '{@link #getEntity() <em>Entity</em>}' reference.
    * <!-- begin-user-doc -->
@@ -89,51 +78,6 @@ public class ControllerImpl extends DeclarationImpl implements Controller
   protected EClass eStaticClass()
   {
     return RestControllerGenerationPackage.Literals.CONTROLLER;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Controller getSuper()
-  {
-    if (super_ != null && super_.eIsProxy())
-    {
-      InternalEObject oldSuper = (InternalEObject)super_;
-      super_ = (Controller)eResolveProxy(oldSuper);
-      if (super_ != oldSuper)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RestControllerGenerationPackage.CONTROLLER__SUPER, oldSuper, super_));
-      }
-    }
-    return super_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Controller basicGetSuper()
-  {
-    return super_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setSuper(Controller newSuper)
-  {
-    Controller oldSuper = super_;
-    super_ = newSuper;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RestControllerGenerationPackage.CONTROLLER__SUPER, oldSuper, super_));
   }
 
   /**
@@ -222,9 +166,6 @@ public class ControllerImpl extends DeclarationImpl implements Controller
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CONTROLLER__SUPER:
-        if (resolve) return getSuper();
-        return basicGetSuper();
       case RestControllerGenerationPackage.CONTROLLER__ENTITY:
         if (resolve) return getEntity();
         return basicGetEntity();
@@ -245,9 +186,6 @@ public class ControllerImpl extends DeclarationImpl implements Controller
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CONTROLLER__SUPER:
-        setSuper((Controller)newValue);
-        return;
       case RestControllerGenerationPackage.CONTROLLER__ENTITY:
         setEntity((Entity)newValue);
         return;
@@ -269,9 +207,6 @@ public class ControllerImpl extends DeclarationImpl implements Controller
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CONTROLLER__SUPER:
-        setSuper((Controller)null);
-        return;
       case RestControllerGenerationPackage.CONTROLLER__ENTITY:
         setEntity((Entity)null);
         return;
@@ -292,8 +227,6 @@ public class ControllerImpl extends DeclarationImpl implements Controller
   {
     switch (featureID)
     {
-      case RestControllerGenerationPackage.CONTROLLER__SUPER:
-        return super_ != null;
       case RestControllerGenerationPackage.CONTROLLER__ENTITY:
         return entity != null;
       case RestControllerGenerationPackage.CONTROLLER__METHODS:

@@ -3925,7 +3925,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleController"
-    // InternalRestControllerGeneration.g:1450:1: ruleController returns [EObject current=null] : (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= 'uses' ( (otherlv_5= RULE_ID ) ) otherlv_6= '{' ( (lv_methods_7_0= ruleMethodDef ) )* otherlv_8= '}' ) ;
+    // InternalRestControllerGeneration.g:1450:1: ruleController returns [EObject current=null] : (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'uses' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' ( (lv_methods_5_0= ruleMethodDef ) )* otherlv_6= '}' ) ;
     public final EObject ruleController() throws RecognitionException {
         EObject current = null;
 
@@ -3934,21 +3934,19 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
-        Token otherlv_5=null;
         Token otherlv_6=null;
-        Token otherlv_8=null;
-        EObject lv_methods_7_0 = null;
+        EObject lv_methods_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1456:2: ( (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= 'uses' ( (otherlv_5= RULE_ID ) ) otherlv_6= '{' ( (lv_methods_7_0= ruleMethodDef ) )* otherlv_8= '}' ) )
-            // InternalRestControllerGeneration.g:1457:2: (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= 'uses' ( (otherlv_5= RULE_ID ) ) otherlv_6= '{' ( (lv_methods_7_0= ruleMethodDef ) )* otherlv_8= '}' )
+            // InternalRestControllerGeneration.g:1456:2: ( (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'uses' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' ( (lv_methods_5_0= ruleMethodDef ) )* otherlv_6= '}' ) )
+            // InternalRestControllerGeneration.g:1457:2: (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'uses' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' ( (lv_methods_5_0= ruleMethodDef ) )* otherlv_6= '}' )
             {
-            // InternalRestControllerGeneration.g:1457:2: (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= 'uses' ( (otherlv_5= RULE_ID ) ) otherlv_6= '{' ( (lv_methods_7_0= ruleMethodDef ) )* otherlv_8= '}' )
-            // InternalRestControllerGeneration.g:1458:3: otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= 'uses' ( (otherlv_5= RULE_ID ) ) otherlv_6= '{' ( (lv_methods_7_0= ruleMethodDef ) )* otherlv_8= '}'
+            // InternalRestControllerGeneration.g:1457:2: (otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'uses' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' ( (lv_methods_5_0= ruleMethodDef ) )* otherlv_6= '}' )
+            // InternalRestControllerGeneration.g:1458:3: otherlv_0= 'controller' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'uses' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' ( (lv_methods_5_0= ruleMethodDef ) )* otherlv_6= '}'
             {
             otherlv_0=(Token)match(input,38,FOLLOW_3); 
 
@@ -3980,66 +3978,24 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             }
 
-            // InternalRestControllerGeneration.g:1480:3: (otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            otherlv_2=(Token)match(input,39,FOLLOW_3); 
 
-            if ( (LA19_0==15) ) {
-                alt19=1;
-            }
-            switch (alt19) {
-                case 1 :
-                    // InternalRestControllerGeneration.g:1481:4: otherlv_2= ':' ( (otherlv_3= RULE_ID ) )
-                    {
-                    otherlv_2=(Token)match(input,15,FOLLOW_3); 
-
-                    				newLeafNode(otherlv_2, grammarAccess.getControllerAccess().getColonKeyword_2_0());
-                    			
-                    // InternalRestControllerGeneration.g:1485:4: ( (otherlv_3= RULE_ID ) )
-                    // InternalRestControllerGeneration.g:1486:5: (otherlv_3= RULE_ID )
-                    {
-                    // InternalRestControllerGeneration.g:1486:5: (otherlv_3= RULE_ID )
-                    // InternalRestControllerGeneration.g:1487:6: otherlv_3= RULE_ID
-                    {
-
-                    						if (current==null) {
-                    							current = createModelElement(grammarAccess.getControllerRule());
-                    						}
-                    					
-                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_20); 
-
-                    						newLeafNode(otherlv_3, grammarAccess.getControllerAccess().getSuperControllerCrossReference_2_1_0());
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_4=(Token)match(input,39,FOLLOW_3); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getControllerAccess().getUsesKeyword_3());
+            			newLeafNode(otherlv_2, grammarAccess.getControllerAccess().getUsesKeyword_2());
             		
-            // InternalRestControllerGeneration.g:1503:3: ( (otherlv_5= RULE_ID ) )
-            // InternalRestControllerGeneration.g:1504:4: (otherlv_5= RULE_ID )
+            // InternalRestControllerGeneration.g:1484:3: ( (otherlv_3= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1485:4: (otherlv_3= RULE_ID )
             {
-            // InternalRestControllerGeneration.g:1504:4: (otherlv_5= RULE_ID )
-            // InternalRestControllerGeneration.g:1505:5: otherlv_5= RULE_ID
+            // InternalRestControllerGeneration.g:1485:4: (otherlv_3= RULE_ID )
+            // InternalRestControllerGeneration.g:1486:5: otherlv_3= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getControllerRule());
             					}
             				
-            otherlv_5=(Token)match(input,RULE_ID,FOLLOW_7); 
+            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_7); 
 
-            					newLeafNode(otherlv_5, grammarAccess.getControllerAccess().getEntityEntityCrossReference_4_0());
+            					newLeafNode(otherlv_3, grammarAccess.getControllerAccess().getEntityEntityCrossReference_3_0());
             				
 
             }
@@ -4047,33 +4003,33 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             }
 
-            otherlv_6=(Token)match(input,16,FOLLOW_21); 
+            otherlv_4=(Token)match(input,16,FOLLOW_20); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_5());
+            			newLeafNode(otherlv_4, grammarAccess.getControllerAccess().getLeftCurlyBracketKeyword_4());
             		
-            // InternalRestControllerGeneration.g:1520:3: ( (lv_methods_7_0= ruleMethodDef ) )*
-            loop20:
+            // InternalRestControllerGeneration.g:1501:3: ( (lv_methods_5_0= ruleMethodDef ) )*
+            loop19:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA20_0==40||LA20_0==44||(LA20_0>=46 && LA20_0<=48)) ) {
-                    alt20=1;
+                if ( (LA19_0==40||LA19_0==44||(LA19_0>=46 && LA19_0<=48)) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt19) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:1521:4: (lv_methods_7_0= ruleMethodDef )
+            	    // InternalRestControllerGeneration.g:1502:4: (lv_methods_5_0= ruleMethodDef )
             	    {
-            	    // InternalRestControllerGeneration.g:1521:4: (lv_methods_7_0= ruleMethodDef )
-            	    // InternalRestControllerGeneration.g:1522:5: lv_methods_7_0= ruleMethodDef
+            	    // InternalRestControllerGeneration.g:1502:4: (lv_methods_5_0= ruleMethodDef )
+            	    // InternalRestControllerGeneration.g:1503:5: lv_methods_5_0= ruleMethodDef
             	    {
 
-            	    					newCompositeNode(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_6_0());
+            	    					newCompositeNode(grammarAccess.getControllerAccess().getMethodsMethodDefParserRuleCall_5_0());
             	    				
-            	    pushFollow(FOLLOW_21);
-            	    lv_methods_7_0=ruleMethodDef();
+            	    pushFollow(FOLLOW_20);
+            	    lv_methods_5_0=ruleMethodDef();
 
             	    state._fsp--;
 
@@ -4084,7 +4040,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
             	    					add(
             	    						current,
             	    						"methods",
-            	    						lv_methods_7_0,
+            	    						lv_methods_5_0,
             	    						"sdu.mdsd.restful.RestControllerGeneration.MethodDef");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -4096,13 +4052,13 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop19;
                 }
             } while (true);
 
-            otherlv_8=(Token)match(input,17,FOLLOW_2); 
+            otherlv_6=(Token)match(input,17,FOLLOW_2); 
 
-            			newLeafNode(otherlv_8, grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_7());
+            			newLeafNode(otherlv_6, grammarAccess.getControllerAccess().getRightCurlyBracketKeyword_6());
             		
 
             }
@@ -4127,7 +4083,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleMethodDef"
-    // InternalRestControllerGeneration.g:1547:1: entryRuleMethodDef returns [EObject current=null] : iv_ruleMethodDef= ruleMethodDef EOF ;
+    // InternalRestControllerGeneration.g:1528:1: entryRuleMethodDef returns [EObject current=null] : iv_ruleMethodDef= ruleMethodDef EOF ;
     public final EObject entryRuleMethodDef() throws RecognitionException {
         EObject current = null;
 
@@ -4135,8 +4091,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1547:50: (iv_ruleMethodDef= ruleMethodDef EOF )
-            // InternalRestControllerGeneration.g:1548:2: iv_ruleMethodDef= ruleMethodDef EOF
+            // InternalRestControllerGeneration.g:1528:50: (iv_ruleMethodDef= ruleMethodDef EOF )
+            // InternalRestControllerGeneration.g:1529:2: iv_ruleMethodDef= ruleMethodDef EOF
             {
              newCompositeNode(grammarAccess.getMethodDefRule()); 
             pushFollow(FOLLOW_1);
@@ -4163,7 +4119,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleMethodDef"
-    // InternalRestControllerGeneration.g:1554:1: ruleMethodDef returns [EObject current=null] : this_MethodType_0= ruleMethodType ;
+    // InternalRestControllerGeneration.g:1535:1: ruleMethodDef returns [EObject current=null] : this_MethodType_0= ruleMethodType ;
     public final EObject ruleMethodDef() throws RecognitionException {
         EObject current = null;
 
@@ -4174,8 +4130,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1560:2: (this_MethodType_0= ruleMethodType )
-            // InternalRestControllerGeneration.g:1561:2: this_MethodType_0= ruleMethodType
+            // InternalRestControllerGeneration.g:1541:2: (this_MethodType_0= ruleMethodType )
+            // InternalRestControllerGeneration.g:1542:2: this_MethodType_0= ruleMethodType
             {
 
             		newCompositeNode(grammarAccess.getMethodDefAccess().getMethodTypeParserRuleCall());
@@ -4209,7 +4165,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleMethodType"
-    // InternalRestControllerGeneration.g:1572:1: entryRuleMethodType returns [EObject current=null] : iv_ruleMethodType= ruleMethodType EOF ;
+    // InternalRestControllerGeneration.g:1553:1: entryRuleMethodType returns [EObject current=null] : iv_ruleMethodType= ruleMethodType EOF ;
     public final EObject entryRuleMethodType() throws RecognitionException {
         EObject current = null;
 
@@ -4217,8 +4173,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1572:51: (iv_ruleMethodType= ruleMethodType EOF )
-            // InternalRestControllerGeneration.g:1573:2: iv_ruleMethodType= ruleMethodType EOF
+            // InternalRestControllerGeneration.g:1553:51: (iv_ruleMethodType= ruleMethodType EOF )
+            // InternalRestControllerGeneration.g:1554:2: iv_ruleMethodType= ruleMethodType EOF
             {
              newCompositeNode(grammarAccess.getMethodTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -4245,7 +4201,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleMethodType"
-    // InternalRestControllerGeneration.g:1579:1: ruleMethodType returns [EObject current=null] : (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod ) ;
+    // InternalRestControllerGeneration.g:1560:1: ruleMethodType returns [EObject current=null] : (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod ) ;
     public final EObject ruleMethodType() throws RecognitionException {
         EObject current = null;
 
@@ -4264,47 +4220,47 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1585:2: ( (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod ) )
-            // InternalRestControllerGeneration.g:1586:2: (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod )
+            // InternalRestControllerGeneration.g:1566:2: ( (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod ) )
+            // InternalRestControllerGeneration.g:1567:2: (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod )
             {
-            // InternalRestControllerGeneration.g:1586:2: (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod )
-            int alt21=5;
+            // InternalRestControllerGeneration.g:1567:2: (this_CreateMethod_0= ruleCreateMethod | this_GetMethod_1= ruleGetMethod | this_ListMethod_2= ruleListMethod | this_UpdateMethod_3= ruleUpdateMethod | this_DeleteMethod_4= ruleDeleteMethod )
+            int alt20=5;
             switch ( input.LA(1) ) {
             case 40:
                 {
-                alt21=1;
+                alt20=1;
                 }
                 break;
             case 44:
                 {
-                alt21=2;
+                alt20=2;
                 }
                 break;
             case 46:
                 {
-                alt21=3;
+                alt20=3;
                 }
                 break;
             case 47:
                 {
-                alt21=4;
+                alt20=4;
                 }
                 break;
             case 48:
                 {
-                alt21=5;
+                alt20=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt21) {
+            switch (alt20) {
                 case 1 :
-                    // InternalRestControllerGeneration.g:1587:3: this_CreateMethod_0= ruleCreateMethod
+                    // InternalRestControllerGeneration.g:1568:3: this_CreateMethod_0= ruleCreateMethod
                     {
 
                     			newCompositeNode(grammarAccess.getMethodTypeAccess().getCreateMethodParserRuleCall_0());
@@ -4322,7 +4278,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
                     }
                     break;
                 case 2 :
-                    // InternalRestControllerGeneration.g:1596:3: this_GetMethod_1= ruleGetMethod
+                    // InternalRestControllerGeneration.g:1577:3: this_GetMethod_1= ruleGetMethod
                     {
 
                     			newCompositeNode(grammarAccess.getMethodTypeAccess().getGetMethodParserRuleCall_1());
@@ -4340,7 +4296,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
                     }
                     break;
                 case 3 :
-                    // InternalRestControllerGeneration.g:1605:3: this_ListMethod_2= ruleListMethod
+                    // InternalRestControllerGeneration.g:1586:3: this_ListMethod_2= ruleListMethod
                     {
 
                     			newCompositeNode(grammarAccess.getMethodTypeAccess().getListMethodParserRuleCall_2());
@@ -4358,7 +4314,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
                     }
                     break;
                 case 4 :
-                    // InternalRestControllerGeneration.g:1614:3: this_UpdateMethod_3= ruleUpdateMethod
+                    // InternalRestControllerGeneration.g:1595:3: this_UpdateMethod_3= ruleUpdateMethod
                     {
 
                     			newCompositeNode(grammarAccess.getMethodTypeAccess().getUpdateMethodParserRuleCall_3());
@@ -4376,7 +4332,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
                     }
                     break;
                 case 5 :
-                    // InternalRestControllerGeneration.g:1623:3: this_DeleteMethod_4= ruleDeleteMethod
+                    // InternalRestControllerGeneration.g:1604:3: this_DeleteMethod_4= ruleDeleteMethod
                     {
 
                     			newCompositeNode(grammarAccess.getMethodTypeAccess().getDeleteMethodParserRuleCall_4());
@@ -4416,7 +4372,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleCreateMethod"
-    // InternalRestControllerGeneration.g:1635:1: entryRuleCreateMethod returns [EObject current=null] : iv_ruleCreateMethod= ruleCreateMethod EOF ;
+    // InternalRestControllerGeneration.g:1616:1: entryRuleCreateMethod returns [EObject current=null] : iv_ruleCreateMethod= ruleCreateMethod EOF ;
     public final EObject entryRuleCreateMethod() throws RecognitionException {
         EObject current = null;
 
@@ -4424,8 +4380,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1635:53: (iv_ruleCreateMethod= ruleCreateMethod EOF )
-            // InternalRestControllerGeneration.g:1636:2: iv_ruleCreateMethod= ruleCreateMethod EOF
+            // InternalRestControllerGeneration.g:1616:53: (iv_ruleCreateMethod= ruleCreateMethod EOF )
+            // InternalRestControllerGeneration.g:1617:2: iv_ruleCreateMethod= ruleCreateMethod EOF
             {
              newCompositeNode(grammarAccess.getCreateMethodRule()); 
             pushFollow(FOLLOW_1);
@@ -4452,7 +4408,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleCreateMethod"
-    // InternalRestControllerGeneration.g:1642:1: ruleCreateMethod returns [EObject current=null] : ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? ) ;
+    // InternalRestControllerGeneration.g:1623:1: ruleCreateMethod returns [EObject current=null] : ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? ) ;
     public final EObject ruleCreateMethod() throws RecognitionException {
         EObject current = null;
 
@@ -4466,14 +4422,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1648:2: ( ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? ) )
-            // InternalRestControllerGeneration.g:1649:2: ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? )
+            // InternalRestControllerGeneration.g:1629:2: ( ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? ) )
+            // InternalRestControllerGeneration.g:1630:2: ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? )
             {
-            // InternalRestControllerGeneration.g:1649:2: ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? )
-            // InternalRestControllerGeneration.g:1650:3: () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )?
+            // InternalRestControllerGeneration.g:1630:2: ( () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )? )
+            // InternalRestControllerGeneration.g:1631:3: () otherlv_1= 'CREATE' ( (lv_withEntity_2_0= ruleCreateMethodWith ) )* ( (lv_exclude_3_0= ruleCreateMethodExclude ) )?
             {
-            // InternalRestControllerGeneration.g:1650:3: ()
-            // InternalRestControllerGeneration.g:1651:4: 
+            // InternalRestControllerGeneration.g:1631:3: ()
+            // InternalRestControllerGeneration.g:1632:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4483,32 +4439,32 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             }
 
-            otherlv_1=(Token)match(input,40,FOLLOW_22); 
+            otherlv_1=(Token)match(input,40,FOLLOW_21); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCreateMethodAccess().getCREATEKeyword_1());
             		
-            // InternalRestControllerGeneration.g:1661:3: ( (lv_withEntity_2_0= ruleCreateMethodWith ) )*
-            loop22:
+            // InternalRestControllerGeneration.g:1642:3: ( (lv_withEntity_2_0= ruleCreateMethodWith ) )*
+            loop21:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA22_0==41) ) {
-                    alt22=1;
+                if ( (LA21_0==41) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:1662:4: (lv_withEntity_2_0= ruleCreateMethodWith )
+            	    // InternalRestControllerGeneration.g:1643:4: (lv_withEntity_2_0= ruleCreateMethodWith )
             	    {
-            	    // InternalRestControllerGeneration.g:1662:4: (lv_withEntity_2_0= ruleCreateMethodWith )
-            	    // InternalRestControllerGeneration.g:1663:5: lv_withEntity_2_0= ruleCreateMethodWith
+            	    // InternalRestControllerGeneration.g:1643:4: (lv_withEntity_2_0= ruleCreateMethodWith )
+            	    // InternalRestControllerGeneration.g:1644:5: lv_withEntity_2_0= ruleCreateMethodWith
             	    {
 
             	    					newCompositeNode(grammarAccess.getCreateMethodAccess().getWithEntityCreateMethodWithParserRuleCall_2_0());
             	    				
-            	    pushFollow(FOLLOW_22);
+            	    pushFollow(FOLLOW_21);
             	    lv_withEntity_2_0=ruleCreateMethodWith();
 
             	    state._fsp--;
@@ -4532,23 +4488,23 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
             	    break;
 
             	default :
-            	    break loop22;
+            	    break loop21;
                 }
             } while (true);
 
-            // InternalRestControllerGeneration.g:1680:3: ( (lv_exclude_3_0= ruleCreateMethodExclude ) )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalRestControllerGeneration.g:1661:3: ( (lv_exclude_3_0= ruleCreateMethodExclude ) )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA23_0==42) ) {
-                alt23=1;
+            if ( (LA22_0==42) ) {
+                alt22=1;
             }
-            switch (alt23) {
+            switch (alt22) {
                 case 1 :
-                    // InternalRestControllerGeneration.g:1681:4: (lv_exclude_3_0= ruleCreateMethodExclude )
+                    // InternalRestControllerGeneration.g:1662:4: (lv_exclude_3_0= ruleCreateMethodExclude )
                     {
-                    // InternalRestControllerGeneration.g:1681:4: (lv_exclude_3_0= ruleCreateMethodExclude )
-                    // InternalRestControllerGeneration.g:1682:5: lv_exclude_3_0= ruleCreateMethodExclude
+                    // InternalRestControllerGeneration.g:1662:4: (lv_exclude_3_0= ruleCreateMethodExclude )
+                    // InternalRestControllerGeneration.g:1663:5: lv_exclude_3_0= ruleCreateMethodExclude
                     {
 
                     					newCompositeNode(grammarAccess.getCreateMethodAccess().getExcludeCreateMethodExcludeParserRuleCall_3_0());
@@ -4601,7 +4557,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleCreateMethodWith"
-    // InternalRestControllerGeneration.g:1703:1: entryRuleCreateMethodWith returns [EObject current=null] : iv_ruleCreateMethodWith= ruleCreateMethodWith EOF ;
+    // InternalRestControllerGeneration.g:1684:1: entryRuleCreateMethodWith returns [EObject current=null] : iv_ruleCreateMethodWith= ruleCreateMethodWith EOF ;
     public final EObject entryRuleCreateMethodWith() throws RecognitionException {
         EObject current = null;
 
@@ -4609,8 +4565,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1703:57: (iv_ruleCreateMethodWith= ruleCreateMethodWith EOF )
-            // InternalRestControllerGeneration.g:1704:2: iv_ruleCreateMethodWith= ruleCreateMethodWith EOF
+            // InternalRestControllerGeneration.g:1684:57: (iv_ruleCreateMethodWith= ruleCreateMethodWith EOF )
+            // InternalRestControllerGeneration.g:1685:2: iv_ruleCreateMethodWith= ruleCreateMethodWith EOF
             {
              newCompositeNode(grammarAccess.getCreateMethodWithRule()); 
             pushFollow(FOLLOW_1);
@@ -4637,7 +4593,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleCreateMethodWith"
-    // InternalRestControllerGeneration.g:1710:1: ruleCreateMethodWith returns [EObject current=null] : (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) ) ;
+    // InternalRestControllerGeneration.g:1691:1: ruleCreateMethodWith returns [EObject current=null] : (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) ) ;
     public final EObject ruleCreateMethodWith() throws RecognitionException {
         EObject current = null;
 
@@ -4649,21 +4605,21 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1716:2: ( (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) ) )
-            // InternalRestControllerGeneration.g:1717:2: (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) )
+            // InternalRestControllerGeneration.g:1697:2: ( (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) ) )
+            // InternalRestControllerGeneration.g:1698:2: (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) )
             {
-            // InternalRestControllerGeneration.g:1717:2: (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) )
-            // InternalRestControllerGeneration.g:1718:3: otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) )
+            // InternalRestControllerGeneration.g:1698:2: (otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) ) )
+            // InternalRestControllerGeneration.g:1699:3: otherlv_0= 'with' ( (lv_reference_1_0= ruleReference ) )
             {
             otherlv_0=(Token)match(input,41,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCreateMethodWithAccess().getWithKeyword_0());
             		
-            // InternalRestControllerGeneration.g:1722:3: ( (lv_reference_1_0= ruleReference ) )
-            // InternalRestControllerGeneration.g:1723:4: (lv_reference_1_0= ruleReference )
+            // InternalRestControllerGeneration.g:1703:3: ( (lv_reference_1_0= ruleReference ) )
+            // InternalRestControllerGeneration.g:1704:4: (lv_reference_1_0= ruleReference )
             {
-            // InternalRestControllerGeneration.g:1723:4: (lv_reference_1_0= ruleReference )
-            // InternalRestControllerGeneration.g:1724:5: lv_reference_1_0= ruleReference
+            // InternalRestControllerGeneration.g:1704:4: (lv_reference_1_0= ruleReference )
+            // InternalRestControllerGeneration.g:1705:5: lv_reference_1_0= ruleReference
             {
 
             					newCompositeNode(grammarAccess.getCreateMethodWithAccess().getReferenceReferenceParserRuleCall_1_0());
@@ -4713,7 +4669,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleCreateMethodExclude"
-    // InternalRestControllerGeneration.g:1745:1: entryRuleCreateMethodExclude returns [EObject current=null] : iv_ruleCreateMethodExclude= ruleCreateMethodExclude EOF ;
+    // InternalRestControllerGeneration.g:1726:1: entryRuleCreateMethodExclude returns [EObject current=null] : iv_ruleCreateMethodExclude= ruleCreateMethodExclude EOF ;
     public final EObject entryRuleCreateMethodExclude() throws RecognitionException {
         EObject current = null;
 
@@ -4721,8 +4677,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1745:60: (iv_ruleCreateMethodExclude= ruleCreateMethodExclude EOF )
-            // InternalRestControllerGeneration.g:1746:2: iv_ruleCreateMethodExclude= ruleCreateMethodExclude EOF
+            // InternalRestControllerGeneration.g:1726:60: (iv_ruleCreateMethodExclude= ruleCreateMethodExclude EOF )
+            // InternalRestControllerGeneration.g:1727:2: iv_ruleCreateMethodExclude= ruleCreateMethodExclude EOF
             {
              newCompositeNode(grammarAccess.getCreateMethodExcludeRule()); 
             pushFollow(FOLLOW_1);
@@ -4749,7 +4705,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleCreateMethodExclude"
-    // InternalRestControllerGeneration.g:1752:1: ruleCreateMethodExclude returns [EObject current=null] : (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* ) ;
+    // InternalRestControllerGeneration.g:1733:1: ruleCreateMethodExclude returns [EObject current=null] : (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* ) ;
     public final EObject ruleCreateMethodExclude() throws RecognitionException {
         EObject current = null;
 
@@ -4762,28 +4718,28 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1758:2: ( (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* ) )
-            // InternalRestControllerGeneration.g:1759:2: (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* )
+            // InternalRestControllerGeneration.g:1739:2: ( (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* ) )
+            // InternalRestControllerGeneration.g:1740:2: (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* )
             {
-            // InternalRestControllerGeneration.g:1759:2: (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* )
-            // InternalRestControllerGeneration.g:1760:3: otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )*
+            // InternalRestControllerGeneration.g:1740:2: (otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* )
+            // InternalRestControllerGeneration.g:1741:3: otherlv_0= 'exclude' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )*
             {
             otherlv_0=(Token)match(input,42,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCreateMethodExcludeAccess().getExcludeKeyword_0());
             		
-            // InternalRestControllerGeneration.g:1764:3: ( (otherlv_1= RULE_ID ) )
-            // InternalRestControllerGeneration.g:1765:4: (otherlv_1= RULE_ID )
+            // InternalRestControllerGeneration.g:1745:3: ( (otherlv_1= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1746:4: (otherlv_1= RULE_ID )
             {
-            // InternalRestControllerGeneration.g:1765:4: (otherlv_1= RULE_ID )
-            // InternalRestControllerGeneration.g:1766:5: otherlv_1= RULE_ID
+            // InternalRestControllerGeneration.g:1746:4: (otherlv_1= RULE_ID )
+            // InternalRestControllerGeneration.g:1747:5: otherlv_1= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getCreateMethodExcludeRule());
             					}
             				
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_23); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_22); 
 
             					newLeafNode(otherlv_1, grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeCrossReference_1_0());
             				
@@ -4793,37 +4749,37 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             }
 
-            // InternalRestControllerGeneration.g:1777:3: (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )*
-            loop24:
+            // InternalRestControllerGeneration.g:1758:3: (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )*
+            loop23:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( (LA24_0==43) ) {
-                    alt24=1;
+                if ( (LA23_0==43) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt23) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:1778:4: otherlv_2= ',' ( (otherlv_3= RULE_ID ) )
+            	    // InternalRestControllerGeneration.g:1759:4: otherlv_2= ',' ( (otherlv_3= RULE_ID ) )
             	    {
             	    otherlv_2=(Token)match(input,43,FOLLOW_3); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getCreateMethodExcludeAccess().getCommaKeyword_2_0());
             	    			
-            	    // InternalRestControllerGeneration.g:1782:4: ( (otherlv_3= RULE_ID ) )
-            	    // InternalRestControllerGeneration.g:1783:5: (otherlv_3= RULE_ID )
+            	    // InternalRestControllerGeneration.g:1763:4: ( (otherlv_3= RULE_ID ) )
+            	    // InternalRestControllerGeneration.g:1764:5: (otherlv_3= RULE_ID )
             	    {
-            	    // InternalRestControllerGeneration.g:1783:5: (otherlv_3= RULE_ID )
-            	    // InternalRestControllerGeneration.g:1784:6: otherlv_3= RULE_ID
+            	    // InternalRestControllerGeneration.g:1764:5: (otherlv_3= RULE_ID )
+            	    // InternalRestControllerGeneration.g:1765:6: otherlv_3= RULE_ID
             	    {
 
             	    						if (current==null) {
             	    							current = createModelElement(grammarAccess.getCreateMethodExcludeRule());
             	    						}
             	    					
-            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_23); 
+            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_22); 
 
             	    						newLeafNode(otherlv_3, grammarAccess.getCreateMethodExcludeAccess().getAttributesAttributeCrossReference_2_1_0());
             	    					
@@ -4838,7 +4794,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop23;
                 }
             } while (true);
 
@@ -4865,7 +4821,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleGetMethod"
-    // InternalRestControllerGeneration.g:1800:1: entryRuleGetMethod returns [EObject current=null] : iv_ruleGetMethod= ruleGetMethod EOF ;
+    // InternalRestControllerGeneration.g:1781:1: entryRuleGetMethod returns [EObject current=null] : iv_ruleGetMethod= ruleGetMethod EOF ;
     public final EObject entryRuleGetMethod() throws RecognitionException {
         EObject current = null;
 
@@ -4873,8 +4829,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1800:50: (iv_ruleGetMethod= ruleGetMethod EOF )
-            // InternalRestControllerGeneration.g:1801:2: iv_ruleGetMethod= ruleGetMethod EOF
+            // InternalRestControllerGeneration.g:1781:50: (iv_ruleGetMethod= ruleGetMethod EOF )
+            // InternalRestControllerGeneration.g:1782:2: iv_ruleGetMethod= ruleGetMethod EOF
             {
              newCompositeNode(grammarAccess.getGetMethodRule()); 
             pushFollow(FOLLOW_1);
@@ -4901,7 +4857,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleGetMethod"
-    // InternalRestControllerGeneration.g:1807:1: ruleGetMethod returns [EObject current=null] : (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) ;
+    // InternalRestControllerGeneration.g:1788:1: ruleGetMethod returns [EObject current=null] : (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) ;
     public final EObject ruleGetMethod() throws RecognitionException {
         EObject current = null;
 
@@ -4913,13 +4869,13 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1813:2: ( (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) )
-            // InternalRestControllerGeneration.g:1814:2: (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:1794:2: ( (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) )
+            // InternalRestControllerGeneration.g:1795:2: (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
             {
-            // InternalRestControllerGeneration.g:1814:2: (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:1815:3: otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1795:2: (otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:1796:3: otherlv_0= 'GET' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_24); 
+            otherlv_0=(Token)match(input,44,FOLLOW_23); 
 
             			newLeafNode(otherlv_0, grammarAccess.getGetMethodAccess().getGETKeyword_0());
             		
@@ -4927,11 +4883,11 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             			newLeafNode(otherlv_1, grammarAccess.getGetMethodAccess().getOnKeyword_1());
             		
-            // InternalRestControllerGeneration.g:1823:3: ( (otherlv_2= RULE_ID ) )
-            // InternalRestControllerGeneration.g:1824:4: (otherlv_2= RULE_ID )
+            // InternalRestControllerGeneration.g:1804:3: ( (otherlv_2= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1805:4: (otherlv_2= RULE_ID )
             {
-            // InternalRestControllerGeneration.g:1824:4: (otherlv_2= RULE_ID )
-            // InternalRestControllerGeneration.g:1825:5: otherlv_2= RULE_ID
+            // InternalRestControllerGeneration.g:1805:4: (otherlv_2= RULE_ID )
+            // InternalRestControllerGeneration.g:1806:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
@@ -4971,7 +4927,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleListMethod"
-    // InternalRestControllerGeneration.g:1840:1: entryRuleListMethod returns [EObject current=null] : iv_ruleListMethod= ruleListMethod EOF ;
+    // InternalRestControllerGeneration.g:1821:1: entryRuleListMethod returns [EObject current=null] : iv_ruleListMethod= ruleListMethod EOF ;
     public final EObject entryRuleListMethod() throws RecognitionException {
         EObject current = null;
 
@@ -4979,8 +4935,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1840:51: (iv_ruleListMethod= ruleListMethod EOF )
-            // InternalRestControllerGeneration.g:1841:2: iv_ruleListMethod= ruleListMethod EOF
+            // InternalRestControllerGeneration.g:1821:51: (iv_ruleListMethod= ruleListMethod EOF )
+            // InternalRestControllerGeneration.g:1822:2: iv_ruleListMethod= ruleListMethod EOF
             {
              newCompositeNode(grammarAccess.getListMethodRule()); 
             pushFollow(FOLLOW_1);
@@ -5007,7 +4963,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleListMethod"
-    // InternalRestControllerGeneration.g:1847:1: ruleListMethod returns [EObject current=null] : ( () otherlv_1= 'LIST' ) ;
+    // InternalRestControllerGeneration.g:1828:1: ruleListMethod returns [EObject current=null] : ( () otherlv_1= 'LIST' ) ;
     public final EObject ruleListMethod() throws RecognitionException {
         EObject current = null;
 
@@ -5017,14 +4973,14 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1853:2: ( ( () otherlv_1= 'LIST' ) )
-            // InternalRestControllerGeneration.g:1854:2: ( () otherlv_1= 'LIST' )
+            // InternalRestControllerGeneration.g:1834:2: ( ( () otherlv_1= 'LIST' ) )
+            // InternalRestControllerGeneration.g:1835:2: ( () otherlv_1= 'LIST' )
             {
-            // InternalRestControllerGeneration.g:1854:2: ( () otherlv_1= 'LIST' )
-            // InternalRestControllerGeneration.g:1855:3: () otherlv_1= 'LIST'
+            // InternalRestControllerGeneration.g:1835:2: ( () otherlv_1= 'LIST' )
+            // InternalRestControllerGeneration.g:1836:3: () otherlv_1= 'LIST'
             {
-            // InternalRestControllerGeneration.g:1855:3: ()
-            // InternalRestControllerGeneration.g:1856:4: 
+            // InternalRestControllerGeneration.g:1836:3: ()
+            // InternalRestControllerGeneration.g:1837:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5061,7 +5017,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleUpdateMethod"
-    // InternalRestControllerGeneration.g:1870:1: entryRuleUpdateMethod returns [EObject current=null] : iv_ruleUpdateMethod= ruleUpdateMethod EOF ;
+    // InternalRestControllerGeneration.g:1851:1: entryRuleUpdateMethod returns [EObject current=null] : iv_ruleUpdateMethod= ruleUpdateMethod EOF ;
     public final EObject entryRuleUpdateMethod() throws RecognitionException {
         EObject current = null;
 
@@ -5069,8 +5025,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1870:53: (iv_ruleUpdateMethod= ruleUpdateMethod EOF )
-            // InternalRestControllerGeneration.g:1871:2: iv_ruleUpdateMethod= ruleUpdateMethod EOF
+            // InternalRestControllerGeneration.g:1851:53: (iv_ruleUpdateMethod= ruleUpdateMethod EOF )
+            // InternalRestControllerGeneration.g:1852:2: iv_ruleUpdateMethod= ruleUpdateMethod EOF
             {
              newCompositeNode(grammarAccess.getUpdateMethodRule()); 
             pushFollow(FOLLOW_1);
@@ -5097,7 +5053,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleUpdateMethod"
-    // InternalRestControllerGeneration.g:1877:1: ruleUpdateMethod returns [EObject current=null] : (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* ) ;
+    // InternalRestControllerGeneration.g:1858:1: ruleUpdateMethod returns [EObject current=null] : (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* ) ;
     public final EObject ruleUpdateMethod() throws RecognitionException {
         EObject current = null;
 
@@ -5113,13 +5069,13 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1883:2: ( (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* ) )
-            // InternalRestControllerGeneration.g:1884:2: (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )
+            // InternalRestControllerGeneration.g:1864:2: ( (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* ) )
+            // InternalRestControllerGeneration.g:1865:2: (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )
             {
-            // InternalRestControllerGeneration.g:1884:2: (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )
-            // InternalRestControllerGeneration.g:1885:3: otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )*
+            // InternalRestControllerGeneration.g:1865:2: (otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )
+            // InternalRestControllerGeneration.g:1866:3: otherlv_0= 'UPDATE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'with' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )*
             {
-            otherlv_0=(Token)match(input,47,FOLLOW_24); 
+            otherlv_0=(Token)match(input,47,FOLLOW_23); 
 
             			newLeafNode(otherlv_0, grammarAccess.getUpdateMethodAccess().getUPDATEKeyword_0());
             		
@@ -5127,18 +5083,18 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             			newLeafNode(otherlv_1, grammarAccess.getUpdateMethodAccess().getOnKeyword_1());
             		
-            // InternalRestControllerGeneration.g:1893:3: ( (otherlv_2= RULE_ID ) )
-            // InternalRestControllerGeneration.g:1894:4: (otherlv_2= RULE_ID )
+            // InternalRestControllerGeneration.g:1874:3: ( (otherlv_2= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1875:4: (otherlv_2= RULE_ID )
             {
-            // InternalRestControllerGeneration.g:1894:4: (otherlv_2= RULE_ID )
-            // InternalRestControllerGeneration.g:1895:5: otherlv_2= RULE_ID
+            // InternalRestControllerGeneration.g:1875:4: (otherlv_2= RULE_ID )
+            // InternalRestControllerGeneration.g:1876:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getUpdateMethodRule());
             					}
             				
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_25); 
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_24); 
 
             					newLeafNode(otherlv_2, grammarAccess.getUpdateMethodAccess().getEntityIdAttributeCrossReference_2_0());
             				
@@ -5152,18 +5108,18 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             			newLeafNode(otherlv_3, grammarAccess.getUpdateMethodAccess().getWithKeyword_3());
             		
-            // InternalRestControllerGeneration.g:1910:3: ( (otherlv_4= RULE_ID ) )
-            // InternalRestControllerGeneration.g:1911:4: (otherlv_4= RULE_ID )
+            // InternalRestControllerGeneration.g:1891:3: ( (otherlv_4= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1892:4: (otherlv_4= RULE_ID )
             {
-            // InternalRestControllerGeneration.g:1911:4: (otherlv_4= RULE_ID )
-            // InternalRestControllerGeneration.g:1912:5: otherlv_4= RULE_ID
+            // InternalRestControllerGeneration.g:1892:4: (otherlv_4= RULE_ID )
+            // InternalRestControllerGeneration.g:1893:5: otherlv_4= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getUpdateMethodRule());
             					}
             				
-            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_23); 
+            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_22); 
 
             					newLeafNode(otherlv_4, grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_4_0());
             				
@@ -5173,37 +5129,37 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             }
 
-            // InternalRestControllerGeneration.g:1923:3: (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )*
-            loop25:
+            // InternalRestControllerGeneration.g:1904:3: (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )*
+            loop24:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA25_0==43) ) {
-                    alt25=1;
+                if ( (LA24_0==43) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt24) {
             	case 1 :
-            	    // InternalRestControllerGeneration.g:1924:4: otherlv_5= ',' ( (otherlv_6= RULE_ID ) )
+            	    // InternalRestControllerGeneration.g:1905:4: otherlv_5= ',' ( (otherlv_6= RULE_ID ) )
             	    {
             	    otherlv_5=(Token)match(input,43,FOLLOW_3); 
 
             	    				newLeafNode(otherlv_5, grammarAccess.getUpdateMethodAccess().getCommaKeyword_5_0());
             	    			
-            	    // InternalRestControllerGeneration.g:1928:4: ( (otherlv_6= RULE_ID ) )
-            	    // InternalRestControllerGeneration.g:1929:5: (otherlv_6= RULE_ID )
+            	    // InternalRestControllerGeneration.g:1909:4: ( (otherlv_6= RULE_ID ) )
+            	    // InternalRestControllerGeneration.g:1910:5: (otherlv_6= RULE_ID )
             	    {
-            	    // InternalRestControllerGeneration.g:1929:5: (otherlv_6= RULE_ID )
-            	    // InternalRestControllerGeneration.g:1930:6: otherlv_6= RULE_ID
+            	    // InternalRestControllerGeneration.g:1910:5: (otherlv_6= RULE_ID )
+            	    // InternalRestControllerGeneration.g:1911:6: otherlv_6= RULE_ID
             	    {
 
             	    						if (current==null) {
             	    							current = createModelElement(grammarAccess.getUpdateMethodRule());
             	    						}
             	    					
-            	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_23); 
+            	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_22); 
 
             	    						newLeafNode(otherlv_6, grammarAccess.getUpdateMethodAccess().getAttributesAttributeCrossReference_5_1_0());
             	    					
@@ -5218,7 +5174,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop24;
                 }
             } while (true);
 
@@ -5245,7 +5201,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "entryRuleDeleteMethod"
-    // InternalRestControllerGeneration.g:1946:1: entryRuleDeleteMethod returns [EObject current=null] : iv_ruleDeleteMethod= ruleDeleteMethod EOF ;
+    // InternalRestControllerGeneration.g:1927:1: entryRuleDeleteMethod returns [EObject current=null] : iv_ruleDeleteMethod= ruleDeleteMethod EOF ;
     public final EObject entryRuleDeleteMethod() throws RecognitionException {
         EObject current = null;
 
@@ -5253,8 +5209,8 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
         try {
-            // InternalRestControllerGeneration.g:1946:53: (iv_ruleDeleteMethod= ruleDeleteMethod EOF )
-            // InternalRestControllerGeneration.g:1947:2: iv_ruleDeleteMethod= ruleDeleteMethod EOF
+            // InternalRestControllerGeneration.g:1927:53: (iv_ruleDeleteMethod= ruleDeleteMethod EOF )
+            // InternalRestControllerGeneration.g:1928:2: iv_ruleDeleteMethod= ruleDeleteMethod EOF
             {
              newCompositeNode(grammarAccess.getDeleteMethodRule()); 
             pushFollow(FOLLOW_1);
@@ -5281,7 +5237,7 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
 
     // $ANTLR start "ruleDeleteMethod"
-    // InternalRestControllerGeneration.g:1953:1: ruleDeleteMethod returns [EObject current=null] : (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) ;
+    // InternalRestControllerGeneration.g:1934:1: ruleDeleteMethod returns [EObject current=null] : (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) ;
     public final EObject ruleDeleteMethod() throws RecognitionException {
         EObject current = null;
 
@@ -5293,13 +5249,13 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
         	enterRule();
 
         try {
-            // InternalRestControllerGeneration.g:1959:2: ( (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) )
-            // InternalRestControllerGeneration.g:1960:2: (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:1940:2: ( (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) ) )
+            // InternalRestControllerGeneration.g:1941:2: (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
             {
-            // InternalRestControllerGeneration.g:1960:2: (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
-            // InternalRestControllerGeneration.g:1961:3: otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1941:2: (otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) ) )
+            // InternalRestControllerGeneration.g:1942:3: otherlv_0= 'DELETE' otherlv_1= 'on' ( (otherlv_2= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,48,FOLLOW_24); 
+            otherlv_0=(Token)match(input,48,FOLLOW_23); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDeleteMethodAccess().getDELETEKeyword_0());
             		
@@ -5307,11 +5263,11 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
 
             			newLeafNode(otherlv_1, grammarAccess.getDeleteMethodAccess().getOnKeyword_1());
             		
-            // InternalRestControllerGeneration.g:1969:3: ( (otherlv_2= RULE_ID ) )
-            // InternalRestControllerGeneration.g:1970:4: (otherlv_2= RULE_ID )
+            // InternalRestControllerGeneration.g:1950:3: ( (otherlv_2= RULE_ID ) )
+            // InternalRestControllerGeneration.g:1951:4: (otherlv_2= RULE_ID )
             {
-            // InternalRestControllerGeneration.g:1970:4: (otherlv_2= RULE_ID )
-            // InternalRestControllerGeneration.g:1971:5: otherlv_2= RULE_ID
+            // InternalRestControllerGeneration.g:1951:4: (otherlv_2= RULE_ID )
+            // InternalRestControllerGeneration.g:1952:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
@@ -5372,12 +5328,11 @@ public class InternalRestControllerGenerationParser extends AbstractInternalAntl
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000600000002L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000008000008000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0001D10000020000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000060000000002L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000080000000002L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0001D10000020000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000060000000002L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000080000000002L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000020000000000L});
 
 }

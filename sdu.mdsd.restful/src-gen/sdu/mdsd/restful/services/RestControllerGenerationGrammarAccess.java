@@ -879,25 +879,20 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		private final Keyword cControllerKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSuperAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSuperControllerCrossReference_2_1_0 = (CrossReference)cSuperAssignment_2_1.eContents().get(0);
-		private final RuleCall cSuperControllerIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperControllerCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cUsesKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cEntityAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cEntityEntityCrossReference_4_0 = (CrossReference)cEntityAssignment_4.eContents().get(0);
-		private final RuleCall cEntityEntityIDTerminalRuleCall_4_0_1 = (RuleCall)cEntityEntityCrossReference_4_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cMethodsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cMethodsMethodDefParserRuleCall_6_0 = (RuleCall)cMethodsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cUsesKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cEntityAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cEntityEntityCrossReference_3_0 = (CrossReference)cEntityAssignment_3.eContents().get(0);
+		private final RuleCall cEntityEntityIDTerminalRuleCall_3_0_1 = (RuleCall)cEntityEntityCrossReference_3_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cMethodsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMethodsMethodDefParserRuleCall_5_0 = (RuleCall)cMethodsAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Controller:
-		//	'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}';
+		//	'controller' name=ID "uses" entity=[Entity] '{' methods+=MethodDef* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}'
+		//'controller' name=ID "uses" entity=[Entity] '{' methods+=MethodDef* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'controller'
@@ -909,44 +904,29 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//(':' super=[Controller])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//':'
-		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
-		
-		//super=[Controller]
-		public Assignment getSuperAssignment_2_1() { return cSuperAssignment_2_1; }
-		
-		//[Controller]
-		public CrossReference getSuperControllerCrossReference_2_1_0() { return cSuperControllerCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSuperControllerIDTerminalRuleCall_2_1_0_1() { return cSuperControllerIDTerminalRuleCall_2_1_0_1; }
-		
 		//"uses"
-		public Keyword getUsesKeyword_3() { return cUsesKeyword_3; }
+		public Keyword getUsesKeyword_2() { return cUsesKeyword_2; }
 		
 		//entity=[Entity]
-		public Assignment getEntityAssignment_4() { return cEntityAssignment_4; }
+		public Assignment getEntityAssignment_3() { return cEntityAssignment_3; }
 		
 		//[Entity]
-		public CrossReference getEntityEntityCrossReference_4_0() { return cEntityEntityCrossReference_4_0; }
+		public CrossReference getEntityEntityCrossReference_3_0() { return cEntityEntityCrossReference_3_0; }
 		
 		//ID
-		public RuleCall getEntityEntityIDTerminalRuleCall_4_0_1() { return cEntityEntityIDTerminalRuleCall_4_0_1; }
+		public RuleCall getEntityEntityIDTerminalRuleCall_3_0_1() { return cEntityEntityIDTerminalRuleCall_3_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
 		//methods+=MethodDef*
-		public Assignment getMethodsAssignment_6() { return cMethodsAssignment_6; }
+		public Assignment getMethodsAssignment_5() { return cMethodsAssignment_5; }
 		
 		//MethodDef
-		public RuleCall getMethodsMethodDefParserRuleCall_6_0() { return cMethodsMethodDefParserRuleCall_6_0; }
+		public RuleCall getMethodsMethodDefParserRuleCall_5_0() { return cMethodsMethodDefParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class MethodDefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sdu.mdsd.restful.RestControllerGeneration.MethodDef");
@@ -1581,7 +1561,7 @@ public class RestControllerGenerationGrammarAccess extends AbstractElementFinder
 	}
 	
 	//Controller:
-	//	'controller' name=ID (':' super=[Controller])? "uses" entity=[Entity] '{' methods+=MethodDef* '}';
+	//	'controller' name=ID "uses" entity=[Entity] '{' methods+=MethodDef* '}';
 	public ControllerElements getControllerAccess() {
 		return pController;
 	}

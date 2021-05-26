@@ -75,7 +75,6 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 			builder.put(grammarAccess.getPrimitiveAccess().getGroup_3(), "rule__Primitive__Group_3__0");
 			builder.put(grammarAccess.getReferenceAccess().getGroup(), "rule__Reference__Group__0");
 			builder.put(grammarAccess.getControllerAccess().getGroup(), "rule__Controller__Group__0");
-			builder.put(grammarAccess.getControllerAccess().getGroup_2(), "rule__Controller__Group_2__0");
 			builder.put(grammarAccess.getCreateMethodAccess().getGroup(), "rule__CreateMethod__Group__0");
 			builder.put(grammarAccess.getCreateMethodWithAccess().getGroup(), "rule__CreateMethodWith__Group__0");
 			builder.put(grammarAccess.getCreateMethodExcludeAccess().getGroup(), "rule__CreateMethodExclude__Group__0");
@@ -117,9 +116,8 @@ public class RestControllerGenerationParser extends AbstractContentAssistParser 
 			builder.put(grammarAccess.getReferenceAccess().getAttributeAssignment_2(), "rule__Reference__AttributeAssignment_2");
 			builder.put(grammarAccess.getIntExpAccess().getValueAssignment(), "rule__IntExp__ValueAssignment");
 			builder.put(grammarAccess.getControllerAccess().getNameAssignment_1(), "rule__Controller__NameAssignment_1");
-			builder.put(grammarAccess.getControllerAccess().getSuperAssignment_2_1(), "rule__Controller__SuperAssignment_2_1");
-			builder.put(grammarAccess.getControllerAccess().getEntityAssignment_4(), "rule__Controller__EntityAssignment_4");
-			builder.put(grammarAccess.getControllerAccess().getMethodsAssignment_6(), "rule__Controller__MethodsAssignment_6");
+			builder.put(grammarAccess.getControllerAccess().getEntityAssignment_3(), "rule__Controller__EntityAssignment_3");
+			builder.put(grammarAccess.getControllerAccess().getMethodsAssignment_5(), "rule__Controller__MethodsAssignment_5");
 			builder.put(grammarAccess.getCreateMethodAccess().getWithEntityAssignment_2(), "rule__CreateMethod__WithEntityAssignment_2");
 			builder.put(grammarAccess.getCreateMethodAccess().getExcludeAssignment_3(), "rule__CreateMethod__ExcludeAssignment_3");
 			builder.put(grammarAccess.getCreateMethodWithAccess().getReferenceAssignment_1(), "rule__CreateMethodWith__ReferenceAssignment_1");
